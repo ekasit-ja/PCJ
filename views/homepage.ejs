@@ -7,33 +7,12 @@
     <div class="carousel-inner" role="listbox">
         <div class="item active">
             <img class="first-slide img-responsive center-block" src="/images/carousel_1.jpg" alt="First slide">
-            <div class="container">
-                <div class="carousel-caption">
-                    <h1>Example headline.</h1>
-                    <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
-                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
-                </div>
-            </div>
         </div>
         <div class="item">
             <img class="second-slide img-responsive center-block" src="/images/carousel_2.jpg" alt="Second slide">
-            <div class="container">
-                <div class="carousel-caption">
-                    <h1>Another example headline.</h1>
-                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
-                </div>
-            </div>
         </div>
         <div class="item">
             <img class="third-slide img-responsive center-block" src="/images/carousel_3.jpg" alt="Third slide">
-            <div class="container">
-                <div class="carousel-caption">
-                    <h1>One more for good measure.</h1>
-                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
-                </div>
-            </div>
         </div>
     </div>
     <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
@@ -60,22 +39,33 @@
     </div>
     <hr>
     <h2 class="text-center text-uppercase"><strong>Projects</strong></h2>
-    <div class="row project">
-        <div class="col-sm-4 project-container">
-            <img src="/images/project_001.jpg">
-            <div class="project-label"><p>Four Wings Hotel</p></div>
+    <div class="row">
+        <div class="col-sm-4 tag-container">
+            <div class="col-sm-12 limiter">
+                <div class="img project" style="background-image:url('/images/project_001.jpg')"></div>
+                <div class="tag-label"><span>Four Wings Hotel</span></div>
+            </div>
         </div>
-        <div class="col-sm-4 project-container">
-            <img src="/images/project_002.jpg">
-            <div class="project-label"><p>Navanakorn Power Plant</p></div>
+        <div class="col-sm-4 tag-container">
+            <div class="col-sm-12 limiter">
+                <div class="img project" style="background-image:url('/images/project_002.jpg')"></div>
+                <div class="tag-label"><span>Navanakorn Power Plant</span></div>
+            </div>
         </div>
-        <div class="col-sm-4 project-container">
-            <img src="/images/project_003.jpg">
-            <div class="project-label"><p>twin centro</p></div>
+        <div class="col-sm-4 tag-container">
+            <div class="col-sm-12 limiter">
+                <div class="img project" style="background-image:url('/images/project_003.jpg')"></div>
+                <div class="tag-label"><span>twin centro</span></div>
+            </div>
         </div>
     </div>
     <br>
     <div class="text-center">
         <button class="btn btn-default text-capitalize">view all</button>
     </div>
+    <br>
 </div>
+
+<script type="text/javascript">
+    $('#myCarousel').bcSwipe({ threshold: 50 });
+</script>

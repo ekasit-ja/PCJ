@@ -1,6 +1,54 @@
 $primary-red: #c00;
 $secondary-red: #e00;
 
+// animation for menu button on navbar
+.navbar-toggle {
+    border: none;
+    background: transparent !important;
+
+    &:hover {
+        background: transparent !important;
+    }
+
+    .icon-bar {
+        width: 22px;
+        transition: all 0.2s;
+    }
+    .top-bar {
+        transform: rotate(45deg);
+        transform-origin: 10% 10%;
+    }
+    .middle-bar {
+        opacity: 0;
+    }
+    .bottom-bar {
+        transform: rotate(-45deg);
+        transform-origin: 10% 90%;
+    }
+
+    &.collapsed {
+        .top-bar {
+            transform: rotate(0);
+        }
+        .middle-bar {
+            opacity: 1;
+        }
+        .bottom-bar {
+            transform: rotate(0);
+        }
+    }
+}
+// --- animation for menu button on navbar
+
+// animation for dropdown hover
+@media (min-width: 992px) {
+    ul.nav li:hover > ul.dropdown-menu {
+        display: block;
+    }
+}
+// --- animation for dropdown hover
+
+// custom bootstrap
 .navbar-fixed-top {
     height: 20px;
 }
@@ -18,7 +66,7 @@ $secondary-red: #e00;
 .navbar-brand {
     padding: 3px 15px;
 
-    & img.company-brand {
+    img.company-brand {
       max-height: 54px;
       width: auto;
       height: auto;
@@ -26,16 +74,13 @@ $secondary-red: #e00;
 }
 
 .nav>li>a {
-    padding: 15px 25px;
+    padding-left: 20px;
+    padding-right: 20px;
     text-transform: uppercase;
 }
 
-.navbar-nav>li>a {
-    line-height: 30px;
-}
-
 .navbar-default {
-    & .navbar-nav {
+    .navbar-nav {
         &>li>a {
             color: #444;
         }
@@ -50,7 +95,7 @@ $secondary-red: #e00;
             }
         }
 
-        & a:hover,
+        a:hover,
         &>.open a:hover {
             color: black;
             background-image: linear-gradient(to bottom,#dbdbdb 0,#e2e2e2 100%);
@@ -59,6 +104,14 @@ $secondary-red: #e00;
         a.icon-lang {
             padding-left: 15px;
             padding-right: 15px;
+        }
+    }
+
+    .navbar-toggle {
+        border-color: $primary-red;
+
+        .icon-bar {
+            background-color: $primary-red;
         }
     }
 }
@@ -74,6 +127,14 @@ $secondary-red: #e00;
     background-image: linear-gradient(to right,rgba(0,0,0,.0001) 0,rgba(0,0,0,.1) 100%);
     background-repeat: repeat-x;
 }
+
+.btn-default {
+    border-color: #c00;
+    color: #c00;
+    border: 2px solid;
+    font-weight: bold;
+}
+// --- custom bootstrap
 
 .icon-font {
     font-size: 1.3em;
@@ -93,39 +154,51 @@ $secondary-red: #e00;
     color: #d00;
 }
 
-.row.project {
-    .project-container {
-        & img {
-            width: 100%;
-        }
-
-        & .project-label {
-            position: absolute;
-            height: 0;
-            width: 100%;
-
-            & p {
-                color: white;
-                font-weight: bold;
-                font-style: italic;
-                font-size: 1.2em;
-                text-transform: capitalize;
-                text-align: center;
-                position: relative;
-                top: -40px;
-                line-height: 40px;
-                background: rgba($primary-red, 0.7);
-                margin-right: 30px;
-            }
-        }
+@media (max-width: 767px) {
+    .tag-container {
+        margin-bottom: 10px;
     }
 }
 
-.btn-default {
-    border-color: #c00;
-    color: #c00;
-    border: 2px solid;
-    font-weight: bold;
+.tag-container {
+    .img {
+        width: 100%;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        &.project {
+            padding-bottom: 70%;
+        }
+
+        &.square {
+            padding-bottom: 100%;
+        }
+    }
+
+    .limiter {
+        padding: 0;
+    }
+
+    .tag-label {
+        position: absolute;
+        height: 0;
+        width: 100%;
+
+        span {
+            display: block;
+            color: white;
+            font-weight: bold;
+            font-style: italic;
+            font-size: 1.2em;
+            text-transform: capitalize;
+            text-align: center;
+            position: relative;
+            top: -40px;
+            line-height: 40px;
+            background: rgba($primary-red, 0.7);
+        }
+    }
 }
 
 .footer {
