@@ -116,18 +116,6 @@ $secondary-red: #e00;
     }
 }
 
-.carousel-control.left {
-    background-image: linear-gradient(to right,rgba(0,0,0,.1) 0,rgba(0,0,0,.0001) 100%);
-    background-repeat: repeat-x;
-}
-
-.carousel-control.right {
-    right: 0;
-    left: auto;
-    background-image: linear-gradient(to right,rgba(0,0,0,.0001) 0,rgba(0,0,0,.1) 100%);
-    background-repeat: repeat-x;
-}
-
 .btn-default {
     border-color: #c00;
     color: #c00;
@@ -205,4 +193,61 @@ $secondary-red: #e00;
     padding: 15px 0;
     background-image: linear-gradient(to bottom, $primary-red 0, $secondary-red 100%);
     color: white;
+}
+
+
+
+
+
+$opacity_1 : .0001;
+$opacity_2 : .1;
+$opac_1: .8;
+$opac_2: .9;
+#home-carousel {
+    .slick-prev,
+    .slick-next {
+        color: white;
+        font-size: inherit;
+    }
+    .slick-prev {
+        left: 0;
+        z-index: 10;
+    }
+    .slick-prev:before {
+        content: "";
+    }
+    .slick-next {
+        right: 0;
+        z-index: 10;
+    }
+    .slick-next:before {
+        content: "";
+    }
+    .slick-arrow {
+        width: 15%;
+        height: 100%;
+        border: 0;
+    }
+    .slick-arrow.slick-prev {
+        background-image: linear-gradient(to left,rgba(0,0,0,$opacity_1) 0,rgba(0,0,0,$opacity_2) 100%);
+        background-repeat: repeat-x;
+        opacity: $opac_1;
+
+        &:hover,
+        &:focus {
+            background-image: linear-gradient(to left,rgba(0,0,0,$opacity_1*2) 0,rgba(0,0,0,$opacity_2*2) 100%);
+            opacity: $opac_2;
+        }
+    }
+    .slick-arrow.slick-next {
+        background-image: linear-gradient(to right,rgba(0,0,0,$opacity_1) 0,rgba(0,0,0,$opacity_2) 100%);
+        background-repeat: repeat-x;
+        opacity: $opac_1;
+
+        &:hover,
+        &:focus {
+            background-image: linear-gradient(to right,rgba(0,0,0,$opacity_1*2) 0,rgba(0,0,0,$opacity_2*2) 100%);
+            opacity: $opac_2;
+        }
+    }
 }
