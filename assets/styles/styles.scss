@@ -42,8 +42,22 @@ $secondary-red: #e00;
 
 // animation for dropdown hover
 @media (min-width: 992px) {
-    ul.nav li:hover > ul.dropdown-menu {
-        display: block;
+    .dropdown {
+        .dropdown-menu {
+            transition: all 0.4s;
+            max-height: 0;
+            display: block;
+            overflow: hidden;
+            opacity: 0;
+        }
+
+        &.open,
+        &:hover {
+            .dropdown-menu {
+                max-height: 500px;
+                opacity: 1;
+            }
+        }
     }
 }
 // --- animation for dropdown hover
