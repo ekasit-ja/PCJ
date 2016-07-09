@@ -49,9 +49,12 @@ $(document).ready(function() {
 <script type="text/javascript">
     $(document).ready(function(){
         $("#home-carousel").slick({
-            prevArrow: '<button type="button" class="left carousel-control slick-prev" aria-label="Previous" tabindex="0" role="button"> <i class="fa fa-chevron-left glyphicon glyphicon-chevron-left" aria-hidden="true"></i> <span class="sr-only">Previous</span></button>',
-            nextArrow: '<button type="button" class="right carousel-control slick-next" aria-label="Next" tabindex="0" role="button"> <i class="fa fa-chevron-right glyphicon glyphicon-chevron-right" aria-hidden="true"></i><span class="sr-only">Next</span></button>',
+            prevArrow: '<button type="button" class="left carousel-control slick-prev" aria-label="Previous" tabindex="0" role="button"> <i class="fa fa-chevron-left" aria-hidden="true"></i> <span class="sr-only">Previous</span></button>',
+            nextArrow: '<button type="button" class="right carousel-control slick-next" aria-label="Next" tabindex="0" role="button"> <i class="fa fa-chevron-right" aria-hidden="true"></i><span class="sr-only">Next</span></button>',
             dots: true,
+            customPaging: function(slider, i) {
+                return $("").text(i + 1);
+            },
         });
     });
 </script>

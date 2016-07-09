@@ -124,6 +124,120 @@ $secondary-red: #e00;
 }
 // --- custom bootstrap
 
+// custom style for carousel slick.js
+$opacity_1 : .0001;
+$opacity_2 : .1;
+$opac_1: .8;
+$opac_2: .9;
+#home-carousel {
+    &.slick-dotted.slick-slider {
+        margin-bottom: 0;
+    }
+
+    .slick-slide:focus {
+        outline: none;
+    }
+    .slick-prev,
+    .slick-next {
+        color: white;
+        font-size: inherit;
+        z-index: 10;
+    }
+    .slick-prev {
+        left: 0;
+
+        &:before {
+            content: "";
+        }
+    }
+    .slick-next {
+        right: 0;
+
+        &:before {
+            content: "";
+        }
+    }
+    .slick-arrow {
+        width: 15%;
+        height: 100%;
+        border: 0;
+
+        &.slick-prev {
+            background-image: linear-gradient(to left,rgba(0,0,0,$opacity_1) 0,rgba(0,0,0,$opacity_2) 100%);
+            background-repeat: repeat-x;
+            opacity: $opac_1;
+
+            &:hover,
+            &:focus {
+                background-image: linear-gradient(to left,rgba(0,0,0,$opacity_1*2) 0,rgba(0,0,0,$opacity_2*2) 100%);
+                opacity: $opac_2;
+            }
+        }
+
+        &.slick-next {
+            background-image: linear-gradient(to right,rgba(0,0,0,$opacity_1) 0,rgba(0,0,0,$opacity_2) 100%);
+            background-repeat: repeat-x;
+            opacity: $opac_1;
+
+            &:hover,
+            &:focus {
+                background-image: linear-gradient(to right,rgba(0,0,0,$opacity_1*2) 0,rgba(0,0,0,$opacity_2*2) 100%);
+                opacity: $opac_2;
+            }
+        }
+    }
+
+    .slick-dots {
+        bottom: 15px;
+
+        & li {
+            width: 10px;
+            height: 10px;
+            margin: 1px 7px;
+            cursor: pointer;
+            background-color: rgba(0,0,0,0);
+            border: 1px solid #fff;
+            border-radius: 10px;
+
+            &.slick-active {
+                width: 12px;
+                height: 12px;
+                margin: 0px 7px;
+                background-color: #fff;
+            }
+        }
+    }
+
+    @media screen and (min-width: 768px) {
+        & .fa-chevron-left,
+        & .fa-chevron-right {
+            width: 30px;
+            height: 30px;
+            font-size: 30px;
+        }
+    }
+
+    & .fa-chevron-left,
+    & .fa-chevron-right {
+        position: absolute;
+        top: 50%;
+        margin-top: -10px;
+        z-index: 5;
+        display: inline-block;
+    }
+
+    & .fa-chevron-left {
+        left: 50%;
+        margin-left: -10px;
+    }
+
+    & .fa-chevron-right {
+        right: 50%;
+        margin-right: -10px;
+    }
+}
+// --- custom style for carousel slick.js
+
 .icon-font {
     font-size: 1.3em;
     vertical-align: middle;
@@ -193,61 +307,4 @@ $secondary-red: #e00;
     padding: 15px 0;
     background-image: linear-gradient(to bottom, $primary-red 0, $secondary-red 100%);
     color: white;
-}
-
-
-
-
-
-$opacity_1 : .0001;
-$opacity_2 : .1;
-$opac_1: .8;
-$opac_2: .9;
-#home-carousel {
-    .slick-prev,
-    .slick-next {
-        color: white;
-        font-size: inherit;
-    }
-    .slick-prev {
-        left: 0;
-        z-index: 10;
-    }
-    .slick-prev:before {
-        content: "";
-    }
-    .slick-next {
-        right: 0;
-        z-index: 10;
-    }
-    .slick-next:before {
-        content: "";
-    }
-    .slick-arrow {
-        width: 15%;
-        height: 100%;
-        border: 0;
-    }
-    .slick-arrow.slick-prev {
-        background-image: linear-gradient(to left,rgba(0,0,0,$opacity_1) 0,rgba(0,0,0,$opacity_2) 100%);
-        background-repeat: repeat-x;
-        opacity: $opac_1;
-
-        &:hover,
-        &:focus {
-            background-image: linear-gradient(to left,rgba(0,0,0,$opacity_1*2) 0,rgba(0,0,0,$opacity_2*2) 100%);
-            opacity: $opac_2;
-        }
-    }
-    .slick-arrow.slick-next {
-        background-image: linear-gradient(to right,rgba(0,0,0,$opacity_1) 0,rgba(0,0,0,$opacity_2) 100%);
-        background-repeat: repeat-x;
-        opacity: $opac_1;
-
-        &:hover,
-        &:focus {
-            background-image: linear-gradient(to right,rgba(0,0,0,$opacity_1*2) 0,rgba(0,0,0,$opacity_2*2) 100%);
-            opacity: $opac_2;
-        }
-    }
 }
