@@ -154,6 +154,27 @@ $opacity_2 : .1;
 $opac_1: .8;
 $opac_2: .9;
 #home-carousel {
+    .slick-dots {
+        position: absolute;
+        bottom: -25px;
+        display: block;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        text-align: center;
+
+        li {
+            position: relative;
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin: 0 5px;
+            padding: 0;
+            cursor: pointer;
+        }
+    }
+
     &.slick-dotted.slick-slider {
         margin-bottom: 0;
     }
