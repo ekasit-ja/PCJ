@@ -358,10 +358,43 @@ $opac_2: .9;
     max-height: 140px;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.carousel-browser-container {
+    margin: 0 50px;
+}
+
 .carousel-browser {
     .item-container {
         height: 320px;
-        // background-color: #ff0;
 
         .item-button {
             margin-left: auto;
@@ -395,20 +428,20 @@ $opac_2: .9;
     }
 
     .slick-prev {
-        left: 0;
+        left: -50px;
         width: 40px;
         height: 100%;
-        background-image: linear-gradient(to bottom,#fff 0,#fff 100%);
+        background-image: linear-gradient(to right, rgba(0,0,0,0) 0, rgba(0,0,0,0) 100%);
         &:before {
             content: "";
         }
     }
 
     .slick-next {
-        right: 0;
+        right: -50px;
         width: 40px;
         height: 100%;
-        background-image: linear-gradient(to bottom,#fff 0,#fff 100%);
+        background-image: linear-gradient(to right, rgba(0,0,0,0) 0, rgba(0,0,0,0) 100%);
         &:before {
             content: "";
         }
@@ -433,5 +466,12 @@ $opac_2: .9;
 
     & .fa-chevron-right {
         margin-right: 5px;
+    }
+}
+
+.owl-carousel {
+    img {
+        max-width: 200px;
+        max-height: auto;
     }
 }
