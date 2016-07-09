@@ -49,6 +49,16 @@ $secondary-red: #e00;
 // --- animation for dropdown hover
 
 // custom bootstrap
+@media (max-width: 480px) {
+    .navbar-fixed-top {
+        display: none;
+    }
+
+    .navbar-static-top {
+        top: 0px !important;
+        margin-bottom: 0px !important;
+    }
+}
 .navbar-fixed-top {
     height: 20px;
 }
