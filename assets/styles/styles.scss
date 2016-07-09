@@ -153,6 +153,9 @@ $opacity_1 : .0001;
 $opacity_2 : .1;
 $opac_1: .8;
 $opac_2: .9;
+.slick-slide:focus {
+    outline: none;
+}
 #home-carousel {
     .slick-dots {
         position: absolute;
@@ -179,9 +182,6 @@ $opac_2: .9;
         margin-bottom: 0;
     }
 
-    .slick-slide:focus {
-        outline: none;
-    }
     .slick-prev,
     .slick-next {
         color: white;
@@ -356,4 +356,82 @@ $opac_2: .9;
 
 .product-cert {
     max-height: 140px;
+}
+
+.carousel-browser {
+    .item-container {
+        height: 320px;
+        // background-color: #ff0;
+
+        .item-button {
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 300px;
+            height: 320px;
+            text-align: center;
+            padding-top: 20px;
+            border: 1px solid gainsboro;
+            border-radius: 10px;
+
+            a {
+                &:hover,
+                &:focus {
+                    outline: none;
+                    text-decoration: none;
+                }
+            }
+
+            p {
+                color: $primary-red;
+            }
+
+            img {
+                max-height: 240px;
+                max-width: 240px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+    }
+
+    .slick-prev {
+        left: 0;
+        width: 40px;
+        height: 100%;
+        background-image: linear-gradient(to bottom,#fff 0,#fff 100%);
+        &:before {
+            content: "";
+        }
+    }
+
+    .slick-next {
+        right: 0;
+        width: 40px;
+        height: 100%;
+        background-image: linear-gradient(to bottom,#fff 0,#fff 100%);
+        &:before {
+            content: "";
+        }
+    }
+
+    & .fa-chevron-left,
+    & .fa-chevron-right {
+        color: black;
+        width: 30px;
+        height: 30px;
+        font-size: 30px;
+        position: absolute;
+        top: 50%;
+        margin-top: -10px;
+        z-index: 10;
+        display: inline-block;
+    }
+
+    & .fa-chevron-left {
+        margin-left: 5px;
+    }
+
+    & .fa-chevron-right {
+        margin-right: 5px;
+    }
 }
