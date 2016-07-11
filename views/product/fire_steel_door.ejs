@@ -4,6 +4,7 @@
     <img src="/images/fire_door_cert.jpg" class="img-responsive center-block product-cert">
     <hr>
     <h2 class="text-center text-capitalize"><strong>Model you can choose</strong></h2>
+
     <div class="carousel-browse-container">
         <div class="owl-carousel carousel-browse">
             <div class="item-container">
@@ -65,29 +66,9 @@
         </div>
     </div>
     <br>
-    <!-- <div class="gallery">
-        <div class="gallery-main">
-            <div class="gallery-desc text-center text-capitalize">
-                single door, flush style
-            </div>
-            <div class="gallery-present">
-                <img src="/images/fire_door_01.jpg" class="center-block">
-            </div>
-        </div>
-        <div class="owl-carousel gallery-thumbnail">
-            <div class="sample-container"><img src="/images/fire_door_01.jpg"></div>
-            <div class="sample-container"><img src="/images/fire_door_02.jpg"></div>
-            <div class="sample-container"><img src="/images/fire_door_03.jpg"></div>
-            <div class="sample-container"><img src="/images/fire_door_04.jpg"></div>
-            <div class="sample-container"><img src="/images/fire_door_05.jpg"></div>
-            <div class="sample-container"><img src="/images/fire_door_06.jpg"></div>
-            <div class="sample-container"><img src="/images/fire_door_07.jpg"></div>
-            <div class="sample-container"><img src="/images/fire_door_08.jpg"></div>
-            <div class="sample-container"><img src="/images/fire_door_09.jpg"></div>
-        </div>
-    </div> -->
+
     <div class="thumbnail-container">
-        <div class="thumbnail-desc text-center text-capitalize">
+        <div class="thumbnail-label text-center text-capitalize">
             single door, flush style
         </div>
         <div
@@ -98,15 +79,15 @@
                 data-arrows="false"
                 data-click="false"
                 data-thumbmargin="10">
-            <img src="/images/fire_door_01.jpg" width="50" height="50">
-            <img src="/images/fire_door_02.jpg" width="50" height="50">
-            <img src="/images/fire_door_03.jpg" width="50" height="50">
-            <img src="/images/fire_door_04.jpg" width="50" height="50">
-            <img src="/images/fire_door_05.jpg" width="50" height="50">
-            <img src="/images/fire_door_06.jpg" width="50" height="50">
-            <img src="/images/fire_door_07.jpg" width="50" height="50">
-            <img src="/images/fire_door_08.jpg" width="50" height="50">
-            <img src="/images/fire_door_09.jpg" width="50" height="50">
+            <img src="/images/fire_door_01.jpg" width="50" height="50" data-label="double door, flush style">
+            <img src="/images/fire_door_02.jpg" width="50" height="50" data-label="single door, UL cert">
+            <img src="/images/fire_door_03.jpg" width="50" height="50" data-label="double door, vision panel, white">
+            <img src="/images/fire_door_04.jpg" width="50" height="50" data-label="double door, vision panel">
+            <img src="/images/fire_door_05.jpg" width="50" height="50" data-label="single door, emboosed style (*MoQ 60 units)">
+            <img src="/images/fire_door_06.jpg" width="50" height="50" data-label="single door, emboosed style, wood (*MoQ 60 units)">
+            <img src="/images/fire_door_07.jpg" width="50" height="50" data-label="single door, vision panel">
+            <img src="/images/fire_door_08.jpg" width="50" height="50" data-label="vertical test">
+            <img src="/images/fire_door_09.jpg" width="50" height="50" data-label="horizontal test">
         </div>
     </div>
 </div>
@@ -133,6 +114,18 @@
             dots: false,
             autoWidth:true,
         });
+    });
 
+    // Function to change thumbnail label
+    $(function() {
+        $('.fotorama').on(
+            'fotorama:show',
+            function (e, fotorama, extra) {
+                try {
+                    $(".thumbnail-label").text(fotorama.activeFrame.label);
+                }
+                catch(e) {}
+            }
+        );
     });
 </script>
