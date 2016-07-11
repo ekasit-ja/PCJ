@@ -6,7 +6,7 @@
     <h2 class="text-center text-capitalize"><strong>Model you can choose</strong></h2>
 
     <div class="carousel-browse-container">
-        <div class="owl-carousel carousel-browse">
+        <div class="owl-carousel carousel-browse model">
             <div class="item-container">
                 <div class="item-button">
                     <a href="#red">
@@ -90,11 +90,85 @@
             <img src="/images/fire_door_09.jpg" width="50" height="50" data-label="horizontal test">
         </div>
     </div>
+    <br>
+
+    <h2 class="text-center text-capitalize"><strong>Option you can choose</strong></h2>
+    <div class="option-container">
+        <div class="row">
+            <div class="col-sm-2 col-sm-offset-2 col-xs-2 option-label">Size</div>
+            <div class="col-sm-8 col-xs-10 option-detail">Available upon request</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2 col-sm-offset-2 col-xs-2 option-label">fire rating</div>
+            <div class="col-sm-8 col-xs-10 option-detail">0-3 hours (3 Hours in accordance with UL10C)</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2 col-sm-offset-2 col-xs-2 option-label">door type</div>
+            <div class="col-sm-8 col-xs-10 option-detail">single door, double door / flush, flush with vision panel, flush with louver, embossed</div>
+        </div>
+    </div>
+    <br>
+
+    <h2 class="text-center text-capitalize"><strong>Hardware you can add</strong></h2>
+    <div class="hardware-container">
+        <div class="row">
+            <div class="col-sm-2 col-sm-offset-2 hardware-label">door closers</div>
+            <div class="col-sm-8 carousel-browse-container">
+                <div class="owl-carousel carousel-browse hardware">
+                    <div class="item-container">
+                        <div class="item-button">
+                            <div><img src="/images/door_closer_01.jpg"></div>
+                            <p>Single Door, Flush Style</p>
+                        </div>
+                    </div>
+                    <div class="item-container">
+                        <div class="item-button">
+                            <div><img src="/images/door_closer_02.jpg"></div>
+                            <p>Single Door, Flush Style</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+
+        <div class="row">
+            <div class="col-sm-2 col-sm-offset-2 hardware-label vcenter">door locks</div>
+            <div class="col-sm-8 carousel-browse-container vcenter">
+                <div class="owl-carousel carousel-browse hardware">
+                    <div class="item-container">
+                        <div class="item-button">
+                            <div><img src="/images/door_lock_01.jpg"></div>
+                            <p>Single Door, Flush Style</p>
+                        </div>
+                    </div>
+                    <div class="item-container">
+                        <div class="item-button">
+                            <div><img src="/images/door_lock_02.jpg"></div>
+                            <p>Single Door, Flush Style</p>
+                        </div>
+                    </div>
+                    <div class="item-container">
+                        <div class="item-button">
+                            <div><img src="/images/door_lock_03.jpg"></div>
+                            <p>Single Door, Flush Style</p>
+                        </div>
+                    </div>
+                    <div class="item-container">
+                        <div class="item-button">
+                            <div><img src="/images/door_lock_04.jpg"></div>
+                            <p>Single Door, Flush Style</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script type="text/javascript">
     $(function(){
-        $(".owl-carousel.carousel-browse").owlCarousel({
+        $(".owl-carousel.carousel-browse.model").owlCarousel({
             margin: 10,
             nav: true,
             navText: [
@@ -102,17 +176,23 @@
                     `<i class="fa fa-chevron-right" aria-hidden="true"></i>`],
             rewind: true,
             responsive: {
-                0: {items: 1,},
-                768: {items: 2,},
-                992: {items: 3,},
-            },
+                    0: {items: 1,},
+                    768: {items: 2,},
+                    992: {items: 3,},},
         });
 
-        $(".owl-carousel.gallery-thumbnail").owlCarousel({
-            items: 4,
-            nav: false,
+        $(".owl-carousel.carousel-browse.hardware").owlCarousel({
+            margin: 10,
+            items: 3,
+            nav: true,
             dots: false,
-            autoWidth:true,
+            navText: [
+                    `<i class="fa fa-chevron-left" aria-hidden="true"></i>`,
+                    `<i class="fa fa-chevron-right" aria-hidden="true"></i>`],
+            responsive: {
+                    0: {items: 1,},
+                    768: {items: 2,},
+                    992: {items: 3,},},
         });
     });
 

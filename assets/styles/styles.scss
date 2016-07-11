@@ -363,6 +363,81 @@ $border-r: 10px;
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+.hardware-container {
+    .carousel-browse-container {
+        margin: 0;
+        padding: 0 50px;
+    }
+
+    .hardware-label {
+        font-size: 1.2em;
+        text-transform: capitalize;
+        font-weight: bold;
+    }
+
+    .owl-carousel .owl-nav.disabled {
+        display: block;
+
+        .owl-prev.disabled,
+        .owl-next.disabled {
+            &:hover {
+                cursor: inherit;
+                background-image: inherit;
+            }
+
+            & i {
+                display: none;
+            }
+        }
+    }
+
+    .row {
+        display: flex;
+        align-items: center;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // --- custom style for owl carousel
 
 .icon-font {
@@ -461,6 +536,27 @@ $border-r: 10px;
             .fotorama__img {
                 border: 10px solid white !important;
             }
+        }
+    }
+}
+
+.option-container {
+    .row {
+        margin-bottom: 10px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        .option-label {
+            font-weight: bold;
+            font-size: 1.2em;
+            text-transform: capitalize;
+        }
+
+        .option-detail {
+            font-size: 1.2em;
+            padding-left: 20px;
         }
     }
 }
