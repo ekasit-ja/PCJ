@@ -9,7 +9,7 @@
             <div class="item-container">
                 <div class="item-button">
                     <a href="#red">
-                        <img src="/images/fire_door_01.jpg">
+                        <div><img src="/images/fire_door_01.jpg"></div>
                         <p>Single Door, Flush Style</p>
                     </a>
                 </div>
@@ -17,7 +17,7 @@
             <div class="item-container">
                 <div class="item-button">
                     <a href="#blue">
-                        <img src="/images/fire_door_02.jpg">
+                        <div><img src="/images/fire_door_02.jpg"></div>
                         <p>Single Door, Flush Style<br>second line here</p>
                     </a>
                 </div>
@@ -25,7 +25,7 @@
             <div class="item-container">
                 <div class="item-button">
                     <a href="#white">
-                        <img src="/images/fire_door_03.jpg">
+                        <div><img src="/images/fire_door_03.jpg"></div>
                         <p>Single Door, Flush Style</p>
                     </a>
                 </div>
@@ -33,7 +33,7 @@
             <div class="item-container">
                 <div class="item-button">
                     <a href="#grey">
-                        <img src="/images/fire_door_04.jpg">
+                        <div><img src="/images/fire_door_04.jpg"></div>
                         <p>Single Door, Flush Style</p>
                     </a>
                 </div>
@@ -41,7 +41,7 @@
             <div class="item-container">
                 <div class="item-button">
                     <a href="#brown">
-                        <img src="/images/fire_door_05.jpg">
+                        <div><img src="/images/fire_door_05.jpg"></div>
                         <p>Single Door, Flush Style</p>
                     </a>
                 </div>
@@ -49,7 +49,7 @@
             <div class="item-container">
                 <div class="item-button">
                     <a href="#wood">
-                        <img src="/images/fire_door_06.jpg">
+                        <div><img src="/images/fire_door_06.jpg"></div>
                         <p>Single Door, Flush Style</p>
                     </a>
                 </div>
@@ -57,11 +57,56 @@
             <div class="item-container">
                 <div class="item-button">
                     <a href="#vision">
-                        <img src="/images/fire_door_07.jpg">
+                        <div><img src="/images/fire_door_07.jpg"></div>
                         <p>Single Door, Flush Style</p>
                     </a>
                 </div>
             </div>
+        </div>
+    </div>
+    <br>
+    <!-- <div class="gallery">
+        <div class="gallery-main">
+            <div class="gallery-desc text-center text-capitalize">
+                single door, flush style
+            </div>
+            <div class="gallery-present">
+                <img src="/images/fire_door_01.jpg" class="center-block">
+            </div>
+        </div>
+        <div class="owl-carousel gallery-thumbnail">
+            <div class="sample-container"><img src="/images/fire_door_01.jpg"></div>
+            <div class="sample-container"><img src="/images/fire_door_02.jpg"></div>
+            <div class="sample-container"><img src="/images/fire_door_03.jpg"></div>
+            <div class="sample-container"><img src="/images/fire_door_04.jpg"></div>
+            <div class="sample-container"><img src="/images/fire_door_05.jpg"></div>
+            <div class="sample-container"><img src="/images/fire_door_06.jpg"></div>
+            <div class="sample-container"><img src="/images/fire_door_07.jpg"></div>
+            <div class="sample-container"><img src="/images/fire_door_08.jpg"></div>
+            <div class="sample-container"><img src="/images/fire_door_09.jpg"></div>
+        </div>
+    </div> -->
+    <div class="thumbnail-container">
+        <div class="thumbnail-desc text-center text-capitalize">
+            single door, flush style
+        </div>
+        <div
+                class="fotorama"
+                data-nav="thumbs"
+                data-width="100%"
+                data-height="500"
+                data-arrows="false"
+                data-click="false"
+                data-thumbmargin="10">
+            <img src="/images/fire_door_01.jpg" width="50" height="50">
+            <img src="/images/fire_door_02.jpg" width="50" height="50">
+            <img src="/images/fire_door_03.jpg" width="50" height="50">
+            <img src="/images/fire_door_04.jpg" width="50" height="50">
+            <img src="/images/fire_door_05.jpg" width="50" height="50">
+            <img src="/images/fire_door_06.jpg" width="50" height="50">
+            <img src="/images/fire_door_07.jpg" width="50" height="50">
+            <img src="/images/fire_door_08.jpg" width="50" height="50">
+            <img src="/images/fire_door_09.jpg" width="50" height="50">
         </div>
     </div>
 </div>
@@ -70,7 +115,7 @@
     $(function(){
         $(".owl-carousel.carousel-browse").owlCarousel({
             margin: 10,
-            nav:true,
+            nav: true,
             navText: [
                     `<i class="fa fa-chevron-left" aria-hidden="true"></i>`,
                     `<i class="fa fa-chevron-right" aria-hidden="true"></i>`],
@@ -81,5 +126,13 @@
                 992: {items: 3,},
             },
         });
+
+        $(".owl-carousel.gallery-thumbnail").owlCarousel({
+            items: 4,
+            nav: false,
+            dots: false,
+            autoWidth:true,
+        });
+
     });
 </script>

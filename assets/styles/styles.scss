@@ -152,6 +152,7 @@ $secondary-red: #e00;
 $opac_1: .8;
 $opac_2: .9;
 $mul: 1.8;
+$border-r: 10px;
 @mixin grad-grey($direction, $opac, $mul) {
     background-image: linear-gradient(to $direction, rgba(#000,.0001*$mul) 0, rgba(#000,.1*$mul) 100%);
     opacity: $opac;
@@ -265,7 +266,6 @@ $mul: 1.8;
             text-align: center;
             padding-top: 20px;
             border: 1px solid gainsboro;
-            border-radius: 10px;
             background-color: white;
 
             a {
@@ -276,11 +276,18 @@ $mul: 1.8;
                 color: $primary-red;
             }
 
-            img {
-                max-height: 240px;
-                width: auto;
-                margin-left: auto;
-                margin-right: auto;
+            div {
+                height: 240px;
+
+                img {
+                    width: auto;
+                    max-width: 100%;
+                    height: auto;
+                    max-height: 240px;
+                    margin-left: auto;
+                    margin-right: auto;
+                    border: 10px solid white;
+                }
             }
         }
     }
@@ -306,7 +313,6 @@ $mul: 1.8;
         }
     }
 
-    $border-r: 15px;
     .owl-prev {
         left: -50px;
         border-radius: $border-r 0 0 $border-r;
@@ -432,4 +438,29 @@ $mul: 1.8;
 
 .product-cert {
     max-height: 140px;
+}
+
+.thumbnail-container {
+    .thumbnail-desc {
+        background-color: #eee;
+        border-radius: $border-r $border-r 0 0;
+        padding-top: 10px;
+        font-size: 1.2em;
+        color: $primary-red;
+    }
+
+    .fotorama {
+        background-color: #eee;
+        padding: 10px 30px;
+        border-radius: 0 0 $border-r $border-r;
+
+        .fotorama__stage {
+            background-color: white;
+            border: 1px solid gainsboro;
+
+            .fotorama__img {
+                border: 10px solid white !important;
+            }
+        }
+    }
 }
