@@ -447,8 +447,9 @@ $opac_2: .9;
         }
     }
 
-    & .fa-chevron-left,
-    & .fa-chevron-right {
+    $chev: ".fa-chevron";
+    & #{$chev}-left,
+    & #{$chev}-right, {
         color: black;
         width: 30px;
         height: 30px;
@@ -460,11 +461,11 @@ $opac_2: .9;
         display: inline-block;
     }
 
-    & .fa-chevron-left {
+    & #{$chev}-left {
         margin-left: 5px;
     }
 
-    & .fa-chevron-right {
+    & #{$chev}-right {
         margin-right: 5px;
     }
 }
