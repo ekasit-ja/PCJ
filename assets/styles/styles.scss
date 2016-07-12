@@ -171,6 +171,23 @@ $border-r: 5px;
     }
 }
 
+@media screen and (max-width: 767px) {
+    .nav-tabs>li {
+        float: none;
+
+        &>a {
+            border: 1px solid #ddd;
+        }
+
+        &.active>a,
+        &.active>a:hover,
+        &.active>a:focus {
+            border: 1px solid $primary-red;
+            z-index: 1;
+        }
+    }
+}
+
 .tab-content {
     margin-top: 20px;
 }
