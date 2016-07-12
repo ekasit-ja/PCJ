@@ -1,5 +1,7 @@
 $primary-red: #c00;
 $secondary-red: #e00;
+$light-grey: #eee;
+$border-r: 5px;
 
 // animation for menu button on navbar
 .navbar-toggle {
@@ -141,10 +143,36 @@ $secondary-red: #e00;
 }
 
 .btn-default {
-    border-color: #c00;
-    color: #c00;
+    color: $primary-red;
+    border-color: $primary-red;
     border: 2px solid;
     font-weight: bold;
+
+    &:hover {
+        color: $primary-red;
+        border-color: $primary-red;
+        background-color: darken(white, 5%);
+    }
+}
+
+.nav-tabs>li {
+    &.active>a,
+    &.active>a:hover,
+    &.active>a:focus {
+        color: $primary-red;
+    }
+
+    &>a {
+        color: #555;
+
+        &:hover {
+            color: $primary-red;
+        }
+    }
+}
+
+.tab-content {
+    margin-top: 20px;
 }
 // --- custom bootstrap
 
@@ -152,7 +180,6 @@ $secondary-red: #e00;
 $opac_1: .8;
 $opac_2: .9;
 $mul: 1.8;
-$border-r: 10px;
 @mixin grad-grey($direction, $opac, $mul) {
     background-image: linear-gradient(to $direction, rgba(#000,.0001*$mul) 0, rgba(#000,.1*$mul) 100%);
     opacity: $opac;
@@ -171,7 +198,7 @@ $border-r: 10px;
     @media screen and (min-width: 768px) {
         .owl-prev,
         .owl-next {
-            & i {
+            i {
                 width: 30px;
                 height: 30px;
                 font-size: 30px;
@@ -248,46 +275,40 @@ $border-r: 10px;
     }
 }
 
-.carousel-browse-container {
+.owl-carousel.carousel-browse {
     margin: 0 50px;
-}
-.carousel-browse {
     background-color: #eee;
 
-    .item-container {
-        margin: 10px 0;
+    .item-button {
+        display: block;
+        text-decoration: none;
+        margin: 20px 10px 10px 10px;
+        padding: 10px 0px;
+        background-color: white;
+        border: 1px solid gainsboro;
 
-        .item-button {
-            margin-left: auto;
-            margin-right: auto;
-            max-width: 300px;
-            min-height: 320px;
+        .img-frame {
+            position: relative;
+
+            img {
+                width: auto;
+                max-width: 100%;
+                height: auto;
+                max-height: 240px;
+                margin: 0px auto;
+                border: 10px solid white;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                margin: auto;
+            }
+        }
+
+        .item-title {
+            color: $primary-red;
             text-align: center;
-            padding-top: 20px;
-            border: 1px solid gainsboro;
-            background-color: white;
-
-            a {
-                text-decoration: none;
-            }
-
-            p {
-                color: $primary-red;
-            }
-
-            .img-frame {
-                min-height: 240px;
-
-                img {
-                    width: auto;
-                    max-width: 100%;
-                    height: auto;
-                    max-height: 240px;
-                    margin-left: auto;
-                    margin-right: auto;
-                    border: 10px solid white;
-                }
-            }
         }
     }
 
@@ -363,107 +384,60 @@ $border-r: 10px;
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
 .hardware-container {
-    // customize for hardware carousel
-    .carousel-browse-container {
-        margin: 0;
-        padding: 0 65px;
-    }
-
     .hardware-label {
         font-size: 1.2em;
         text-transform: capitalize;
         font-weight: bold;
     }
 
-    .owl-carousel .owl-nav.disabled {
-        display: block;
-
-        .owl-prev,
-        .owl-next {
-            &:hover {
-                cursor: inherit;
-                background-image: inherit;
-            }
-
-            & i {
-                display: none;
-            }
-        }
-    }
-
     .row {
         display: flex;
         align-items: center;
         flex-wrap: wrap;
+        margin-bottom: 20px;
     }
 
-    .item-container {
+    // customize for hardware carousel
+    .owl-carousel.carousel-browse.hardware {
         .item-button {
-            text-align: left;
-            padding-top: 5px;
+            padding: 5px;
+            margin-top: 10px;
+
+            .img-frame img {
+                max-height: 200px;
+                border: 0px solid white;
+            }
 
             .item-title {
-                color: $primary-red;
-                text-transform: capitalize;
-                margin-left: 15px;
+                text-align: left;
+                margin-top: 5px;
+                font-weight: bold;
             }
 
             .item-desc ul {
-                padding-left: 30px;
+                padding-left: 15px;
+                margin-bottom: 0px;
             }
+        }
 
-            .img-frame {
-                min-height: 180px;
+        .owl-nav.disabled {
+            display: block;
 
-                img {
-                    max-height: 180px;
+            .owl-prev,
+            .owl-next {
+                &:hover {
+                    cursor: auto;
+                    background-image: inherit;
+                }
+
+                i {
+                    display: none;
                 }
             }
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // --- custom style for owl carousel
 
 .icon-font {
@@ -584,5 +558,44 @@ $border-r: 10px;
             font-size: 1.2em;
             padding-left: 20px;
         }
+    }
+}
+
+.btn-quote {
+    text-transform: capitalize;
+    font-size: 1.5em;
+}
+
+.btn-cert {
+    display: inline-block;
+    margin: 10px;
+    padding: 5px;
+
+    &:hover {
+        margin: 9px;
+        border: 1px solid darken($light-grey, 10%);
+        border-radius: $border-r;
+
+        a {
+            text-decoration: none;
+        }
+    }
+
+    .img-frame {
+        height: 120px;
+        width: 120px;
+
+        &>img {
+            height: 100%;
+            width: auto;
+            display: block;
+            margin: 0px auto;
+        }
+    }
+
+    .title {
+        color: $primary-red;
+        text-align: center;
+        text-transform: capitalize;
     }
 }
