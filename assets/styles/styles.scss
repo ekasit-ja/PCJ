@@ -255,14 +255,13 @@ $border-r: 10px;
     background-color: #eee;
 
     .item-container {
-        height: 320px;
         margin: 10px 0;
 
         .item-button {
             margin-left: auto;
             margin-right: auto;
             max-width: 300px;
-            height: 320px;
+            min-height: 320px;
             text-align: center;
             padding-top: 20px;
             border: 1px solid gainsboro;
@@ -276,8 +275,8 @@ $border-r: 10px;
                 color: $primary-red;
             }
 
-            div {
-                height: 240px;
+            .img-frame {
+                min-height: 240px;
 
                 img {
                     width: auto;
@@ -376,9 +375,10 @@ $border-r: 10px;
 
 
 .hardware-container {
+    // customize for hardware carousel
     .carousel-browse-container {
         margin: 0;
-        padding: 0 50px;
+        padding: 0 65px;
     }
 
     .hardware-label {
@@ -390,8 +390,8 @@ $border-r: 10px;
     .owl-carousel .owl-nav.disabled {
         display: block;
 
-        .owl-prev.disabled,
-        .owl-next.disabled {
+        .owl-prev,
+        .owl-next {
             &:hover {
                 cursor: inherit;
                 background-image: inherit;
@@ -406,6 +406,32 @@ $border-r: 10px;
     .row {
         display: flex;
         align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .item-container {
+        .item-button {
+            text-align: left;
+            padding-top: 5px;
+
+            .item-title {
+                color: $primary-red;
+                text-transform: capitalize;
+                margin-left: 15px;
+            }
+
+            .item-desc ul {
+                padding-left: 30px;
+            }
+
+            .img-frame {
+                min-height: 180px;
+
+                img {
+                    max-height: 180px;
+                }
+            }
+        }
     }
 }
 
