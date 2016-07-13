@@ -7,8 +7,33 @@
 
 module.exports = {
 
-  attributes: {
+    attributes: {
+        category: {
+            type: "string",
+            required: true,
+        },
 
-  }
+        type: {
+            type: "string",
+            required: true,
+        },
+
+        model: {
+            type: "string",
+            required: true,
+        },
+
+        title: {
+            type: "string",
+            required: true,
+        },
+
+        image: {
+            // model: "image",
+            // via: "image",
+            type: "string",
+            required: true,
+        },
+    }
 };
 

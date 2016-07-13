@@ -1,0 +1,15 @@
+<div class="container">
+    <h2 class="text-center text-capitalize"><strong>create product</strong></h2>
+    <br>
+
+    <form method="post" class="col-sm-4 col-sm-offset-4" enctype="multipart/form-data">
+        <input type="file" name="image" class="form-control"><br>
+        <input type="text" name="category" placeholder="category" class="form-control"><br>
+        <input type="text" name="type" placeholder="type" class="form-control"><br>
+        <input type="text" name="model" placeholder="model" class="form-control"><br>
+        <input type="text" name="title" placeholder="title" class="form-control"><br>
+
+        <input type="submit" value="Create" class="btn btn-success">
+        <a href="<%= sails.getUrlFor('ProductController.manage') %>" class="btn btn-danger">Cancel</a>
+    </form>
+</div>

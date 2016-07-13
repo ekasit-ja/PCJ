@@ -22,7 +22,16 @@
 
 module.exports.routes = {
 
-  '/': {view: 'homepage'},
-  'get /product/fireSteelDoor': 'ProductController.fireSteelDoor',
-  'get /product/ductDamper': 'ProductController.ductDamper',
+  "/": {view: "homepage"},
+
+  "get /login": "UserController.login",
+  "post /login": "AuthController.login",
+  "/logout": "AuthController.logout",
+  "/register": "UserController.register",
+
+  "/product/fireSteelDoor": "ProductController.fireSteelDoor",
+  "/product/ductDamper": "ProductController.ductDamper",
+
+  "/product/manage": "ProductController.manage",
+  "/product/create": "ProductController.create",
 };

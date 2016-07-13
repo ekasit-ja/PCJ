@@ -1,0 +1,33 @@
+<div class="container">
+    <h2 class="text-center text-capitalize"><strong>manage product</strong></h2>
+
+    <a href="/product/create" class="btn btn-default">
+        Create
+    </a>
+    <hr>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Img</th>
+                <th>category</th>
+                <th>type</th>
+                <th>model</th>
+                <th>Title</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% _.each(products, function(product) { %>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td><%= product.category %></td>
+                    <td><%= product.type %></td>
+                    <td><%= product.model %></td>
+                    <td><%= product.title %></td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
