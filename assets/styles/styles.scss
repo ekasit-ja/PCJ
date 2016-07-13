@@ -1,7 +1,43 @@
 $primary-red: #c00;
-$secondary-red: #e00;
+$secondary-red: lighten($primary-red, 7%);
 $light-grey: #eee;
+$black: #000;
+$white: #fff;
 $border-r: 5px;
+
+$opac_1: .8;
+$opac_2: .9;
+$mul: 1.8;
+@mixin grad-grey($direction, $opac, $mul, $grad-color) {
+    background-image: linear-gradient(
+            to $direction,
+            rgba($grad-color,.0001*$mul) 0,
+            rgba($grad-color,.1*$mul) 100%);
+    opacity: $opac;
+}
+
+@mixin mixin-owl-nav($direction, $opac, $mul, $arrow-color, $grad-color) {
+    #{$direction}: -50px;
+    @if $direction == "left" {
+        border-radius: $border-r 0px 0px $border-r;
+    } @else if $direction == "right" {
+        border-radius: 0px $border-r $border-r 0px;
+    }
+
+    i {
+        #{$direction}: 5px;
+        margin-#{$direction}: -15px;
+    }
+
+    &:hover {
+        @include grad-grey($direction, $opac, $mul, $grad-color);
+        opacity: $opac;
+
+        i {
+            color: $arrow-color;
+        }
+    }
+}
 
 // animation for menu button on navbar
 .navbar-toggle {
@@ -84,8 +120,8 @@ $border-r: 5px;
 }
 
 .navbar-custom {
-    background-color: #fff;
-    background-image: linear-gradient(to bottom,#fff 0,#fff 100%);
+    background-color: $white;
+    background-image: linear-gradient(to bottom,$white 0,$white 100%);
     font-weight: bold;
 }
 
@@ -144,14 +180,14 @@ $border-r: 5px;
 
 .btn-default {
     color: $primary-red;
-    border-color: $primary-red;
-    border: 2px solid;
-    font-weight: bold;
+    border: 2px solid $primary-red;
+    font-size: 1.1em;
 
-    &:hover {
-        color: $primary-red;
+    &:hover,
+    &:focus {
+        color: $white;
         border-color: $primary-red;
-        background-color: darken(white, 5%);
+        background-color: $primary-red;
     }
 }
 
@@ -194,14 +230,6 @@ $border-r: 5px;
 // --- custom bootstrap
 
 // custom style for owl carousel
-$opac_1: .8;
-$opac_2: .9;
-$mul: 1.8;
-@mixin grad-grey($direction, $opac, $mul) {
-    background-image: linear-gradient(to $direction, rgba(#000,.0001*$mul) 0, rgba(#000,.1*$mul) 100%);
-    opacity: $opac;
-}
-
 .owl-carousel.owl-grab {
     cursor: ew-resize;
 }
@@ -244,24 +272,24 @@ $mul: 1.8;
             position: relative;
             top: 50%;
             color: white;
-            text-shadow: 0 1px 1px #000;
+            text-shadow: 0 1px 1px $black;
         }
     }
 
     .owl-prev {
         left: 0;
-        @include grad-grey(left, $opac_1, 1);
+        @include grad-grey(left, $opac_1, 1, $black);
 
         &:hover {
-            @include grad-grey(left, $opac_2, $mul);
+            @include grad-grey(left, $opac_2, $mul, $black);
         }
     }
     .owl-next {
         right: 0;
-        @include grad-grey(right, $opac_1, 1);
+        @include grad-grey(right, $opac_1, 1, $black);
 
         &:hover {
-            @include grad-grey(right, $opac_2, $mul);
+            @include grad-grey(right, $opac_2, $mul, $black);
         }
     }
 
@@ -278,15 +306,15 @@ $mul: 1.8;
             margin: 1px 7px;
             cursor: pointer;
             background-color: transparent;
-            border: 1px solid #fff;
+            border: 1px solid $white;
             border-radius: 10px;
-            box-shadow: 0 1px 3px #000;
+            box-shadow: 0 1px 3px $black;
 
             &.active {
                 width: 12px;
                 height: 12px;
                 margin: 0px 7px;
-                background-color: #fff;
+                background-color: $white;
             }
         }
     }
@@ -294,7 +322,7 @@ $mul: 1.8;
 
 .owl-carousel.carousel-browse {
     margin: 0 50px;
-    background-color: #eee;
+    background-color: $light-grey;
 
     .item-button {
         display: block;
@@ -336,7 +364,7 @@ $mul: 1.8;
         height: 100%;
         width: 50px;
         text-align: center;
-        background-color: #eee;
+        background-color: $light-grey;
 
         i {
             width: 30px;
@@ -346,35 +374,15 @@ $mul: 1.8;
             position: relative;
             top: 50%;
             color: white;
-            text-shadow: 0 1px 1px #000;
+            text-shadow: 0 1px 1px $black;
         }
     }
 
     .owl-prev {
-        left: -50px;
-        border-radius: $border-r 0 0 $border-r;
-
-        i {
-            left: 5px;
-            margin-left: -15px;
-        }
-
-        &:hover {
-            @include grad-grey(left, $opac_2, 1);
-        }
+        @include mixin-owl-nav(left, $opac_2, 1, $white, $black);
     }
     .owl-next {
-        right: -50px;
-        border-radius: 0 $border-r $border-r 0;
-
-        i {
-            right: 5px;
-            margin-right: -15px;
-        }
-
-        &:hover {
-            @include grad-grey(right, $opac_2, 1);
-        }
+        @include mixin-owl-nav(right, $opac_2, 1, $white, $black);
     }
 
     .owl-dots {
@@ -455,6 +463,119 @@ $mul: 1.8;
         }
     }
 }
+
+.owl-carousel.carousel-browse.type {
+    background-color: white;
+
+    .item-button {
+        margin: 0px auto 5px auto;
+        padding: 0px;
+        background-color: white;
+        border: 0px solid gainsboro;
+        max-width: 250px;
+
+        .img-frame {
+            position: relative;
+            height: 240px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            border: 1px solid $light-grey;
+
+            img {
+                width: auto;
+                max-width: 100%;
+                height: auto;
+                max-height: 240px;
+                margin: 0px auto;
+                border: 10px solid white;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                margin: auto;
+            }
+        }
+
+        .item-title {
+            height: 40px;
+            background-color: $primary-red;
+            color: white;
+            text-transform: capitalize;
+            font-weight: bold;
+            font-size: 1.2em;
+            line-height: 40px;
+            text-align: center;
+        }
+    }
+
+
+
+
+    .owl-prev,
+    .owl-next {
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 50px;
+        text-align: center;
+        background-color: white;
+
+        i {
+            width: 30px;
+            height: 30px;
+            font-size: 30px;
+            margin-top: -15px;
+            position: relative;
+            top: 50%;
+            color: darken(white, 10%);
+            text-shadow: 0 1px 3px black;
+        }
+    }
+
+    .owl-prev {
+        @include mixin-owl-nav(left, $opac_2, 0, $primary-red, $white);
+    }
+    .owl-next {
+        @include mixin-owl-nav(right, $opac_2, 0, $primary-red, $white);
+    }
+
+    .owl-dots {
+        position: relative;
+        width: 100%;
+        text-align: center;
+        top: -3px;
+
+        .owl-dot {
+            display: inline-block;
+            width: 13px;
+            height: 7px;
+            margin: 1px 6px;
+            cursor: pointer;
+            background-color: #bbb;
+
+            &.active {
+                width: 15px;
+                height: 9px;
+                margin: 0px 4px;
+                background-color: #666;
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+}
 // --- custom style for owl carousel
 
 .icon-font {
@@ -534,7 +655,7 @@ $mul: 1.8;
 
 .thumbnail-container {
     .thumbnail-label {
-        background-color: #eee;
+        background-color: $light-grey;
         border-radius: $border-r $border-r 0 0;
         padding-top: 10px;
         font-size: 1.2em;
@@ -542,7 +663,7 @@ $mul: 1.8;
     }
 
     .fotorama {
-        background-color: #eee;
+        background-color: $light-grey;
         padding: 10px 30px;
         border-radius: 0 0 $border-r $border-r;
 
@@ -580,7 +701,7 @@ $mul: 1.8;
 
 .btn-quote {
     text-transform: capitalize;
-    font-size: 1.5em;
+    font-size: 1.2em;
 }
 
 .btn-cert {

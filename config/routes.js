@@ -24,5 +24,5 @@ module.exports.routes = {
 
   '/': {view: 'homepage'},
   'get /product/fireSteelDoor': 'ProductController.fireSteelDoor',
-
+  'get /product/ductDamper': 'ProductController.ductDamper',
 };

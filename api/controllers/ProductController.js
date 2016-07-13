@@ -9,5 +9,9 @@ module.exports = {
 	fireSteelDoor: function(req, res) {
         res.view("product/fire_steel_door");
     },
+
+    ductDamper: function(req, res) {
+        res.view("product/duct_damper");
+    },
 };
 
