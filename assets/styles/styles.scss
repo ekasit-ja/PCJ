@@ -649,7 +649,7 @@ $mul: 1.8;
             font-weight: bold;
             font-style: italic;
             font-size: 1.2em;
-            text-transform: capitalize;
+            text-transform: uppercase;
             text-align: center;
             position: relative;
             top: -40px;
@@ -799,4 +799,10 @@ form .img-frame {
     left: 0;
     background-color: white;
     opacity: 0.7;
+}
+
+.project-container {
+    .row {
+        margin-bottom: 30px;
+    }
 }

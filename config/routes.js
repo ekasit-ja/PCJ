@@ -33,6 +33,8 @@ module.exports.routes = {
   "/product/ductDamper/": "ProductController.ductDamper",
   "/product/ductDamper/:tid/": "ProductController.ductDamperType",
 
+  "/project/": "ProjectController.view",
+
   "/api/product/model/:mid/": "ProductController.apiGetProduct",
 
 
