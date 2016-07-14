@@ -4,164 +4,14 @@
     <hr>
 
     <div class="owl-carousel carousel-browse type">
-        <a href="#vm" class="item-button">
-            <div class="img-frame" style="background-image:url('/images/duct_type_01.jpg')"></div>
-            <div class="item-title">volume / monitorized</div>
-        </a>
-        <a href="#gr" class="item-button">
-            <div class="img-frame" style="background-image:url('/images/duct_type_02.jpg')"></div>
-            <div class="item-title">gravity / relief</div>
-        </a>
-        <a href="#sa" class="item-button">
-            <div class="img-frame" style="background-image:url('/images/duct_type_03.jpg')"></div>
-            <div class="item-title">silencer / acoustic</div>
-        </a>
+        <% _.each(types, function(type) { %>
+            <a href="<%= sails.getUrlFor('ProductController.ductDamperType').replace(':tid', type.id) %>" class="item-button type">
+                <div class="img-frame" style="background-image:url('<%= type.image %>')"></div>
+                <div class="item-title"><%= type.title %></div>
+            </a>
+        <% }) %>
     </div>
     <br>
-
-    <h2 class="text-center text-capitalize"><strong>Model you can choose</strong></h2>
-    <div class="owl-carousel carousel-browse model">
-        <a href="#red" class="item-button">
-            <div class="img-frame"><img src="/images/fire_door_01.jpg"></div>
-            <div class="item-title">Single Door, Flush Style</div>
-        </a>
-        <a href="#blue" class="item-button">
-            <div class="img-frame"><img src="/images/fire_door_02.jpg"></div>
-            <div class="item-title">Single Door, Flush Style<br>second line here</div>
-        </a>
-        <a href="#white" class="item-button">
-            <div class="img-frame"><img src="/images/fire_door_03.jpg"></div>
-            <div class="item-title">Single Door, Flush Style</div>
-        </a>
-        <a href="#grey" class="item-button">
-            <div class="img-frame"><img src="/images/fire_door_04.jpg"></div>
-            <div class="item-title">Single Door, Flush Style</div>
-        </a>
-        <a href="#wood" class="item-button">
-            <div class="img-frame"><img src="/images/fire_door_05.jpg"></div>
-            <div class="item-title">Single Door, Flush Style</div>
-        </a>
-        <a href="#brown" class="item-button">
-            <div class="img-frame"><img src="/images/fire_door_06.jpg"></div>
-            <div class="item-title">Single Door, Flush Style</div>
-        </a>
-        <a href="#vision" class="item-button">
-            <div class="img-frame"><img src="/images/fire_door_07.jpg"></div>
-            <div class="item-title">Single Door, Flush Style</div>
-        </a>
-        <a href="#horizon" class="item-button">
-            <div class="img-frame"><img src="/images/fire_door_08.jpg"></div>
-            <div class="item-title">Single Door, Flush Style</div>
-        </a>
-        <a href="#vertice" class="item-button">
-            <div class="img-frame"><img src="/images/fire_door_09.jpg"></div>
-            <div class="item-title">Single Door, Flush Style</div>
-        </a>
-    </div>
-    <br>
-
-    <div class="thumbnail-container">
-        <div class="thumbnail-label text-center text-capitalize">
-            single door, flush style
-        </div>
-        <div
-                class="fotorama"
-                data-nav="thumbs"
-                data-width="100%"
-                data-height="500"
-                data-arrows="false"
-                data-click="false"
-                data-thumbmargin="10">
-            <img src="/images/fire_door_01.jpg" width="50" height="50" data-label="double door, flush style">
-            <img src="/images/fire_door_02.jpg" width="50" height="50" data-label="single door, UL cert">
-            <img src="/images/fire_door_03.jpg" width="50" height="50" data-label="double door, vision panel, white">
-            <img src="/images/fire_door_04.jpg" width="50" height="50" data-label="double door, vision panel">
-            <img src="/images/fire_door_05.jpg" width="50" height="50" data-label="single door, emboosed style (*MoQ 60 units)">
-            <img src="/images/fire_door_06.jpg" width="50" height="50" data-label="single door, emboosed style, wood (*MoQ 60 units)">
-            <img src="/images/fire_door_07.jpg" width="50" height="50" data-label="single door, vision panel">
-            <img src="/images/fire_door_08.jpg" width="50" height="50" data-label="vertical test">
-            <img src="/images/fire_door_09.jpg" width="50" height="50" data-label="horizontal test">
-        </div>
-    </div>
-    <br>
-
-    <h2 class="text-center text-capitalize"><strong>Option you can choose</strong></h2>
-    <div class="option-container">
-        <div class="row">
-            <div class="col-sm-2 col-sm-offset-1 col-xs-2 option-label">Size</div>
-            <div class="col-sm-9 col-xs-10 option-detail">Available upon request</div>
-        </div>
-        <div class="row">
-            <div class="col-sm-2 col-sm-offset-1 col-xs-2 option-label">fire rating</div>
-            <div class="col-sm-9 col-xs-10 option-detail">0-3 hours (3 Hours in accordance with UL10C)</div>
-        </div>
-        <div class="row">
-            <div class="col-sm-2 col-sm-offset-1 col-xs-2 option-label">door type</div>
-            <div class="col-sm-9 col-xs-10 option-detail">single door, double door / flush, flush with vision panel, flush with louver, embossed</div>
-        </div>
-    </div>
-    <br>
-
-    <ul class="nav nav-tabs">
-        <li class="active"><a data-toggle="tab" href="#desc">description</a></li>
-        <li><a data-toggle="tab" href="#cert">certificate</a></li>
-        <li><a data-toggle="tab" href="#inst">installation</a></li>
-        <li><a data-toggle="tab" href="#catg">catalogue</a></li>
-    </ul>
-
-    <div class="tab-content">
-        <div id="desc" class="tab-pane fade in active">
-            desccription
-        </div>
-        <div id="cert" class="tab-pane fade">
-            <div class="btn-cert">
-                <a href="#">
-                    <div class="img-frame"><img src="/images/fire_door_cer_01.jpg"></div>
-                    <div class="title">download</div>
-                </a>
-            </div>
-            <div class="btn-cert">
-                <a href="#">
-                    <div class="img-frame"><img src="/images/fire_door_cer_02.jpg"></div>
-                    <div class="title">download</div>
-                </a>
-            </div>
-            <div class="btn-cert">
-                <a href="#">
-                    <div class="img-frame"><img src="/images/fire_door_cer_03.jpg"></div>
-                    <div class="title">download</div>
-                </a>
-            </div>
-            <div class="btn-cert">
-                <a href="#">
-                    <div class="img-frame"><img src="/images/fire_door_cer_04.jpg"></div>
-                    <div class="title">download</div>
-                </a>
-            </div>
-        </div>
-        <div id="inst" class="tab-pane fade">
-            <div class="btn-cert">
-                <a href="#">
-                    <div class="img-frame"><img src="/images/fire_door_cer_04.jpg"></div>
-                    <div class="title">download</div>
-                </a>
-            </div>
-        </div>
-        <div id="catg" class="tab-pane fade">
-            <div class="btn-cert">
-                <a href="#">
-                    <div class="img-frame"><img src="/images/fire_door_cer_04.jpg"></div>
-                    <div class="title">download</div>
-                </a>
-            </div>
-        </div>
-    </div>
-    <hr>
-
-    <div class="text-center">
-        <button class="btn btn-default btn-quote">get a quote</button>
-    </div>
-
 </div>
 
 <script type="text/javascript">
@@ -206,18 +56,5 @@
         $(".carousel-browse").each(function(index, carousel) {
             setCarousel($(carousel));
         });
-    });
-
-    // Function to change thumbnail label
-    $(function() {
-        $('.fotorama').on(
-            'fotorama:show',
-            function (e, fotorama, extra) {
-                try {
-                    $(".thumbnail-label").text(fotorama.activeFrame.label);
-                }
-                catch(e) {}
-            }
-        );
     });
 </script>

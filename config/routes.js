@@ -24,38 +24,39 @@ module.exports.routes = {
 
   "/": {view: "homepage"},
 
-  "get /login": "UserController.login",
-  "post /login": "AuthController.login",
-  "/logout": "AuthController.logout",
-  "/register": "UserController.register",
+  "get /login/": "UserController.login",
+  "post /login/": "AuthController.login",
+  "/logout/": "AuthController.logout",
+  "/register/": "UserController.register",
 
-  "/product/fireSteelDoor": "ProductController.fireSteelDoor",
-  "/product/ductDamper": "ProductController.ductDamper",
+  "/product/fireSteelDoor/": "ProductController.fireSteelDoor",
+  "/product/ductDamper/": "ProductController.ductDamper",
+  "/product/ductDamper/:tid/": "ProductController.ductDamperType",
 
-  "/api/product/model/:mid": "ProductController.apiGetProduct",
+  "/api/product/model/:mid/": "ProductController.apiGetProduct",
 
 
 
 
-  "/product/manager": "ProductController.manager",
+  "/product/manager/": "ProductController.manager",
 
-  "/product/manage": "ProductController.manage",
-  "/product/create": "ProductController.create",
-  "/product/update/:pid": "ProductController.update",
-  "/product/delete": "ProductController.delete",
+  "/product/manage/": "ProductController.manage",
+  "/product/create/": "ProductController.create",
+  "/product/update/:pid/": "ProductController.update",
+  "/product/delete/": "ProductController.delete",
 
-  "/product/category/manage": "ProductController.categoryManage",
-  "/product/category/create": "ProductController.categoryCreate",
-  "/product/category/update/:cid": "ProductController.categoryUpdate",
-  "/product/category/delete": "ProductController.categoryDelete",
+  "/product/category/manage/": "ProductController.categoryManage",
+  "/product/category/create/": "ProductController.categoryCreate",
+  "/product/category/update/:cid/": "ProductController.categoryUpdate",
+  "/product/category/delete/": "ProductController.categoryDelete",
 
-  "/product/type/manage": "ProductController.typeManage",
-  "/product/type/create": "ProductController.typeCreate",
-  "/product/type/update/:tid": "ProductController.typeUpdate",
-  "/product/type/delete": "ProductController.typeDelete",
+  "/product/type/manage/": "ProductController.typeManage",
+  "/product/type/create/": "ProductController.typeCreate",
+  "/product/type/update/:tid/": "ProductController.typeUpdate",
+  "/product/type/delete/": "ProductController.typeDelete",
 
-  "/product/model/manage": "ProductController.modelManage",
-  "/product/model/create": "ProductController.modelCreate",
-  "/product/model/update/:mid": "ProductController.modelUpdate",
-  "/product/model/delete": "ProductController.modelDelete",
+  "/product/model/manage/": "ProductController.modelManage",
+  "/product/model/create/": "ProductController.modelCreate",
+  "/product/model/update/:mid/": "ProductController.modelUpdate",
+  "/product/model/delete/": "ProductController.modelDelete",
 };

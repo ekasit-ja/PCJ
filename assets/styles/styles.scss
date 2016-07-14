@@ -407,6 +407,22 @@ $mul: 1.8;
             }
         }
     }
+
+    .owl-nav.disabled {
+        display: block;
+
+        .owl-prev,
+        .owl-next {
+            &:hover {
+                cursor: auto;
+                background-image: inherit;
+            }
+
+            i {
+                display: none;
+            }
+        }
+    }
 }
 
 .hardware-container {
@@ -773,4 +789,14 @@ form .img-frame {
         right: 0;
         margin: auto;
     }
+}
+
+.blur-mask {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: white;
+    opacity: 0.7;
 }

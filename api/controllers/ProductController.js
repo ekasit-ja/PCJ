@@ -5,11 +5,14 @@
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 
+var midFireSteelDoor = 1;
+var catDuctDamper = 3;
+
 module.exports = {
 	fireSteelDoor: function(req, res) {
         var ms;
         Model
-            .find({type: 1})
+            .find({type: midFireSteelDoor})
             .sort("position")
             .then(function(models) {
                 ms = models
@@ -27,11 +30,46 @@ module.exports = {
     },
 
     ductDamper: function(req, res) {
-        res.view("product/duct_damper");
+        Type
+            .find({category: catDuctDamper})
+            .sort("position asc")
+            .exec(function(err, types) {
+                if(err) return res.serverError(err);
+
+                return res.view("product/duct_damper", {
+                    types: types,
+                });
+            });
+    },
+
+    ductDamperType: function(req, res) {
+        var tid = req.param("tid");
+        var ts, ms;
+        Type
+            .find({category: catDuctDamper})
+            .sort("position asc")
+            .then(function(types) {
+                ts = types;
+                return Model.find({type: tid}).sort("position asc")
+            })
+            .then(function(models) {
+                ms = models;
+                return Product.find({model: models[0].id})
+            })
+            .then(function(products) {
+                return res.view("product/duct_damper_type", {
+                    tid: tid,
+                    types: ts,
+                    models: ms,
+                    products: products,
+                });
+            })
+            .catch(function(err) {
+                return res.serverError(err);
+            });
     },
 
     apiGetProduct: function(req, res) {
-
         Product
             .find({model: req.param("mid")})
             .sort("position asc")
