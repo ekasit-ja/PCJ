@@ -6,48 +6,18 @@
 
     <h2 class="text-center text-capitalize"><strong>Model you can choose</strong></h2>
     <div class="owl-carousel carousel-browse model">
-        <a href="#red" class="item-button">
-            <div class="img-frame"><img src="/images/fire_door_01.jpg"></div>
-            <div class="item-title">Single Door, Flush Style</div>
-        </a>
-        <a href="#blue" class="item-button">
-            <div class="img-frame"><img src="/images/fire_door_02.jpg"></div>
-            <div class="item-title">Single Door, Flush Style<br>second line here</div>
-        </a>
-        <a href="#white" class="item-button">
-            <div class="img-frame"><img src="/images/fire_door_03.jpg"></div>
-            <div class="item-title">Single Door, Flush Style</div>
-        </a>
-        <a href="#grey" class="item-button">
-            <div class="img-frame"><img src="/images/fire_door_04.jpg"></div>
-            <div class="item-title">Single Door, Flush Style</div>
-        </a>
-        <a href="#wood" class="item-button">
-            <div class="img-frame"><img src="/images/fire_door_05.jpg"></div>
-            <div class="item-title">Single Door, Flush Style</div>
-        </a>
-        <a href="#brown" class="item-button">
-            <div class="img-frame"><img src="/images/fire_door_06.jpg"></div>
-            <div class="item-title">Single Door, Flush Style</div>
-        </a>
-        <a href="#vision" class="item-button">
-            <div class="img-frame"><img src="/images/fire_door_07.jpg"></div>
-            <div class="item-title">Single Door, Flush Style</div>
-        </a>
-        <a href="#horizon" class="item-button">
-            <div class="img-frame"><img src="/images/fire_door_08.jpg"></div>
-            <div class="item-title">Single Door, Flush Style</div>
-        </a>
-        <a href="#vertice" class="item-button">
-            <div class="img-frame"><img src="/images/fire_door_09.jpg"></div>
-            <div class="item-title">Single Door, Flush Style</div>
-        </a>
+        <% _.each(models, function(model) { %>
+            <a href="#<%= model.id %>" class="item-button model">
+                <div class="img-frame"><img src="<%= model.image %>"></div>
+                <div class="item-title"><%= model.title %></div>
+            </a>
+        <% }) %>
     </div>
     <br>
 
     <div class="thumbnail-container">
         <div class="thumbnail-label text-center text-capitalize">
-            single door, flush style
+            <%= products[0].title %>
         </div>
         <div
                 class="fotorama"
@@ -57,15 +27,9 @@
                 data-arrows="false"
                 data-click="false"
                 data-thumbmargin="10">
-            <img src="/images/fire_door_01.jpg" width="50" height="50" data-label="double door, flush style">
-            <img src="/images/fire_door_02.jpg" width="50" height="50" data-label="single door, UL cert">
-            <img src="/images/fire_door_03.jpg" width="50" height="50" data-label="double door, vision panel, white">
-            <img src="/images/fire_door_04.jpg" width="50" height="50" data-label="double door, vision panel">
-            <img src="/images/fire_door_05.jpg" width="50" height="50" data-label="single door, emboosed style (*MoQ 60 units)">
-            <img src="/images/fire_door_06.jpg" width="50" height="50" data-label="single door, emboosed style, wood (*MoQ 60 units)">
-            <img src="/images/fire_door_07.jpg" width="50" height="50" data-label="single door, vision panel">
-            <img src="/images/fire_door_08.jpg" width="50" height="50" data-label="vertical test">
-            <img src="/images/fire_door_09.jpg" width="50" height="50" data-label="horizontal test">
+            <% _.each(products, function(product) { %>
+                <img src="<%= product.image %>" width="50" height="50" data-label="<%= product.title %>">
+            <% }) %>
         </div>
     </div>
     <br>
@@ -360,7 +324,9 @@
     });
 
     // Function to change thumbnail label
-    $(function() {
+    function initFotorama() {
+        var f = $('.fotorama');
+        f.fotorama();
         $('.fotorama').on(
             'fotorama:show',
             function (e, fotorama, extra) {
@@ -370,5 +336,22 @@
                 catch(e) {}
             }
         );
+    }
+
+    $(function() {
+        initFotorama();
+    });
+
+    // function to update product carousel when click on model carousel
+    $("a.item-button.model").click(function() {
+        var mid = this.href.split("#").reverse()[0];
+        var url = "<%= sails.getUrlFor('ProductController.apiGetProduct') %>".replace(":mid", mid);
+        $.get(url, function(data) {
+            $(".thumbnail-container").html(JST['assets/templates/fotorama.ejs']({
+                products: data,
+            }));
+
+            initFotorama();
+        });
     });
 </script>

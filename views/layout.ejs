@@ -20,16 +20,18 @@
     <script src="/js/dependencies/jquery-2.2.4.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/fotorama.min.js"></script>
+    <script src="/js/lodash.js"></script>
     <script src="/js/owl.carousel.js"></script>
     <!--SCRIPTS END-->
   </head>
 
   <body>
     <%- partial("base/header.ejs") %>
+    <%- partial("flash.ejs") %>
     <%- body %>
 
     <!--TEMPLATES-->
-    
+    <script type="text/javascript" src="/jst.js"></script>
     <!--TEMPLATES END-->
 
     <%- partial("base/footer.ejs") %>

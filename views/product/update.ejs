@@ -1,0 +1,18 @@
+<div class="container">
+    <h2 class="header">create product</h2>
+    <br>
+
+    <form method="post" class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3" enctype="multipart/form-data">
+        <div class="img-frame"><img src="<%= product.image %>"></div><br>
+        <input type="file" name="image" class="form-control"><br>
+        <select name="model" class="form-control">
+            <% _.each(models, function(model) { %>
+                <option value="<%= model.id %>" <% if(product.model==model.id) { %> selected <% } %>><%= model.title %></option>
+            <% }) %>
+        </select><br>
+        <input type="text" name="title" placeholder="title" class="form-control" required value="<%= product.title %>"><br>
+
+        <input type="submit" value="Update" class="btn btn-success">
+        <a href="<%= sails.getUrlFor('ProductController.manage') %>" class="btn btn-danger">Cancel</a>
+    </form>
+</div>

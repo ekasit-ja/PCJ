@@ -1,7 +1,7 @@
 <div class="container">
-    <h2 class="header">manage product</h2>
+    <h2 class="header">manage product model</h2>
 
-    <a href="<%= sails.getUrlFor("ProductController.create") %>" class="btn btn-default">
+    <a href="<%= sails.getUrlFor("ProductController.modelCreate") %>" class="btn btn-default">
         Create
     </a>
     <a href="<%= sails.getUrlFor("ProductController.manager") %>" class="btn btn-primary">
@@ -12,7 +12,7 @@
     <table class="table table-striped admin-table">
         <thead>
             <tr>
-                <th>model</th>
+                <th>Type</th>
                 <th>Title</th>
                 <th>Image</th>
                 <th></th>
@@ -20,17 +20,17 @@
             </tr>
         </thead>
         <tbody>
-            <% _.each(products, function(product) { %>
+            <% _.each(models, function(model) { %>
                 <tr>
-                    <td><%= product.model.title %></td>
-                    <td><%= product.title %></td>
-                    <td><img src="<%= product.image %>"></td>
+                    <td><%= model.type.title %></td>
+                    <td><%= model.title %></td>
+                    <td><img src="<%= model.image %>"></td>
                     <td>
-                        <a href="<%= sails.getUrlFor("ProductController.update").replace(":pid", product.id) %>" class="btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                        <a href="<%= sails.getUrlFor("ProductController.modelUpdate").replace(":mid", model.id) %>" class="btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                     </td>
                     <td>
-                        <form method="post" action="<%= sails.getUrlFor('ProductController.delete') %>">
-                            <input type="hidden" name="pid" value="<%= product.id %>">
+                        <form method="post" action="<%= sails.getUrlFor('ProductController.modelDelete') %>">
+                            <input type="hidden" name="mid" value="<%= model.id %>">
                             <button type="submit" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
                         </form>
                     </td>

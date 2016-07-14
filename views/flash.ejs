@@ -1,0 +1,30 @@
+<%
+    "use strict";
+    var keyword = ["error", "success", "info", "warning"];
+    var cssClass = ["alert-danger", "alert-success", "alert-info", "alert-warning"];
+    var alertClass = "";
+    var msg = "";
+    for(var i=0; i<=3; i++) {
+        var arr = req.flash(keyword[i]);
+        if(arr.length > 0) {
+            alertClass = cssClass[i];
+            msg = arr[0];
+            break;
+        }
+    }
+%>
+
+<% if(msg) { %>
+    <div class="container">
+    <br>
+        <div class="flash">
+            <div class="alert <%= alertClass %>">
+                <%= msg %>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // $(".flash").delay(5000).fadeOut();
+    </script>
+<% } %>
