@@ -12,6 +12,13 @@
 <script type="text/javascript">
     // function to update product carousel when click on model carousel
     $("a.item-button.model").click(function() {
+        $(".mask-select").remove();
+
+        var button = $(this);
+        button.append("<div class='mask-select'></div>");
+        $(".mask-select").width(button.outerWidth());
+        $(".mask-select").height(button.outerHeight());
+
         var mid = this.href.split("#").reverse()[0];
         var url = "<%= sails.getUrlFor('ProductController.apiGetProduct') %>".replace(":mid", mid);
         $.get(url, function(data) {

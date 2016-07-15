@@ -4,6 +4,7 @@ $light-grey: #eee;
 $black: #000;
 $white: #fff;
 $border-r: 5px;
+$blue: #00afea;
 
 $opac_1: .8;
 $opac_2: .9;
@@ -308,11 +309,11 @@ $mul: 1.8;
 
     .owl-item {
         display: flex;
+        padding: 20px 10px 10px 10px;
 
         .item-button {
             width: 100%;
             text-decoration: none;
-            margin: 20px 10px 10px 10px;
             padding-bottom: 5px;
             background-color: white;
             border: 1px solid gainsboro;
@@ -405,9 +406,12 @@ $mul: 1.8;
     }
 
     &.hardware {
+        .owl-item {
+            padding: 5px;
+        }
+
         .item-button {
             padding: 5px;
-            margin-top: 10px;
 
             .img-frame {
                 height: 150px;
@@ -727,8 +731,8 @@ form .img-frame {
     }
 }
 
-.carousel-browse.type {
-    .blur-mask {
+.carousel-browse {
+    .mask-blur {
         position: absolute;
         width: 100%;
         height: 100%;
@@ -736,6 +740,14 @@ form .img-frame {
         left: 0;
         background-color: white;
         opacity: 0.7;
+    }
+
+    .mask-select {
+        position: absolute;
+        top: 18px;
+        left: 8px;
+        border: 2px solid $primary-red;
+        animation: fadein 0.5s;
     }
 }
 
@@ -757,4 +769,9 @@ form .img-frame {
         flex-wrap: wrap;
         margin-bottom: 20px;
     }
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
 }
