@@ -31,7 +31,7 @@ module.exports.routes = {
 
   "/product/fireSteelDoor/": "ProductController.fireSteelDoor",
   "/product/ductDamper/": "ProductController.ductDamper",
-  "/product/ductDamper/:tid/": "ProductController.ductDamperType",
+  "/product/ductDamper/t_:tid/": "ProductController.ductDamperType",
 
   "/project/": "ProjectController.view",
 

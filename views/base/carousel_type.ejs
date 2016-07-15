@@ -1,0 +1,27 @@
+<div class="owl-carousel carousel-browse type">
+    <% _.each(types, function(type) { %>
+        <a href="<%= sails.getUrlFor('ProductController.ductDamperType').replace(':tid', type.id) %>" class="item-button type">
+            <div class="img-frame" style="background-image:url('<%= type.image %>')"></div>
+            <div class="item-title"><%= type.title %></div>
+
+            <% if(selected) { %>
+                <div <% if(type.id != tid) { %> class="blur-mask"<% } %> ></div>
+            <% } %>
+        </a>
+    <% }) %>
+</div>
+<br>
+
+<script type="text/javascript">
+    // function to update product carousel when click on model carousel
+    $("a.item-button.type").click(function() {
+        window.sessionStorage.currentY = window.pageYOffset;
+    });
+
+    $(window).load(function() {
+        if(window.sessionStorage.currentY) {
+            window.scrollTo(0, window.sessionStorage.currentY);
+            delete window.sessionStorage.currentY;
+        }
+    });
+</script>

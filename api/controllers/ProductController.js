@@ -71,6 +71,7 @@ module.exports = {
                 if(err) return res.serverError(err);
 
                 return res.view("product/duct_damper", {
+                    selected: false,
                     types: types,
                 });
             });
@@ -91,7 +92,8 @@ module.exports = {
                 return Product.find({model: models[0].id})
             })
             .then(function(products) {
-                return res.view("product/duct_damper_type", {
+                return res.view("product/duct_damper", {
+                    selected: true,
                     tid: tid,
                     types: ts,
                     models: ms,
