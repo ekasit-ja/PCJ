@@ -24,11 +24,6 @@ $mul: 1.8;
         border-radius: 0px $border-r $border-r 0px;
     }
 
-    i {
-        #{$direction}: 5px;
-        margin-#{$direction}: -15px;
-    }
-
     &:hover {
         @include grad-grey($direction, $opac, $mul, $grad-color);
         opacity: $opac;
@@ -78,29 +73,13 @@ $mul: 1.8;
 }
 // --- animation for menu button on navbar
 
-// animation for dropdown hover
+// custom bootstrap
 @media (min-width: 992px) {
-    .dropdown {
-        .dropdown-menu {
-            transition: all 0.4s;
-            max-height: 0;
-            display: block;
-            overflow: hidden;
-            opacity: 0;
-        }
-
-        &.open,
-        &:hover {
-            .dropdown-menu {
-                max-height: 500px;
-                opacity: 1;
-            }
-        }
+    .dropdown:hover .dropdown-menu {
+        display: block;
     }
 }
-// --- animation for dropdown hover
 
-// custom bootstrap
 @media (max-width: 480px) {
     .navbar-fixed-top {
         display: none;
@@ -181,7 +160,6 @@ $mul: 1.8;
 .btn-default {
     color: $primary-red;
     border: 2px solid $primary-red;
-    font-size: 1.1em;
 
     &:hover,
     &:focus {
@@ -230,6 +208,10 @@ $mul: 1.8;
 // --- custom bootstrap
 
 // custom style for owl carousel
+.owl-stage {
+    display: flex;
+}
+
 .owl-carousel.owl-grab {
     cursor: ew-resize;
 }
@@ -237,7 +219,7 @@ $mul: 1.8;
 .carousel-view {
     .owl-item img {
         width: auto;
-        max-height: 600px;
+        max-height: 500px;
     }
 
     @media screen and (min-width: 768px) {
@@ -324,65 +306,79 @@ $mul: 1.8;
     margin: 0 50px;
     background-color: $light-grey;
 
-    .item-button {
-        display: block;
-        text-decoration: none;
-        margin: 20px 10px 10px 10px;
-        padding: 10px 0px;
-        background-color: white;
-        border: 1px solid gainsboro;
+    .owl-item {
+        display: flex;
 
-        .img-frame {
-            position: relative;
+        .item-button {
+            width: 100%;
+            text-decoration: none;
+            margin: 20px 10px 10px 10px;
+            padding-bottom: 5px;
+            background-color: white;
+            border: 1px solid gainsboro;
 
-            img {
-                width: auto;
-                max-width: 100%;
-                height: auto;
-                max-height: 240px;
-                margin: 0px auto;
-                border: 10px solid white;
-                position: absolute;
-                top: 0;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                margin: auto;
+            .img-frame {
+                height: 200px;
+
+                img {
+                    width: auto;
+                    max-width: 100%;
+                    height: auto;
+                    max-height: 100%;
+                    border: 10px solid white;
+                    margin: 0px auto;
+                }
+            }
+
+            .item-title {
+                color: $primary-red;
+                text-align: center;
+            }
+        }
+    }
+
+    .owl-nav {
+        &.disabled {
+            display: block;
+
+            .owl-prev,
+            .owl-next {
+                &:hover {
+                    cursor: auto;
+                    background-image: inherit;
+                }
+
+                i {
+                    display: none;
+                }
             }
         }
 
-        .item-title {
-            color: $primary-red;
+        .owl-prev,
+        .owl-next {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            width: 50px;
             text-align: center;
+            background-color: $light-grey;
+
+            i {
+                font-size: 30px;
+                margin-top: -15px;
+                position: relative;
+                top: 50%;
+                color: white;
+                text-shadow: 0 1px 1px $black;
+            }
         }
-    }
 
-    .owl-prev,
-    .owl-next {
-        position: absolute;
-        top: 0;
-        height: 100%;
-        width: 50px;
-        text-align: center;
-        background-color: $light-grey;
-
-        i {
-            width: 30px;
-            height: 30px;
-            font-size: 30px;
-            margin-top: -15px;
-            position: relative;
-            top: 50%;
-            color: white;
-            text-shadow: 0 1px 1px $black;
+        .owl-prev {
+            @include mixin-owl-nav(left, $opac_2, 1, $white, $black);
         }
-    }
-
-    .owl-prev {
-        @include mixin-owl-nav(left, $opac_2, 1, $white, $black);
-    }
-    .owl-next {
-        @include mixin-owl-nav(right, $opac_2, 1, $white, $black);
+        .owl-next {
+            @include mixin-owl-nav(right, $opac_2, 1, $white, $black);
+        }
     }
 
     .owl-dots {
@@ -408,46 +404,17 @@ $mul: 1.8;
         }
     }
 
-    .owl-nav.disabled {
-        display: block;
-
-        .owl-prev,
-        .owl-next {
-            &:hover {
-                cursor: auto;
-                background-image: inherit;
-            }
-
-            i {
-                display: none;
-            }
-        }
-    }
-}
-
-.hardware-container {
-    .hardware-label {
-        font-size: 1.2em;
-        text-transform: capitalize;
-        font-weight: bold;
-    }
-
-    .row {
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
-        margin-bottom: 20px;
-    }
-
-    // customize for hardware carousel
-    .owl-carousel.carousel-browse.hardware {
+    &.hardware {
         .item-button {
             padding: 5px;
             margin-top: 10px;
 
-            .img-frame img {
-                max-height: 200px;
-                border: 0px solid white;
+            .img-frame {
+                height: 150px;
+
+                img {
+                    border: 0px;
+                }
             }
 
             .item-title {
@@ -459,22 +426,7 @@ $mul: 1.8;
             .item-desc ul {
                 padding-left: 15px;
                 margin-bottom: 0px;
-            }
-        }
-
-        .owl-nav.disabled {
-            display: block;
-
-            .owl-prev,
-            .owl-next {
-                &:hover {
-                    cursor: auto;
-                    background-image: inherit;
-                }
-
-                i {
-                    display: none;
-                }
+                white-space: pre-line;
             }
         }
     }
@@ -579,18 +531,6 @@ $mul: 1.8;
             }
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
 }
 // --- custom style for owl carousel
 
@@ -612,13 +552,11 @@ $mul: 1.8;
     color: #d00;
 }
 
-@media (max-width: 767px) {
-    .tag-container {
-        margin-bottom: 10px;
-    }
-}
-
 .tag-container {
+    &.category {
+        margin-top: 20px;
+    }
+
     .img {
         width: 100%;
         background-position: center center;
@@ -648,7 +586,6 @@ $mul: 1.8;
             color: white;
             font-weight: bold;
             font-style: italic;
-            font-size: 1.2em;
             text-transform: uppercase;
             text-align: center;
             position: relative;
@@ -666,7 +603,7 @@ $mul: 1.8;
 }
 
 .product-cert {
-    max-height: 140px;
+    max-height: 120px;
 }
 
 .thumbnail-container {
@@ -674,7 +611,8 @@ $mul: 1.8;
         background-color: $light-grey;
         border-radius: $border-r $border-r 0 0;
         padding-top: 10px;
-        font-size: 1.2em;
+        font-size: 1.1em;
+        font-weight: bold;
         color: $primary-red;
     }
 
@@ -704,12 +642,10 @@ $mul: 1.8;
 
         .option-label {
             font-weight: bold;
-            font-size: 1.2em;
             text-transform: capitalize;
         }
 
         .option-detail {
-            font-size: 1.2em;
             padding-left: 20px;
         }
     }
@@ -758,7 +694,7 @@ form .btn.btn-danger {
     margin-left: 20px;
 }
 
-h2.header {
+.header {
     text-transform: capitalize;
     font-weight: bold;
     text-align: center;
@@ -804,5 +740,19 @@ form .img-frame {
 .project-container {
     .row {
         margin-bottom: 30px;
+    }
+}
+
+.hardware-container {
+    .hardware-label {
+        text-transform: capitalize;
+        font-weight: bold;
+    }
+
+    .row {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
     }
 }

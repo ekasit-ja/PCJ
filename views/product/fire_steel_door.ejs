@@ -1,40 +1,15 @@
 <div class="container">
-    <h2 class="text-center text-capitalize"><strong>fire steel doors</strong></h2>
+    <h3 class="header"><%= sails.config.enums.category["fsd"] %></h3>
     <p class="text-center">Our steel fire doors, swining type are certified for fire rating by worldwide accepted organization</p>
     <img src="/images/fire_door_cert.jpg" class="img-responsive center-block product-cert">
     <hr>
 
-    <h2 class="text-center text-capitalize"><strong>Model you can choose</strong></h2>
-    <div class="owl-carousel carousel-browse model">
-        <% _.each(models, function(model) { %>
-            <a href="#<%= model.id %>" class="item-button model">
-                <div class="img-frame"><img src="<%= model.image %>"></div>
-                <div class="item-title"><%= model.title %></div>
-            </a>
-        <% }) %>
-    </div>
-    <br>
+    <%- partial("../base/carousel_model.ejs") %>
 
     <div class="thumbnail-container">
-        <div class="thumbnail-label text-center text-capitalize">
-            <%= products[0].title %>
-        </div>
-        <div
-                class="fotorama"
-                data-nav="thumbs"
-                data-width="100%"
-                data-height="500"
-                data-arrows="false"
-                data-click="false"
-                data-thumbmargin="10">
-            <% _.each(products, function(product) { %>
-                <img src="<%= product.image %>" width="50" height="50" data-label="<%= product.title %>">
-            <% }) %>
-        </div>
     </div>
-    <br>
 
-    <h2 class="text-center text-capitalize"><strong>Option you can choose</strong></h2>
+    <h3 class="header">Option you can choose</h3>
     <div class="option-container">
         <div class="row">
             <div class="col-sm-2 col-sm-offset-1 col-xs-2 option-label">Size</div>
@@ -51,9 +26,29 @@
     </div>
     <br>
 
-    <h2 class="text-center text-capitalize"><strong>Hardware you can add</strong></h2>
+    <h3 class="header">Hardware you can add</h3>
     <div class="hardware-container">
-        <div class="row">
+
+        <% for(var i=0; i<hardwares.length; i++) { %>
+            <div class="row">
+                <div class="col-sm-2 col-xs-12 col-sm-offset-1 hardware-label"><%= sails.config.enums.hardware[sorting[i]] %></div>
+                <div class="col-sm-9 col-xs-12">
+                    <div class="owl-carousel carousel-browse hardware">
+
+                        <% for(var j=0; j<hardwares[i].length; j++) { %>
+                            <div class="item-button">
+                                <div class="img-frame"><img src="<%= hardwares[i][j].image %>"></div>
+                                <div class="item-title"><%= hardwares[i][j].title %></div>
+                                <div class="item-desc"><%= hardwares[i][j].desc %></div>
+                            </div>
+                        <% } %>
+
+                    </div>
+                </div>
+            </div>
+        <% } %>
+
+        <!-- <div class="row">
             <div class="col-sm-2 col-xs-12 col-sm-offset-1 hardware-label">door closers</div>
             <div class="col-sm-9 col-xs-12">
                 <div class="owl-carousel carousel-browse hardware">
@@ -213,145 +208,13 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
+
     </div>
     <br>
 
-    <ul class="nav nav-tabs">
-        <li class="active"><a data-toggle="tab" href="#desc">description</a></li>
-        <li><a data-toggle="tab" href="#cert">certificate</a></li>
-        <li><a data-toggle="tab" href="#inst">installation</a></li>
-        <li><a data-toggle="tab" href="#catg">catalogue</a></li>
-    </ul>
+    <%- partial("../base/product_tab.ejs") %>
 
-    <div class="tab-content">
-        <div id="desc" class="tab-pane fade in active">
-            desccription
-        </div>
-        <div id="cert" class="tab-pane fade">
-            <div class="btn-cert">
-                <a href="#">
-                    <div class="img-frame"><img src="/images/fire_door_cer_01.jpg"></div>
-                    <div class="title">download</div>
-                </a>
-            </div>
-            <div class="btn-cert">
-                <a href="#">
-                    <div class="img-frame"><img src="/images/fire_door_cer_02.jpg"></div>
-                    <div class="title">download</div>
-                </a>
-            </div>
-            <div class="btn-cert">
-                <a href="#">
-                    <div class="img-frame"><img src="/images/fire_door_cer_03.jpg"></div>
-                    <div class="title">download</div>
-                </a>
-            </div>
-            <div class="btn-cert">
-                <a href="#">
-                    <div class="img-frame"><img src="/images/fire_door_cer_04.jpg"></div>
-                    <div class="title">download</div>
-                </a>
-            </div>
-        </div>
-        <div id="inst" class="tab-pane fade">
-            <div class="btn-cert">
-                <a href="#">
-                    <div class="img-frame"><img src="/images/fire_door_cer_04.jpg"></div>
-                    <div class="title">download</div>
-                </a>
-            </div>
-        </div>
-        <div id="catg" class="tab-pane fade">
-            <div class="btn-cert">
-                <a href="#">
-                    <div class="img-frame"><img src="/images/fire_door_cer_04.jpg"></div>
-                    <div class="title">download</div>
-                </a>
-            </div>
-        </div>
-    </div>
-    <hr>
-
-    <div class="text-center">
-        <button class="btn btn-default btn-quote">get a quote</button>
-    </div>
+    <%- partial("../base/quote_button.ejs") %>
 
 </div>
-
-<script type="text/javascript">
-    $(window).load(function() {
-        function setCarousel(carousel) {
-            var buttons = carousel.find(".item-button");
-            var imgsFrame = carousel.find(".img-frame");
-            var imgs = imgsFrame.find("img");
-
-            carousel.owlCarousel({
-                nav: true,
-                dots: true,
-                navText: [
-                        '<i class="fa fa-chevron-left" aria-hidden="true"></i>',
-                        '<i class="fa fa-chevron-right" aria-hidden="true"></i>'],
-                rewind: true,
-                responsive: {
-                        0: {items: 1,},
-                        768: {items: 2,},
-                        992: {items: 3,},},
-                onRefresh: function() {
-                    buttons.css("min-height", "");
-                },
-                onRefreshed: function () {
-                    var maxHeightImg = Math.max.apply(
-                        null,
-                        imgs.map(function() {
-                                return $(this).outerHeight()}).get()
-                    );
-                    imgsFrame.css("min-height", maxHeightImg);
-
-                    var maxHeightButton = Math.max.apply(
-                        null,
-                        buttons.map(function() {
-                                return $(this).outerHeight()}).get()
-                    );
-                    buttons.css("min-height", maxHeightButton);
-                },
-            });
-        }
-
-        $(".carousel-browse").each(function(index, carousel) {
-            setCarousel($(carousel));
-        });
-    });
-
-    // Function to initiate fotorama and change thumbnail label
-    function initFotorama() {
-        var f = $('.fotorama');
-        f.fotorama();
-        $('.fotorama').on(
-            'fotorama:show',
-            function (e, fotorama, extra) {
-                try {
-                    $(".thumbnail-label").text(fotorama.activeFrame.label);
-                }
-                catch(e) {}
-            }
-        );
-    }
-
-    $(function() {
-        initFotorama();
-    });
-
-    // function to update product carousel when click on model carousel
-    $("a.item-button.model").click(function() {
-        var mid = this.href.split("#").reverse()[0];
-        var url = "<%= sails.getUrlFor('ProductController.apiGetProduct') %>".replace(":mid", mid);
-        $.get(url, function(data) {
-            $(".thumbnail-container").html(JST['assets/templates/fotorama.ejs']({
-                products: data,
-            }));
-
-            initFotorama();
-        });
-    });
-</script>

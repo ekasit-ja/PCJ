@@ -1,0 +1,25 @@
+<h3 class="header">Model you can choose</h3>
+<div class="owl-carousel carousel-browse model">
+    <% _.each(models, function(model) { %>
+        <a href="#<%= model.id %>" class="item-button model">
+            <div class="img-frame"><img src="<%= model.image %>"></div>
+            <div class="item-title"><%= model.title %></div>
+        </a>
+    <% }) %>
+</div>
+<br>
+
+<script type="text/javascript">
+    // function to update product carousel when click on model carousel
+    $("a.item-button.model").click(function() {
+        var mid = this.href.split("#").reverse()[0];
+        var url = "<%= sails.getUrlFor('ProductController.apiGetProduct') %>".replace(":mid", mid);
+        $.get(url, function(data) {
+            $(".thumbnail-container").html(JST['assets/templates/fotorama.ejs']({
+                products: data,
+            }));
+
+            initFotorama();
+        });
+    });
+</script>

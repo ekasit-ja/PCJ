@@ -8,9 +8,8 @@
 module.exports = {
 
     attributes: {
-        model: {
-            model: "model",
-            via: "model",
+        position: {
+            type: "integer",
             required: true,
         },
 
@@ -24,8 +23,8 @@ module.exports = {
             required: true,
         },
 
-        position: {
-            type: "integer",
+        model: {
+            model: "model",
             required: true,
         },
     }

@@ -5,23 +5,46 @@
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 
-var midFireSteelDoor = 1;
-var catDuctDamper = 3;
-
 module.exports = {
 	fireSteelDoor: function(req, res) {
-        var ms;
-        Model
-            .find({type: midFireSteelDoor})
-            .sort("position")
+        var ms, ps;
+        Type
+            .find({category: "fsd"})
+            .then(function(types) {
+                return Model.find({type: types[0].id});
+            })
             .then(function(models) {
                 ms = models
-                return Product.find({model: models[0].id})
+                return Product.find({model: models[0].id});
             })
             .then(function(products) {
+                ps = products
+                return Hardware.find().sort("position asc");
+            })
+            .then(function(hardwares) {
+                // sort hardware according to enums config
+                // and position attribute
+                var sorting = [];
+                for(var key in sails.config.enums.hardware) {
+                    sorting.push(key);
+                }
+
+                var result = new Array(sorting.length);
+                for(var i=0; i<sorting.length; i++) {
+                    result[i] = [];
+
+                    for(var j=0; j<hardwares.length; j++) {
+                        if(hardwares[j].hardware == sorting[i]) {
+                            result[i].push(hardwares[j]);
+                        }
+                    }
+                }
+
                 return res.view("product/fire_steel_door", {
                     models: ms,
-                    products: products,
+                    products: ps,
+                    hardwares: result,
+                    sorting: sorting,
                 });
             })
             .catch(function(err) {
@@ -29,9 +52,20 @@ module.exports = {
             });
     },
 
+    apiGetProduct: function(req, res) {
+        Product
+            .find({model: req.param("mid")})
+            .sort("position asc")
+            .exec(function(err, products) {
+                if(err) return res.json(err);
+
+                return res.json(products);
+            });
+    },
+
     ductDamper: function(req, res) {
         Type
-            .find({category: catDuctDamper})
+            .find({category: "dd"})
             .sort("position asc")
             .exec(function(err, types) {
                 if(err) return res.serverError(err);
@@ -46,7 +80,7 @@ module.exports = {
         var tid = req.param("tid");
         var ts, ms;
         Type
-            .find({category: catDuctDamper})
+            .find({category: "dd"})
             .sort("position asc")
             .then(function(types) {
                 ts = types;
@@ -66,17 +100,6 @@ module.exports = {
             })
             .catch(function(err) {
                 return res.serverError(err);
-            });
-    },
-
-    apiGetProduct: function(req, res) {
-        Product
-            .find({model: req.param("mid")})
-            .sort("position asc")
-            .exec(function(err, products) {
-                if(err) return res.json(err);
-
-                return res.json(products);
             });
     },
 
@@ -198,107 +221,9 @@ module.exports = {
 
 
 
-    categoryManage: function(req, res) {
-        Category
-            .find()
-            .sort("position asc")
-            .exec(function(err, categories) {
-                if(err) return res.serverError(err);
-
-                return res.view("product/category/manage", {
-                    categories: categories,
-                });
-            });
-    },
-
-    categoryCreate: function(req, res) {
-        if(req.method == "POST") {
-            var url;
-            uploadSingleFile(req.file("image"))
-                .then(function(fs) {
-                    if(fs.length < 1)
-                        throw "No file has been uploaded."
-
-                    url = fs[0].extra.uploadFilepath;
-                    return Category.find().max("position");
-                })
-                .then(function(c) {
-                    var params = readForm(req, [
-                        "title",
-                    ]);
-                    params.image = url;
-                    params.position = c[0] ? c[0].position + 1 : 1;
-                    return Category.create(params);
-                })
-                .then(function(c) {
-                    return res.redirect(
-                        sails.getUrlFor('ProductController.categoryManage')
-                    );
-                })
-                .catch(function(err) {
-                    return res.serverError(err);
-                });
-        }
-        else {
-            return res.view("product/category/create");
-        }
-    },
-
-    categoryUpdate: function(req, res) {
-        var cid = req.param("cid");
-
-        if(req.method == "POST") {
-            uploadSingleFile(req.file("image"))
-                .then(function(fs) {
-                    var params = readForm(req, [
-                        "title",
-                    ]);
-
-                    if(fs.length > 0)
-                        params.image = fs[0].extra.uploadFilepath;
-
-                    return Category.update({id: cid}, params);
-                })
-                .then(function(c) {
-                    return res.redirect(
-                        sails.getUrlFor('ProductController.categoryManage')
-                    );
-                })
-                .catch(function(err) {
-                    return res.serverError(err);
-                });
-        }
-        else {
-            Category
-                .findOne({id: cid})
-                .exec(function(err, category) {
-                    if(err) return res.serverError(err);
-
-                    return res.view("product/category/update", {
-                        category: category
-                    });
-                });
-        }
-    },
-
-    categoryDelete: function(req, res) {
-        Category
-            .destroy({id: req.param("cid")})
-            .exec(function(err) {
-                if(err) return res.serverError(err);
-
-                return res.redirect(
-                    sails.getUrlFor('ProductController.categoryManage')
-                );
-            });
-    },
-
-
-
     typeManage: function(req, res) {
         Type
             .find()
-            .populate("category")
             .sort("position asc")
             .exec(function(err, types) {
                 if(err) return res.serverError(err);
@@ -378,23 +303,13 @@ module.exports = {
                 });
         }
         else {
-            var cs;
-            Category
-                .find()
-                .sort("position asc")
-                .then(function(categories) {
-                    cs = categories;
-                    return Type.findOne({id: tid})
-                })
-                .then(function(type) {
-                    return res.view("product/type/update", {
-                        categories: cs,
-                        type: type,
-                    });
-                })
-                .catch(function(err) {
-                    return res.serverError(err);
+            Type.findOne({id: tid}).exec(function(err, type) {
+                if(err) res.serverError(err);
+
+                return res.view("product/type/update", {
+                    type: type,
                 });
+            })
         }
     },
 
@@ -435,7 +350,7 @@ module.exports = {
                         throw "No file has been uploaded."
 
                     url = fs[0].extra.uploadFilepath;
-                    return Type.find().max("position");
+                    return Model.find().max("position");
                 })
                 .then(function(t) {
                     var params = readForm(req, [
@@ -522,6 +437,103 @@ module.exports = {
 
                 return res.redirect(
                     sails.getUrlFor('ProductController.modelManage')
+                );
+            });
+    },
+
+    hardwareManage: function(req, res) {
+        Hardware
+            .find()
+            .sort("position asc")
+            .exec(function(err, hardwares) {
+                if(err) return res.serverError(err);
+
+                return res.view("product/hardware/manage", {
+                    hardwares: hardwares,
+                });
+            });
+    },
+
+    hardwareCreate: function(req, res) {
+        if(req.method == "POST") {
+            var url;
+            uploadSingleFile(req.file("image"))
+                .then(function(fs) {
+                    if(fs.length < 1)
+                        throw "No file has been uploaded."
+
+                    url = fs[0].extra.uploadFilepath;
+                    return Hardware.find().max("position");
+                })
+                .then(function(h) {
+                    var params = readForm(req, [
+                        "hardware",
+                        "title",
+                        "desc",
+                    ]);
+                    params.image = url;
+                    params.position = h[0] ? h[0].position + 1 : 1;
+                    return Hardware.create(params);
+                })
+                .then(function(h) {
+                    return res.redirect(
+                        sails.getUrlFor('ProductController.hardwareManage')
+                    );
+                })
+                .catch(function(err) {
+                    return res.serverError(err);
+                });
+        }
+        else {
+            return res.view("product/hardware/create");
+        }
+    },
+
+    hardwareUpdate: function(req, res) {
+        var hid = req.param("hid");
+
+        if(req.method == "POST") {
+            uploadSingleFile(req.file("image"))
+                .then(function(fs) {
+                    var params = readForm(req, [
+                        "hardware",
+                        "title",
+                        "desc",
+                    ]);
+
+                    if(fs.length > 0)
+                        params.image = fs[0].extra.uploadFilepath;
+
+                    return Hardware.update({id: hid}, params);
+                })
+                .then(function(h) {
+                    return res.redirect(
+                        sails.getUrlFor('ProductController.hardwareManage')
+                    );
+                })
+                .catch(function(err) {
+                    return res.serverError(err);
+                });
+        }
+        else {
+            Hardware.findOne({id: hid}).exec(function(err, hardware) {
+                if(err) return res.serverError(err);
+
+                return res.view("product/hardware/update", {
+                    hardware: hardware,
+                });
+            });
+        }
+    },
+
+    hardwareDelete: function(req, res) {
+        Hardware
+            .destroy({id: req.param("hid")})
+            .exec(function(err) {
+                if(err) return res.serverError(err);
+
+                return res.redirect(
+                    sails.getUrlFor('ProductController.hardwareManage')
                 );
             });
     },

@@ -13,12 +13,6 @@ module.exports = {
             required: true,
         },
 
-        category: {
-            model: "category",
-            via: "category",
-            required: true,
-        },
-
         title: {
             type: "string",
             required: true,
@@ -27,6 +21,16 @@ module.exports = {
         image: {
             type: "string",
             required: true,
+        },
+
+        category: {
+            type: "string",
+            required: true,
+        },
+
+        models: {
+            collection: "model",
+            via: "type",
         },
     }
 };

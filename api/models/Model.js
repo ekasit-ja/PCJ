@@ -13,12 +13,6 @@ module.exports = {
             required: true,
         },
 
-        type: {
-            model: "type",
-            via: "type",
-            required: true,
-        },
-
         title: {
             type: "string",
             required: true,
@@ -27,6 +21,16 @@ module.exports = {
         image: {
             type: "string",
             required: true,
+        },
+
+        type: {
+            model: "type",
+            required: true,
+        },
+
+        products: {
+            collection: "product",
+            via: "model",
         },
     }
 };

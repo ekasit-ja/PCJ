@@ -39,18 +39,12 @@ module.exports.routes = {
 
 
 
-
   "/product/manager/": "ProductController.manager",
 
   "/product/manage/": "ProductController.manage",
   "/product/create/": "ProductController.create",
   "/product/update/:pid/": "ProductController.update",
   "/product/delete/": "ProductController.delete",
-
-  "/product/category/manage/": "ProductController.categoryManage",
-  "/product/category/create/": "ProductController.categoryCreate",
-  "/product/category/update/:cid/": "ProductController.categoryUpdate",
-  "/product/category/delete/": "ProductController.categoryDelete",
 
   "/product/type/manage/": "ProductController.typeManage",
   "/product/type/create/": "ProductController.typeCreate",
@@ -61,4 +55,9 @@ module.exports.routes = {
   "/product/model/create/": "ProductController.modelCreate",
   "/product/model/update/:mid/": "ProductController.modelUpdate",
   "/product/model/delete/": "ProductController.modelDelete",
+
+  "/product/hardware/manage/": "ProductController.hardwareManage",
+  "/product/hardware/create/": "ProductController.hardwareCreate",
+  "/product/hardware/update/:hid/": "ProductController.hardwareUpdate",
+  "/product/hardware/delete/": "ProductController.hardwareDelete",
 };

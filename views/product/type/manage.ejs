@@ -22,7 +22,7 @@
         <tbody>
             <% _.each(types, function(type) { %>
                 <tr>
-                    <td><%= type.category.title %></td>
+                    <td><%= sails.config.enums.category[type.category] %></td>
                     <td><%= type.title %></td>
                     <td><img src="<%= type.image %>"></td>
                     <td>
