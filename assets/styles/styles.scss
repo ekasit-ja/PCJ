@@ -35,6 +35,11 @@ $mul: 1.8;
     }
 }
 
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
 // animation for menu button on navbar
 .navbar-toggle {
     border: none;
@@ -771,7 +776,9 @@ form .img-frame {
     }
 }
 
-@keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
+
+
+
+
+
+
