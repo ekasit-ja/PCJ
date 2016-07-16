@@ -56,8 +56,9 @@
 		border-bottom: 25px solid transparent;
 
 		/* dimensions: handling large content */
-		margin-left: 5%;
-		margin-right: 5%;
+		/*margin-left: 5%;
+		margin-right: 5%;*/
+		width: 100%;
 		max-height: 95%;
 
 		/* styling */
@@ -123,8 +124,8 @@
 @media only screen and (max-width: 1024px) {
 	.featherlight .featherlight-content {
 		/* dimensions: maximize lightbox with for small screens */
-		margin-left: 10px;
-		margin-right: 10px;
+		/*margin-left: 10px;
+		margin-right: 10px;*/
 		max-height: 98%;
 
 		padding: 10px 10px 0;
