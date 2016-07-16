@@ -34,9 +34,14 @@ module.exports.routes = {
   "/product/ductDamper/t_:tid/": "ProductController.ductDamperType",
 
   "/project/": "ProjectController.view",
+  "/project/manage/": "ProjectController.manage",
+  "/project/create/": "ProjectController.create",
+  "/project/update/:pid/": "ProjectController.update",
+  "/project/delete/": "ProjectController.delete",
+  "/api/project/:pid/": "ProjectController.apiGetProject",
+
 
   "/api/product/model/:mid/": "ProductController.apiGetProduct",
-
 
 
   "/product/manager/": "ProductController.manager",

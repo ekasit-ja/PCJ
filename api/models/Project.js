@@ -7,8 +7,25 @@
 
 module.exports = {
 
-  attributes: {
+    attributes: {
+        position: {
+            type: "integer",
+            required: true,
+        },
 
-  }
+        title: {
+            type: "string",
+            required: true,
+        },
+
+        image: {
+            type: "array",
+            required: true,
+        },
+
+        desc: {
+            type: "text",
+        },
+    }
 };
 
