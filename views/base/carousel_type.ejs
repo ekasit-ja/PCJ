@@ -1,27 +1,46 @@
 <div class="owl-carousel carousel-browse type">
     <% _.each(types, function(type) { %>
-        <a href="<%= sails.getUrlFor('ProductController.ductDamperType').replace(':tid', type.id) %>" class="item-button type">
+        <a href="#" class="item-button type" data-tid="<%= type.id %>">
             <div class="img-frame" style="background-image:url('<%= type.image %>')"></div>
             <div class="item-title"><%= type.title %></div>
-
-            <% if(selected) { %>
-                <div <% if(type.id != tid) { %> class="mask-blur"<% } %> ></div>
-            <% } %>
         </a>
     <% }) %>
 </div>
 <br>
 
 <script type="text/javascript">
-    // function to update product carousel when click on model carousel
-    $("a.item-button.type").click(function() {
-        window.sessionStorage.currentY = window.pageYOffset;
-    });
+    function move(des_id) {
+        $("#" + des_id).fadeIn(function() {
+            $("html, body").animate({
+                scrollTop: $("#" + des_id).offset().top - 30
+            }, 350);
+        });
+    }
 
-    $(window).load(function() {
-        if(window.sessionStorage.currentY) {
-            window.scrollTo(0, window.sessionStorage.currentY);
-            delete window.sessionStorage.currentY;
+    $("a.item-button.type").click(function(e) {
+        e.preventDefault();
+        var btns = $(".btn-model-container");
+        var des_id = "btn-model-container-" + $(this).data("tid");
+        var found;
+        for(var i=0; i<btns.length; i++)
+            if($(btns[i]).css("display") == "block")
+                found = $(btns[i]);
+
+        if(!found) {
+            // if no block is visible, slide down
+            $("#" + des_id).slideDown(function() {
+                move(des_id);
+            });
         }
+        else if(found.attr("id") != des_id) {
+            // if visible block is not the one, fade
+            found.fadeOut(function() {
+                move(des_id);
+            });
+
+            // do nothing if chosen block is already visible
+        }
+
+
     });
 </script>

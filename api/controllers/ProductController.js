@@ -6,19 +6,35 @@
  */
 
 module.exports = {
-	fireSteelDoor: function(req, res) {
-        var ms, ps;
+	fsd: function(req, res) {
         Type
             .find({category: "fsd"})
+            .sort("position asc")
             .then(function(types) {
-                return Model.find({type: types[0].id});
+                // suppose to found just one type of fire steel door
+                return Model.find({type: types[0].id})
             })
             .then(function(models) {
-                ms = models
-                return Product.find({model: models[0].id});
+                return res.view("product/fsd/index", {
+                    models: models,
+                });
+            })
+            .catch(function(err) {
+                return res.serverError(err);
+            });
+    },
+
+    fsdModel: function(req, res) {
+        var mid = req.param("mid");
+        var m, ps;
+        Model
+            .findOne(mid)
+            .then(function(model) {
+                m = model;
+                return Product.find({model: mid}).sort("position asc")
             })
             .then(function(products) {
-                ps = products
+                ps = products;
                 return Hardware.find().sort("position asc");
             })
             .then(function(hardwares) {
@@ -40,15 +56,15 @@ module.exports = {
                     }
                 }
 
-                return res.view("product/fire_steel_door", {
-                    models: ms,
+                return res.view("product/fsd/model", {
+                    model: m,
                     products: ps,
                     hardwares: result,
                     sorting: sorting,
                 });
             })
             .catch(function(err) {
-                res.serverError(err);
+                return res.serverError(err);
             });
     },
 
@@ -63,16 +79,30 @@ module.exports = {
             });
     },
 
-    ductDamper: function(req, res) {
+    dd: function(req, res) {
         Type
             .find({category: "dd"})
             .sort("position asc")
+            .populate("models", {sort: "position asc"})
             .exec(function(err, types) {
                 if(err) return res.serverError(err);
 
-                return res.view("product/duct_damper", {
-                    selected: false,
+                return res.view("product/dd/index", {
                     types: types,
+                });
+            });
+    },
+
+    apiGetModel: function(req, res) {
+        var tid = req.param("tid");
+        Model
+            .find({type: tid})
+            .sort("position asc")
+            .exec(function(err, models) {
+                if(err) return res.serverError(err);
+
+                return res.json({
+                    models: models,
                 });
             });
     },

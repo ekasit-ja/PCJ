@@ -30,7 +30,7 @@ module.exports.policies = {
 
     "ProductController": {
         "*": true,
-        "manage": "isAuthenticated",
+        // "manage": "isAuthenticated",
     },
 
     /***************************************************************************

@@ -29,8 +29,9 @@ module.exports.routes = {
   "/logout/": "AuthController.logout",
   "/register/": "UserController.register",
 
-  "/product/fireSteelDoor/": "ProductController.fireSteelDoor",
-  "/product/ductDamper/": "ProductController.ductDamper",
+  "/product/fireSteelDoor/": "ProductController.fsd",
+  "/product/fireSteelDoor/m_:mid/": "ProductController.fsdModel",
+  "/product/ductDamper/": "ProductController.dd",
   "/product/ductDamper/t_:tid/": "ProductController.ductDamperType",
 
   "/project/": "ProjectController.view",
@@ -41,6 +42,7 @@ module.exports.routes = {
   "/api/project/:pid/": "ProjectController.apiGetProject",
 
 
+  "/api/product/type/:tid/": "ProductController.apiGetModel",
   "/api/product/model/:mid/": "ProductController.apiGetProduct",
 
 

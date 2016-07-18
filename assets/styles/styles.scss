@@ -620,14 +620,15 @@ $mul: 1.8;
         background-color: $light-grey;
         border-radius: $border-r $border-r 0 0;
         padding-top: 10px;
-        font-size: 1.1em;
+        padding-bottom: 5px;
+        font-size: 1.2em;
         font-weight: bold;
         color: $primary-red;
     }
 
     .fotorama {
         background-color: $light-grey;
-        padding: 10px 30px;
+        padding: 0px 10px;
         border-radius: 0 0 $border-r $border-r;
 
         .fotorama__stage {
@@ -783,4 +784,58 @@ form .img-frame {
 
 .limiter.project {
     cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+.row-flex {
+    display: flex;
+    flex-wrap: wrap;
+
+    [class^="col-"] {
+        display: flex;
+    }
+}
+
+
+.btn-model {
+    display: block;
+    border: 1px solid gainsboro;
+    border-radius: $border-r;
+    margin: 15px 20px;
+    padding: 5px;
+    width: 100%;
+
+    &:hover,
+    &:focus {
+        border-color: $primary-red;
+        box-shadow: 0 0 10px rgba($primary-red, .5);
+        text-decoration: none;
+    }
+
+    .img-frame {
+        height: 240px;
+        line-height: 240px;
+        text-align: center;
+
+        img {
+            width: auto;
+            max-width: 100%;
+            height: auto;
+            max-height: 100%;
+        }
+    }
+
+    .title {
+        text-align: center;
+        color: $primary-red;
+        margin-top: 10px;
+    }
 }
