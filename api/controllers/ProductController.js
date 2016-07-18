@@ -93,46 +93,56 @@ module.exports = {
             });
     },
 
-    apiGetModel: function(req, res) {
-        var tid = req.param("tid");
+    ddModel: function(req, res) {
+        var mid = req.param("mid");
+        var m;
         Model
-            .find({type: tid})
-            .sort("position asc")
-            .exec(function(err, models) {
-                if(err) return res.serverError(err);
-
-                return res.json({
-                    models: models,
-                });
-            });
-    },
-
-    ductDamperType: function(req, res) {
-        var tid = req.param("tid");
-        var ts, ms;
-        Type
-            .find({category: "dd"})
-            .sort("position asc")
-            .then(function(types) {
-                ts = types;
-                return Model.find({type: tid}).sort("position asc")
-            })
-            .then(function(models) {
-                ms = models;
-                return Product.find({model: models[0].id})
+            .findOne(mid)
+            .populate("type")
+            .then(function(model) {
+                m = model;
+                return Product.find({model: mid}).sort("position asc")
             })
             .then(function(products) {
-                return res.view("product/duct_damper", {
-                    selected: true,
-                    tid: tid,
-                    types: ts,
-                    models: ms,
+
+                console.log(products);
+
+                return res.view("product/dd/model", {
+                    model: m,
                     products: products,
                 });
             })
             .catch(function(err) {
                 return res.serverError(err);
             });
+
+
+
+        // var tid = req.param("tid");
+        // var ts, ms;
+        // Type
+        //     .find({category: "dd"})
+        //     .sort("position asc")
+        //     .then(function(types) {
+        //         ts = types;
+        //         return Model.find({type: tid}).sort("position asc")
+        //     })
+        //     .then(function(models) {
+        //         ms = models;
+        //         return Product.find({model: models[0].id})
+        //     })
+        //     .then(function(products) {
+        //         return res.view("product/duct_damper", {
+        //             selected: true,
+        //             tid: tid,
+        //             types: ts,
+        //             models: ms,
+        //             products: products,
+        //         });
+        //     })
+        //     .catch(function(err) {
+        //         return res.serverError(err);
+        //     });
     },
 
     manager: function(req, res) {

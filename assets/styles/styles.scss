@@ -432,9 +432,7 @@ $mul: 1.8;
                 font-weight: bold;
             }
 
-            .item-desc ul {
-                padding-left: 15px;
-                margin-bottom: 0px;
+            .item-desc {
                 white-space: pre-line;
             }
         }
@@ -450,6 +448,11 @@ $mul: 1.8;
         background-color: white;
         border: 0px solid gainsboro;
         max-width: 250px;
+
+        &.selected {
+            border: 1px solid $primary-red;
+            box-shadow: 0 0 10px rgba($primary-red, .5);
+        }
 
         .img-frame {
             position: relative;

@@ -10,15 +10,19 @@
 
 <script type="text/javascript">
     function move(des_id) {
-        $("#" + des_id).fadeIn(function() {
+        $("#" + des_id).fadeIn(100, function() {
             $("html, body").animate({
                 scrollTop: $("#" + des_id).offset().top - 30
-            }, 350);
+            }, 250);
         });
     }
 
     $("a.item-button.type").click(function(e) {
         e.preventDefault();
+        // add mask blur to all other buttons
+        $(".item-button.type").removeClass("selected");
+        $(e.currentTarget).addClass("selected");
+
         var btns = $(".btn-model-container");
         var des_id = "btn-model-container-" + $(this).data("tid");
         var found;
@@ -34,13 +38,11 @@
         }
         else if(found.attr("id") != des_id) {
             // if visible block is not the one, fade
-            found.fadeOut(function() {
+            found.fadeOut(100, function() {
                 move(des_id);
             });
 
             // do nothing if chosen block is already visible
         }
-
-
     });
 </script>

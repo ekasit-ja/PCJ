@@ -3,13 +3,11 @@
     <p class="text-center">Plenty types of our duct dampers are available to meet any of your requirements</p>
     <hr>
 
-    <% urlModel = sails.getUrlFor("ProductController.apiGetModel") %>
     <%- partial("../../base/carousel_type.ejs") %>
     <br>
 
-
     <% _.each(types, function(type) {
-        url = sails.getUrlFor('ProductController.ductDamperType');
+        url = sails.getUrlFor('ProductController.ddModel');
         models = type.models;
     %>
         <div id="btn-model-container-<%= type.id %>" class="btn-model-container">
