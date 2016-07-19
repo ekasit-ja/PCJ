@@ -1,9 +1,7 @@
 $(function() {
-    $(".carousel-browse").each(function(index, carousel) {
+    $(".owl-carousel.browse").each(function(index, carousel) {
         setCarousel($(carousel));
     });
-
-    $("a.item-button.model").first().trigger("click");
 });
 
 

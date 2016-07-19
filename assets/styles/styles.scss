@@ -1,6 +1,6 @@
 $primary-red: #c00;
 $secondary-red: lighten($primary-red, 7%);
-$light-grey: #eee;
+$light-grey: lighten(#eee, 1%);
 $black: #000;
 $white: #fff;
 $border-r: 5px;
@@ -18,7 +18,7 @@ $mul: 1.8;
 }
 
 @mixin mixin-owl-nav($direction, $opac, $mul, $arrow-color, $grad-color) {
-    #{$direction}: -50px;
+    #{$direction}: -40px;
     @if $direction == "left" {
         border-radius: $border-r 0px 0px $border-r;
     } @else if $direction == "right" {
@@ -211,6 +211,12 @@ $mul: 1.8;
 .tab-content {
     margin-top: 20px;
 }
+
+.footer {
+    padding: 15px 0;
+    background-image: linear-gradient(to bottom, $primary-red 0, $secondary-red 100%);
+    color: white;
+}
 // --- custom bootstrap
 
 // custom style for owl carousel
@@ -308,37 +314,47 @@ $mul: 1.8;
     }
 }
 
-.owl-carousel.carousel-browse {
-    margin: 0 50px;
+.owl-carousel.browse {
+    margin: 0 40px;
     background-color: $light-grey;
 
     .owl-item {
         display: flex;
-        padding: 20px 10px 10px 10px;
+        padding: 5px;
 
-        .item-button {
+        .owl-item-btn {
             width: 100%;
-            text-decoration: none;
-            padding-bottom: 5px;
+            padding: 5px;
             background-color: white;
             border: 1px solid gainsboro;
 
+            &:hover,
+            &:focus {
+                text-decoration: none;
+            }
+
             .img-frame {
-                height: 200px;
+                height: 150px;
+                line-height: 150px;
+                text-align: center;
 
                 img {
+                    display: inline-block;
                     width: auto;
                     max-width: 100%;
                     height: auto;
                     max-height: 100%;
-                    border: 10px solid white;
-                    margin: 0px auto;
                 }
             }
 
             .item-title {
                 color: $primary-red;
-                text-align: center;
+                font-weight: bold;
+                margin: 3px 0px;
+            }
+
+            .item-desc {
+                white-space: pre-line;
             }
         }
     }
@@ -365,7 +381,7 @@ $mul: 1.8;
             position: absolute;
             top: 0;
             height: 100%;
-            width: 50px;
+            width: 40px;
             text-align: center;
             background-color: $light-grey;
 
@@ -410,142 +426,63 @@ $mul: 1.8;
         }
     }
 
-    &.hardware {
-        .owl-item {
-            padding: 5px;
-        }
+    &.type {
+        background-color: white;
 
-        .item-button {
-            padding: 5px;
+        .owl-item-btn {
+            margin: 0px auto;
+            padding: 0px;
+            border: 0px;
+            max-width: 250px;
+            border: 1px solid $white;
+
+            &:hover,
+            &:focus,
+            &.selected {
+                border: 1px solid $primary-red;
+                box-shadow: 0 0 10px rgba($primary-red, .5);
+            }
 
             .img-frame {
-                height: 150px;
-
-                img {
-                    border: 0px;
-                }
+                height: 250px;
+                line-height: 247px;
+                border: 1px solid gainsboro;
+                border-bottom: 0px;
             }
 
             .item-title {
-                text-align: left;
-                margin-top: 5px;
+                height: 40px;
+                background-color: $primary-red;
+                color: white;
+                text-transform: capitalize;
                 font-weight: bold;
-            }
-
-            .item-desc {
-                white-space: pre-line;
-            }
-        }
-    }
-}
-
-.owl-carousel.carousel-browse.type {
-    background-color: white;
-
-    .item-button {
-        margin: 0px auto 5px auto;
-        padding: 0px;
-        background-color: white;
-        border: 0px solid gainsboro;
-        max-width: 250px;
-
-        &.selected {
-            border: 1px solid $primary-red;
-            box-shadow: 0 0 10px rgba($primary-red, .5);
-        }
-
-        .img-frame {
-            position: relative;
-            height: 240px;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: contain;
-            border: 1px solid $light-grey;
-
-            img {
-                width: auto;
-                max-width: 100%;
-                height: auto;
-                max-height: 240px;
-                margin: 0px auto;
-                border: 10px solid white;
-                position: absolute;
-                top: 0;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                margin: auto;
+                font-size: 1.2em;
+                line-height: 40px;
+                text-align: center;
+                margin: 0px;
             }
         }
 
-        .item-title {
-            height: 40px;
-            background-color: $primary-red;
-            color: white;
-            text-transform: capitalize;
-            font-weight: bold;
-            font-size: 1.2em;
-            line-height: 40px;
-            text-align: center;
-        }
-    }
+        .owl-prev,
+        .owl-next {
+            background-color: white;
 
-
-
-
-    .owl-prev,
-    .owl-next {
-        position: absolute;
-        top: 0;
-        height: 100%;
-        width: 50px;
-        text-align: center;
-        background-color: white;
-
-        i {
-            width: 30px;
-            height: 30px;
-            font-size: 30px;
-            margin-top: -15px;
-            position: relative;
-            top: 50%;
-            color: darken(white, 10%);
-            text-shadow: 0 1px 3px black;
-        }
-    }
-
-    .owl-prev {
-        @include mixin-owl-nav(left, $opac_2, 0, $primary-red, $white);
-    }
-    .owl-next {
-        @include mixin-owl-nav(right, $opac_2, 0, $primary-red, $white);
-    }
-
-    .owl-dots {
-        position: relative;
-        width: 100%;
-        text-align: center;
-        top: -3px;
-
-        .owl-dot {
-            display: inline-block;
-            width: 13px;
-            height: 7px;
-            margin: 1px 6px;
-            cursor: pointer;
-            background-color: #bbb;
-
-            &.active {
-                width: 15px;
-                height: 9px;
-                margin: 0px 4px;
-                background-color: #666;
+            i {
+                color: darken(white, 10%);
             }
+        }
+
+        .owl-prev {
+            @include mixin-owl-nav(left, $opac_2, 0, $primary-red, $white);
+        }
+        .owl-next {
+            @include mixin-owl-nav(right, $opac_2, 0, $primary-red, $white);
         }
     }
 }
 // --- custom style for owl carousel
 
+// style for quick contact
 .icon-font {
     font-size: 1.3em;
     vertical-align: middle;
@@ -555,22 +492,34 @@ $mul: 1.8;
     margin-left: 5px;
 }
 
-.icon-certificate {
-    max-width: 100%;
-    height: auto;
-}
-
 .red-text {
-    color: #d00;
+    color: $primary-red;
 }
+// --- style for quick contact
 
+// style for projects and product navbar buttons
 .tag-container {
     &.category {
         margin-top: 20px;
     }
 
+    &.project {
+        margin: 10px 0px;
+        display: inline-block;
+        vertical-align: top;
+        float: none;
+        transition: height 3000ms ease;
+
+        &>div {
+            cursor: pointer;
+        }
+    }
+
+    &>[class^="col-"] {
+        padding: 0px;
+    }
+
     .img {
-        width: 100%;
         background-position: center center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -584,13 +533,9 @@ $mul: 1.8;
         }
     }
 
-    .limiter {
-        padding: 0;
-    }
-
     .tag-label {
         position: absolute;
-        height: 0;
+        height: 0px;
         width: 100%;
 
         span {
@@ -607,23 +552,14 @@ $mul: 1.8;
         }
     }
 }
+// --- style for projects and product navbar buttons
 
-.footer {
-    padding: 15px 0;
-    background-image: linear-gradient(to bottom, $primary-red 0, $secondary-red 100%);
-    color: white;
-}
-
-.product-cert {
-    max-height: 120px;
-}
-
+// style for fotorama
 .thumbnail-container {
     .thumbnail-label {
         background-color: $light-grey;
         border-radius: $border-r $border-r 0 0;
         padding-top: 10px;
-        padding-bottom: 5px;
         font-size: 1.2em;
         font-weight: bold;
         color: $primary-red;
@@ -631,7 +567,7 @@ $mul: 1.8;
 
     .fotorama {
         background-color: $light-grey;
-        padding: 0px 10px;
+        padding: 10px;
         border-radius: 0 0 $border-r $border-r;
 
         .fotorama__stage {
@@ -644,10 +580,16 @@ $mul: 1.8;
         }
     }
 }
+// --- style for fotorama
+
+// style for product and its detail page
+.product-cert {
+    max-height: 120px;
+}
 
 .option-container {
     .row {
-        margin-bottom: 10px;
+        margin-bottom: 5px;
 
         &:last-child {
             margin-bottom: 0;
@@ -656,10 +598,6 @@ $mul: 1.8;
         .option-label {
             font-weight: bold;
             text-transform: capitalize;
-        }
-
-        .option-detail {
-            padding-left: 20px;
         }
     }
 }
@@ -688,7 +626,7 @@ $mul: 1.8;
         height: 120px;
         width: 120px;
 
-        &>img {
+        img {
             height: 100%;
             width: auto;
             display: block;
@@ -703,6 +641,66 @@ $mul: 1.8;
     }
 }
 
+.hardware-container {
+    .hardware-label {
+        text-transform: capitalize;
+        font-weight: bold;
+    }
+
+    .row {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-bottom: 10px;
+    }
+}
+
+.row-flex {
+    display: flex;
+    flex-wrap: wrap;
+
+    [class^="col-"] {
+        display: flex;
+    }
+}
+
+.btn-model {
+    display: block;
+    border: 1px solid gainsboro;
+    border-radius: $border-r;
+    margin: 15px 20px;
+    padding: 5px;
+    width: 100%;
+
+    &:hover,
+    &:focus {
+        border-color: $primary-red;
+        box-shadow: 0 0 10px rgba($primary-red, .5);
+        text-decoration: none;
+    }
+
+    .img-frame {
+        height: 240px;
+        line-height: 240px;
+        text-align: center;
+
+        img {
+            width: auto;
+            max-width: 100%;
+            height: auto;
+            max-height: 100%;
+        }
+    }
+
+    .title {
+        text-align: center;
+        color: $primary-red;
+        margin-top: 10px;
+    }
+}
+// --- style for product and its detail page
+
+// style for admin page
 form .btn.btn-danger {
     margin-left: 20px;
 }
@@ -739,106 +737,54 @@ form .img-frame {
         margin: auto;
     }
 }
+// --- style for admin page
 
-.carousel-browse {
-    .mask-blur {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        background-color: white;
-        opacity: 0.7;
+// style for featherlight fotorama
+.featherlight {
+    &:before {
+        margin-right: 0;
     }
 
-    .mask-select {
-        position: absolute;
-        top: 18px;
-        left: 8px;
-        border: 2px solid $primary-red;
-        animation: fadein 0.5s;
-    }
-}
+    .featherlight-content {
+        background: $light-grey;
+        border: 1px solid $light-grey;
+        border-radius: $border-r;
+        padding: 0px;
 
-.project-container {
-    .row {
-        margin-bottom: 30px;
-    }
-}
+        [class^="col-"] {
+            padding: 0px;
+        }
 
-.hardware-container {
-    .hardware-label {
-        text-transform: capitalize;
-        font-weight: bold;
-    }
+        .lightbox-text {
+            padding: 10px 10px 5px 10px;
 
-    .row {
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
-        margin-bottom: 20px;
-    }
-}
-
-
-
-
-
-
-.limiter.project {
-    cursor: pointer;
-}
-
-
-
-
-
-
-
-
-
-
-.row-flex {
-    display: flex;
-    flex-wrap: wrap;
-
-    [class^="col-"] {
-        display: flex;
-    }
-}
-
-
-.btn-model {
-    display: block;
-    border: 1px solid gainsboro;
-    border-radius: $border-r;
-    margin: 15px 20px;
-    padding: 5px;
-    width: 100%;
-
-    &:hover,
-    &:focus {
-        border-color: $primary-red;
-        box-shadow: 0 0 10px rgba($primary-red, .5);
-        text-decoration: none;
-    }
-
-    .img-frame {
-        height: 240px;
-        line-height: 240px;
-        text-align: center;
-
-        img {
-            width: auto;
-            max-width: 100%;
-            height: auto;
-            max-height: 100%;
+            .title {
+                color: $primary-red;
+                text-transform: uppercase;
+                font-weight: bold;
+                font-size: 1.1em;
+                margin-bottom: 5px;
+                padding-right: 10px;
+            }
         }
     }
+}
 
-    .title {
-        text-align: center;
-        color: $primary-red;
-        margin-top: 10px;
+@media screen and (min-width: 0px) {
+    .featherlight .featherlight-content {
+        width: 97%;
     }
 }
+
+@media screen and (min-width: 992px) {
+    .featherlight .featherlight-content {
+        width: 85%;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .featherlight .featherlight-content {
+        width: 80%;
+    }
+}
+// --- style for featherlight fotorama

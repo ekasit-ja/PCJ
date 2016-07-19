@@ -104,9 +104,6 @@ module.exports = {
                 return Product.find({model: mid}).sort("position asc")
             })
             .then(function(products) {
-
-                console.log(products);
-
                 return res.view("product/dd/model", {
                     model: m,
                     products: products,
@@ -115,34 +112,6 @@ module.exports = {
             .catch(function(err) {
                 return res.serverError(err);
             });
-
-
-
-        // var tid = req.param("tid");
-        // var ts, ms;
-        // Type
-        //     .find({category: "dd"})
-        //     .sort("position asc")
-        //     .then(function(types) {
-        //         ts = types;
-        //         return Model.find({type: tid}).sort("position asc")
-        //     })
-        //     .then(function(models) {
-        //         ms = models;
-        //         return Product.find({model: models[0].id})
-        //     })
-        //     .then(function(products) {
-        //         return res.view("product/duct_damper", {
-        //             selected: true,
-        //             tid: tid,
-        //             types: ts,
-        //             models: ms,
-        //             products: products,
-        //         });
-        //     })
-        //     .catch(function(err) {
-        //         return res.serverError(err);
-        //     });
     },
 
     manager: function(req, res) {
