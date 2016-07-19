@@ -788,3 +788,29 @@ form .img-frame {
     }
 }
 // --- style for featherlight fotorama
+
+// style for project page
+.filter-project {
+    .filter-label {
+        display: block;
+        text-align: center;
+        margin-top: 10px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .filter-project {
+        .form-control {
+            display: inline-block;
+            width: inherit;
+        }
+
+        .filter-label {
+            display: inline-block;
+            text-align: left;
+            margin-left: 15px;
+            margin-right: 3px;
+        }
+    }
+}
+// --- style for project page
