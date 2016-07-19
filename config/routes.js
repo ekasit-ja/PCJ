@@ -22,7 +22,7 @@
 
 module.exports.routes = {
 
-  "/": {view: "homepage"},
+  "/": "ProductController.homepage",
 
   "get /login/": "UserController.login",
   "post /login/": "AuthController.login",

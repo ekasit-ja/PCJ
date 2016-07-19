@@ -16,31 +16,7 @@
     </div>
     <hr>
 
-    <div class="project-container">
-        <div class="row">
-            <% _.each(projects, function(project, i) { %><div class="col-sm-4 col-xs-12 tag-container project">
-                    <div class="col-sm-12" data-pid="<%= project.id %>">
-                        <div class="img project" style="background-image:url('<%= project.image[0] %>')"></div>
-                        <div class="tag-label"><span><%= project.title %></span></div>
-                    </div>
-            </div><% }) %>
-        </div>
-    </div>
-    <hr>
+    <%- partial("../base/btn-project.ejs") %>
+
 </div>
 
-<script type="text/javascript">
-    $(".tag-container.project>div").click(function(e) {
-        e.preventDefault();
-
-        var _this = $(this);
-        var url = "<%= sails.getUrlFor('ProjectController.apiGetProject') %>".replace(":pid", _this.data("pid"));
-        $.get(url, function(data) {
-            $.featherlight(JST["assets/templates/lightbox.ejs"]({
-                project: data,
-            }));
-
-            initFotorama();
-        });
-    });
-</script>

@@ -23,29 +23,12 @@
     </div>
     <hr>
     <h3 class="header">Projects</h3>
-    <div class="row">
-        <div class="col-sm-4 tag-container">
-            <div class="col-sm-12 limiter">
-                <div class="img project" style="background-image:url('/images/project_001.jpg')"></div>
-                <div class="tag-label"><span>Four Wings Hotel</span></div>
-            </div>
-        </div>
-        <div class="col-sm-4 tag-container">
-            <div class="col-sm-12 limiter">
-                <div class="img project" style="background-image:url('/images/project_002.jpg')"></div>
-                <div class="tag-label"><span>Navanakorn Power Plant</span></div>
-            </div>
-        </div>
-        <div class="col-sm-4 tag-container">
-            <div class="col-sm-12 limiter">
-                <div class="img project" style="background-image:url('/images/project_003.jpg')"></div>
-                <div class="tag-label"><span>twin centro</span></div>
-            </div>
-        </div>
-    </div>
+
+    <%- partial("base/btn-project.ejs") %>
+
     <br>
     <div class="text-center">
-        <button class="btn btn-default text-capitalize">view all</button>
+        <a href="<%= sails.getUrlFor('ProjectController.view') %>" class="btn btn-default text-capitalize">view all</a>
     </div>
     <br>
 </div>

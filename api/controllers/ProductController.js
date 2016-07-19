@@ -6,6 +6,20 @@
  */
 
 module.exports = {
+    homepage: function(req, res) {
+        Project
+            .find()
+            .sort("position asc")
+            .limit(3)
+            .exec(function(err, projects) {
+                if(err) return res.serverError(err);
+
+                return res.view("homepage", {
+                    projects: projects,
+                });
+            });
+    },
+
 	fsd: function(req, res) {
         Type
             .find({category: "fsd"})
@@ -315,7 +329,7 @@ module.exports = {
         }
         else {
             Type.findOne({id: tid}).exec(function(err, type) {
-                if(err) res.serverError(err);
+                if(err) return res.serverError(err);
 
                 return res.view("product/type/update", {
                     type: type,
@@ -385,7 +399,7 @@ module.exports = {
             Type
                 .find()
                 .exec(function(err, types) {
-                    if(err) res.serverError(err);
+                    if(err) return res.serverError(err);
 
                     return res.view("product/model/create", {
                         types: types,
