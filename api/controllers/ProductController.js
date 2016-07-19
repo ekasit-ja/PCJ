@@ -289,16 +289,7 @@ module.exports = {
                 });
         }
         else {
-            Category
-                .find()
-                .sort("position asc")
-                .exec(function(err, categories) {
-                    if(err) return res.serverError(err);
-
-                    return res.view("product/type/create", {
-                        categories: categories,
-                    });
-                });
+            return res.view("product/type/create");
         }
     },
 

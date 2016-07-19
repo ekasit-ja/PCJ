@@ -26,6 +26,18 @@ module.exports = {
         desc: {
             type: "text",
         },
+
+        region: {
+            type: "string",
+        },
+
+        year: {
+            type: "string",
+        },
+
+        company: {
+            type: "string",
+        },
     }
 };
 
