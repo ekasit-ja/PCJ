@@ -1,5 +1,5 @@
 /**
- * Project.js
+ * ProjectImage.js
  *
  * @description :: TODO: You might write a short summary of how this model works and what it represents here.
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
@@ -13,34 +13,14 @@ module.exports = {
             required: true,
         },
 
-        title: {
+        url: {
             type: "string",
             required: true,
         },
 
-        image: {
-            type: "array",
-        },
-
-        images: {
-            collection: "projectImage",
-            via: "project",
-        },
-
-        desc: {
-            type: "text",
-        },
-
-        region: {
-            type: "string",
-        },
-
-        year: {
-            type: "string",
-        },
-
-        company: {
-            type: "string",
+        project: {
+            model: "project",
+            required: true,
         },
     }
 };

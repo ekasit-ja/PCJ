@@ -39,8 +39,9 @@ module.exports.routes = {
   "/project/create/": "ProjectController.create",
   "/project/update/:pid/": "ProjectController.update",
   "/project/delete/": "ProjectController.delete",
-  "/api/project/:pid/": "ProjectController.apiGetProject",
+  "/api/project/read/:pid/": "ProjectController.apiGetProject",
 
+  "/api/project/image/create/": "ProjectController.apiImageCreate",
 
   "/api/product/model/:mid/": "ProductController.apiGetProduct",
 

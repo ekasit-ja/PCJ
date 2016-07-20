@@ -49,10 +49,10 @@ module.exports = {
             var url;
             uploadSingleFile(req.file("image"))
                 .then(function(fs) {
-                    if(fs.length < 1)
-                        throw "No file has been uploaded."
+                    // if(fs.length < 1)
+                    //     throw "No file has been uploaded."
 
-                    url = fs[0].extra.uploadFilepath;
+                    // url = fs[0].extra.uploadFilepath;
                     return Project.find().max("position");
                 })
                 .then(function(p) {
@@ -60,17 +60,18 @@ module.exports = {
                         "title",
                         "desc",
                     ]);
-                    params.image = [url];
+                    // params.image = [url];
                     params.position = p[0] ? p[0].position + 1 : 1;
-
-                    console.log(params);
 
                     return Project.create(params);
                 })
                 .then(function(p) {
-                    return res.redirect(
-                        sails.getUrlFor('ProjectController.manage')
-                    );
+                    // return res.redirect(
+                    //     sails.getUrlFor('ProjectController.manage')
+                    // );
+                    return res.json({
+                        project: p,
+                    });
                 })
                 .catch(function(err) {
                     return res.serverError(err);
@@ -79,6 +80,50 @@ module.exports = {
         else {
             return res.view("project/create");
         }
+    },
+
+    apiImageCreate: function(req, res) {
+        uploadSingleFile(req.file("images"))
+            .then(function(fs) {
+                if(fs.length < 1)
+                    throw "No file has been uploaded."
+
+                url = fs[0].extra.uploadFilepath;
+
+                ProjectImage
+                    .find()
+                    .max("position")
+                    .then(function(pi) {
+                        var params = readForm(req, [
+                            "project",
+                        ]);
+                        params.position = pi[0] ? pi[0].position + 1 : 1;
+                        params.url = url;
+
+                        return ProjectImage.create(params);
+                    })
+                    .then(function(pi) {
+                        return res.json({
+                            files: [{
+                                name: fs[0].extra.filename,
+                                size: fs[0].size,
+                                url: url,
+                            }]
+                        });
+                    })
+                    .catch(function(err) {
+                        throw err;
+                    })
+            })
+            .catch(function(err) {
+                return res.json({
+                    files: [{
+                        name: fs[0].filename,
+                        size: fs[0].size,
+                        error: err,
+                    }]
+                });
+            });
     },
 
     update: function(req, res) {
