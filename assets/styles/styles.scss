@@ -535,21 +535,15 @@ $mul: 1.8;
 
     .tag-label {
         position: absolute;
-        height: 0px;
         width: 100%;
-
-        span {
-            display: block;
-            color: white;
-            font-weight: bold;
-            font-style: italic;
-            text-transform: uppercase;
-            text-align: center;
-            position: relative;
-            top: -40px;
-            line-height: 40px;
-            background: rgba($primary-red, 0.7);
-        }
+        bottom: 0px;
+        padding: 10px 0px;
+        background: rgba($primary-red, 0.7);
+        color: white;
+        font-weight: bold;
+        font-style: italic;
+        text-transform: uppercase;
+        text-align: center;
     }
 }
 // --- style for projects and product navbar buttons

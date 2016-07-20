@@ -3,7 +3,7 @@
         <% _.each(projects, function(project, i) { %><div class="col-sm-4 col-xs-12 tag-container project">
                 <div class="col-sm-12" data-pid="<%= project.id %>">
                     <div class="img project" style="background-image:url('<%= project.image[0] %>')"></div>
-                    <div class="tag-label"><span><%= project.title %></span></div>
+                    <div class="tag-label"><%= project.title %></div>
                 </div>
         </div><% }) %>
     </div>
