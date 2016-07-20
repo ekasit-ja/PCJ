@@ -45,7 +45,7 @@ module.exports.routes = {
   "/api/product/model/:mid/": "ProductController.apiGetProduct",
 
 
-  "/product/manager/": "ProductController.manager",
+  "/admin/": "AdminController.dashboard",
 
   "/product/manage/": "ProductController.manage",
   "/product/create/": "ProductController.create",
