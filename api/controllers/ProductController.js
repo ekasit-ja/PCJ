@@ -574,13 +574,14 @@ module.exports = {
 
     fileCreate: function(req, res) {
         if(req.method == "POST") {
-            var url;
+            var fileUrl, imageUrl;
             uploadSingleFile(req.file("file"))
                 .then(function(fs) {
                     if(fs.length < 1)
                         throw "No file has been uploaded."
 
-                    url = fs[0].extra.uploadFilepath;
+                    fileUrl = fs[0].extra.uploadFilepath;
+
                     return File.find().max("position");
                 })
                 .then(function(f) {
@@ -590,7 +591,8 @@ module.exports = {
                         "title",
                         "desc",
                     ]);
-                    params.url = url;
+                    params.url = fileUrl;
+                    params.image = imageUrl;
                     params.position = f[0] ? f[0].position + 1 : 1;
                     return File.create(params);
                 })
@@ -612,25 +614,22 @@ module.exports = {
         var fid = req.param("fid");
 
         if(req.method == "POST") {
-            uploadSingleFile(req.file("file"))
-                .then(function(fs) {
-                    var params = readForm(req, [
+            var params = readForm(req, [
                         "category",
                         "fileType",
                         "title",
                         "desc",
                     ]);
-                    params.id = fid;
+            params.id = fid;
 
+            uploadSingleFile(req.file("file"))
+                .then(function(fs) {
                     if(fs.length > 0)
                         params.url = fs[0].extra.uploadFilepath;
 
-                    console.log(fid);
-                    console.log(params);
                     return File.update({id: fid}, params);
                 })
                 .then(function(f) {
-                    console.log(1);
                     return res.redirect(
                         sails.getUrlFor('ProductController.fileManage')
                     );

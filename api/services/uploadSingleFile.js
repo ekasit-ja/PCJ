@@ -3,7 +3,7 @@ module.exports = function(file) {
         file.upload({
             dirname: sails.getUploadDirFromTmp,
         }, function(err, files) {
-            if(err) reject(err);
+            if(err) return reject(err);
 
             for(var i=0; i<files.length; i++) {
                 var filename = getFilename(files[i].fd);

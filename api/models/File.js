@@ -18,6 +18,10 @@ module.exports = {
             required: true,
         },
 
+        image: {
+            type: "string",
+        },
+
         url: {
             type: "string",
             required: true,
@@ -39,13 +43,20 @@ module.exports = {
     },
 
     beforeUpdate: function(valuesToUpdate, cb) {
-        if("url" in valuesToUpdate) {
+        if("url" in valuesToUpdate || "image" in valuesToUpdate) {
             this.findOne(valuesToUpdate.id).exec(function(err, file) {
                 if(err) return cb(err);
 
-                sails.fs.unlink(
-                    sails.prefixDir + file.url,
-                    function() {});
+                if("url" in valuesToUpdate)
+                    sails.fs.unlink(
+                        sails.prefixDir + file.url,
+                        function() {});
+
+                if("image" in valuesToUpdate)
+                    sails.fs.unlink(
+                        sails.prefixDir + file.image,
+                        function() {});
+
                 return cb();
             });
         }
