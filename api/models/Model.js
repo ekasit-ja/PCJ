@@ -39,7 +39,9 @@ module.exports = {
             this.findOne(valuesToUpdate.id).exec(function(err, model) {
                 if(err) return cb(err);
 
-                sails.fs.unlink(sails.prefixDir + model.image);
+                sails.fs.unlink(
+                    sails.prefixDir + model.image,
+                    function() {});
                 cb();
             });
         }
@@ -47,7 +49,9 @@ module.exports = {
 
     afterDestroy: function(destroyedRecords, cb) {
         for(var i=0; i<destroyedRecords.length; i++)
-            sails.fs.unlink(sails.prefixDir + destroyedRecords[i].image);
+            sails.fs.unlink(
+                sails.prefixDir + destroyedRecords[i].image,
+                function() {});
 
         cb();
     },

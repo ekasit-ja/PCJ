@@ -26,7 +26,9 @@ module.exports = {
 
     afterDestroy: function(destroyedRecords, cb) {
         for(var i=0; i<destroyedRecords.length; i++)
-            sails.fs.unlink(sails.prefixDir + destroyedRecords[i].url);
+            sails.fs.unlink(
+                sails.prefixDir + destroyedRecords[i].url,
+                function() {});
 
         cb();
     },
