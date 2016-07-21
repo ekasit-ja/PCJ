@@ -14,7 +14,6 @@
             <tr>
                 <th>Title</th>
                 <th>Description</th>
-                <th>Image</th>
                 <th></th>
                 <th></th>
             </tr>
@@ -24,7 +23,6 @@
                 <tr>
                     <td><%= project.title %></td>
                     <td><%= project.desc %></td>
-                    <td><img src="<%= project.image[0] %>"></td>
                     <td>
                         <a href="<%= sails.getUrlFor("ProjectController.update").replace(":pid", project.id) %>" class="btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                     </td>

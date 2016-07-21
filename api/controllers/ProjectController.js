@@ -11,6 +11,7 @@ module.exports = {
         Project
             .find()
             .sort("position asc")
+            .populate("images", {sort: "position asc"})
             .exec(function(err, projects) {
                 if(err) return res.serverError(err);
 
@@ -24,6 +25,7 @@ module.exports = {
         var pid = req.param("pid");
         Project
             .findOne(pid)
+            .populate("images", {sort: "position asc"})
             .exec(function(err, project) {
                 if(err) return res.serverError(err);
 
@@ -47,28 +49,22 @@ module.exports = {
     create: function(req, res) {
         if(req.method == "POST") {
             var url;
-            uploadSingleFile(req.file("image"))
-                .then(function(fs) {
-                    // if(fs.length < 1)
-                    //     throw "No file has been uploaded."
-
-                    // url = fs[0].extra.uploadFilepath;
-                    return Project.find().max("position");
-                })
+            Project
+                .find()
+                .max("position")
                 .then(function(p) {
                     var params = readForm(req, [
                         "title",
                         "desc",
+                        "region",
+                        "year",
+                        "company",
                     ]);
-                    // params.image = [url];
                     params.position = p[0] ? p[0].position + 1 : 1;
 
                     return Project.create(params);
                 })
                 .then(function(p) {
-                    // return res.redirect(
-                    //     sails.getUrlFor('ProjectController.manage')
-                    // );
                     return res.json({
                         project: p,
                     });
@@ -126,39 +122,77 @@ module.exports = {
             });
     },
 
+    apiImageDelete: function(req, res) {
+        var imgIds = req.param("imgIds");
+
+        ProjectImage.destroy({id: imgIds}).exec(function(err, imgs) {
+            if(err) return res.serverError(err);
+
+            return res.json({
+                imgIds: imgIds,
+            });
+        });
+    },
+
+    apiImageReorder: function(req, res) {
+        var order = req.param("order") || [];
+
+        var tasks = [];
+        for(var i=0; i<order.length; i++) {
+            if(order[i]) {
+                (function(i) {
+                    tasks.push(function(cb) {
+                        ProjectImage
+                            .update(order[i], {position: i})
+                            .exec(cb);
+                    });
+                })(i);
+            }
+        }
+
+        async.parallel(tasks, function(err, results) {
+            if(err) return res.serverError(err);
+
+            return res.json({
+                order: order,
+            });
+        });
+    },
+
     update: function(req, res) {
         var pid = req.param("pid");
 
         if(req.method == "POST") {
-            uploadSingleFile(req.file("image"))
-                .then(function(fs) {
-                    var params = readForm(req, [
-                        "title",
-                        "desc",
-                    ]);
+            var params = readForm(req, [
+                "title",
+                "desc",
+                "region",
+                "year",
+                "company",
+            ]);
 
-                    if(fs.length > 0)
-                        params.image = [fs[0].extra.uploadFilepath];
-
-                    return Project.update({id: pid}, params);
-                })
-                .then(function(t) {
-                    return res.redirect(
-                        sails.getUrlFor('ProjectController.manage')
-                    );
+            Project
+                .update({id: pid}, params)
+                .then(function(p) {
+                    return res.json({
+                        project: p[0],
+                    });
                 })
                 .catch(function(err) {
                     return res.serverError(err);
                 });
         }
         else {
-            Project.findOne({id: pid}).exec(function(err, project) {
-                if(err) res.serverError(err);
+            Project
+                .findOne({id: pid})
+                .populate("images", {sort: "position asc"})
+                .exec(function(err, project) {
+                    if(err) res.serverError(err);
 
-                return res.view("project/update", {
-                    project: project,
-                });
-            })
+                    return res.view("project/update", {
+                        project: project,
+                    });
+                })
         }
     },
 

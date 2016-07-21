@@ -18,10 +18,6 @@ module.exports = {
             required: true,
         },
 
-        image: {
-            type: "array",
-        },
-
         images: {
             collection: "projectImage",
             via: "project",
@@ -42,6 +38,15 @@ module.exports = {
         company: {
             type: "string",
         },
-    }
+    },
+
+    afterDestroy: function(destroyedRecords, cb) {
+        for(var i=0; i<destroyedRecords.length; i++)
+            ProjectImage
+                .destroy({project: destroyedRecords[i].id})
+                .exec(function() {});
+
+        cb();
+    },
 };
 

@@ -15,8 +15,10 @@ module.exports.bootstrap = function(cb) {
     sails.bcrypt = require("bcryptjs");
     sails.passport = require("passport");
     sails.passportLocal = require("passport-local");
+    sails.fs = require('fs');
     sails.getUploadDirFromTmp = "../../assets/images/upload";
     sails.getUploadDir = "/images/upload/";
+    sails.prefixDir = "./assets";
 
     // It's very important to trigger this callback method when you are finished
     // with the bootstrap!  (otherwise your server will never lift, since it's waiting on the bootstrap)

@@ -10,6 +10,7 @@ module.exports = {
         Project
             .find()
             .sort("position asc")
+            .populate("images", {sort: "position asc"})
             .limit(3)
             .exec(function(err, projects) {
                 if(err) return res.serverError(err);

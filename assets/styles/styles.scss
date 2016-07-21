@@ -827,4 +827,42 @@ form .img-frame {
 .hide {
     display: none;
 }
+
+.img-zone {
+    .img-frame {
+        display: inline-block;
+        position: relative;
+        height: 120px;
+        line-height: 106px;
+        width: 120px;
+        text-align: center;
+        border: 1px solid darken($light-grey, 10%);
+        border-radius: $border-r;
+        padding: 5px;
+        margin: 3px;
+        cursor: move;
+
+        img {
+            width: auto;
+            max-width: 100%;
+            height: auto;
+            max-height: 100%;
+        }
+
+        i {
+            position: absolute;
+            top: 3px;
+            right: 3px;
+            font-size: 1.2em;
+            background: $primary-red;
+            color: $white;
+            width: 22px;
+            height: 22px;
+            line-height: 22px;
+            border-radius: 11px;
+            cursor: pointer;
+            opacity: 0.9;
+        }
+    }
+}
 // --- style for multiple files upload

@@ -1,3 +1,9 @@
 {
-    "ignore": [".tmp/*", ".sass-cache/*", "views/*"]
+    "ignore": [
+        ".tmp/*",
+        ".sass-cache/*",
+        "views/*",
+        "node-modules/*",
+        ".git/*"
+    ]
 }

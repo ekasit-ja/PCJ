@@ -42,6 +42,8 @@ module.exports.routes = {
   "/api/project/read/:pid/": "ProjectController.apiGetProject",
 
   "/api/project/image/create/": "ProjectController.apiImageCreate",
+  "/api/project/image/delete/": "ProjectController.apiImageDelete",
+  "/api/project/image/reorder/": "ProjectController.apiImageReorder",
 
   "/api/product/model/:mid/": "ProductController.apiGetProduct",
 
