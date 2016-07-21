@@ -598,7 +598,7 @@ module.exports = {
                 })
                 .then(function(f) {
                     return res.redirect(
-                        sails.getUrlFor('ProductController.fileManage')
+                        sails.getUrlFor('ProductController.fileImageUpdate').replace(":fid", f.id)
                     );
                 })
                 .catch(function(err) {
@@ -643,6 +643,39 @@ module.exports = {
                 if(err) return res.serverError(err);
 
                 return res.view("product/file/update", {
+                    file: file,
+                });
+            });
+        }
+    },
+
+    fileImageUpdate: function(req, res) {
+        var fid = req.param("fid");
+
+        if(req.method == "POST") {
+            var params = {id: fid};
+
+            uploadSingleFile(req.file("image"))
+                .then(function(fs) {
+                    if(fs.length > 0)
+                        params.image = fs[0].extra.uploadFilepath;
+
+                    return File.update({id: fid}, params);
+                })
+                .then(function(f) {
+                    return res.redirect(
+                        sails.getUrlFor('ProductController.fileManage')
+                    );
+                })
+                .catch(function(err) {
+                    return res.serverError(err);
+                });
+        }
+        else {
+            File.findOne({id: fid}).exec(function(err, file) {
+                if(err) return res.serverError(err);
+
+                return res.view("product/file/imageUpdate", {
                     file: file,
                 });
             });

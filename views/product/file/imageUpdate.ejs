@@ -1,0 +1,13 @@
+<div class="container">
+    <h2 class="header">update image for file</h2>
+    <br>
+
+    <form method="post" class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3" enctype="multipart/form-data">
+        <div class="img-frame"><img src="<%= file.image %>"></div><br>
+        <label>Image</label>
+        <input type="file" name="image" class="form-control"><br>
+
+        <input type="submit" value="Update" class="btn btn-success">
+        <a href="<%= sails.getUrlFor('ProductController.fileManage') %>" class="btn btn-danger">Cancel</a>
+    </form>
+</div>

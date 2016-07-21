@@ -73,5 +73,6 @@ module.exports.routes = {
   "/product/file/manage/": "ProductController.fileManage",
   "/product/file/create/": "ProductController.fileCreate",
   "/product/file/update/:fid/": "ProductController.fileUpdate",
+  "/product/file/image/update/:fid/": "ProductController.fileImageUpdate",
   "/product/file/delete/": "ProductController.fileDelete",
 };
