@@ -1,5 +1,5 @@
 /**
- * Type.js
+ * File.js
  *
  * @description :: TODO: You might write a short summary of how this model works and what it represents here.
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
@@ -18,9 +18,13 @@ module.exports = {
             required: true,
         },
 
-        image: {
+        url: {
             type: "string",
             required: true,
+        },
+
+        desc: {
+            type: "text",
         },
 
         category: {
@@ -28,19 +32,19 @@ module.exports = {
             required: true,
         },
 
-        models: {
-            collection: "model",
-            via: "type",
+        fileType: {
+            type: "string",
+            required: true,
         },
     },
 
     beforeUpdate: function(valuesToUpdate, cb) {
-        if("image" in valuesToUpdate) {
-            this.findOne(valuesToUpdate.id).exec(function(err, type) {
+        if("url" in valuesToUpdate) {
+            this.findOne(valuesToUpdate.id).exec(function(err, file) {
                 if(err) return cb(err);
 
                 sails.fs.unlink(
-                    sails.prefixDir + type.image,
+                    sails.prefixDir + file.url,
                     function() {});
                 return cb();
             });
@@ -51,15 +55,10 @@ module.exports = {
     },
 
     afterDestroy: function(destroyedRecords, cb) {
-        for(var i=0; i<destroyedRecords.length; i++) {
+        for(var i=0; i<destroyedRecords.length; i++)
             sails.fs.unlink(
-                sails.prefixDir + destroyedRecords[i].image,
+                sails.prefixDir + destroyedRecords[i].url,
                 function() {});
-
-            Model
-                .destroy({type: destroyedRecords[i].id})
-                .exec(function() {});
-        }
 
         cb();
     },

@@ -69,4 +69,9 @@ module.exports.routes = {
   "/product/hardware/create/": "ProductController.hardwareCreate",
   "/product/hardware/update/:hid/": "ProductController.hardwareUpdate",
   "/product/hardware/delete/": "ProductController.hardwareDelete",
+
+  "/product/file/manage/": "ProductController.fileManage",
+  "/product/file/create/": "ProductController.fileCreate",
+  "/product/file/update/:fid/": "ProductController.fileUpdate",
+  "/product/file/delete/": "ProductController.fileDelete",
 };

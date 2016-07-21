@@ -41,8 +41,11 @@ module.exports = {
                 sails.fs.unlink(
                     sails.prefixDir + model.image,
                     function() {});
-                cb();
+                return cb();
             });
+        }
+        else {
+            return cb();
         }
     },
 

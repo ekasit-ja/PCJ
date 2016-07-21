@@ -1,0 +1,23 @@
+<div class="container">
+    <h2 class="header">update file</h2>
+    <br>
+
+    <form method="post" class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3" enctype="multipart/form-data">
+        <select name="category" class="form-control">
+            <% for(var key in sails.config.enums.category) { %>
+                <option value="<%= key %>" <% if(file.category==key) { %> selected <% } %>><%= sails.config.enums.category[key] %></option>
+            <% } %>
+        </select><br>
+        <select name="fileType" class="form-control">
+            <% for(var key in sails.config.enums.file) { %>
+                <option value="<%= key %>" <% if(file.fileType==key) { %> selected <% } %>><%= sails.config.enums.file[key] %></option>
+            <% } %>
+        </select><br>
+        <input type="text" name="title" placeholder="title" class="form-control" required value="<%= file.title %>"><br>
+        <textarea rows="5" name="desc" placeholder="desc" class="form-control" required><%= file.desc %></textarea><br>
+        <input type="file" name="file" class="form-control"><br>
+
+        <input type="submit" value="Update" class="btn btn-success">
+        <a href="<%= sails.getUrlFor('ProductController.fileManage') %>" class="btn btn-danger">Cancel</a>
+    </form>
+</div>

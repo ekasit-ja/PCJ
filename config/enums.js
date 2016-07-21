@@ -14,5 +14,11 @@ module.exports.enums = {
         dho: "Door Holders",
         fed: "Fire Exit Devices",
         etc: "Etc.",
-    }
+    },
+
+    file: {
+        cert: "Certificate",
+        inst: "Installation",
+        catg: "Catalogue",
+    },
 }

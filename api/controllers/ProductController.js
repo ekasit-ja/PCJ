@@ -558,5 +558,108 @@ module.exports = {
                 );
             });
     },
+
+    fileManage: function(req, res) {
+        File
+            .find()
+            .sort("position asc")
+            .exec(function(err, files) {
+                if(err) return res.serverError(err);
+
+                return res.view("product/file/manage", {
+                    files: files,
+                });
+            });
+    },
+
+    fileCreate: function(req, res) {
+        if(req.method == "POST") {
+            var url;
+            uploadSingleFile(req.file("file"))
+                .then(function(fs) {
+                    if(fs.length < 1)
+                        throw "No file has been uploaded."
+
+                    url = fs[0].extra.uploadFilepath;
+                    return File.find().max("position");
+                })
+                .then(function(f) {
+                    var params = readForm(req, [
+                        "category",
+                        "fileType",
+                        "title",
+                        "desc",
+                    ]);
+                    params.url = url;
+                    params.position = f[0] ? f[0].position + 1 : 1;
+                    return File.create(params);
+                })
+                .then(function(f) {
+                    return res.redirect(
+                        sails.getUrlFor('ProductController.fileManage')
+                    );
+                })
+                .catch(function(err) {
+                    return res.serverError(err);
+                });
+        }
+        else {
+            return res.view("product/file/create");
+        }
+    },
+
+    fileUpdate: function(req, res) {
+        var fid = req.param("fid");
+
+        if(req.method == "POST") {
+            uploadSingleFile(req.file("file"))
+                .then(function(fs) {
+                    var params = readForm(req, [
+                        "category",
+                        "fileType",
+                        "title",
+                        "desc",
+                    ]);
+                    params.id = fid;
+
+                    if(fs.length > 0)
+                        params.url = fs[0].extra.uploadFilepath;
+
+                    console.log(fid);
+                    console.log(params);
+                    return File.update({id: fid}, params);
+                })
+                .then(function(f) {
+                    console.log(1);
+                    return res.redirect(
+                        sails.getUrlFor('ProductController.fileManage')
+                    );
+                })
+                .catch(function(err) {
+                    return res.serverError(err);
+                });
+        }
+        else {
+            File.findOne({id: fid}).exec(function(err, file) {
+                if(err) return res.serverError(err);
+
+                return res.view("product/file/update", {
+                    file: file,
+                });
+            });
+        }
+    },
+
+    fileDelete: function(req, res) {
+        File
+            .destroy({id: req.param("fid")})
+            .exec(function(err) {
+                if(err) return res.serverError(err);
+
+                return res.redirect(
+                    sails.getUrlFor('ProductController.fileManage')
+                );
+            });
+    },
 };
 
