@@ -32,6 +32,24 @@ module.exports = {
             collection: "model",
             via: "type",
         },
-    }
+    },
+
+    beforeUpdate: function(valuesToUpdate, cb) {
+        if("image" in valuesToUpdate) {
+            this.findOne(valuesToUpdate.id).exec(function(err, type) {
+                if(err) return cb(err);
+
+                sails.fs.unlink(sails.prefixDir + type.image);
+                cb();
+            });
+        }
+    },
+
+    afterDestroy: function(destroyedRecords, cb) {
+        for(var i=0; i<destroyedRecords.length; i++)
+            sails.fs.unlink(sails.prefixDir + destroyedRecords[i].image);
+
+        cb();
+    },
 };
 

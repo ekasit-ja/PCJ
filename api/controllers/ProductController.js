@@ -197,6 +197,7 @@ module.exports = {
                         "model",
                         "title",
                     ]);
+                    params.id = pid;
 
                     if(fs.length > 0)
                         params.image = fs[0].extra.uploadFilepath;
@@ -304,6 +305,7 @@ module.exports = {
                         "category",
                         "title",
                     ]);
+                    params.id = tid;
 
                     if(fs.length > 0)
                         params.image = fs[0].extra.uploadFilepath;
@@ -410,6 +412,7 @@ module.exports = {
                         "type",
                         "title",
                     ]);
+                    params.id = mid;
 
                     if(fs.length > 0)
                         params.image = fs[0].extra.uploadFilepath;
@@ -517,6 +520,7 @@ module.exports = {
                         "title",
                         "desc",
                     ]);
+                    params.id = hid;
 
                     if(fs.length > 0)
                         params.image = fs[0].extra.uploadFilepath;
