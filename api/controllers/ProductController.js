@@ -52,7 +52,7 @@ module.exports = {
 
     fsdModel: function(req, res) {
         var mid = req.param("mid");
-        var m, ps;
+        var m, ps, result, sorting, certs, insts, catgs;
         Model
             .findOne(mid)
             .then(function(model) {
@@ -66,12 +66,12 @@ module.exports = {
             .then(function(hardwares) {
                 // sort hardware according to enums config
                 // and position attribute
-                var sorting = [];
+                sorting = [];
                 for(var key in sails.config.enums.hardware) {
                     sorting.push(key);
                 }
 
-                var result = new Array(sorting.length);
+                result = new Array(sorting.length);
                 for(var i=0; i<sorting.length; i++) {
                     result[i] = [];
 
@@ -82,11 +82,33 @@ module.exports = {
                     }
                 }
 
+                return File
+                    .find({category: "fsd", fileType: "cert"})
+                    .sort("position asc");
+            })
+            .then(function(files) {
+                certs = files;
+                return File
+                    .find({category: "fsd", fileType: "inst"})
+                    .sort("position asc");
+            })
+            .then(function(files) {
+                insts = files;
+                return File
+                    .find({category: "fsd", fileType: "catg"})
+                    .sort("position asc");
+            })
+            .then(function(files) {
+                catgs = files;
+
                 return res.view("product/fsd/model", {
                     model: m,
                     products: ps,
                     hardwares: result,
                     sorting: sorting,
+                    certs: certs,
+                    insts: insts,
+                    catgs: catgs,
                 });
             })
             .catch(function(err) {
