@@ -17,6 +17,7 @@
                 <th>Region</th>
                 <th>Year</th>
                 <th>Company</th>
+                <th>Image</th>
                 <th></th>
                 <th></th>
             </tr>
@@ -29,6 +30,7 @@
                     <td><%= project.region %></td>
                     <td><%= project.year %></td>
                     <td><%= project.company %></td>
+                    <td><img src="<%=project.images[0]?project.images[0].url:''%>"></td>
                     <td>
                         <a href="<%= sails.getUrlFor("ProjectController.update").replace(":pid", project.id) %>" class="btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                     </td>

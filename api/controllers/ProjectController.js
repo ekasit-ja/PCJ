@@ -36,6 +36,7 @@ module.exports = {
         Project
             .find()
             .sort("position asc")
+            .populate("images")
             .then(function(projects) {
                 return res.view("project/manage", {
                     projects: projects,

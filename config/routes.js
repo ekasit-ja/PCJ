@@ -32,14 +32,9 @@ module.exports.routes = {
     "/product/fireSteelDoor/m_:mid/": "ProductController.fsdModel",
     "/product/ductDamper/": "ProductController.dd",
     "/product/ductDamper/m_:mid/": "ProductController.ddModel",
-
     "/api/product/model/:mid/": "ProductController.apiGetProduct",
     "/project/": "ProjectController.view",
     "/api/project/read/:pid/": "ProjectController.apiGetProject",
-
-
-
-
 
 
 
