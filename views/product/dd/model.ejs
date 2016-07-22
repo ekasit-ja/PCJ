@@ -1,27 +1,32 @@
 <div class="container">
-    <h3 class="header">type : <%= model.type.title %></h3>
-    <h4 class="header">model : <%= model.title %></h4>
+    <%if(model) {%>
+        <h3 class="header">type : <%= model.type.title %></h3>
+        <h4 class="header">model : <%= model.title %></h4>
 
-    <%- partial("../../base/fotorama.ejs") %>
+        <%- partial("../../base/fotorama.ejs") %>
 
-    <h3 class="header">Option you can choose</h3>
-    <div class="option-container">
-        <div class="row">
-            <div class="col-sm-2 col-sm-offset-2 col-xs-2 option-label">Size</div>
-            <div class="col-sm-6 col-xs-10 option-detail">Available upon request</div>
+        <h3 class="header">Option you can choose</h3>
+        <div class="option-container">
+            <div class="row">
+                <div class="col-sm-2 col-sm-offset-2 col-xs-2 option-label">Size</div>
+                <div class="col-sm-6 col-xs-10 option-detail">Available upon request</div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2 col-sm-offset-2 col-xs-2 option-label">Low Leak</div>
+                <div class="col-sm-6 col-xs-10 option-detail">Optional</div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2 col-sm-offset-2 col-xs-2 option-label">monitorized</div>
+                <div class="col-sm-6 col-xs-10 option-detail">Optional</div>
+            </div>
         </div>
-        <div class="row">
-            <div class="col-sm-2 col-sm-offset-2 col-xs-2 option-label">Low Leak</div>
-            <div class="col-sm-6 col-xs-10 option-detail">Optional</div>
-        </div>
-        <div class="row">
-            <div class="col-sm-2 col-sm-offset-2 col-xs-2 option-label">monitorized</div>
-            <div class="col-sm-6 col-xs-10 option-detail">Optional</div>
-        </div>
-    </div>
-    <br>
+        <br>
 
-    <%- partial("../../base/product_tab.ejs") %>
-    <%- partial("../../base/quote_button.ejs") %>
+        <%- partial("../../base/product_tab.ejs") %>
+        <%- partial("../../base/quote_button.ejs") %>
 
+    <%} else {%>
+        <br>
+        <p class="alert alert-warning text-center">There is no requested model.</p>
+    <%}%>
 </div>

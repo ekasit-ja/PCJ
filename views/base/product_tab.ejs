@@ -10,34 +10,46 @@
         desccription
     </div>
     <div id="cert" class="tab-pane fade">
-        <%_.each(certs, function(cert) {%>
-            <div class="btn-cert">
-                <a href="<%=cert.image%>">
-                    <div class="img-frame"><img src="<%=cert.url%>"></div>
-                    <div class="title">download</div>
-                </a>
-            </div>
-        <%})%>
+        <%if(certs.length>0) {%>
+            <%_.each(certs, function(cert) {%>
+                <div class="btn-cert">
+                    <a href="<%=cert.url%>" target="_blank">
+                        <div class="img-frame"><img src="<%=cert.image%>"></div>
+                        <div class="title">download</div>
+                    </a>
+                </div>
+            <%})%>
+        <%} else {%>
+            There is no file available at this time.
+        <%}%>
     </div>
     <div id="inst" class="tab-pane fade">
-        <%_.each(insts, function(inst) {%>
-            <div class="btn-cert">
-                <a href="<%=inst.image%>">
-                    <div class="img-frame"><img src="<%=inst.url%>"></div>
-                    <div class="title">download</div>
-                </a>
-            </div>
-        <%})%>
+        <%if(insts.length>0) {%>
+            <%_.each(insts, function(inst) {%>
+                <div class="btn-cert">
+                    <a href="<%=inst.url%>" target="_blank">
+                        <div class="img-frame"><img src="<%=inst.image%>"></div>
+                        <div class="title">download</div>
+                    </a>
+                </div>
+            <%})%>
+        <%} else {%>
+            There is no file available at this time.
+        <%}%>
     </div>
     <div id="catg" class="tab-pane fade">
-        <%_.each(catgs, function(catg) {%>
-            <div class="btn-cert">
-                <a href="<%=catg.image%>">
-                    <div class="img-frame"><img src="<%=catg.url%>"></div>
-                    <div class="title">download</div>
-                </a>
-            </div>
-        <%})%>
+        <%if(catgs.length>0) {%>
+            <%_.each(catgs, function(catg) {%>
+                <div class="btn-cert">
+                    <a href="<%=catg.url%>" target="_blank">
+                        <div class="img-frame"><img src="<%=catg.image%>"></div>
+                        <div class="title">download</div>
+                    </a>
+                </div>
+            <%})%>
+        <%} else {%>
+            There is no file available at this time.
+        <%}%>
     </div>
 </div>
 <hr>

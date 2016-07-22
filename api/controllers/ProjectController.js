@@ -22,6 +22,9 @@ module.exports = {
 
     apiGetProject: function(req, res) {
         var pid = req.param("pid");
+        if(isNaN(pid))
+            mid = -1;
+
         Project
             .findOne(pid)
             .populate("images", {sort: "position asc"})

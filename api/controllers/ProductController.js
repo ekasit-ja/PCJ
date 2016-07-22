@@ -21,22 +21,25 @@ module.exports = {
             });
     },
 
-    apiGetProduct: function(req, res) {
-        Product
-            .find({model: req.param("mid")})
-            .sort("position asc")
-            .exec(function(err, products) {
-                if(err) return res.json(err);
+    // apiGetProduct: function(req, res) {
+    //     Product
+    //         .find({model: req.param("mid")})
+    //         .sort("position asc")
+    //         .exec(function(err, products) {
+    //             if(err) return res.json(err);
 
-                return res.json(products);
-            });
-    },
+    //             return res.json(products);
+    //         });
+    // },
 
 	fsd: function(req, res) {
         Type
             .find({category: "fsd"})
             .sort("position asc")
             .then(function(types) {
+                if(types.length < 1)
+                    return Promise.resolve([]);
+
                 // suppose to found just one type of fire steel door
                 return Model.find({type: types[0].id}).sort("position asc")
             })
@@ -52,6 +55,9 @@ module.exports = {
 
     fsdModel: function(req, res) {
         var mid = req.param("mid");
+        if(isNaN(mid))
+            mid = -1;
+
         var m, ps, result, sorting, certs, insts, catgs;
         Model
             .findOne(mid)
@@ -132,7 +138,10 @@ module.exports = {
 
     ddModel: function(req, res) {
         var mid = req.param("mid");
-        var m;
+        if(isNaN(mid))
+            mid = -1;
+
+        var m, ps, certs, insts, catgs;
         Model
             .findOne(mid)
             .populate("type")
@@ -141,9 +150,31 @@ module.exports = {
                 return Product.find({model: mid}).sort("position asc")
             })
             .then(function(products) {
+                ps = products;
+                return File
+                    .find({category: "dd", fileType: "cert"})
+                    .sort("position asc");
+            })
+            .then(function(files) {
+                certs = files;
+                return File
+                    .find({category: "dd", fileType: "inst"})
+                    .sort("position asc");
+            })
+            .then(function(files) {
+                insts = files;
+                return File
+                    .find({category: "dd", fileType: "catg"})
+                    .sort("position asc");
+            })
+            .then(function(files) {
+                catgs = files;
                 return res.view("product/dd/model", {
                     model: m,
-                    products: products,
+                    products: ps,
+                    certs: certs,
+                    insts: insts,
+                    catgs: catgs,
                 });
             })
             .catch(function(err) {

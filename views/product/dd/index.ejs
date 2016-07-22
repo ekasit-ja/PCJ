@@ -3,17 +3,22 @@
     <p class="text-center">Plenty types of our duct dampers are available to meet any of your requirements</p>
     <hr>
 
-    <%- partial("../../base/carousel_type.ejs") %>
-    <br>
+    <%if(types.length>0) {%>
 
-    <% _.each(types, function(type) {
-        url = sails.getUrlFor('ProductController.ddModel');
-        models = type.models;
-    %>
-        <div id="btn-model-container-<%= type.id %>" class="btn-model-container">
-            <%- partial("../btn-model.ejs") %>
-        </div>
-    <% }) %>
+        <%- partial("../../base/carousel_type.ejs") %>
+        <br>
+
+        <% _.each(types, function(type) {
+            url = sails.getUrlFor('ProductController.ddModel');
+            models = type.models;
+        %>
+            <div id="btn-model-container-<%= type.id %>" class="btn-model-container">
+                <%- partial("../btn-model.ejs") %>
+            </div>
+        <% }) %>
+    <%} else {%>
+        <p class="alert alert-warning text-center">There are no models available at this time.</p>
+    <%}%>
 </div>
 
 <script type="text/javascript">
