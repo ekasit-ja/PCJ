@@ -17,6 +17,8 @@
         <textarea rows="5" name="desc" placeholder="desc" class="form-control" required><%= file.desc %></textarea><br>
         <label>File</label>
         <input type="file" name="file" class="form-control"><br>
+        <label>Image</label>
+        <input type="file" name="image" class="form-control"><br>
 
         <input type="submit" value="Update" class="btn btn-success">
         <a href="<%= sails.getUrlFor('ProductController.fileManage') %>" class="btn btn-danger">Cancel</a>

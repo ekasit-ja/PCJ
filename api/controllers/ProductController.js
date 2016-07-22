@@ -574,36 +574,45 @@ module.exports = {
 
     fileCreate: function(req, res) {
         if(req.method == "POST") {
-            var fileUrl, imageUrl;
-            uploadSingleFile(req.file("file"))
-                .then(function(fs) {
-                    if(fs.length < 1)
-                        throw "No file has been uploaded."
+            var params = readForm(req, [
+                "category",
+                "fileType",
+                "title",
+                "desc",
+            ]);
+            async.map(["file", "image"], function(file, cb) {
+                return uploadSingleFile(req.file(file))
+                    .then(function(fs) {
+                        return cb(null, fs);
+                    })
+                    .catch(function(err) {
+                        return cb(err, null);
+                    });
+            }, function(err, files) {
+                if(err) return res.serverError(err);
 
-                    fileUrl = fs[0].extra.uploadFilepath;
+                if(files[0].length > 0)
+                    params.url = files[0][0].extra.uploadFilepath;
 
-                    return File.find().max("position");
-                })
-                .then(function(f) {
-                    var params = readForm(req, [
-                        "category",
-                        "fileType",
-                        "title",
-                        "desc",
-                    ]);
-                    params.url = fileUrl;
-                    params.image = imageUrl;
-                    params.position = f[0] ? f[0].position + 1 : 1;
-                    return File.create(params);
-                })
-                .then(function(f) {
-                    return res.redirect(
-                        sails.getUrlFor('ProductController.fileImageUpdate').replace(":fid", f.id)
-                    );
-                })
-                .catch(function(err) {
-                    return res.serverError(err);
-                });
+                if(files[1].length > 0)
+                    params.image = files[1][0].extra.uploadFilepath;
+
+                File
+                    .find()
+                    .max("position")
+                    .then(function(f) {
+                        params.position = f[0] ? f[0].position + 1 : 1;
+                        return File.create(params);
+                    })
+                    .then(function(f) {
+                        return res.redirect(
+                            sails.getUrlFor('ProductController.fileManage')
+                        );
+                    })
+                    .catch(function(err) {
+                        return res.serverError(err);
+                    });
+            });
         }
         else {
             return res.view("product/file/create");
@@ -622,21 +631,31 @@ module.exports = {
                     ]);
             params.id = fid;
 
-            uploadSingleFile(req.file("file"))
-                .then(function(fs) {
-                    if(fs.length > 0)
-                        params.url = fs[0].extra.uploadFilepath;
+            async.map(["file", "image"], function(file, cb) {
+                return uploadSingleFile(req.file(file))
+                    .then(function(fs) {
+                        return cb(null, fs);
+                    })
+                    .catch(function(err) {
+                        return cb(err, null);
+                    });
+            }, function(err, files) {
+                if(err) return res.serverError(err);
 
-                    return File.update({id: fid}, params);
-                })
-                .then(function(f) {
+                if(files[0].length > 0)
+                    params.url = files[0][0].extra.uploadFilepath;
+
+                if(files[1].length > 0)
+                    params.image = files[1][0].extra.uploadFilepath;
+
+                File.update({id: fid}, params).exec(function(err, f) {
+                    if(err) return res.serverError(err);
+
                     return res.redirect(
                         sails.getUrlFor('ProductController.fileManage')
                     );
-                })
-                .catch(function(err) {
-                    return res.serverError(err);
                 });
+            });
         }
         else {
             File.findOne({id: fid}).exec(function(err, file) {

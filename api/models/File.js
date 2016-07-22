@@ -20,6 +20,7 @@ module.exports = {
 
         image: {
             type: "string",
+            required: true,
         },
 
         url: {
@@ -66,10 +67,15 @@ module.exports = {
     },
 
     afterDestroy: function(destroyedRecords, cb) {
-        for(var i=0; i<destroyedRecords.length; i++)
+        for(var i=0; i<destroyedRecords.length; i++) {
             sails.fs.unlink(
                 sails.prefixDir + destroyedRecords[i].url,
                 function() {});
+
+            sails.fs.unlink(
+                sails.prefixDir + destroyedRecords[i].image,
+                function() {});
+        }
 
         cb();
     },
