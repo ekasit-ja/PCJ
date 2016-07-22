@@ -1,5 +1,5 @@
 <div class="container">
-    <h2 class="header">create product model</h2>
+    <h2 class="header">create model</h2>
     <br>
 
     <form method="post" class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3" enctype="multipart/form-data">
@@ -12,6 +12,6 @@
         <input type="file" name="image" class="form-control" required><br>
 
         <input type="submit" value="Create" class="btn btn-success">
-        <a href="<%= sails.getUrlFor('ProductController.modelManage') %>" class="btn btn-danger">Cancel</a>
+        <a href="<%= sails.getUrlFor('ModelController.manage') %>" class="btn btn-danger">Cancel</a>
     </form>
 </div>

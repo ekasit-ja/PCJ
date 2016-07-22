@@ -10,7 +10,6 @@ module.exports = {
     attributes: {
         position: {
             type: "integer",
-            required: true,
         },
 
         title: {
@@ -43,23 +42,59 @@ module.exports = {
         },
     },
 
+    beforeCreate: function(values, cb) {
+        this
+            .find()
+            .max("position")
+            .then(function(recs) {
+                values.position = recs[0] ? ++recs[0].position : 1;
+                return cb();
+            })
+            .catch(function(err) {
+                return cb(err);
+            })
+    },
+
+    beforeUpdate: function(valuesToUpdate, cb) {
+        if("image" in valuesToUpdate) {
+            this
+                .findOne(valuesToUpdate.id)
+                .then(function(rec) {
+                    sails.fs.unlink(
+                        sails.prefixDir + rec.image,
+                        function() {});
+
+                    return cb();
+                })
+                .catch(function(err) {
+                    return cb(err);
+                })
+        }
+        else {
+            return cb();
+        }
+    },
+
     beforeUpdate: function(valuesToUpdate, cb) {
         if("url" in valuesToUpdate || "image" in valuesToUpdate) {
-            this.findOne(valuesToUpdate.id).exec(function(err, file) {
-                if(err) return cb(err);
+            this
+                .findOne(valuesToUpdate.id)
+                .then(function(rec) {
+                    if("url" in valuesToUpdate)
+                        sails.fs.unlink(
+                            sails.prefixDir + rec.url,
+                            function() {});
 
-                if("url" in valuesToUpdate)
-                    sails.fs.unlink(
-                        sails.prefixDir + file.url,
-                        function() {});
+                    if("image" in valuesToUpdate)
+                        sails.fs.unlink(
+                            sails.prefixDir + rec.image,
+                            function() {});
 
-                if("image" in valuesToUpdate)
-                    sails.fs.unlink(
-                        sails.prefixDir + file.image,
-                        function() {});
-
-                return cb();
-            });
+                    return cb();
+                })
+                .catch(function(err) {
+                    return cb(err);
+                })
         }
         else {
             return cb();

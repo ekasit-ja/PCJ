@@ -1,7 +1,7 @@
 <div class="container">
-    <h2 class="header">manage product model</h2>
+    <h2 class="header">manage model</h2>
 
-    <a href="<%= sails.getUrlFor("ProductController.modelCreate") %>" class="btn btn-default">
+    <a href="<%= sails.getUrlFor("ModelController.create") %>" class="btn btn-default">
         Create
     </a>
     <a href="<%= sails.getUrlFor("AdminController.dashboard") %>" class="btn btn-primary">
@@ -26,10 +26,10 @@
                     <td><%= model.title %></td>
                     <td><img src="<%= model.image %>"></td>
                     <td>
-                        <a href="<%= sails.getUrlFor("ProductController.modelUpdate").replace(":mid", model.id) %>" class="btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                        <a href="<%= sails.getUrlFor("ModelController.update").replace(":mid", model.id) %>" class="btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                     </td>
                     <td>
-                        <form method="post" action="<%= sails.getUrlFor('ProductController.modelDelete') %>">
+                        <form method="post" action="<%= sails.getUrlFor('ModelController.delete') %>">
                             <input type="hidden" name="mid" value="<%= model.id %>">
                             <button type="submit" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
                         </form>

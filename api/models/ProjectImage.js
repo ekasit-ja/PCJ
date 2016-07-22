@@ -10,7 +10,6 @@ module.exports = {
     attributes: {
         position: {
             type: "integer",
-            required: true,
         },
 
         url: {
@@ -22,6 +21,39 @@ module.exports = {
             model: "project",
             required: true,
         },
+    },
+
+    beforeCreate: function(values, cb) {
+        this
+            .find({project: values.project})
+            .max("position")
+            .then(function(recs) {
+                values.position = recs[0] ? ++recs[0].position : 1;
+                return cb();
+            })
+            .catch(function(err) {
+                return cb(err);
+            })
+    },
+
+    beforeUpdate: function(valuesToUpdate, cb) {
+        if("url" in valuesToUpdate) {
+            this
+                .findOne(valuesToUpdate.id)
+                .then(function(rec) {
+                    sails.fs.unlink(
+                        sails.prefixDir + rec.url,
+                        function() {});
+
+                    return cb();
+                })
+                .catch(function(err) {
+                    return cb(err);
+                })
+        }
+        else {
+            return cb();
+        }
     },
 
     afterDestroy: function(destroyedRecords, cb) {

@@ -21,58 +21,62 @@
  */
 
 module.exports.routes = {
+    "/": "ProductController.homepage",
 
-  "/": "ProductController.homepage",
+    "get /login/": "UserController.login",
+    "post /login/": "AuthController.login",
+    "/logout/": "AuthController.logout",
+    "/register/": "UserController.register",
 
-  "get /login/": "UserController.login",
-  "post /login/": "AuthController.login",
-  "/logout/": "AuthController.logout",
-  "/register/": "UserController.register",
+    "/product/fireSteelDoor/": "ProductController.fsd",
+    "/product/fireSteelDoor/m_:mid/": "ProductController.fsdModel",
+    "/product/ductDamper/": "ProductController.dd",
+    "/product/ductDamper/m_:mid/": "ProductController.ddModel",
 
-  "/product/fireSteelDoor/": "ProductController.fsd",
-  "/product/fireSteelDoor/m_:mid/": "ProductController.fsdModel",
-  "/product/ductDamper/": "ProductController.dd",
-  "/product/ductDamper/m_:mid/": "ProductController.ddModel",
-
-  "/project/": "ProjectController.view",
-  "/project/manage/": "ProjectController.manage",
-  "/project/create/": "ProjectController.create",
-  "/project/update/:pid/": "ProjectController.update",
-  "/project/delete/": "ProjectController.delete",
-  "/api/project/read/:pid/": "ProjectController.apiGetProject",
-
-  "/api/project/image/create/": "ProjectController.apiImageCreate",
-  "/api/project/image/delete/": "ProjectController.apiImageDelete",
-  "/api/project/image/reorder/": "ProjectController.apiImageReorder",
-
-  "/api/product/model/:mid/": "ProductController.apiGetProduct",
+    "/api/product/model/:mid/": "ProductController.apiGetProduct",
+    "/project/": "ProjectController.view",
+    "/api/project/read/:pid/": "ProjectController.apiGetProject",
 
 
-  "/admin/": "AdminController.dashboard",
 
-  "/product/manage/": "ProductController.manage",
-  "/product/create/": "ProductController.create",
-  "/product/update/:pid/": "ProductController.update",
-  "/product/delete/": "ProductController.delete",
 
-  "/product/type/manage/": "ProductController.typeManage",
-  "/product/type/create/": "ProductController.typeCreate",
-  "/product/type/update/:tid/": "ProductController.typeUpdate",
-  "/product/type/delete/": "ProductController.typeDelete",
 
-  "/product/model/manage/": "ProductController.modelManage",
-  "/product/model/create/": "ProductController.modelCreate",
-  "/product/model/update/:mid/": "ProductController.modelUpdate",
-  "/product/model/delete/": "ProductController.modelDelete",
 
-  "/product/hardware/manage/": "ProductController.hardwareManage",
-  "/product/hardware/create/": "ProductController.hardwareCreate",
-  "/product/hardware/update/:hid/": "ProductController.hardwareUpdate",
-  "/product/hardware/delete/": "ProductController.hardwareDelete",
 
-  "/product/file/manage/": "ProductController.fileManage",
-  "/product/file/create/": "ProductController.fileCreate",
-  "/product/file/update/:fid/": "ProductController.fileUpdate",
-  "/product/file/image/update/:fid/": "ProductController.fileImageUpdate",
-  "/product/file/delete/": "ProductController.fileDelete",
+
+
+    "/admin/": "AdminController.dashboard",
+
+    "/type/manage/": "TypeController.manage",
+    "/type/create/": "TypeController.create",
+    "/type/update/:tid/": "TypeController.update",
+    "/type/delete/": "TypeController.delete",
+
+    "/model/manage/": "ModelController.manage",
+    "/model/create/": "ModelController.create",
+    "/model/update/:mid/": "ModelController.update",
+    "/model/delete/": "ModelController.delete",
+
+    "/product/manage/": "ProductController.manage",
+    "/product/create/": "ProductController.create",
+    "/product/update/:pid/": "ProductController.update",
+    "/product/delete/": "ProductController.delete",
+
+    "/hardware/manage/": "HardwareController.manage",
+    "/hardware/create/": "HardwareController.create",
+    "/hardware/update/:hid/": "HardwareController.update",
+    "/hardware/delete/": "HardwareController.delete",
+
+    "/file/manage/": "FileController.manage",
+    "/file/create/": "FileController.create",
+    "/file/update/:fid/": "FileController.update",
+    "/file/delete/": "FileController.delete",
+
+    "/project/manage/": "ProjectController.manage",
+    "/project/create/": "ProjectController.create",
+    "/project/update/:pid/": "ProjectController.update",
+    "/project/delete/": "ProjectController.delete",
+    "/api/project/image/create/": "ProjectController.apiImageCreate",
+    "/api/project/image/delete/": "ProjectController.apiImageDelete",
+    "/api/project/image/reorder/": "ProjectController.apiImageReorder",
 };

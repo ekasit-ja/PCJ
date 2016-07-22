@@ -1,7 +1,7 @@
 <div class="container">
     <h2 class="header">manage file</h2>
 
-    <a href="<%= sails.getUrlFor("ProductController.fileCreate") %>" class="btn btn-default">
+    <a href="<%= sails.getUrlFor("FileController.create") %>" class="btn btn-default">
         Create
     </a>
     <a href="<%= sails.getUrlFor("AdminController.dashboard") %>" class="btn btn-primary">
@@ -30,10 +30,10 @@
                     <td><%= file.desc %></td>
                     <td><a href="<%= file.url %>">download</a></td>
                     <td>
-                        <a href="<%= sails.getUrlFor("ProductController.fileUpdate").replace(":fid", file.id) %>" class="btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                        <a href="<%= sails.getUrlFor("FileController.update").replace(":fid", file.id) %>" class="btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                     </td>
                     <td>
-                        <form method="post" action="<%= sails.getUrlFor('ProductController.fileDelete') %>">
+                        <form method="post" action="<%= sails.getUrlFor('FileController.delete') %>">
                             <input type="hidden" name="fid" value="<%= file.id %>">
                             <button type="submit" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
                         </form>

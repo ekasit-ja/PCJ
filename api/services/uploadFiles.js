@@ -10,7 +10,7 @@ module.exports = function(file) {
                 files[i].extra = {
                     uploadDir: sails.getUploadDir,
                     filename: filename,
-                    uploadFilepath: sails.getUploadDir + filename,
+                    uploadPath: sails.getUploadDir + filename,
                 };
             }
 

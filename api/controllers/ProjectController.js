@@ -6,7 +6,6 @@
  */
 
 module.exports = {
-
     view: function(req, res) {
         Project
             .find()
@@ -37,33 +36,28 @@ module.exports = {
         Project
             .find()
             .sort("position asc")
-            .exec(function(err, projects) {
-                if(err) return res.serverError(err);
-
+            .then(function(projects) {
                 return res.view("project/manage", {
                     projects: projects,
                 });
+            })
+            .catch(function(err) {
+                return res.serverError(err);
             });
     },
 
     create: function(req, res) {
         if(req.method == "POST") {
-            var url;
-            Project
-                .find()
-                .max("position")
-                .then(function(p) {
-                    var params = readForm(req, [
-                        "title",
-                        "desc",
-                        "region",
-                        "year",
-                        "company",
-                    ]);
-                    params.position = p[0] ? p[0].position + 1 : 1;
+            var params = readForm(req, [
+                "title",
+                "desc",
+                "region",
+                "year",
+                "company",
+            ]);
 
-                    return Project.create(params);
-                })
+            Project
+                .create(params)
                 .then(function(p) {
                     return res.json({
                         project: p,
@@ -79,59 +73,106 @@ module.exports = {
     },
 
     apiImageCreate: function(req, res) {
-        uploadSingleFile(req.file("images"))
+        var params = readForm(req, [
+            "project",
+        ]);
+
+        var _fs;
+        uploadFiles(req.file("images"))
             .then(function(fs) {
                 if(fs.length < 1)
                     throw "No file has been uploaded."
 
-                url = fs[0].extra.uploadFilepath;
+                params.url = fs[0].extra.uploadPath;
 
-                ProjectImage
-                    .find()
-                    .max("position")
-                    .then(function(pi) {
-                        var params = readForm(req, [
-                            "project",
-                        ]);
-                        params.position = pi[0] ? pi[0].position + 1 : 1;
-                        params.url = url;
-
-                        return ProjectImage.create(params);
-                    })
-                    .then(function(pi) {
-                        return res.json({
-                            files: [{
-                                name: fs[0].extra.filename,
-                                size: fs[0].size,
-                                url: url,
-                            }]
-                        });
-                    })
-                    .catch(function(err) {
-                        throw err;
-                    })
+                _fs = fs;
+                return ProjectImage.create(params)
+            })
+            .then(function(pi) {
+                return res.json({
+                    files: [{
+                        name: _fs[0].extra.filename,
+                        size: _fs[0].size,
+                        url: params.url,
+                    }]
+                });
             })
             .catch(function(err) {
                 return res.json({
                     files: [{
-                        name: fs[0].filename,
-                        size: fs[0].size,
+                        name: _fs[0].filename,
+                        size: _fs[0].size,
                         error: err,
                     }]
                 });
             });
     },
 
+    update: function(req, res) {
+        var pid = req.param("pid");
+
+        if(req.method == "POST") {
+            var params = readForm(req, [
+                "title",
+                "desc",
+                "region",
+                "year",
+                "company",
+            ]);
+            params.id = pid;
+
+            Project
+                .update({id: pid}, params)
+                .then(function(p) {
+                    return res.json({
+                        project: p[0],
+                    });
+                })
+                .catch(function(err) {
+                    return res.serverError(err);
+                });
+        }
+        else {
+            Project
+                .findOne({id: pid})
+                .populate("images", {sort: "position asc"})
+                .then(function(project) {
+                    return res.view("project/update", {
+                        project: project,
+                    });
+                })
+                .catch(function(err) {
+                    return res.serverError(err);
+                });
+        }
+    },
+
+    delete: function(req, res) {
+        Project
+            .destroy({id: req.param("pid")})
+            .then(function() {
+                return res.redirect(
+                    sails.getUrlFor('ProjectController.manage')
+                );
+            })
+            .catch(function(err) {
+                return res.serverError(err);
+            });
+    },
+
     apiImageDelete: function(req, res) {
         var imgIds = req.param("imgIds");
 
-        ProjectImage.destroy({id: imgIds}).exec(function(err, imgs) {
-            if(err) return res.serverError(err);
-
-            return res.json({
-                imgIds: imgIds,
+        ProjectImage
+            .destroy({id: imgIds})
+            .then(function(imgs) {
+                return res.json({
+                    imgIds: imgs,
+                });
+            })
+            .catch(function(err) {
+                return res.serverError(err);
             });
-        });
     },
 
     apiImageReorder: function(req, res) {
@@ -157,55 +198,6 @@ module.exports = {
                 order: order,
             });
         });
-    },
-
-    update: function(req, res) {
-        var pid = req.param("pid");
-
-        if(req.method == "POST") {
-            var params = readForm(req, [
-                "title",
-                "desc",
-                "region",
-                "year",
-                "company",
-            ]);
-
-            Project
-                .update({id: pid}, params)
-                .then(function(p) {
-                    return res.json({
-                        project: p[0],
-                    });
-                })
-                .catch(function(err) {
-                    return res.serverError(err);
-                });
-        }
-        else {
-            Project
-                .findOne({id: pid})
-                .populate("images", {sort: "position asc"})
-                .exec(function(err, project) {
-                    if(err) res.serverError(err);
-
-                    return res.view("project/update", {
-                        project: project,
-                    });
-                })
-        }
-    },
-
-    delete: function(req, res) {
-        Project
-            .destroy({id: req.param("pid")})
-            .exec(function(err) {
-                if(err) return res.serverError(err);
-
-                return res.redirect(
-                    sails.getUrlFor('ProjectController.manage')
-                );
-            });
     },
 };
 

@@ -10,7 +10,6 @@ module.exports = {
     attributes: {
         position: {
             type: "integer",
-            required: true,
         },
 
         title: {
@@ -38,6 +37,19 @@ module.exports = {
         company: {
             type: "string",
         },
+    },
+
+    beforeCreate: function(values, cb) {
+        this
+            .find()
+            .max("position")
+            .then(function(recs) {
+                values.position = recs[0] ? ++recs[0].position : 1;
+                return cb();
+            })
+            .catch(function(err) {
+                return cb(err);
+            })
     },
 
     afterDestroy: function(destroyedRecords, cb) {

@@ -1,9 +1,9 @@
 <div class="container">
-    <h2 class="header">create product hardware</h2>
+    <h2 class="header">create hardware</h2>
     <br>
 
     <form method="post" class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3" enctype="multipart/form-data">
-        <select name="hardware" class="form-control">
+        <select name="hardwareType" class="form-control">
             <% for(var key in sails.config.enums.hardware) { %>
                 <option value="<%= key %>"><%= sails.config.enums.hardware[key] %></option>
             <% } %>
@@ -13,6 +13,6 @@
         <input type="file" name="image" class="form-control" required><br>
 
         <input type="submit" value="Create" class="btn btn-success">
-        <a href="<%= sails.getUrlFor('ProductController.hardwareManage') %>" class="btn btn-danger">Cancel</a>
+        <a href="<%= sails.getUrlFor('HardwareController.manage') %>" class="btn btn-danger">Cancel</a>
     </form>
 </div>
