@@ -695,10 +695,6 @@ $mul: 1.8;
 // --- style for product and its detail page
 
 // style for admin page
-form .btn.btn-danger {
-    margin-left: 20px;
-}
-
 .header {
     text-transform: capitalize;
     font-weight: bold;
@@ -730,6 +726,10 @@ form .img-frame {
         right: 0;
         margin: auto;
     }
+}
+
+.btn + .btn {
+    margin-left: 20px;
 }
 // --- style for admin page
 
