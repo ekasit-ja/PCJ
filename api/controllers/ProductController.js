@@ -9,7 +9,7 @@ module.exports = {
     homepage: function(req, res) {
         Project
             .find()
-            .sort("position asc")
+            .sort("position desc")
             .populate("images", {sort: "position asc"})
             .limit(3)
             .exec(function(err, projects) {

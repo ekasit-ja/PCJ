@@ -1,22 +1,28 @@
 <div class="container">
     <h2 class="header">projects</h2>
-    <div class="filter-project">
-        Filter By:
-        <span class="filter-label">Region</span>
-        <select name="region" class="form-control">
-            <option value="">All</option>
-            <option value="th">Thailand</option>
-        </select>
+    <form method="post">
+        <div class="filter-project">
+            Filter By:
+            <span class="filter-label">Region</span>
+            <select name="region" class="form-control">
+                <option value="">All</option>
+                <option value="Thailand">Thailand</option>
+                <option value="Myanmar">Myanmar</option>
+                <option value="Bangladesh">Bangladesh</option>
+            </select>
 
-        <span class="filter-label">Year</span>
-        <select name="year" class="form-control">
-            <option value="">All</option>
-            <option value="2016">2016</option>
-        </select>
-    </div>
+            <span class="filter-label">Year</span>
+            <select name="year" class="form-control">
+                <option value="">All</option>
+                <option value="2016">2016</option>
+                <option value="2015">2015</option>
+                <option value="2014">2014</option>
+            </select>
+            <input type="submit" value="Go" class="btn btn-default" style="margin-left: 20px;">
+        </div>
+    </form>
     <hr>
 
     <%- partial("../base/btn-project.ejs") %>
 
 </div>
-

@@ -7,17 +7,32 @@
 
 module.exports = {
     view: function(req, res) {
-        Project
-            .find()
-            .sort("position asc")
-            .populate("images", {sort: "position asc"})
-            .exec(function(err, projects) {
-                if(err) return res.serverError(err);
+        var params = {};
 
+        if(req.method == "POST") {
+            var region = req.param("region");
+            var year = req.param("year");
+
+            if(region)
+                params["region"] = region;
+
+            if(year)
+                params["year"] = year;
+        }
+
+        Project
+            .find(params)
+            .sort("position desc")
+            .populate("images", {sort: "position asc"})
+            .then(function(projects) {
                 return res.view("project/view", {
                     projects: projects,
                 });
+            })
+            .catch(function(err) {
+                return res.serverError(err);
             });
+
     },
 
     apiGetProject: function(req, res) {
@@ -38,7 +53,7 @@ module.exports = {
     manage: function(req, res) {
         Project
             .find()
-            .sort("position asc")
+            .sort("position desc")
             .populate("images", {sort: "position asc"})
             .then(function(projects) {
                 return res.view("project/manage", {
@@ -128,9 +143,7 @@ module.exports = {
             Project
                 .update({id: pid}, params)
                 .then(function(p) {
-                    return res.json({
-                        project: p[0],
-                    });
+                    return res.redirect(sails.getUrlFor("ProjectController.manage"));
                 })
                 .catch(function(err) {
                     return res.serverError(err);
@@ -213,7 +226,7 @@ module.exports = {
                 (function(i) {
                     tasks.push(function(cb) {
                         Project
-                            .update(order[i], {position: i+1})
+                            .update(order[i], {position: order.length-i})
                             .exec(cb);
                     });
                 })(i);
