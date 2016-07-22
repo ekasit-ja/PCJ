@@ -19,7 +19,6 @@ module.exports = {
 
         image: {
             type: "string",
-            required: true,
         },
 
         url: {

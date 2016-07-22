@@ -14,7 +14,7 @@
             <%_.each(certs, function(cert) {%>
                 <div class="btn-cert">
                     <a href="<%=cert.url%>" target="_blank">
-                        <div class="img-frame"><img src="<%=cert.image%>"></div>
+                        <div class="img-frame"><img src="<%=cert.image || '/images/file.jpg'%>"></div>
                         <div class="title">download</div>
                     </a>
                 </div>
@@ -28,7 +28,7 @@
             <%_.each(insts, function(inst) {%>
                 <div class="btn-cert">
                     <a href="<%=inst.url%>" target="_blank">
-                        <div class="img-frame"><img src="<%=inst.image%>"></div>
+                        <div class="img-frame"><img src="<%=inst.image || '/images/file.jpg'%>"></div>
                         <div class="title">download</div>
                     </a>
                 </div>
@@ -42,7 +42,7 @@
             <%_.each(catgs, function(catg) {%>
                 <div class="btn-cert">
                     <a href="<%=catg.url%>" target="_blank">
-                        <div class="img-frame"><img src="<%=catg.image%>"></div>
+                        <div class="img-frame"><img src="<%=catg.image || '/images/file.jpg'%>"></div>
                         <div class="title">download</div>
                     </a>
                 </div>
