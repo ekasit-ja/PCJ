@@ -7,11 +7,13 @@
     <a href="<%= sails.getUrlFor("AdminController.dashboard") %>" class="btn btn-primary">
         Back
     </a>
+    <button class="btn btn-primary reorder pull-right">Save reorder</button>
     <hr>
 
     <table class="table table-striped admin-table">
         <thead>
             <tr>
+                <th></th>
                 <th>Title</th>
                 <th>Description</th>
                 <th>Region</th>
@@ -24,7 +26,8 @@
         </thead>
         <tbody>
             <% _.each(projects, function(project) { %>
-                <tr>
+                <tr data-id="<%=project.id%>">
+                    <td class="sortable-handle"><i class="fa fa-bars" aria-hidden="true"></i></td>
                     <td><%= project.title %></td>
                     <td><%= project.desc %></td>
                     <td><%= project.region %></td>
@@ -45,3 +48,29 @@
         </tbody>
     </table>
 </div>
+
+<script type="text/javascript">
+    var el = $(".admin-table tbody");
+    var sortable = Sortable.create(el[0], {
+        handle: ".sortable-handle",
+        animation: 300,
+    });
+
+    $(".reorder").click(function(e) {
+        var trs = $(".admin-table tbody tr");
+        var order = [];
+
+        for(var i=0; i<trs.length; i++) {
+            order.push($(trs[i]).data("id"));
+        }
+
+        $.post(
+                "<%= sails.getUrlFor("ProjectController.reorder") %>",
+                {order: order}
+            )
+            .then(function(data) {
+                location.reload();
+            })
+            .fail(function(err) {});
+    });
+</script>

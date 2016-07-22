@@ -114,5 +114,30 @@ module.exports = {
                 return res.serverError(err);
             });
     },
+
+    reorder: function(req, res) {
+        var order = req.param("order") || [];
+
+        var tasks = [];
+        for(var i=0; i<order.length; i++) {
+            if(order[i]) {
+                (function(i) {
+                    tasks.push(function(cb) {
+                        Model
+                            .update(order[i], {position: i+1})
+                            .exec(cb);
+                    });
+                })(i);
+            }
+        }
+
+        async.parallel(tasks, function(err, results) {
+            if(err) return res.serverError(err);
+
+            return res.json({
+                order: order,
+            });
+        });
+    },
 };
 

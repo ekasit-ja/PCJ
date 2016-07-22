@@ -46,26 +46,31 @@ module.exports.routes = {
     "/type/create/": "TypeController.create",
     "/type/update/:tid/": "TypeController.update",
     "/type/delete/": "TypeController.delete",
+    "/api/type/reorder/": "TypeController.reorder",
 
     "/model/manage/": "ModelController.manage",
     "/model/create/": "ModelController.create",
     "/model/update/:mid/": "ModelController.update",
     "/model/delete/": "ModelController.delete",
+    "/api/model/reorder/": "ModelController.reorder",
 
     "/product/manage/": "ProductController.manage",
     "/product/create/": "ProductController.create",
     "/product/update/:pid/": "ProductController.update",
     "/product/delete/": "ProductController.delete",
+    "/api/product/reorder/": "ProductController.reorder",
 
     "/hardware/manage/": "HardwareController.manage",
     "/hardware/create/": "HardwareController.create",
     "/hardware/update/:hid/": "HardwareController.update",
     "/hardware/delete/": "HardwareController.delete",
+    "/api/hardware/reorder/": "HardwareController.reorder",
 
     "/file/manage/": "FileController.manage",
     "/file/create/": "FileController.create",
     "/file/update/:fid/": "FileController.update",
     "/file/delete/": "FileController.delete",
+    "/api/file/reorder/": "FileController.reorder",
 
     "/project/manage/": "ProjectController.manage",
     "/project/create/": "ProjectController.create",
@@ -74,4 +79,5 @@ module.exports.routes = {
     "/api/project/image/create/": "ProjectController.apiImageCreate",
     "/api/project/image/delete/": "ProjectController.apiImageDelete",
     "/api/project/image/reorder/": "ProjectController.apiImageReorder",
+    "/api/project/reorder/": "ProjectController.reorder",
 };

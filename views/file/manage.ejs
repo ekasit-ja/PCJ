@@ -7,11 +7,13 @@
     <a href="<%= sails.getUrlFor("AdminController.dashboard") %>" class="btn btn-primary">
         Back
     </a>
+    <button class="btn btn-primary reorder pull-right">Save reorder</button>
     <hr>
 
     <table class="table table-striped admin-table">
         <thead>
             <tr>
+                <th></th>
                 <th>Category</th>
                 <th>Type</th>
                 <th>Title</th>
@@ -24,7 +26,8 @@
         </thead>
         <tbody>
             <% _.each(files, function(file) { %>
-                <tr>
+                <tr data-id="<%=file.id%>">
+                    <td class="sortable-handle"><i class="fa fa-bars" aria-hidden="true"></i></td>
                     <td><%= sails.config.enums.category[file.category] %></td>
                     <td><%= sails.config.enums.file[file.fileType] %></td>
                     <td><%= file.title %></td>
@@ -45,3 +48,29 @@
         </tbody>
     </table>
 </div>
+
+<script type="text/javascript">
+    var el = $(".admin-table tbody");
+    var sortable = Sortable.create(el[0], {
+        handle: ".sortable-handle",
+        animation: 300,
+    });
+
+    $(".reorder").click(function(e) {
+        var trs = $(".admin-table tbody tr");
+        var order = [];
+
+        for(var i=0; i<trs.length; i++) {
+            order.push($(trs[i]).data("id"));
+        }
+
+        $.post(
+                "<%= sails.getUrlFor("FileController.reorder") %>",
+                {order: order}
+            )
+            .then(function(data) {
+                location.reload();
+            })
+            .fail(function(err) {});
+    });
+</script>

@@ -36,7 +36,7 @@ module.exports = {
         Project
             .find()
             .sort("position asc")
-            .populate("images")
+            .populate("images", {sort: "position asc"})
             .then(function(projects) {
                 return res.view("project/manage", {
                     projects: projects,
@@ -185,7 +185,32 @@ module.exports = {
                 (function(i) {
                     tasks.push(function(cb) {
                         ProjectImage
-                            .update(order[i], {position: i})
+                            .update(order[i], {position: i+1})
+                            .exec(cb);
+                    });
+                })(i);
+            }
+        }
+
+        async.parallel(tasks, function(err, results) {
+            if(err) return res.serverError(err);
+
+            return res.json({
+                order: order,
+            });
+        });
+    },
+
+    reorder: function(req, res) {
+        var order = req.param("order") || [];
+
+        var tasks = [];
+        for(var i=0; i<order.length; i++) {
+            if(order[i]) {
+                (function(i) {
+                    tasks.push(function(cb) {
+                        Project
+                            .update(order[i], {position: i+1})
                             .exec(cb);
                     });
                 })(i);
