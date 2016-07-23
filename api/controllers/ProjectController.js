@@ -8,31 +8,55 @@
 module.exports = {
     view: function(req, res) {
         var params = {};
+        var region = req.param("region");
+        var year = req.param("year");
 
-        if(req.method == "POST") {
-            var region = req.param("region");
-            var year = req.param("year");
+        if(region)
+            params["region"] = region;
 
-            if(region)
-                params["region"] = region;
+        if(year)
+            params["year"] = year;
 
-            if(year)
-                params["year"] = year;
-        }
+    var regionObj = {};
+    var yearObj = {};
+    var regionSet = [];
+    var yearSet = [];
+    Project
+        .find()
+        .sort("region asc")
+        .then(function(projects) {
+            for(var i=0; i<projects.length; i++)
+                regionObj[projects[i].region] = 1;
 
-        Project
-            .find(params)
-            .sort("position desc")
-            .populate("images", {sort: "position asc"})
-            .then(function(projects) {
-                return res.view("project/view", {
-                    projects: projects,
-                });
-            })
-            .catch(function(err) {
-                return res.serverError(err);
+            for(var key in regionObj)
+                regionSet.push(key);
+
+            return Project.find().sort("year desc")
+        })
+        .then(function(projects) {
+            for(var i=0; i<projects.length; i++)
+                yearObj[projects[i].year] = 1;
+
+            for(var key in yearObj)
+                yearSet.push(key);
+
+            return Project
+                .find(params)
+                .sort("position desc")
+                .populate("images", {sort: "position asc"});
+        })
+        .then(function(projects) {
+            return res.view("project/view", {
+                projects: projects,
+                region: region,
+                year: year,
+                regionSet: regionSet,
+                yearSet: yearSet,
             });
-
+        })
+        .catch(function(err) {
+            return res.serverError(err);
+        });
     },
 
     apiGetProject: function(req, res) {

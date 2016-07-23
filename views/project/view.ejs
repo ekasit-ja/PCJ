@@ -1,22 +1,22 @@
 <div class="container">
     <h2 class="header">projects</h2>
-    <form method="post">
+    <form method="get" action="<%=sails.getUrlFor('ProjectController.view')%>">
         <div class="filter-project">
             Filter By:
             <span class="filter-label">Region</span>
             <select name="region" class="form-control">
                 <option value="">All</option>
-                <option value="Thailand">Thailand</option>
-                <option value="Myanmar">Myanmar</option>
-                <option value="Bangladesh">Bangladesh</option>
+                <%_.each(regionSet, function(r) {%>
+                    <option value="<%=r%>" <%=region==r?"selected":""%>><%=r%></option>
+                <%})%>
             </select>
 
             <span class="filter-label">Year</span>
             <select name="year" class="form-control">
                 <option value="">All</option>
-                <option value="2016">2016</option>
-                <option value="2015">2015</option>
-                <option value="2014">2014</option>
+                <%_.each(yearSet, function(y) {%>
+                    <option value="<%=y%>" <%=year==y?"selected":""%>><%=y%></option>
+                <%})%>
             </select>
             <input type="submit" value="Go" class="btn btn-default" style="margin-left: 20px;">
         </div>
@@ -26,3 +26,19 @@
     <%- partial("../base/btn-project.ejs") %>
 
 </div>
+
+<script type="text/javascript">
+    var _this = $("form");
+    _this.submit(function(e) {
+        e.preventDefault();
+
+        var region = _this.find("select[name=region]").val();
+        var year = _this.find("select[name=year]").val();
+        var url = _this.attr("action");
+
+        if(region || year)
+            url += "?region=" + region + "&year=" + year;
+
+        window.location.href = url;
+    });
+</script>
