@@ -855,6 +855,10 @@ form .img-frame {
         text-align: center;
         margin-top: 10px;
     }
+
+    input[type="submit"].btn-block {
+        margin-top: 20px;
+    }
 }
 
 @media screen and (min-width: 768px) {
@@ -869,6 +873,13 @@ form .img-frame {
             text-align: left;
             margin-left: 15px;
             margin-right: 3px;
+        }
+
+        input[type="submit"].btn-block {
+            display: inline-block;
+            margin-left: 20px;
+            margin-top: 0px;
+            width: inherit;
         }
     }
 }
