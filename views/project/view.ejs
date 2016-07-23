@@ -14,9 +14,9 @@
             <span class="filter-label">Year</span>
             <select name="year" class="form-control">
                 <option value="">All</option>
-                <%_.each(yearSet, function(y) {%>
-                    <option value="<%=y%>" <%=year==y?"selected":""%>><%=y%></option>
-                <%})%>
+                <%for(var i=yearSet.length-1; i>=0; i--) {%>
+                    <option value="<%=yearSet[i]%>" <%=year==yearSet[i]?"selected":""%>><%=yearSet[i]%></option>
+                <%}%>
             </select>
             <input type="submit" value="Go" class="btn btn-default btn-block">
         </div>

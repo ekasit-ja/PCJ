@@ -145,6 +145,7 @@ $mul: 1.8;
         a:hover,
         &>.open a:hover {
             color: black;
+            background-color: #dbdbdb;
             background-image: linear-gradient(to bottom,#dbdbdb 0,#e2e2e2 100%);
         }
 
@@ -214,6 +215,7 @@ $mul: 1.8;
 
 .footer {
     padding: 15px 0;
+    background-color: $primary-red;
     background-image: linear-gradient(to bottom, $primary-red 0, $secondary-red 100%);
     color: white;
 }
@@ -494,6 +496,18 @@ $mul: 1.8;
 
 .red-text {
     color: $primary-red;
+
+    a {
+        color: $primary-red;
+    }
+}
+
+.white-text {
+    color: $white;
+
+    a {
+        color: $white;
+    }
 }
 // --- style for quick contact
 
