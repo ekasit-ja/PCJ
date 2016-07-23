@@ -115,5 +115,17 @@ module.exports = {
             });
         });
     },
+
+    about: function(req, res) {
+        return res.view("about");
+    },
+
+    contact: function(req, res) {
+        return res.view("contact");
+    },
+
+    careers: function(req, res) {
+        return res.view("careers");
+    },
 };
 

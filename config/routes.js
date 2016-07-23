@@ -34,6 +34,9 @@ module.exports.routes = {
     "/product/ductDamper/m_:mid": "ProductController.ddModel",
     "/project": "ProjectController.view",
     "/api/project/read/:pid": "ProjectController.apiGetProject",
+    "/about": "HomeController.about",
+    "/contact": "HomeController.contact",
+    "/careers": "HomeController.careers",
 
 
 
