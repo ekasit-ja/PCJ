@@ -7,7 +7,6 @@
             <% _.each(project.images, function(image) { %>
                 <div class="img-frame">
                     <img src="<%= image.url %>" data-id="<%= image.id %>">
-                    <i class="fa fa-trash-o btn-delete" aria-hidden="true"></i>
                 </div>
             <% }) %>
         </div>
@@ -15,6 +14,12 @@
     <div class="text-center">* Drag images to reorder</div>
     <br>
 
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+            <div class="delete-zone img-zone"></div>
+        </div>
+    </div>
+    <br>
     <div class="row">
         <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
             <form method="post" action="<%= sails.getUrlFor('ProjectController.update').replace(':pid', project.id) %>">
@@ -56,15 +61,17 @@
 <script type="text/javascript">
     // Prepare delete items
     var deleteId = [];
-    $("i.btn-delete").click(function(e) {
-        var _this = $(e.currentTarget).parent();
-        deleteId.push(_this.find("img").first().data("id"));
-        _this.fadeOut();
+    var deleteZone = Sortable.create($(".delete-zone")[0], {
+        group: "images",
+        onAdd: function(e) {
+            deleteId.push($(e.item).find("img").first().data("id"));
+        },
     });
 
     // initiate drag and sort script
     var sortable = Sortable.create($("#drag-zone")[0], {
         animation: 250,
+        group: "images",
     });
 
     $(".fileinput-button").click(function(e) {

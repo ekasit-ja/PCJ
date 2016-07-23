@@ -775,22 +775,26 @@ form .img-frame {
             height: auto;
             max-height: 100%;
         }
-
-        i {
-            position: absolute;
-            top: 3px;
-            right: 3px;
-            font-size: 1.2em;
-            background: $primary-red;
-            color: $white;
-            width: 22px;
-            height: 22px;
-            line-height: 22px;
-            border-radius: 11px;
-            cursor: pointer;
-            opacity: 0.9;
-        }
     }
+}
+
+.delete-zone {
+    border: 2px dashed $secondary-red;
+    min-height: 65px;
+    position: relative;
+
+    .img-frame {
+        display: none;
+    }
+}
+
+.delete-zone::before {
+  color: darken($light-grey, 20%);
+  font-size: 1.5em;
+  content: 'drop here to delete';
+  display: block;
+  text-align: center;
+  padding-top: 15px;
 }
 // --- style for admin page
 

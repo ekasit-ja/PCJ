@@ -167,7 +167,9 @@ module.exports = {
             Project
                 .update({id: pid}, params)
                 .then(function(p) {
-                    return res.redirect(sails.getUrlFor("ProjectController.manage"));
+                    return res.json({
+                        project: p[0],
+                    });
                 })
                 .catch(function(err) {
                     return res.serverError(err);
