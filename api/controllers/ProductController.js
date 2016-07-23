@@ -6,33 +6,7 @@
  */
 
 module.exports = {
-    homepage: function(req, res) {
-        Project
-            .find()
-            .sort("position desc")
-            .populate("images", {sort: "position asc"})
-            .limit(3)
-            .exec(function(err, projects) {
-                if(err) return res.serverError(err);
-
-                return res.view("homepage", {
-                    projects: projects,
-                });
-            });
-    },
-
-    // apiGetProduct: function(req, res) {
-    //     Product
-    //         .find({model: req.param("mid")})
-    //         .sort("position asc")
-    //         .exec(function(err, products) {
-    //             if(err) return res.json(err);
-
-    //             return res.json(products);
-    //         });
-    // },
-
-	fsd: function(req, res) {
+    fsd: function(req, res) {
         Type
             .find({category: "fsd"})
             .sort("position asc")

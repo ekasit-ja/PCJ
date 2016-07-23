@@ -21,7 +21,7 @@
  */
 
 module.exports.routes = {
-    "/": "ProductController.homepage",
+    "/": "HomeController.view",
 
     "get /login/": "UserController.login",
     "post /login/": "AuthController.login",
@@ -32,7 +32,6 @@ module.exports.routes = {
     "/product/fireSteelDoor/m_:mid/": "ProductController.fsdModel",
     "/product/ductDamper/": "ProductController.dd",
     "/product/ductDamper/m_:mid/": "ProductController.ddModel",
-    // "/api/product/model/:mid/": "ProductController.apiGetProduct",
     "/project/": "ProjectController.view",
     "/api/project/read/:pid/": "ProjectController.apiGetProject",
 
@@ -80,4 +79,9 @@ module.exports.routes = {
     "/api/project/image/delete/": "ProjectController.apiImageDelete",
     "/api/project/image/reorder/": "ProjectController.apiImageReorder",
     "/api/project/reorder/": "ProjectController.reorder",
+
+    "/carousel/manage": "HomeController.carouselManage",
+    "/api/carousel/create": "HomeController.apiCarouselCreate",
+    "/api/carousel/delete": "HomeController.apiCarouselDelete",
+    "/api/carousel/reorder": "HomeController.apiCarouselReorder",
 };

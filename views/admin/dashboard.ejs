@@ -1,5 +1,8 @@
 <div class="container">
     <h2 class="header">admin dashboard</h2>
+    <a href="<%= sails.getUrlFor('HomeController.carouselManage') %>" class="btn btn-primary">manage carousel</a>
+    <br>
+    <br>
     <a href="<%= sails.getUrlFor('TypeController.manage') %>" class="btn btn-primary">manage type</a>
     <a href="<%= sails.getUrlFor('ModelController.manage') %>" class="btn btn-primary">manage product model</a>
     <a href="<%= sails.getUrlFor('ProductController.manage') %>" class="btn btn-primary">manage product</a>

@@ -1,0 +1,109 @@
+<div class="container">
+    <h2 class="header">manage carousel</h2>
+    <br>
+
+    <%if(imgs.length>0) {%>
+        <div class="row">
+            <div class="img-zone col-sm-10 col-sm-push-1" id="drag-zone">
+                <% _.each(imgs, function(image) { %>
+                    <div class="img-frame">
+                        <img src="<%= image.url %>" data-id="<%= image.id %>">
+                        <i class="fa fa-trash-o btn-delete" aria-hidden="true"></i>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+        <div class="text-center">* Drag images to reorder</div>
+        <br>
+    <%}%>
+
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+            <form method="post" enctype="multipart/form-data" id="fileupload" action="<%= sails.getUrlFor('HomeController.apiCarouselCreate') %>">
+                <div class="row fileupload-buttonbar">
+                    <div class="fileinput-group">
+                        <button class="btn btn-primary fileinput-button btn-block">
+                            Add images<br>or<br>drop them here
+                        </button>
+                        <input type="file" name="images" id="files" multiple required>
+                    </div>
+                    <br>
+
+                    <table id="pictureTable" role="presentation" class="table table-striped">
+                        <tbody class="files"></tbody>
+                    </table>
+                    <button type="button" class="start hide" id="start"></button>
+                </div>
+                <input type="submit" class="submit hide">
+            </form>
+
+            <button id="submit" class="btn btn-success">Save</button>
+            <a href="<%= sails.getUrlFor('AdminController.dashboard') %>" class="btn btn-danger">Cancel</a>
+        </div>
+    </div>
+</div>
+
+<%- partial('base/template_download_progress.ejs') %>
+<%- partial('base/template_upload_progress.ejs') %>
+
+<script type="text/javascript">
+    // Prepare delete items
+    var deleteId = [];
+    $("i.btn-delete").click(function(e) {
+        var _this = $(e.currentTarget).parent();
+        deleteId.push(_this.find("img").first().data("id"));
+        _this.fadeOut(function() {
+            _this.remove();
+        });
+    });
+
+    <%if(imgs.length>0) {%>
+        // initiate drag and sort script
+        var sortable = Sortable.create($("#drag-zone")[0], {
+            animation: 250,
+        });
+    <%}%>
+
+    $(".fileinput-button").click(function(e) {
+        $("input[name='images']").trigger("click");
+    });
+
+    $("#submit").click(function(e) {
+        var forms = $("form");
+        var btnSubmits = $(".submit");
+
+        var imgs = $("#drag-zone").find("img");
+        var order = [];
+        for(var i=0; i<imgs.length; i++)
+            order.push($(imgs[i]).data("id"));
+
+        // remove first, then reorder, then update project record,
+        // then add new images
+        $.post(
+            "<%= sails.getUrlFor('HomeController.apiCarouselDelete') %>",
+            {imgIds: deleteId})
+            .then(function() {
+                return $.post(
+                    "<%= sails.getUrlFor('HomeController.apiCarouselReorder') %>",
+                    {order: order});
+            })
+            .then(function(data) {
+                if($("tbody.files").children().length < 1) {
+                    window.location.href = "<%= sails.getUrlFor('AdminController.dashboard') %>";
+                }
+                else {
+                    $("#start").trigger("click");
+                }
+            });
+    });
+
+    $(function () {
+        $('#fileupload')
+            .fileupload({
+                sequentialUploads: true,
+                stop: function(e, data) {
+                    window.location.href = "<%= sails.getUrlFor('AdminController.dashboard') %>";
+                },
+            })
+    });
+</script>
