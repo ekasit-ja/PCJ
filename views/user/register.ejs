@@ -1,9 +1,18 @@
-<h2>Register</h2>
-<form method="post">
-    <input type="email" name="email" required placeholder="Email Address">
-    <input type="password" name="password" required placeholder="Password">
-    <input type="text" name="firstName" required placeholder="First Name">
-    <input type="text" name="middleName" placeholder="Middle Name">
-    <input type="text" name="lastName" required placeholder="Last Name">
-    <input type="submit" value="Register">
-</form>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+            <h2 class="header">Register</h2>
+            <br>
+
+            <form method="post">
+                <input type="email" name="email" required placeholder="Email Address" class="form-control"><br>
+                <input type="password" name="password" required placeholder="Password" class="form-control"><br>
+                <input type="text" name="firstName" required placeholder="First Name" class="form-control"><br>
+                <input type="text" name="middleName" placeholder="Middle Name" class="form-control"><br>
+                <input type="text" name="lastName" required placeholder="Last Name" class="form-control"><br>
+                <input type="submit" value="Register" class="btn btn-primary">
+                <a href="<%=sails.getUrlFor('UserController.login')%>" class="btn btn-danger">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>
