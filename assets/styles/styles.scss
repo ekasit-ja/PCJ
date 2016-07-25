@@ -905,10 +905,17 @@ form .img-frame {
 // --- style for project page
 
 // style for contact page
+.map {
+    min-height: 320px;
+    margin-bottom: 20px;
+}
+
 .business-card {
     border: 1px solid darken($light-grey, 15%);
     padding: 40px 30px;
     flex-direction: column;
+    width: 100%;
+    margin-bottom: 20px;
 
     .name {
         font-weight: bold;
@@ -957,6 +964,10 @@ form .img-frame {
         text-align: center;
         margin-top: 10px;
         margin-bottom: 5px;
+    }
+
+    ul {
+        margin-bottom: 0px;
     }
 }
 // --- style for careers page

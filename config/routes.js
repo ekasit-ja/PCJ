@@ -37,6 +37,7 @@ module.exports.routes = {
     "/about": "HomeController.about",
     "/contact": "HomeController.contact",
     "/careers": "HomeController.careers",
+    "/lang": "HomeController.apiSetLang",
 
 
 

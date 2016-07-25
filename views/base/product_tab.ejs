@@ -1,13 +1,13 @@
 <ul class="nav nav-tabs">
-    <li class="active"><a data-toggle="tab" href="#desc">description</a></li>
-    <li><a data-toggle="tab" href="#cert">certificate</a></li>
-    <li><a data-toggle="tab" href="#inst">installation</a></li>
-    <li><a data-toggle="tab" href="#catg">catalogue</a></li>
+    <li class="active"><a data-toggle="tab" href="#desc"><%=__("description")%></a></li>
+    <li><a data-toggle="tab" href="#cert"><%=__("certificate")%></a></li>
+    <li><a data-toggle="tab" href="#inst"><%=__("installation")%></a></li>
+    <li><a data-toggle="tab" href="#catg"><%=__("catalogue")%></a></li>
 </ul>
 
 <div class="tab-content">
     <div id="desc" class="tab-pane fade in active">
-        desccription
+        description
     </div>
     <div id="cert" class="tab-pane fade">
         <%if(certs.length>0) {%>
@@ -15,12 +15,12 @@
                 <div class="btn-cert">
                     <a href="<%=cert.url%>" target="_blank">
                         <div class="img-frame"><img src="<%=cert.image || '/images/file.jpg'%>"></div>
-                        <div class="title">download</div>
+                        <div class="title"><%=__("download")%> - <%=cert.title%></div>
                     </a>
                 </div>
             <%})%>
         <%} else {%>
-            There is no file available at this time.
+            <%=__("no-file-available")%>
         <%}%>
     </div>
     <div id="inst" class="tab-pane fade">
@@ -29,12 +29,12 @@
                 <div class="btn-cert">
                     <a href="<%=inst.url%>" target="_blank">
                         <div class="img-frame"><img src="<%=inst.image || '/images/file.jpg'%>"></div>
-                        <div class="title">download</div>
+                        <div class="title"><%=__("download")%> - <%=inst.title%></div>
                     </a>
                 </div>
             <%})%>
         <%} else {%>
-            There is no file available at this time.
+            <%=__("no-file-available")%>
         <%}%>
     </div>
     <div id="catg" class="tab-pane fade">
@@ -43,12 +43,12 @@
                 <div class="btn-cert">
                     <a href="<%=catg.url%>" target="_blank">
                         <div class="img-frame"><img src="<%=catg.image || '/images/file.jpg'%>"></div>
-                        <div class="title">download</div>
+                        <div class="title"><%=__("download")%> - <%=catg.title%></div>
                     </a>
                 </div>
             <%})%>
         <%} else {%>
-            There is no file available at this time.
+            <%=__("no-file-available")%>
         <%}%>
     </div>
 </div>

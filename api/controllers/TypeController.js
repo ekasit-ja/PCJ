@@ -24,7 +24,8 @@ module.exports = {
         if(req.method == "POST") {
             var params = readForm(req, [
                 "category",
-                "title"
+                "title",
+                "title_th",
             ]);
 
             uploadFiles(req.file("image"))
@@ -53,7 +54,8 @@ module.exports = {
         if(req.method == "POST") {
             var params = readForm(req, [
                 "category",
-                "title"
+                "title",
+                "title_th",
             ]);
             params.id = tid;
 

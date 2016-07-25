@@ -15,6 +15,7 @@ module.exports = {
             .limit(3)
             .then(function(projects) {
                 ps = projects;
+                dynamicInter(req, "Project", ps);
                 return CarouselImage.find().sort("position asc");
             })
             .then(function(imgs) {
@@ -126,6 +127,22 @@ module.exports = {
 
     careers: function(req, res) {
         return res.view("careers");
+    },
+
+    apiSetLang: function(req, res) {
+        var lang = req.param("lang") || "";
+
+        if(sails.config.i18n.locales.includes(lang)) {
+            req.session.langPref = lang;
+            return res.json({
+                lang: req.session.langPref,
+            });
+        }
+        else {
+            return res.json({
+                lang: "en",
+            });
+        }
     },
 };
 

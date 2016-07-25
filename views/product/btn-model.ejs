@@ -1,7 +1,7 @@
 <%if(models.length < 1) {%>
-    <p class="alert alert-warning text-center">There are no models available at this time.</p>
+    <p class="alert alert-warning text-center"><%=__("no-model-available")%></p>
 <%} else {%>
-    <h3 class="header">model you can choose</h3>
+    <h3 class="header"><%=__("model-you-can-choose")%></h3>
     <div class="row row-flex">
         <% _.each(models, function(model, i) { %>
             <div class="col-md-4 col-sm-6 col-xs-12">

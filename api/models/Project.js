@@ -17,12 +17,20 @@ module.exports = {
             required: true,
         },
 
+        title_th: {
+            type: "string",
+        },
+
         images: {
             collection: "projectImage",
             via: "project",
         },
 
         desc: {
+            type: "text",
+        },
+
+        desc_th: {
             type: "text",
         },
 

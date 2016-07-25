@@ -21,9 +21,9 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav-custom navbar-nav navbar-right">
-                <li><a href="<%=sails.getUrlFor('HomeController.about')%>">About</a></li>
+                <li><a href="<%=sails.getUrlFor('HomeController.about')%>"><%=__("about")%></a></li>
                 <li class="dropdown yamm-fw">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Products <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%=__("products")%> <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li>
                             <div class="yamm-content">
@@ -31,14 +31,14 @@
                                     <div class="col-sm-3 col-xs-6 tag-container category">
                                         <a href="<%= sails.getUrlFor('ProductController.fsd') %>" class="col-xs-12">
                                             <div class="img square" style="background-image:url('/images/fire_doors.jpg')"></div>
-                                            <div class="tag-label">Fire Steel Doors</div>
+                                            <div class="tag-label"><%=__("fire-steel-doors")%></div>
                                         </a>
                                     </div>
                                     <div class="col-sm-3 col-xs-6 tag-container category">
                                         <a href="#" class="col-xs-12">
                                             <div class="img square" style="background-image:url('/images/fire_dampers.jpg')"></div>
                                             <div class="tag-cover">
-                                                <div class="tag-label">Fire Dampers</div>
+                                                <div class="tag-label"><%=__("fire-dampers")%></div>
                                             </div>
                                         </a>
                                     </div>
@@ -46,7 +46,7 @@
                                         <a href="<%= sails.getUrlFor('ProductController.dd') %>" class="col-xs-12">
                                             <div class="img square" style="background-image:url('/images/duct_dampers.jpg')"></div>
                                             <div class="tag-cover">
-                                                <div class="tag-label">Duct Dampers</div>
+                                                <div class="tag-label"><%=__("duct-dampers")%></div>
                                             </div>
                                         </a>
                                     </div>
@@ -54,7 +54,7 @@
                                         <a href="#" class="col-xs-12">
                                             <div class="img square" style="background-image:url('/images/air_outlets.jpg')"></div>
                                             <div class="tag-cover">
-                                                <div class="tag-label">Air Outlets</div>
+                                                <div class="tag-label"><%=__("air-outlets")%></div>
                                             </div>
                                         </a>
                                     </div>
@@ -63,12 +63,23 @@
                         </li>
                     </ul>
                 </li>
-                <li><a href="<%= sails.getUrlFor('ProjectController.view') %>">Projects</a></li>
-                <li><a href="<%=sails.getUrlFor('HomeController.contact')%>">Contact</a></li>
-                <li><a href="<%=sails.getUrlFor('HomeController.careers')%>">Careers</a></li>
-                <li><a href="#en" class="icon-lang"><img src="/images/flag_en.png"></a></li>
-                <li><a href="#th" class="icon-lang"><img src="/images/flag_th.png"></a></li>
+                <li><a href="<%= sails.getUrlFor('ProjectController.view') %>"><%=__("projects")%></a></li>
+                <li><a href="<%=sails.getUrlFor('HomeController.contact')%>"><%=__("contact")%></a></li>
+                <li><a href="<%=sails.getUrlFor('HomeController.careers')%>"><%=__("careers")%></a></li>
+                <li><a href="#" class="icon-lang" data-lang="en"><img src="/images/flag_en.png"></a></li>
+                <li><a href="#" class="icon-lang" data-lang="th"><img src="/images/flag_th.png"></a></li>
             </ul>
         </div>
     </div>
 </nav>
+
+<script type="text/javascript">
+    $("a.icon-lang").click(function(e) {
+        e.preventDefault();
+
+        var lang = $(e.currentTarget).data("lang");
+        $.get("<%=sails.getUrlFor('HomeController.apiSetLang')%>"+"?lang="+lang, function(data) {
+            location.reload();
+        });
+    });
+</script>

@@ -14,10 +14,14 @@ module.exports = {
                 if(types.length < 1)
                     return Promise.resolve([]);
 
+                dynamicInter(req, "Type", types);
+
                 // suppose to found just one type of fire steel door
                 return Model.find({type: types[0].id}).sort("position asc")
             })
             .then(function(models) {
+                dynamicInter(req, "Model", models);
+
                 return res.view("product/fsd/index", {
                     models: models,
                 });
@@ -37,10 +41,12 @@ module.exports = {
             .findOne(mid)
             .then(function(model) {
                 m = model;
-                return Product.find({model: mid}).sort("position asc")
+                dynamicInter(req, "Model", m);
+                return Product.find({model: mid}).sort("position asc");
             })
             .then(function(products) {
                 ps = products;
+                dynamicInter(req, "Product", ps);
                 return Hardware.find().sort("position asc");
             })
             .then(function(hardwares) {
@@ -57,6 +63,7 @@ module.exports = {
 
                     for(var j=0; j<hardwares.length; j++) {
                         if(hardwares[j].hardwareType == sorting[i]) {
+                            dynamicInter(req, "Hardware", hardwares[j]);
                             result[i].push(hardwares[j]);
                         }
                     }
@@ -68,18 +75,21 @@ module.exports = {
             })
             .then(function(files) {
                 certs = files;
+                dynamicInter(req, "File", certs);
                 return File
                     .find({category: "fsd", fileType: "inst"})
                     .sort("position asc");
             })
             .then(function(files) {
                 insts = files;
+                dynamicInter(req, "File", insts);
                 return File
                     .find({category: "fsd", fileType: "catg"})
                     .sort("position asc");
             })
             .then(function(files) {
                 catgs = files;
+                dynamicInter(req, "File", catgs);
 
                 return res.view("product/fsd/model", {
                     model: m,
@@ -104,6 +114,10 @@ module.exports = {
             .exec(function(err, types) {
                 if(err) return res.serverError(err);
 
+                dynamicInter(req, "Type", types);
+                for(var i=0; i<types.length; i++)
+                    dynamicInter(req, "Model", types[i].models);
+
                 return res.view("product/dd/index", {
                     types: types,
                 });
@@ -121,28 +135,34 @@ module.exports = {
             .populate("type")
             .then(function(model) {
                 m = model;
+                dynamicInter(req, "Model", m);
+                dynamicInter(req, "Type", m.type);
                 return Product.find({model: mid}).sort("position asc")
             })
             .then(function(products) {
                 ps = products;
+                dynamicInter(req, "Product", ps);
                 return File
                     .find({category: "dd", fileType: "cert"})
                     .sort("position asc");
             })
             .then(function(files) {
                 certs = files;
+                dynamicInter(req, "File", certs);
                 return File
                     .find({category: "dd", fileType: "inst"})
                     .sort("position asc");
             })
             .then(function(files) {
                 insts = files;
+                dynamicInter(req, "File", insts);
                 return File
                     .find({category: "dd", fileType: "catg"})
                     .sort("position asc");
             })
             .then(function(files) {
                 catgs = files;
+                dynamicInter(req, "File", catgs);
                 return res.view("product/dd/model", {
                     model: m,
                     products: ps,
@@ -176,6 +196,7 @@ module.exports = {
             var params = readForm(req, [
                 "model",
                 "title",
+                "title_th",
             ]);
 
             uploadFiles(req.file("image"))
@@ -214,6 +235,7 @@ module.exports = {
             var params = readForm(req, [
                 "model",
                 "title",
+                "title_th",
             ]);
             params.id = pid;
 

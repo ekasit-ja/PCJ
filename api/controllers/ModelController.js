@@ -26,6 +26,7 @@ module.exports = {
             var params = readForm(req, [
                 "type",
                 "title",
+                "title_th",
             ]);
 
             uploadFiles(req.file("image"))
@@ -64,6 +65,7 @@ module.exports = {
             var params = readForm(req, [
                 "type",
                 "title",
+                "title_th",
             ]);
             params.id = mid;
 

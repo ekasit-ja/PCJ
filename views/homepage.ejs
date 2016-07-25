@@ -20,23 +20,23 @@
 <br>
 
 <div class="container">
-    <h3 class="header" style="text-transform: uppercase;">Quality you can trust</h3>
+    <h3 class="header" style="text-transform: uppercase;"><%=__("quality-you-can-trust")%></h3>
     <div class="row">
         <div class="col-sm-8 col-sm-offset-2">
-            <p class="text-justify">For the past fifteen years, we have been known throughout the construction field in many countries for high quality products and services.  Our 8,000 sqm factory building with full lines of hi-tech machines and experience engineer/technician teams under quality management system - ISO 9001:2008 can have high production capacity and reliable quality to supply your quick ship needs and acceptable goods, ensuring that your projects are completed on time and under budget as well.</p>
+            <p class="text-justify"><%=__("quality-you-can-trust-detail")%></p>
         </div>
     </div>
     <div class="row">
         <img src="/images/certificate.jpg" class="img-responsive">
     </div>
     <hr>
-    <h3 class="header">Projects</h3>
+    <h3 class="header"><%=__("projects")%></h3>
 
     <%- partial("base/btn-project.ejs") %>
 
     <br>
     <div class="text-center">
-        <a href="<%= sails.getUrlFor('ProjectController.view') %>" class="btn btn-default text-capitalize">view all</a>
+        <a href="<%= sails.getUrlFor('ProjectController.view') %>" class="btn btn-default text-capitalize"><%=__("view-all")%></a>
     </div>
     <br>
 </div>

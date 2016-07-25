@@ -26,7 +26,9 @@ module.exports = {
                 "category",
                 "fileType",
                 "title",
+                "title_th",
                 "desc",
+                "desc_th",
             ]);
 
             async.map(["file", "image"], function(file, cb) {
@@ -66,11 +68,13 @@ module.exports = {
 
         if(req.method == "POST") {
             var params = readForm(req, [
-                        "category",
-                        "fileType",
-                        "title",
-                        "desc",
-                    ]);
+                "category",
+                "fileType",
+                "title",
+                "title_th",
+                "desc",
+                "desc_th",
+            ]);
             params.id = fid;
 
             async.map(["file", "image"], function(file, cb) {

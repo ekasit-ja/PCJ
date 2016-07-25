@@ -17,6 +17,10 @@ module.exports = {
             required: true,
         },
 
+        title_th: {
+            type: "string",
+        },
+
         image: {
             type: "string",
             required: true,

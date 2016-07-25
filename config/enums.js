@@ -1,24 +1,24 @@
 module.exports.enums = {
     category: {
-        fsd: "Fire Steel Doors",
-        fd: "Fire Dampers",
-        dd: "Duct Dampers",
-        ao: "Air Outlets",
+        fsd: "fire-steel-doors",
+        fd: "fire-dampers",
+        dd: "duct-dampers",
+        ao: "air-outlets",
     },
 
     hardware: {
-        dc: "Door Closers",
-        dl: "Door Locks",
-        ws: "Wheel Set",
-        dha: "Door Handles",
-        dho: "Door Holders",
-        fed: "Fire Exit Devices",
-        etc: "Etc.",
+        dc: "door-closers",
+        dl: "door-locks",
+        ws: "wheel-set",
+        dha: "door-handles",
+        dho: "door-holders",
+        fed: "fire-exit-devices",
+        etc: "etc",
     },
 
     file: {
-        cert: "Certificate",
-        inst: "Installation",
-        catg: "Catalogue",
+        cert: "certificate",
+        inst: "installation",
+        catg: "catalogue",
     },
 }

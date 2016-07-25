@@ -26,10 +26,10 @@ module.exports.policies = {
     *                                                                          *
     ***************************************************************************/
 
-    "*": true,
+    "*": ["langPref"],
 
     "ProductController": {
-        "*": true,
+        "*": ["langPref"],
         // "manage": "isAuthenticated",
     },
 
