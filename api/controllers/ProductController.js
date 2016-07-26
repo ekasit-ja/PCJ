@@ -217,6 +217,7 @@ module.exports = {
         else {
             Model
                 .find()
+                .populate("type")
                 .then(function(models) {
                     return res.view("product/create", {
                         models: models,
@@ -257,6 +258,7 @@ module.exports = {
             var ms;
             Model
                 .find()
+                .populate("type")
                 .sort("position asc")
                 .then(function(models) {
                     ms = models;
