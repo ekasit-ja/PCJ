@@ -1,0 +1,26 @@
+<div class="container">
+    <h3 class="header"><%=__("air-outlets")%></h3>
+    <p class="text-center">Plenty types of our air outlets are available to meet any of your requirements</p>
+    <hr>
+
+    <%if(types.length>0) {%>
+
+        <%- partial("../../base/carousel_type.ejs") %>
+        <br>
+
+        <% _.each(types, function(type) {
+            url = sails.getUrlFor('ProductController.aoModel');
+            models = type.models;
+        %>
+            <div id="btn-model-container-<%= type.id %>" class="btn-model-container">
+                <%- partial("../btn-model.ejs") %>
+            </div>
+        <% }) %>
+    <%} else {%>
+        <p class="alert alert-warning text-center">There are no models available at this time.</p>
+    <%}%>
+</div>
+
+<script type="text/javascript">
+    $(".btn-model-container").hide();
+</script>

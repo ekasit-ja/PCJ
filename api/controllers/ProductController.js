@@ -176,6 +176,76 @@ module.exports = {
             });
     },
 
+    ao: function(req, res) {
+        Type
+            .find({category: "ao"})
+            .sort("position asc")
+            .populate("models", {sort: "position asc"})
+            .exec(function(err, types) {
+                if(err) return res.serverError(err);
+
+                dynamicInter(req, "Type", types);
+                for(var i=0; i<types.length; i++)
+                    dynamicInter(req, "Model", types[i].models);
+
+                return res.view("product/ao/index", {
+                    types: types,
+                });
+            });
+    },
+
+    aoModel: function(req, res) {
+        var mid = req.param("mid");
+        if(isNaN(mid))
+            mid = -1;
+
+        var m, ps, certs, insts, catgs;
+        Model
+            .findOne(mid)
+            .populate("type")
+            .then(function(model) {
+                m = model;
+                dynamicInter(req, "Model", m);
+                dynamicInter(req, "Type", m.type);
+                return Product.find({model: mid}).sort("position asc")
+            })
+            .then(function(products) {
+                ps = products;
+                dynamicInter(req, "Product", ps);
+                return File
+                    .find({category: "ao", fileType: "cert"})
+                    .sort("position asc");
+            })
+            .then(function(files) {
+                certs = files;
+                dynamicInter(req, "File", certs);
+                return File
+                    .find({category: "ao", fileType: "inst"})
+                    .sort("position asc");
+            })
+            .then(function(files) {
+                insts = files;
+                dynamicInter(req, "File", insts);
+                return File
+                    .find({category: "ao", fileType: "catg"})
+                    .sort("position asc");
+            })
+            .then(function(files) {
+                catgs = files;
+                dynamicInter(req, "File", catgs);
+                return res.view("product/ao/model", {
+                    model: m,
+                    products: ps,
+                    certs: certs,
+                    insts: insts,
+                    catgs: catgs,
+                });
+            })
+            .catch(function(err) {
+                return res.serverError(err);
+            });
+    },
+
     manage: function(req, res) {
         Product
             .find()
