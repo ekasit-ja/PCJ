@@ -106,6 +106,83 @@ module.exports = {
             });
     },
 
+    fd: function(req, res) {
+        Type
+            .find({category: "fd"})
+            .sort("position asc")
+            .then(function(types) {
+                if(types.length < 1)
+                    return Promise.resolve([]);
+
+                dynamicInter(req, "Type", types);
+
+                // suppose to found just one type of fire steel door
+                return Model.find({type: types[0].id}).sort("position asc")
+            })
+            .then(function(models) {
+                dynamicInter(req, "Model", models);
+
+                return res.view("product/fd/index", {
+                    models: models,
+                });
+            })
+            .catch(function(err) {
+                return res.serverError(err);
+            });
+    },
+
+    fdModel: function(req, res) {
+        var mid = req.param("mid");
+        if(isNaN(mid))
+            mid = -1;
+
+        var m, ps, certs, insts, catgs;
+        Model
+            .findOne(mid)
+            .populate("type")
+            .then(function(model) {
+                m = model;
+                dynamicInter(req, "Model", m);
+                dynamicInter(req, "Type", m.type);
+                return Product.find({model: mid}).sort("position asc")
+            })
+            .then(function(products) {
+                ps = products;
+                dynamicInter(req, "Product", ps);
+                return File
+                    .find({category: "fd", fileType: "cert"})
+                    .sort("position asc");
+            })
+            .then(function(files) {
+                certs = files;
+                dynamicInter(req, "File", certs);
+                return File
+                    .find({category: "fd", fileType: "inst"})
+                    .sort("position asc");
+            })
+            .then(function(files) {
+                insts = files;
+                dynamicInter(req, "File", insts);
+                return File
+                    .find({category: "fd", fileType: "catg"})
+                    .sort("position asc");
+            })
+            .then(function(files) {
+                catgs = files;
+                dynamicInter(req, "File", catgs);
+                return res.view("product/fd/model", {
+                    model: m,
+                    products: ps,
+                    certs: certs,
+                    insts: insts,
+                    catgs: catgs,
+                });
+            })
+            .catch(function(err) {
+                return res.serverError(err);
+            });
+    },
+
     dd: function(req, res) {
         Type
             .find({category: "dd"})

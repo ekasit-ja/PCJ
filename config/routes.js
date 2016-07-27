@@ -30,6 +30,8 @@ module.exports.routes = {
 
     "/product/fireSteelDoor": "ProductController.fsd",
     "/product/fireSteelDoor/m_:mid": "ProductController.fsdModel",
+    "/product/fireDamper": "ProductController.fd",
+    "/product/fireDamper/m_:mid": "ProductController.fdModel",
     "/product/ductDamper": "ProductController.dd",
     "/product/ductDamper/m_:mid": "ProductController.ddModel",
     "/product/airOutlet": "ProductController.ao",

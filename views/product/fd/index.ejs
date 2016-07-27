@@ -1,0 +1,9 @@
+<div class="container">
+    <h3 class="header"><%=__(sails.config.enums.category["fd"])%></h3>
+    <p class="text-center">Our fire dampers are certified for fire rating by worldwide accepted organization</p>
+    <img src="/images/fire_door_cert.jpg" class="img-responsive center-block product-cert">
+    <hr>
+
+    <% url = sails.getUrlFor('ProductController.fdModel') %>
+    <%- partial("../btn-model.ejs") %>
+</div>
