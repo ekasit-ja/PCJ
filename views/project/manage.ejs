@@ -18,6 +18,7 @@
                 <th>Description</th>
                 <th>Region</th>
                 <th>Year</th>
+                <th>Month</th>
                 <th>Company</th>
                 <th>Image</th>
                 <th></th>
@@ -32,6 +33,7 @@
                     <td><%= project.desc %></td>
                     <td><%= project.region %></td>
                     <td><%= project.year %></td>
+                    <td><%= project.month||"" %></td>
                     <td><%= project.company %></td>
                     <td><img src="<%=project.images[0]?project.images[0].url:''%>"></td>
                     <td>

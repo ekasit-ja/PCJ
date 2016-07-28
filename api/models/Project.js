@@ -42,6 +42,10 @@ module.exports = {
             type: "string",
         },
 
+        month: {
+            type: "string",
+        },
+
         company: {
             type: "string",
         },
