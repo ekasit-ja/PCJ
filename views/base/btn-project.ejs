@@ -1,9 +1,11 @@
 <%if(projects.length > 0) {%>
     <div class="project-container">
         <div class="row">
-            <% _.each(projects, function(project, i) { %><div class="col-sm-4 col-xs-12 tag-container project">
+            <% _.each(projects, function(project, i) {
+                var imgUrl = project.images[0] ? project.images[0].url : "/images/image_404.jpg";
+            %><div class="col-sm-4 col-xs-12 tag-container project">
                     <div class="col-sm-12" data-pid="<%= project.id %>">
-                        <div class="img project" style="background-image:url('<%= project.images[0].url %>')"></div>
+                        <div class="img project" style="background-image:url('<%=imgUrl%>')"></div>
                         <div class="tag-label"><%= project.title %></div>
                     </div>
             </div><% }) %>
