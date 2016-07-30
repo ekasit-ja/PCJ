@@ -25,7 +25,7 @@
             <form method="post" action="<%= sails.getUrlFor('ProjectController.update').replace(':pid', project.id) %>">
                 <input type="text" name="title" placeholder="title" class="form-control" required value="<%= project.title %>"><br>
                 <input type="text" name="title_th" placeholder="title_th" class="form-control" value="<%=project.title_th||''%>"><br>
-                <textarea rows="5" name="desc" placeholder="desc" class="form-control" required><%= project.desc %></textarea><br>
+                <textarea rows="5" name="desc" placeholder="desc" class="form-control"><%=project.desc||""%></textarea><br>
                 <textarea rows="5" name="desc_th" placeholder="desc_th" class="form-control"><%=project.desc_th||""%></textarea><br>
                 <input type="text" name="region" placeholder="region" class="form-control" value="<%= project.region || '' %>"><br>
                 <input type="text" name="year" placeholder="year" class="form-control" value="<%= project.year || '' %>"><br>
