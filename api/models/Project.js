@@ -34,15 +34,15 @@ module.exports = {
             type: "text",
         },
 
+        country: {
+            type: "string",
+        },
+
         region: {
             type: "string",
         },
 
         year: {
-            type: "string",
-        },
-
-        month: {
             type: "string",
         },
 

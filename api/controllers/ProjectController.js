@@ -98,9 +98,9 @@ module.exports = {
                 "title_th",
                 "desc",
                 "desc_th",
+                "country",
                 "region",
                 "year",
-                "month",
                 "company",
             ]);
 
@@ -165,9 +165,9 @@ module.exports = {
                 "title_th",
                 "desc",
                 "desc_th",
+                "country",
                 "region",
                 "year",
-                "month",
                 "company",
             ]);
             params.id = pid;
