@@ -25,20 +25,55 @@
 
     <%- partial("../base/btn-project.ejs") %>
 
+    <%if(count) {%>
+        <br>
+        <div class="text-center">
+            Page
+            <select name="page" id="page" class="form-control" style="width: inherit; display: inline-block;">
+                <%for(var i=1; i<=count; i++) {%>
+                    <option value="<%=i%>" <%=page==i?"selected":""%>><%=i%></option>
+                <%}%>
+            </select>
+        </div>
+        <br>
+    <%}%>
+
 </div>
 
 <script type="text/javascript">
     var _this = $("form");
+    var _page = $("#page");
+    var _change = false;
     _this.submit(function(e) {
         e.preventDefault();
 
         var country = _this.find("select[name=country]").val();
         var year = _this.find("select[name=year]").val();
+        var page;
+
+        // do not include page parameter in the url when submitted
+        // if the submission does not come from page selection
+        if(_change)
+            page = _page.val();
         var url = _this.attr("action");
 
         if(country || year)
             url += "?country=" + country + "&year=" + year;
 
+        if(page) {
+            if(url.indexOf("?") < 0)
+                url += "?page=" + page;
+            else
+                url += "&page=" + page;
+        }
+
         window.location.href = url;
+    });
+
+    // webpage will change immediately right after
+    // users change the page selection
+    _page.change(function(e) {
+        _change = true;
+        _this.submit();
     });
 </script>

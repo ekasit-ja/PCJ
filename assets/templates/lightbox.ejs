@@ -12,6 +12,10 @@
                 <%}%>
             </div>
 
+            <%if(project.company) {%>
+                <div class="year">Company : <%=project.company%></div>
+            <%}%>
+
             <%if(project.year) {%>
                 <div class="year">Year : <%=project.year%></div>
             <%}%>

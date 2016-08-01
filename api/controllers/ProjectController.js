@@ -5,11 +5,14 @@
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 
+var pageLimit = 30;
+
 module.exports = {
     view: function(req, res) {
         var params = {};
         var country = req.param("country");
         var year = req.param("year");
+        var page = req.param("page");
 
         if(country)
             params["country"] = country;
@@ -17,10 +20,14 @@ module.exports = {
         if(year)
             params["year"] = year;
 
+        if(!Number.isInteger(parseInt(page)))
+            page = 1;
+
         var countryObj = {};
         var yearObj = {};
         var countrySet = [];
         var yearSet = [];
+        var count;
         Project
             .find()
             .sort("country asc")
@@ -46,6 +53,15 @@ module.exports = {
                     .populate("images", {sort: "position asc"});
             })
             .then(function(projects) {
+                count = Math.ceil(projects.length/pageLimit) || 0;
+
+                return Project
+                    .find(params)
+                    .paginate({page: page, limit: pageLimit})
+                    .sort("position desc")
+                    .populate("images", {sort: "position asc"});
+            })
+            .then(function(projects) {
                 dynamicInter(req, "Project", projects);
                 return res.view("project/view", {
                     projects: projects,
@@ -53,6 +69,8 @@ module.exports = {
                     year: year,
                     countrySet: countrySet,
                     yearSet: yearSet,
+                    count: count,
+                    page: page,
                 });
             })
             .catch(function(err) {
