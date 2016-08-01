@@ -2,11 +2,18 @@
     <div class="col-sm-3 col-sm-push-9 lightbox-text">
         <div class="title"><%= project.title %></div>
         <div>
-            <%if(project.region) {%>
-                <span class="region">Region : <%=project.region%></span>
-            <%}%>
+            <div class="country">
+                Location :
+                <%if(project.region) {%>
+                    <%=project.region%>,
+                <%}%>
+                <%if(project.country) {%>
+                    <%=project.country%>
+                <%}%>
+            </div>
+
             <%if(project.year) {%>
-                <span class="year">Year : <%=project.year%></span>
+                <div class="year">Year : <%=project.year%></div>
             <%}%>
         </div>
         <div class="desc"><%= project.desc %></div>

@@ -3,11 +3,11 @@
     <form method="get" action="<%=sails.getUrlFor('ProjectController.view')%>">
         <div class="filter-project">
             Filter By:
-            <span class="filter-label">Region</span>
-            <select name="region" class="form-control">
+            <span class="filter-label">Country</span>
+            <select name="country" class="form-control">
                 <option value="">All</option>
-                <%_.each(regionSet, function(r) {%>
-                    <option value="<%=r%>" <%=region==r?"selected":""%>><%=r%></option>
+                <%_.each(countrySet, function(c) {%>
+                    <option value="<%=c%>" <%=country==c?"selected":""%>><%=c%></option>
                 <%})%>
             </select>
 
@@ -32,12 +32,12 @@
     _this.submit(function(e) {
         e.preventDefault();
 
-        var region = _this.find("select[name=region]").val();
+        var country = _this.find("select[name=country]").val();
         var year = _this.find("select[name=year]").val();
         var url = _this.attr("action");
 
-        if(region || year)
-            url += "?region=" + region + "&year=" + year;
+        if(country || year)
+            url += "?country=" + country + "&year=" + year;
 
         window.location.href = url;
     });

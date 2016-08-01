@@ -8,28 +8,28 @@
 module.exports = {
     view: function(req, res) {
         var params = {};
-        var region = req.param("region");
+        var country = req.param("country");
         var year = req.param("year");
 
-        if(region)
-            params["region"] = region;
+        if(country)
+            params["country"] = country;
 
         if(year)
             params["year"] = year;
 
-        var regionObj = {};
+        var countryObj = {};
         var yearObj = {};
-        var regionSet = [];
+        var countrySet = [];
         var yearSet = [];
         Project
             .find()
-            .sort("region asc")
+            .sort("country asc")
             .then(function(projects) {
                 for(var i=0; i<projects.length; i++)
-                    regionObj[projects[i].region] = 1;
+                    countryObj[projects[i].country] = 1;
 
-                for(var key in regionObj)
-                    regionSet.push(key);
+                for(var key in countryObj)
+                    countrySet.push(key);
 
                 return Project.find().sort("year desc")
             })
@@ -49,9 +49,9 @@ module.exports = {
                 dynamicInter(req, "Project", projects);
                 return res.view("project/view", {
                     projects: projects,
-                    region: region,
+                    country: country,
                     year: year,
-                    regionSet: regionSet,
+                    countrySet: countrySet,
                     yearSet: yearSet,
                 });
             })
