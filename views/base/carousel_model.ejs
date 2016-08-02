@@ -1,8 +1,8 @@
 <h3 class="header">Model you can choose</h3>
 <div class="owl-carousel carousel-browse model">
-    <% _.each(models, function(model) { %>
+    <% _.each(models, function(model, i) { %>
         <a href="#<%= model.id %>" class="item-button model">
-            <div class="img-frame"><img src="<%= model.image %>"></div>
+            <div class="img-frame"><img src="<%= model.image %>" alt="carousel-<%=i%>"></div>
             <div class="item-title"><%= model.title %></div>
         </a>
     <% }) %>

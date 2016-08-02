@@ -12,7 +12,7 @@
                 data-click="false"
                 data-thumbmargin="5">
             <% _.each(products, function(product) { %>
-                <img src="<%= product.image %>" width="50" height="50" data-label="<%= product.title %>">
+                <img src="<%= product.image %>" width="50" height="50" data-label="<%= product.title %>" alt="<%=product.title%>">
             <% }) %>
         </div>
     </div>

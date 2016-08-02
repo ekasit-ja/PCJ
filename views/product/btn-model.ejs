@@ -6,7 +6,7 @@
         <% _.each(models, function(model, i) { %>
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <a href="<%= url.replace(':mid', model.id) %>" class="btn-model">
-                    <div class="img-frame"><img src="<%= model.image %>"></div>
+                    <div class="img-frame"><img src="<%= model.image %>" alt="<%=model.title%>"></div>
                     <div class="title"><%= model.title %></div>
                 </a>
             </div>
