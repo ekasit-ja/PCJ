@@ -71,6 +71,9 @@ module.exports = {
                     yearSet: yearSet,
                     count: count,
                     page: page,
+                    title: "seo-project-title",
+                    metaKeyword: "seo-project-meta-keyword",
+                    metaDesc: "seo-project-meta-desc",
                 });
             })
             .catch(function(err) {

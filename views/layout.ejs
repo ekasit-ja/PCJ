@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%=typeof title == 'undefined' ? 'New Sails App' : title%></title>
+    <meta charset="utf-8">
+    <title><%=typeof title == "undefined" ? __("seo-home-title") : __(title)%></title>
+    <meta name="keywords" content="<%=typeof metaKeyword == "undefined" ? __('seo-home-meta-keyword') : __(metaKeyword)%>">
+    <meta name="description" content="<%=typeof metaDesc == "undefined" ? __('seo-home-meta-desc') : __(metaDesc)%>">
+    <meta name="robots" content="index,follow">
 
     <!-- Viewport mobile tag for sensible mobile support -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">

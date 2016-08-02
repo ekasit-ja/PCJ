@@ -24,6 +24,9 @@ module.exports = {
 
                 return res.view("product/fsd/index", {
                     models: models,
+                    title: "seo-fsd-title",
+                    metaKeyword: "seo-fsd-meta-keyword",
+                    metaDesc: "seo-fsd-meta-desc",
                 });
             })
             .catch(function(err) {
@@ -99,6 +102,9 @@ module.exports = {
                     certs: certs,
                     insts: insts,
                     catgs: catgs,
+                    title: m.title + " - " + req.__("seo-fsd-title"),
+                    metaKeyword: "seo-fsd-meta-keyword",
+                    metaDesc: "seo-fsd-meta-desc",
                 });
             })
             .catch(function(err) {
@@ -124,6 +130,9 @@ module.exports = {
 
                 return res.view("product/fd/index", {
                     models: models,
+                    title: "seo-fd-title",
+                    metaKeyword: "seo-fd-meta-keyword",
+                    metaDesc: "seo-fd-meta-desc",
                 });
             })
             .catch(function(err) {
@@ -176,6 +185,9 @@ module.exports = {
                     certs: certs,
                     insts: insts,
                     catgs: catgs,
+                    title: m.title + " - " + req.__("seo-fd-title"),
+                    metaKeyword: "seo-fd-meta-keyword",
+                    metaDesc: "seo-fd-meta-desc",
                 });
             })
             .catch(function(err) {
@@ -197,6 +209,9 @@ module.exports = {
 
                 return res.view("product/dd/index", {
                     types: types,
+                    title: "seo-dd-title",
+                    metaKeyword: "seo-dd-meta-keyword",
+                    metaDesc: "seo-dd-meta-desc",
                 });
             });
     },
@@ -246,6 +261,9 @@ module.exports = {
                     certs: certs,
                     insts: insts,
                     catgs: catgs,
+                    title: m.title + " - " + req.__("seo-dd-title"),
+                    metaKeyword: "seo-dd-meta-keyword",
+                    metaDesc: "seo-dd-meta-desc",
                 });
             })
             .catch(function(err) {
@@ -267,6 +285,9 @@ module.exports = {
 
                 return res.view("product/ao/index", {
                     types: types,
+                    title: "seo-ao-title",
+                    metaKeyword: "seo-ao-meta-keyword",
+                    metaDesc: "seo-ao-meta-desc",
                 });
             });
     },
@@ -316,6 +337,9 @@ module.exports = {
                     certs: certs,
                     insts: insts,
                     catgs: catgs,
+                    title: m.title + " - " + req.__("seo-ao-title"),
+                    metaKeyword: "seo-ao-meta-keyword",
+                    metaDesc: "seo-ao-meta-desc",
                 });
             })
             .catch(function(err) {

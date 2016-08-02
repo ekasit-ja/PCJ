@@ -22,6 +22,9 @@ module.exports = {
                 return res.view("homepage", {
                     projects: ps,
                     imgs: imgs,
+                    title: "seo-home-title",
+                    metaKeyword: "seo-home-meta-keyword",
+                    metaDesc: "seo-home-meta-desc",
                 });
             })
             .catch(function(err) {
@@ -118,15 +121,27 @@ module.exports = {
     },
 
     about: function(req, res) {
-        return res.view("about");
+        return res.view("about", {
+            title: "seo-about-title",
+            metaKeyword: "seo-about-meta-keyword",
+            metaDesc: "seo-about-meta-desc",
+        });
     },
 
     contact: function(req, res) {
-        return res.view("contact");
+        return res.view("contact", {
+            title: "seo-contact-title",
+            metaKeyword: "seo-contact-meta-keyword",
+            metaDesc: "seo-contact-meta-desc",
+        });
     },
 
     careers: function(req, res) {
-        return res.view("careers");
+        return res.view("careers", {
+            title: "seo-careers-title",
+            metaKeyword: "seo-careers-meta-keyword",
+            metaDesc: "seo-careers-meta-desc",
+        });
     },
 
     apiSetLang: function(req, res) {
