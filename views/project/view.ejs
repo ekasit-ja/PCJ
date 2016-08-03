@@ -2,23 +2,23 @@
     <h2 class="header"><%=__("projects")%></h2>
     <form method="get" action="<%=sails.getUrlFor('ProjectController.view')%>">
         <div class="filter-project">
-            Filter By:
-            <span class="filter-label">Country</span>
+            <%=__("filter-by")%>:
+            <span class="filter-label"><%=__("country")%></span>
             <select name="country" class="form-control">
-                <option value="">All</option>
+                <option value=""><%=__("all")%></option>
                 <%_.each(countrySet, function(c) {%>
                     <option value="<%=c%>" <%=country==c?"selected":""%>><%=c%></option>
                 <%})%>
             </select>
 
-            <span class="filter-label">Year</span>
+            <span class="filter-label"><%=__("year")%></span>
             <select name="year" class="form-control">
-                <option value="">All</option>
+                <option value=""><%=__("all")%></option>
                 <%for(var i=yearSet.length-1; i>=0; i--) {%>
                     <option value="<%=yearSet[i]%>" <%=year==yearSet[i]?"selected":""%>><%=yearSet[i]%></option>
                 <%}%>
             </select>
-            <input type="submit" value="Go" class="btn btn-default btn-block">
+            <input type="submit" value="<%=__('go')%>" class="btn btn-default btn-block">
         </div>
     </form>
     <hr>

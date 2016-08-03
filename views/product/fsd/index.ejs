@@ -1,7 +1,19 @@
 <div class="container">
     <h3 class="header"><%=__(sails.config.enums.category["fsd"])%></h3>
-    <p class="text-center">Our steel fire doors, swining type are certified for fire rating by worldwide accepted organization</p>
+    <div class="row">
+        <div class="col-sm-8 col-sm-push-2">
+            <p class="text-justify"><%=__("fsd-p1")%></p>
+        </div>
+    </div>
+
     <img src="/images/cert fsd.jpg" class="img-responsive center-block product-cert">
+    <br>
+
+    <div class="row">
+        <div class="col-sm-8 col-sm-push-2">
+            <p class="text-justify"><%=__("fsd-p2")%></p>
+        </div>
+    </div>
     <hr>
 
     <% url = sails.getUrlFor('ProductController.fsdModel') %>

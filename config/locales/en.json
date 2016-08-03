@@ -1,4 +1,122 @@
 {
-	"Welcome": "Welcome",
-	"A brand new app.": "A brand new app."
+    "pcj-industries": "พีซีเจ อุตสาหกรรม",
+    "about": "เกี่ยวกับเรา",
+    "about-us": "เกี่ยวกับเรา",
+    "products": "สินค้า",
+    "projects": "ผลงาน",
+    "contact": "ติดต่อเรา",
+    "contact-us": "ติดต่อเรา",
+    "careers": "ร่วมงานกับเรา",
+
+    "fire-steel-doors": "ประตูทนไฟ",
+    "fire-dampers": "แดมเปอร์ทนไฟ",
+    "duct-dampers": "ดักท์แดมเปอร์",
+    "air-outlets": "หน้ากากแอร์",
+
+    "quality-you-can-trust": "คุณภาพที่คุณวางใจ",
+    "quality-you-can-trust-detail": "ด้วยประสบการณ์ที่สั่งสมมาอย่างยาวนานกว่า 15 ปี บริษัท พีซีเจ อุตสาหกรรม จำกัด ได้ทำการส่งมอบผลิตภัณฑ์คุณภาพสูงทั่วทุกภูมิภาคของประเทศไทยและอีกหลายประเทศทั่วโลก จนเป็นที่รู้จักและให้การยอมรับอย่างกว้างขวางในวงการก่อสร้างทั้งในด้านคุณภาพของสินค้าที่เชื่อถือได้และบริการที่ตรงต่อเวลา ด้วยสายการผลิตที่มีเครื่องมือชั้นนำ ทีมบุคลากรผู้เชี่ยวชาญ และมาตรฐานการควบคุมคุณภาพ ISO 9001:2008 จึงมั่นใจได้ในสินค้าและบริการของเรา ที่สามารถส่งตรงถึงคุณได้อย่างรวดเร็ว เป็นที่น่าพอใจ เพื่อให้งานของคุณไม่ติดขัดและเสร็จสิ้นได้ตามเป้าหมาย",
+    "view-all": "ดูทั้งหมด",
+
+    "type": "ประเภท",
+    "model-you-can-choose": "โมเดลที่คุณเลือกได้",
+    "model": "โมเดล",
+    "no-models-available": "ไม่มีโมเดลที่ระบุในขณะนี้",
+    "option-you-can-choose": "ปรับแต่งสินค้า",
+    "size": "ขนาด",
+    "fire-rating": "ระดับการทนไฟ",
+    "door-type": "ประเภทของประตู",
+    "available-upon-request": "มีจำหน่ายทุกขนาดตามต้องการ",
+    "0-3-hours": "0-3 ชั่วโมง (3 ชั่วโมงตามมาตรฐาน UL10C)",
+
+    "hardware-you-can-add": "อุปกรณ์เสริมที่สามารถติดตั้งเพิ่มเติมได้",
+    "get-a-quote": "ขอใบเสนอราคา",
+
+    "description": "ข้อมูลสินค้า",
+    "certificate": "ใบรับรอง",
+    "installation": "คู่มือการติดตั้ง",
+    "catalogue": "แค็ตตาล็อก",
+    "download": "ดาวน์โหลด",
+    "no-file-available": "ยังไม่มีไฟล์ข้อมูลในขณะนี้",
+
+    "pcj-industries-company-limited": "บริษัท พีซีเจ อุตสาหกรรม จำกัด",
+    "headquarters": "สำนักงานใหญ่",
+    "factory": "โรงงาน",
+
+    "199/24-25 Vibhavadeerangsit Road,": "199/24-25 ถนนวิภาวดีรังสิต",
+    "Samsennai, Phayathai,": "แขวงสามเสนใน เขตพญาไท",
+    "Bangkok 10400, Thailand": "จังหวัดกรุงเทพ 10400, ประเทศไทย",
+    "Mon - Sat 8:30AM - 5:30PM (ICT)": "จันทร์ - เสาร์ 8:30 - 17:30",
+
+    "45/2 Kaengkhoi-Salaengpan Road, Moo 8,": "45/2 ถนนแก่งคอย-แสลงพัน หมู่ 8",
+    "Banpa, Kaengkhoi,": "ตำบลบ้านป่า อำเภอแก่งคอย",
+    "Saraburi 18110, Thailand": "จังหวัดสระบุรี 18110 ประเทศไทย",
+
+    "job-positions-available": "ตำแหน่งที่เปิดรับ",
+    "Sales Executive(lnternational)": "พนักงานขาย (ต่างประเทศ)",
+    "Sales Executive(Domestic)": "พนักงานขาย (ในประเทศ)",
+    "Sales Coordinator": "พนักงานประสานงานขาย",
+    "Marketing Executive": "พนักงานการตลาด",
+    "Purchasing Admin.": "พนักงานจัดซื้อ",
+    "Accountant": "พนักงานบัญชี",
+    "Finance Staff": "พนักงานการเงิน",
+    "HR Admin.": "พนักงงานบุคคล",
+    "Production Engineer": "วิศวกรการผลิต",
+    "R&D Engineer": "วิศวกรวิจัยและพัฒนา",
+    "QA Engineer": "วิศวกรประกันคุณภาพ",
+    "Construction & Maintenance Engineer": "วิศวกรก่อสร้างและซ่อมบำรุง",
+    "CAD Operator": "พนักงานเขียนแบบ Auto CAD",
+    "Operator/Technician": "ช่างเทคนิค",
+    "Warehouse Admin.": "พนักงานดูแลคลังสินค้า",
+    "Production Admin.": "พนักงานธุรการฝ่ายผลิต",
+
+    "no-project-matches": "No project matches the filter",
+
+    "certificates-from-world-wide": "Certificates from world wide accepted organization",
+    "product-distribute-worldwide": "Our product have been distributed to many countries worldwide",
+
+    "about-p1": "บริษัท พีซีเจ อุตสาหกรรม จำกัด ก่อตั้งขึ้นในประเทศไทยเมื่อปี พ.ศ. 2541 โดยมีจุดมุ่งหมายในการผลิตวัสดุก่อสร้างคุณภาพสูง ได้แก่ ประตูเหล็ก ดักท์แดมเปอร์ และหน้ากากแอร์ เพื่อยกระดับคุณภาพสิ่งก่อสร้างในประเทศไทยด้วยการใช้วัสดุที่มีคุณภาพดี ต่อมาจึงได้ขยายตลาดนอกประเทศเพื่อยกระดับคุณภาพในระดับสากล สินค้าของเราได้รับการรับรองคุณภาพจากองค์กรชั้นนำทั่วโลก อาทิเช่น Underwriter Laboratories, British Standard Institution, และ Australian Standard และอื่นๆ อีกทั้งบริษัทยังได้รับการรับรองมาตรฐาน ISO 9001:2008 ทำให้สินค้าของเราเป็นที่เชื่อถือและได้รับการยอมรับจากทั่วทุกมุมโลก",
+
+    "about-p2": "นโยบายที่สำคัญที่สุดของเรา คือการผลิตสินค้าคุณภาพเยี่ยม จัดส่งตรงต่อเวลา ด้วยราคาที่ดึงดูดใจ เพื่อให้ลูกค้าทุกท่านสามารถเข้าถึงสินค้าเกรดสูงและดำเนินงานก่อสร้างได้โดยไม่ติดขัด เพื่อเป็นองค์ประกอบสำคัญในการสร้างอาคารคุณภาพดี เราได้ลงทุนกับอุปกรณ์เครื่องมือและทีมวิศวกร เพื่อการวิจัยและพัฒนา ให้สินค้าเรามีคุณภาพที่ดีขึ้น และต้นทุนที่ลดลง ให้เป็นที่ต้องการของลูกค้าทุกท่าน เป็นการส่งเสริมให้เลือกใช้วัสดุคุณภาพสูงสำหรับการก่อสร้างอาคาร อันจะนำประโยชน์สูงสุดคืนสู่ผู้อยู่อาศัยทุกคน",
+
+
+
+
+
+    "seo-home-title": "PCJ INDUSTRIES",
+    "seo-home-meta-keyword": "Fire Steel Doors, Fire Dampers, Duct Dampers, Air Outlets",
+    "seo-home-meta-desc": "We are experts in manufacturing fire steel doors, fire dampers, duct dampers, and air outlets since 1998",
+
+    "seo-project-title": "Projects - PCJ",
+    "seo-project-meta-keyword": "Projects - PCJ",
+    "seo-project-meta-desc": "Hundreds of customers around the world have trusted in quality of our products. Please take a look at notably projects",
+
+    "seo-about-title": "About - PCJ",
+    "seo-about-meta-keyword": "About - PCJ",
+    "seo-about-meta-desc": "PCJ INDUSTRIES is an expert in manufacturing of fire steel doors, fire dampers, duct dampers, and air outlets since 1998",
+
+    "seo-contact-title": "contact - PCJ",
+    "seo-contact-meta-keyword": "contact - PCJ",
+    "seo-contact-meta-desc": "We are pleased to hear from you. Send us an email at sales@pcjindustries.co.th or call us at +66 2 279 4166, +66 2 616 0184",
+
+    "seo-careers-title": "careers - PCJ",
+    "seo-careers-meta-keyword": "careers - PCJ",
+    "seo-careers-meta-desc": "You are more than welcome to join our PCJ family. Please visit our website for available positions",
+
+    "seo-fsd-title": "Fire Steel Doors - UL, BSI - PCJ",
+    "seo-fsd-meta-keyword": "Fire Steel Doors - UL, BSI - PCJ",
+    "seo-fsd-meta-desc": "PCJ is an expert in manufacturing fire rated steel doors. We provide various types of steel doors that are certified by UL & BSI.",
+
+    "seo-fd-title": "Fire Dampers - UL - PCJ",
+    "seo-fd-meta-keyword": "Fire Dampers - UL - PCJ",
+    "seo-fd-meta-desc": "PCJ is an expert in manufacturing fire rated dampers. We provide many types of fire resistance dampers that are certified by UL standards",
+
+    "seo-dd-title": "Duct Dampers - PCJ",
+    "seo-dd-meta-keyword": "Duct Dampers - PCJ",
+    "seo-dd-meta-desc": "PCJ is an expert in manufacturing duct dampers. Plenty models are available and customizable upon your request to fit any requirements.",
+
+    "seo-ao-title": "Air Outlets - ADC, AS - PCJ",
+    "seo-ao-meta-keyword": "Air Outlets - ADC, AS - PCJ",
+    "seo-ao-meta-desc": "PCJ is an expert in manufacturing air outlets. Various models certified by ADC & AS are available to fit any requirements you may have.",
+
+    "": ""
 }
