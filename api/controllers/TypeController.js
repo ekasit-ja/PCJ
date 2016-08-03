@@ -13,6 +13,7 @@ module.exports = {
             .then(function(types) {
                 return res.view("type/manage", {
                     types: types,
+                    follow: false,
                 });
             })
             .catch(function(err) {
@@ -44,7 +45,9 @@ module.exports = {
                 });
         }
         else {
-            return res.view("type/create");
+            return res.view("type/create", {
+                follow: false,
+            });
         }
     },
 
@@ -79,6 +82,7 @@ module.exports = {
                 .then(function(t) {
                     return res.view("type/update", {
                         type: t,
+                        follow: false,
                     });
                 })
                 .catch(function(err) {

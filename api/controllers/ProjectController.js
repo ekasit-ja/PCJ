@@ -105,6 +105,7 @@ module.exports = {
             .then(function(projects) {
                 return res.view("project/manage", {
                     projects: projects,
+                    follow: false,
                 });
             })
             .catch(function(err) {
@@ -137,7 +138,9 @@ module.exports = {
                 });
         }
         else {
-            return res.view("project/create");
+            return res.view("project/create", {
+                follow: false,
+            });
         }
     },
 
@@ -211,6 +214,7 @@ module.exports = {
                 .then(function(project) {
                     return res.view("project/update", {
                         project: project,
+                        follow: false,
                     });
                 })
                 .catch(function(err) {

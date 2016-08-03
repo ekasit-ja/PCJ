@@ -14,6 +14,7 @@ module.exports = {
             .then(function(models) {
                 return res.view("model/manage", {
                     models: models,
+                    follow: false,
                 });
             })
             .catch(function(err) {
@@ -50,6 +51,7 @@ module.exports = {
                 .then(function(types) {
                     return res.view("model/create", {
                         types: types,
+                        follow: false,
                     });
                 })
                 .catch(function(err) {
@@ -96,6 +98,7 @@ module.exports = {
                     return res.view("model/update", {
                         types: ts,
                         model: model,
+                        follow: false,
                     });
                 })
                 .catch(function(err) {

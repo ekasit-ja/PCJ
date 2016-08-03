@@ -7,7 +7,9 @@
 
 module.exports = {
 	dashboard: function(req, res) {
-        return res.view("admin/dashboard");
+        return res.view("admin/dashboard", {
+            follow: false,
+        });
     },
 };
 

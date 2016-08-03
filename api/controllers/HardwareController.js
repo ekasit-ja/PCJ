@@ -13,6 +13,7 @@ module.exports = {
             .then(function(hardwares) {
                 return res.view("hardware/manage", {
                     hardwares: hardwares,
+                    follow: false,
                 });
             })
             .catch(function(err) {
@@ -46,7 +47,9 @@ module.exports = {
                 });
         }
         else {
-            return res.view("hardware/create");
+            return res.view("hardware/create", {
+                follow: false,
+            });
         }
     },
 
@@ -85,6 +88,7 @@ module.exports = {
                 .then(function(hardware) {
                     return res.view("hardware/update", {
                         hardware: hardware,
+                        follow: false,
                     });
                 })
                 .catch(function(err) {

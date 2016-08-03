@@ -13,6 +13,7 @@ module.exports = {
             .then(function(files) {
                 return res.view("file/manage", {
                     files: files,
+                    follow: false,
                 });
             })
             .catch(function(err) {
@@ -59,7 +60,9 @@ module.exports = {
             });
         }
         else {
-            return res.view("file/create");
+            return res.view("file/create", {
+                follow: false,
+            });
         }
     },
 
@@ -110,6 +113,7 @@ module.exports = {
                 .then(function(file) {
                     return res.view("file/update", {
                         file: file,
+                        follow: false,
                     });
                 })
                 .catch(function(err) {

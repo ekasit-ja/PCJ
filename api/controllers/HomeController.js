@@ -40,6 +40,7 @@ module.exports = {
             .then(function(imgs) {
                 return res.view("carousel_manage", {
                     imgs: imgs,
+                    follow: false,
                 });
             })
             .catch(function(err) {

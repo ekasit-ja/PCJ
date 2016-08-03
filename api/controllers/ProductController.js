@@ -355,6 +355,7 @@ module.exports = {
             .then(function(products) {
                 return res.view("product/manage", {
                     products: products,
+                    follow: false,
                 });
             })
             .catch(function(err) {
@@ -392,6 +393,7 @@ module.exports = {
                 .then(function(models) {
                     return res.view("product/create", {
                         models: models,
+                        follow: false,
                     });
                 })
                 .catch(function(err) {
@@ -439,6 +441,7 @@ module.exports = {
                     return res.view("product/update", {
                         models: ms,
                         product: product,
+                        follow: false,
                     });
                 })
                 .catch(function(err) {
