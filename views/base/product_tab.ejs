@@ -7,7 +7,11 @@
 
 <div class="tab-content">
     <div id="desc" class="tab-pane fade in active">
-        <%-model.desc||__("description")%>
+        <div class="row">
+            <div class="col-md-9 col-sm-10 col-xs-12 text-justify">
+                <%-model.desc||__("description")%>
+            </div>
+        </div>
     </div>
     <div id="cert" class="tab-pane fade">
         <%if(certs.length>0) {%>
