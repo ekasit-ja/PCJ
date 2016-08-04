@@ -1,22 +1,30 @@
 <div class="container">
     <%if(model) {%>
-        <h3 class="header"><%=__("model")%> : <%= model.title %></h3>
+        <h2 class="header"><%=__("model")%> : <%= model.title %></h2>
 
         <%- partial("../../base/fotorama.ejs") %>
 
         <h3 class="header"><%=__("option-you-can-choose")%></h3>
         <div class="option-container">
             <div class="row">
-                <div class="col-sm-2 col-sm-offset-1 col-xs-2 option-label"><%=__("size")%></div>
-                <div class="col-sm-9 col-xs-10 option-detail"><%=__("available-upon-request")%></div>
+                <div class="col-sm-2 col-sm-offset-1 col-xs-3 option-label"><%=__("size")%></div>
+                <div class="col-sm-9 col-xs-9 option-detail"><%=__("available-upon-request")%></div>
             </div>
             <div class="row">
-                <div class="col-sm-2 col-sm-offset-1 col-xs-2 option-label"><%=__("fire-rating")%></div>
-                <div class="col-sm-9 col-xs-10 option-detail"><%=__("0-3-hours")%></div>
+                <div class="col-sm-2 col-sm-offset-1 col-xs-3 option-label"><%=__("fire-rating")%></div>
+                <div class="col-sm-9 col-xs-9 option-detail"><%=__("0-3-hours")%></div>
             </div>
             <div class="row">
-                <div class="col-sm-2 col-sm-offset-1 col-xs-2 option-label"><%=__("door-type")%></div>
-                <div class="col-sm-9 col-xs-10 option-detail">single door, double door / flush, flush with vision panel, flush with louver, embossed</div>
+                <div class="col-sm-2 col-sm-offset-1 col-xs-3 option-label"><%=__("door-type")%></div>
+                <div class="col-sm-9 col-xs-9 option-detail"><%=__("door-type-p1")%></div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2 col-sm-offset-1 col-xs-3 option-label"><%=__("vision-panel")%></div>
+                <div class="col-sm-9 col-xs-9 option-detail"><%=__("vision-panel-p1")%></div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2 col-sm-offset-1 col-xs-3 option-label"><%=__("louvers")%></div>
+                <div class="col-sm-9 col-xs-9 option-detail"><%=__("louvers-p1")%></div>
             </div>
         </div>
         <br>
@@ -27,7 +35,7 @@
 
                 <%if(hardwares[i].length>0) {%>
                     <div class="row">
-                        <div class="col-sm-2 col-xs-12 col-sm-offset-1 hardware-label"><%= sails.config.enums.hardware[sorting[i]] %></div>
+                        <div class="col-sm-2 col-xs-12 col-sm-offset-1 hardware-label"><%= __(sails.config.enums.hardware[sorting[i]]) %></div>
                         <div class="col-sm-9 col-xs-12">
                             <div class="owl-carousel browse hardware">
 
@@ -35,7 +43,7 @@
                                     <div class="owl-item-btn">
                                         <div class="img-frame"><img src="<%= hardwares[i][j].image %>" alt="<%=hardwares[i][j].title%>"></div>
                                         <div class="item-title"><%= hardwares[i][j].title %></div>
-                                        <div class="item-desc"><%= hardwares[i][j].desc %></div>
+                                        <div class="item-desc"><%- hardwares[i][j].desc %></div>
                                     </div>
                                 <% } %>
 

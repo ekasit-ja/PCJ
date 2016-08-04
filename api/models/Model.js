@@ -21,6 +21,14 @@ module.exports = {
             type: "string",
         },
 
+        desc: {
+            type: "text",
+        },
+
+        desc_th: {
+            type: "text",
+        },
+
         image: {
             type: "string",
             required: true,

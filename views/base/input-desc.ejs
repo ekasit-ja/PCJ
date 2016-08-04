@@ -1,0 +1,98 @@
+<label>Description EN</label>
+<div id="content-container-desc">
+    <div class="wrapper">
+        <div class="toolbar-container">
+            <span class="ql-format-group">
+                <span title="Bold" class="ql-format-button ql-bold"></span>
+                <span class="ql-format-separator"></span>
+                <span title="Italic" class="ql-format-button ql-italic"></span>
+                <span class="ql-format-separator"></span>
+                <span title="Underline" class="ql-format-button ql-underline"></span>
+            </span>
+            <span class="ql-format-group">
+                <span title="Link" class="ql-format-button ql-link"></span>
+                <span class="ql-format-separator"></span>
+                <span title="Bullet" class="ql-format-button ql-bullet"></span>
+                <span class="ql-format-separator"></span>
+                <span title="List" class="ql-format-button ql-list"></span>
+            </span>
+        </div>
+        <div class="editor-container">
+            <%if(typeof model != "undefined") {%>
+                <%-model.desc||""%>
+            <%} else if(typeof hardware != "undefined") {%>
+                <%-hardware.desc||""%>
+            <%} else {%>
+                <%-""%>
+            <%}%>
+        </div>
+    </div>
+</div>
+<br>
+
+<label>Description TH</label>
+<div id="content-container-desc-th">
+    <div class="wrapper">
+        <div class="toolbar-container">
+            <span class="ql-format-group">
+                <span title="Bold" class="ql-format-button ql-bold"></span>
+                <span class="ql-format-separator"></span>
+                <span title="Italic" class="ql-format-button ql-italic"></span>
+                <span class="ql-format-separator"></span>
+                <span title="Underline" class="ql-format-button ql-underline"></span>
+            </span>
+            <span class="ql-format-group">
+                <span title="Link" class="ql-format-button ql-link"></span>
+                <span class="ql-format-separator"></span>
+                <span title="Bullet" class="ql-format-button ql-bullet"></span>
+                <span class="ql-format-separator"></span>
+                <span title="List" class="ql-format-button ql-list"></span>
+            </span>
+        </div>
+        <div class="editor-container">
+            <%if(typeof model != "undefined") {%>
+                <%-model.desc_th||""%>
+            <%} else if(typeof hardware != "undefined") {%>
+                <%-hardware.desc_th||""%>
+            <%} else {%>
+                <%-""%>
+            <%}%>
+        </div>
+    </div>
+</div>
+<br>
+
+<textarea rows="5" name="desc" placeholder="desc" class="form-control hide"></textarea>
+<textarea rows="5" name="desc_th" placeholder="desc_th" class="form-control hide"></textarea>
+
+<script type="text/javascript">
+    var editorEn = new Quill("#content-container-desc .wrapper .editor-container", {
+        modules: {
+            "toolbar": {
+                container: "#content-container-desc .wrapper .toolbar-container"
+            },
+            "link-tooltip": true,
+            "image-tooltip": true,
+        },
+        styles: false,
+        theme: "snow"
+    });
+
+    var editorTh = new Quill("#content-container-desc-th .wrapper .editor-container", {
+        modules: {
+            "toolbar": {
+                container: "#content-container-desc-th .wrapper .toolbar-container"
+            },
+            "link-tooltip": true,
+            "image-tooltip": true,
+        },
+        styles: false,
+        theme: "snow"
+    });
+
+    $("form").submit(function(e) {
+        $(e.currentTarget).find("textarea[name=desc]").val(editorEn.getHTML());
+        $(e.currentTarget).find("textarea[name=desc_th]").val(editorTh.getHTML());
+        return true;
+    });
+</script>

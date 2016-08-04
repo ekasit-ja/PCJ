@@ -80,6 +80,13 @@ $mul: 1.8;
 // --- animation for menu button on navbar
 
 // custom bootstrap
+h2.header {
+    & + h3.header {
+        margin-top: 0px;
+        margin-bottom: 10px;
+    }
+}
+
 @media (min-width: 992px) {
     .dropdown:hover .dropdown-menu {
         display: block;
@@ -357,6 +364,10 @@ $mul: 1.8;
 
             .item-desc {
                 white-space: pre-line;
+
+                ul, ol {
+                    padding-left: 15px;
+                }
             }
         }
     }
@@ -598,6 +609,10 @@ $mul: 1.8;
 .option-container {
     .row {
         margin-bottom: 5px;
+
+        &:nth-child(even) {
+            background: $light-grey;
+        }
 
         &:last-child {
             margin-bottom: 0;

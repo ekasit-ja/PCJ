@@ -11,6 +11,9 @@
         </select><br>
         <input type="text" name="title" placeholder="title" class="form-control" required value="<%= model.title %>"><br>
         <input type="text" name="title_th" placeholder="title_th" class="form-control" value="<%=model.title_th||''%>"><br>
+
+        <%- partial("../base/input-desc.ejs") %>
+
         <input type="file" name="image" class="form-control"><br>
 
         <input type="submit" value="Update" class="btn btn-success">

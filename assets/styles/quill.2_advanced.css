@@ -1,0 +1,18 @@
+.wrapper {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.editor-container {
+  min-height: 200px;
+}
+.toolbar-container {
+  border-bottom: 1px solid #ccc;
+}
+.toolbar-container {
+  padding: 8px 14px;
+}
+.toolbar-container .ql-active,
+.toolbar-container button:hover {
+  color: #008000;
+  font-weight: bold;
+}
