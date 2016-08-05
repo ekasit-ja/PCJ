@@ -24,6 +24,7 @@
     "option-you-can-choose": "ปรับแต่งสินค้า",
     "size": "ขนาด",
     "available-upon-request": "มีจำหน่ายทุกขนาดตามต้องการ",
+    "size-p1": "สินค้ามีจัดจำหน่ายทุกขนาดตามต้องการ",
     "fire-rating": "ระดับการทนไฟ",
     "0-3-hours": "0-3 ชั่วโมง (3 ชั่วโมงตามมาตรฐาน UL10C)",
     "door-type": "ประเภทของประตู",
@@ -105,6 +106,11 @@
     "fd-p1": "",
     "dd-p1": "",
     "ao-p1": "",
+
+    "low-leak": "Low Leak",
+    "low-leak-p1": "สั่งทำได้",
+    "motorized": "Motorized",
+    "motorized-p1": "สั่งทำได้",
 
 
 
