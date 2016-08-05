@@ -42,9 +42,14 @@ module.exports = {
         var m, ps, result, sorting, certs, insts, catgs;
         Model
             .findOne(mid)
+            .populate("type")
             .then(function(model) {
-                m = model;
-                dynamicInter(req, "Model", m);
+                if(model && model.type.category == "fsd") {
+                    m = model;
+                    dynamicInter(req, "Model", m);
+                    dynamicInter(req, "Type", m.type);
+                }
+
                 return Product.find({model: mid}).sort("position asc");
             })
             .then(function(products) {
@@ -94,6 +99,10 @@ module.exports = {
                 catgs = files;
                 dynamicInter(req, "File", catgs);
 
+                var title = "";
+                if(typeof m != "undefined")
+                    title = m.title + " - " + req.__("seo-fsd-title");
+
                 return res.view("product/fsd/model", {
                     model: m,
                     products: ps,
@@ -102,7 +111,7 @@ module.exports = {
                     certs: certs,
                     insts: insts,
                     catgs: catgs,
-                    title: m.title + " - " + req.__("seo-fsd-title"),
+                    title: title,
                     metaKeyword: "seo-fsd-meta-keyword",
                     metaDesc: "seo-fsd-meta-desc",
                 });
@@ -150,9 +159,12 @@ module.exports = {
             .findOne(mid)
             .populate("type")
             .then(function(model) {
-                m = model;
-                dynamicInter(req, "Model", m);
-                dynamicInter(req, "Type", m.type);
+                if(model && model.type.category == "fd") {
+                    m = model;
+                    dynamicInter(req, "Model", m);
+                    dynamicInter(req, "Type", m.type);
+                }
+
                 return Product.find({model: mid}).sort("position asc")
             })
             .then(function(products) {
@@ -179,13 +191,18 @@ module.exports = {
             .then(function(files) {
                 catgs = files;
                 dynamicInter(req, "File", catgs);
+
+                var title = "";
+                if(typeof m != "undefined")
+                    title = m.title + " - " + req.__("seo-fd-title");
+
                 return res.view("product/fd/model", {
                     model: m,
                     products: ps,
                     certs: certs,
                     insts: insts,
                     catgs: catgs,
-                    title: m.title + " - " + req.__("seo-fd-title"),
+                    title: title,
                     metaKeyword: "seo-fd-meta-keyword",
                     metaDesc: "seo-fd-meta-desc",
                 });
@@ -226,9 +243,12 @@ module.exports = {
             .findOne(mid)
             .populate("type")
             .then(function(model) {
-                m = model;
-                dynamicInter(req, "Model", m);
-                dynamicInter(req, "Type", m.type);
+                if(model && model.type.category == "dd") {
+                    m = model;
+                    dynamicInter(req, "Model", m);
+                    dynamicInter(req, "Type", m.type);
+                }
+
                 return Product.find({model: mid}).sort("position asc")
             })
             .then(function(products) {
@@ -255,13 +275,18 @@ module.exports = {
             .then(function(files) {
                 catgs = files;
                 dynamicInter(req, "File", catgs);
+
+                var title = "";
+                if(typeof m != "undefined")
+                    title = m.title + " - " + req.__("seo-dd-title");
+
                 return res.view("product/dd/model", {
                     model: m,
                     products: ps,
                     certs: certs,
                     insts: insts,
                     catgs: catgs,
-                    title: m.title + " - " + req.__("seo-dd-title"),
+                    title: title,
                     metaKeyword: "seo-dd-meta-keyword",
                     metaDesc: "seo-dd-meta-desc",
                 });
@@ -302,9 +327,12 @@ module.exports = {
             .findOne(mid)
             .populate("type")
             .then(function(model) {
-                m = model;
-                dynamicInter(req, "Model", m);
-                dynamicInter(req, "Type", m.type);
+                if(model && model.type.category == "ao") {
+                    m = model;
+                    dynamicInter(req, "Model", m);
+                    dynamicInter(req, "Type", m.type);
+                }
+
                 return Product.find({model: mid}).sort("position asc")
             })
             .then(function(products) {
@@ -331,13 +359,18 @@ module.exports = {
             .then(function(files) {
                 catgs = files;
                 dynamicInter(req, "File", catgs);
+
+                var title = "";
+                if(typeof m != "undefined")
+                    title = m.title + " - " + req.__("seo-ao-title");
+
                 return res.view("product/ao/model", {
                     model: m,
                     products: ps,
                     certs: certs,
                     insts: insts,
                     catgs: catgs,
-                    title: m.title + " - " + req.__("seo-ao-title"),
+                    title: title,
                     metaKeyword: "seo-ao-meta-keyword",
                     metaDesc: "seo-ao-meta-desc",
                 });

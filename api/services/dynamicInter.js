@@ -11,7 +11,7 @@ module.exports = function(req, model, items) {
                 }
             }
         }
-        else {
+        else if(typeof items != "undefined" && items != null) {
             if(model == "Type" || model == "Product")
                 items.title = items.title_th || items.title;
 
