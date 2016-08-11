@@ -6,7 +6,7 @@
         <div class="img-frame"><img src="<%= type.image %>"></div><br>
         <select name="category" class="form-control">
             <% for(var key in sails.config.enums.category) { %>
-                <option value="<%= key %>" <% if(type.category==key) { %> selected <% } %>><%= sails.config.enums.category[key] %></option>
+                <option value="<%= key %>" <% if(type.category==key) { %> selected <% } %>><%= __(sails.config.enums.category[key]) %></option>
             <% } %>
         </select><br>
         <input type="text" name="title" placeholder="title" class="form-control" required value="<%= type.title %>"><br>

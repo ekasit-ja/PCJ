@@ -7,12 +7,12 @@
         <div class="text-center"><a href="<%= file.url %>" target="_blank" class="btn btn-info">download</a></div><br>
         <select name="category" class="form-control">
             <% for(var key in sails.config.enums.category) { %>
-                <option value="<%= key %>" <% if(file.category==key) { %> selected <% } %>><%= sails.config.enums.category[key] %></option>
+                <option value="<%= key %>" <% if(file.category==key) { %> selected <% } %>><%= __(sails.config.enums.category[key]) %></option>
             <% } %>
         </select><br>
         <select name="fileType" class="form-control">
             <% for(var key in sails.config.enums.file) { %>
-                <option value="<%= key %>" <% if(file.fileType==key) { %> selected <% } %>><%= sails.config.enums.file[key] %></option>
+                <option value="<%= key %>" <% if(file.fileType==key) { %> selected <% } %>><%= __(sails.config.enums.file[key]) %></option>
             <% } %>
         </select><br>
         <input type="text" name="title" placeholder="title" class="form-control" required value="<%= file.title %>"><br>

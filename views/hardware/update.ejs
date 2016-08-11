@@ -6,7 +6,7 @@
         <div class="img-frame"><img src="<%= hardware.image %>"></div><br>
         <select name="hardwareType" class="form-control">
             <% for(var key in sails.config.enums.hardware) { %>
-                <option value="<%= key %>" <%=hardware.hardwareType==key?"selected":""%> ><%= sails.config.enums.hardware[key] %></option>
+                <option value="<%= key %>" <%=hardware.hardwareType==key?"selected":""%> ><%= __(sails.config.enums.hardware[key]) %></option>
             <% } %>
         </select><br>
         <input type="text" name="title" placeholder="title" class="form-control" required value="<%= hardware.title %>"><br>
