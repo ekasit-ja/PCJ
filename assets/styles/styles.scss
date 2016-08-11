@@ -149,12 +149,12 @@ h2.header {
             }
         }
 
-        a:hover,
-        &>.open a:hover {
-            color: black;
-            background-color: #dbdbdb;
-            background-image: linear-gradient(to bottom,#dbdbdb 0,#e2e2e2 100%);
-        }
+        // a:hover,
+        // &>.open a:hover {
+        //     color: black;
+        //     background-color: #dbdbdb;
+        //     background-image: linear-gradient(to bottom,#dbdbdb 0,#e2e2e2 100%);
+        // }
 
         a.icon-lang {
             padding-left: 15px;
@@ -524,6 +524,10 @@ h2.header {
 
 // style for projects and product navbar buttons
 .tag-container {
+    a:hover {
+        text-decoration: none;
+    }
+
     &.category {
         margin-top: 20px;
     }
@@ -569,6 +573,10 @@ h2.header {
         font-style: italic;
         text-transform: uppercase;
         text-align: center;
+
+        &.rel {
+            position: relative;
+        }
     }
 }
 // --- style for projects and product navbar buttons
