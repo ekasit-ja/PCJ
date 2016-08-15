@@ -11,6 +11,8 @@
  */
 
 var MySQLSessionStore = require('express-mysql-session');
+var winston = require('winston');
+
 var db_options = {
     adapter: 'sails-mysql',
     host: 'localhost',
@@ -41,5 +43,17 @@ module.exports = {
     },
 
     hookTimeout: 60000,
+
+    log: {
+        colors: false,
+        custom: new winston.Logger({
+            transports: [
+                new(winston.transports.File)({
+                    level: "info",
+                    filename: "logs/dev.log"
+                }),
+            ],
+        }),
+    },
 
 };
