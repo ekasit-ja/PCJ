@@ -10,15 +10,36 @@
  *
  */
 
+var MySQLSessionStore = require('express-mysql-session');
+var db_options = {
+    adapter: 'sails-mysql',
+    host: 'localhost',
+    port: 3306,
+    user: 'root',
+    password: '1234',
+    database: 'pcj_industries'
+}
+
 module.exports = {
 
-  /***************************************************************************
-   * Set the default database connection for models in the development       *
-   * environment (see config/connections.js and config/models.js )           *
-   ***************************************************************************/
+    /***************************************************************************
+     * Set the default database connection for models in the development       *
+     * environment (see config/connections.js and config/models.js )           *
+     ***************************************************************************/
 
-  // models: {
-  //   connection: 'someMongodbServer'
-  // }
+    connections: {
+        mysqlDb: db_options,
+    },
+
+    models: {
+        connection: 'mysqlDb',
+        migrate: 'safe'
+    },
+
+    session: {
+        store: new MySQLSessionStore(db_options),
+    },
+
+    hookTimeout: 60000,
 
 };

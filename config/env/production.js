@@ -10,29 +10,50 @@
  *
  */
 
+var MySQLSessionStore = require('express-mysql-session');
+var db_options = {
+    adapter: 'sails-mysql',
+    host: 'localhost',
+    port: 3306,
+    user: 'root',
+    password: '1234',
+    database: 'pcj_industries'
+}
+
 module.exports = {
 
-  /***************************************************************************
-   * Set the default database connection for models in the production        *
-   * environment (see config/connections.js and config/models.js )           *
-   ***************************************************************************/
+    /***************************************************************************
+     * Set the default database connection for models in the production        *
+     * environment (see config/connections.js and config/models.js )           *
+     ***************************************************************************/
 
-  // models: {
-  //   connection: 'someMysqlServer'
-  // },
+    connections: {
+        mysqlDb: db_options,
+    },
 
-  /***************************************************************************
-   * Set the port in the production environment to 80                        *
-   ***************************************************************************/
+    models: {
+      connection: "mysqlDb",
+      migrate: "safe",
+    },
 
-  // port: 80,
+    session: {
+        store: new MySQLSessionStore(db_options),
+    },
 
-  /***************************************************************************
-   * Set the log level in production environment to "silent"                 *
-   ***************************************************************************/
+    hookTimeout: 60000,
 
-  // log: {
-  //   level: "silent"
-  // }
+    /***************************************************************************
+     * Set the port in the production environment to 80                        *
+     ***************************************************************************/
+
+    port: 905,
+
+    /***************************************************************************
+     * Set the log level in production environment to "silent"                 *
+     ***************************************************************************/
+
+    // log: {
+    //   level: "silent"
+    // }
 
 };
