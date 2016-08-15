@@ -229,6 +229,12 @@ h2.header {
 // --- custom bootstrap
 
 // custom style for owl carousel
+.home-carousel {
+    min-height: 500px;
+    width: 100%;
+    background-position: center;
+}
+
 .owl-stage {
     display: flex;
 }
