@@ -45,41 +45,31 @@ module.exports = {
     beforeCreate: function(values, cb) {
         this.passwordHash(values.password, function(err, hash) {
             if(err)
-                cb(err);
+                return cb(err);
 
             values.password = hash;
-            cb();
+            return cb();
         });
     },
     beforeUpdate: function(values, cb) {
-        // Password must be updated by function changePassword()
-        delete values.password;
-        cb();
+        var keys = Object.keys(values);
+
+        if(keys.length != 1) {
+            delete values.password;
+            return cb();
+        }
+
+        return cb();
     },
     passwordHash: function(password, cb) {
         sails.bcrypt.genSalt(10, function(err, salt) {
             sails.bcrypt.hash(password, salt, function(err, hash) {
                 if(err) {
                     sails.log.error(err);
-                    cb(err, null);
+                    return cb(err, null);
                 }
 
-                cb(null, hash);
-            });
-        });
-    },
-    passwordChange: function(oldPassword, newPassword, cb) {
-        this.passwordHash(oldPassword, function(err, hash) {
-            if(err)
-                cb(err)
-            else if(this.password !== hash)
-                cb("Old Password is incorrect")
-
-            this.save(function(err) {
-                if(err)
-                    cb(err)
-
-                cb();
+                return cb(null, hash);
             });
         });
     },

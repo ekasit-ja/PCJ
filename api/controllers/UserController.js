@@ -28,7 +28,8 @@ module.exports = {
                         url: sails.getUrlFor("UserController.register"),
                     });
 
-                return sails.controllers.auth.login(req, res);
+                // return sails.controllers.auth.login(req, res);
+                return res.redirect(sails.getUrlFor("AdminController.dashboard"));
             });
         }
         else {
@@ -47,5 +48,48 @@ module.exports = {
 
             return res.send(200);
         });
+    },
+
+    passwordUpdate: function(req, res) {
+        if(req.method == "POST") {
+            var params = readForm(req, [
+                "oldPassword",
+                "newPassword",
+            ]);
+            params.id = req.session.passport.user;
+
+            User
+                .findOne({id: params.id})
+                .then(function(user) {
+                    sails.bcrypt.compare(params.oldPassword, user.password, function(err, match) {
+                        if(err) return res.serverError(err);
+                        else if(!match) {
+                            return res.handleError(0, {
+                                err: "old-pass-incorrect",
+                                flash: "Old password is incorrect",
+                                url: sails.getUrlFor("UserController.passwordUpdate"),
+                            });
+                        }
+                        else {
+                            User.passwordHash(params.newPassword, function(err, hash) {
+                                if(err) return res.serverError(err);
+                                else {
+                                    User
+                                        .update({id: params.id}, {password: hash})
+                                        .then(function() {
+                                            return res.redirect(sails.getUrlFor("AdminController.dashboard"));
+                                        })
+                                        .catch(function(err) {
+                                            return res.serverError(err);
+                                        });
+                                }
+                            });
+                        }
+                    });
+                });
+        }
+        else {
+            res.view("user/passwordUpdate");
+        }
     },
 };

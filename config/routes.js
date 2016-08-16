@@ -48,6 +48,7 @@ module.exports.routes = {
 
 
     "/admin": "AdminController.dashboard",
+    "/password/update": "UserController.passwordUpdate",
 
     "/type/manage": "TypeController.manage",
     "/type/create": "TypeController.create",

@@ -30,7 +30,50 @@ module.exports.policies = {
 
     "ProductController": {
         "*": ["langPref"],
-        // "manage": "isAuthenticated",
+        "manage": ["isAuthenticated", "langPref"],
+        "create": ["isAuthenticated", "langPref"],
+        "update": ["isAuthenticated", "langPref"],
+        "delete": ["isAuthenticated", "langPref"],
+        "reorder": ["isAuthenticated", "langPref"],
+    },
+
+    "HomeController": {
+        "*": ["langPref"],
+        "carouselManage": ["isAuthenticated", "langPref"],
+        "apiCarouselCreate": ["isAuthenticated", "langPref"],
+        "apiCarouselDelete": ["isAuthenticated", "langPref"],
+        "apiCarouselReorder": ["isAuthenticated", "langPref"],
+    },
+    "TypeController": {
+        "*": ["isAuthenticated", "langPref"],
+    },
+    "ModelController": {
+        "*": ["isAuthenticated", "langPref"],
+    },
+    "HardwareController": {
+        "*": ["isAuthenticated", "langPref"],
+    },
+    "FileController": {
+        "*": ["isAuthenticated", "langPref"],
+    },
+    "ProjectController": {
+        "*": ["langPref"],
+        "manage": ["isAuthenticated", "langPref"],
+        "create": ["isAuthenticated", "langPref"],
+        "update": ["isAuthenticated", "langPref"],
+        "delete": ["isAuthenticated", "langPref"],
+        "apiImageCreate": ["isAuthenticated", "langPref"],
+        "apiImageDelete": ["isAuthenticated", "langPref"],
+        "apiImageReorder": ["isAuthenticated", "langPref"],
+        "reorder": ["isAuthenticated", "langPref"],
+    },
+    "AdminController": {
+        "*": ["isAuthenticated", "langPref"],
+    },
+    "UserController": {
+        "*": ["langPref"],
+        "register": ["isAuthenticated", "langPref"],
+        "passwordUpdate": ["isAuthenticated", "langPref"],
     },
 
     /***************************************************************************
