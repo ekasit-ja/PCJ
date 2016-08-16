@@ -23,13 +23,13 @@
 
 var db_options = {
     adapter: 'sails-postgresql',
-    database: 'pcj_industries',
-    host: 'localhost',
-    user: 'postgres',
-    password: '1234',
+    database: 'd82rbqaakir91u',
+    host: 'ec2-54-243-249-65.compute-1.amazonaws.com',
+    user: 'dkjpcoqvadpgup',
+    password: 'fJgjmGXEhj5J21DQQn9tZ5HTQr',
     port: 5432,
     poolSize: 10,
-    ssl: false,
+    ssl: true,
 }
 
 module.exports = {
