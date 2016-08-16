@@ -10,15 +10,26 @@
  *
  */
 
-var MySQLSessionStore = require('express-mysql-session');
+// var MySQLSessionStore = require('express-mysql-session');
+
+// var db_options = {
+//     adapter: 'sails-mysql',
+//     host: 'localhost',
+//     port: 3306,
+//     user: 'root',
+//     password: '1234',
+//     database: 'pcj_industries'
+// }
 
 var db_options = {
-    adapter: 'sails-mysql',
+    adapter: 'sails-postgresql',
+    database: 'pcj_industries',
     host: 'localhost',
-    port: 3306,
-    user: 'root',
+    user: 'postgres',
     password: '1234',
-    database: 'pcj_industries'
+    port: 5432,
+    poolSize: 10,
+    ssl: false,
 }
 
 module.exports = {
@@ -37,9 +48,9 @@ module.exports = {
         migrate: 'safe'
     },
 
-    session: {
-        store: new MySQLSessionStore(db_options),
-    },
+    // session: {
+    //     store: new MySQLSessionStore(db_options),
+    // },
 
     hookTimeout: 60000,
 
