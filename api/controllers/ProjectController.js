@@ -93,7 +93,12 @@ module.exports = {
                 if(err) return res.serverError(err);
 
                 dynamicInter(req, "Project", project);
-                return res.json(project);
+                return res.json({
+                    project: project,
+                    wLocation: req.__("location"),
+                    wCompany: req.__("company"),
+                    wYear: req.__("year"),
+                });
             });
     },
 

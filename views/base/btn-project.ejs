@@ -20,7 +20,10 @@
             var url = "<%= sails.getUrlFor('ProjectController.apiGetProject') %>".replace(":pid", _this.data("pid"));
             $.get(url, function(data) {
                 $.featherlight(JST["assets/templates/lightbox.ejs"]({
-                    project: data,
+                    project: data.project,
+                    wLocation: data.wLocation,
+                    wCompany: data.wCompany,
+                    wYear: data.wYear,
                 }));
 
                 initFotorama();

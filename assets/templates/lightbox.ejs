@@ -3,7 +3,7 @@
         <div class="title"><%= project.title %></div>
         <div>
             <div class="country">
-                Location :
+                <%=wLocation%> :
                 <%if(project.region) {%>
                     <%=project.region%>,
                 <%}%>
@@ -13,11 +13,11 @@
             </div>
 
             <%if(project.company) {%>
-                <div class="year">Company : <%=project.company%></div>
+                <div class="year"><%=wCompany%> : <%=project.company%></div>
             <%}%>
 
             <%if(project.year) {%>
-                <div class="year">Year : <%=project.year%></div>
+                <div class="year"><%=wYear%> : <%=project.year%></div>
             <%}%>
         </div>
         <div class="desc"><%= project.desc %></div>
