@@ -50,7 +50,7 @@ module.exports = {
             transports: [
                 new(winston.transports.File)({
                     level: "warn",
-                    filename: "logs/prod.log"
+                    filename: "logs/sails-prod.log"
                 }),
             ],
         }),
