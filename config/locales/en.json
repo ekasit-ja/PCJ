@@ -1,5 +1,6 @@
 {
     "pcj-industries": "PCJ INDUSTRIES",
+    "pcj": "PCJ",
     "about": "About",
     "about-us": "About Us",
     "products": "Products",
@@ -14,7 +15,8 @@
     "air-outlets": "Air Outlets",
 
     "quality-you-can-trust": "Quality you can trust",
-    "quality-you-can-trust-detail": "For over 15 years of experience, PCJ INDUSTRIES has delivered high quality products to all regions of Thailand and many countries around the world. We have been known throughout the construction field for high quality products and reliable services.  With leading technologies on product lines and team of professional in this field under quality management system ISO 9001:2008, you can put your trust in our products and services. Our objective is to ensure fast delivery of exceptional products to let your projects complete as planned without interruption.",
+    "quality-you-can-trust-detail-p1": "For over",
+    "quality-you-can-trust-detail-p2": "years of experience, PCJ INDUSTRIES has delivered high quality products to all regions of Thailand and many countries around the world. We have been known throughout the construction field for high quality products and reliable services.  With leading technologies on product lines and team of professional in this field under quality management system ISO 9001:2008, you can put your trust in our products and services. Our objective is to ensure fast delivery of exceptional products to let your projects complete as planned without interruption.",
     "view-all": "View All",
 
     "type": "Type",
@@ -26,11 +28,11 @@
     "available-upon-request": "Available upon request",
     "size-p1": "Products are available for all sizes",
     "fire-rating": "Fire rating",
-    "0-3-hours": "0-3 hours (3 hours in accordance with UL10C) ",
+    "0-3-hours": "3 hours in accordance with ANSI/UL 10C, CAN/ULC S104",
     "door-type": "Door type",
     "door-type-p1": "Single Door, Double Door",
     "vision-panel": "Vision panel",
-    "vision-panel-p1": "Optional (size may be limited for fire rated doors, contact us for more information)",
+    "vision-panel-p1": "Optional (Maximum exposed area of glazing is 100 square inches)",
     "louvers": "Louvers",
     "louvers-p1": "Optional",
     "door-closers": "Door Closers",
@@ -64,7 +66,8 @@
     "199/24-25 Vibhavadeerangsit Road,": "199/24-25 Vibhavadeerangsit road,",
     "Samsennai, Phayathai,": "Samsennai, Phayathai,",
     "Bangkok 10400, Thailand": "Bangkok 10400, Thailand",
-    "Mon - Sat 8:30AM - 5:30PM (ICT)": " Mon - Sat 8:30AM - 5:30PM (ICT)",
+    "Mon - Sat": "Mon - Sat,",
+    "8:30AM - 5:30PM (ICT)": "8:30AM - 5:30PM (ICT)",
 
     "45/2 Kaengkhoi-Salaengpan Road, Moo 8,": "45/2 Kaengkhoi-Salaengpan Road, Moo 8,",
     "Banpa, Kaengkhoi,": " Banpa, Kaengkhoi,",
@@ -93,7 +96,7 @@
     "certificates-from-world-wide": "Certificates from worldwide accepted organization",
     "product-distribute-worldwide": "Our products have been distributed to many countries worldwide",
 
-    "about-p1": "PCJ INDUSTRIES was established in Thailand 1998, with an objective to introduce high quality building materials, which are steel doors, duct dampers, and air outlets, in order to promote overall quality of buildings and structures in the country. Then, we expand our business and aim to achieve the same objectives at the international level. Our products are certified by worldwide accepted organization, for example, Underwriter Laboratories, British Standard Institution, and Australian Standard and many more. In addition, our company has been certified by ISO 9001:2008 at full system as well.  With all mentioned achievements, PCJ has become recognized and accepted for standards of the products all around the world.",
+    "about-p1": "PCJ INDUSTRIES was established in Thailand 1998, with an objective to introduce high quality building materials, which are Fire Steel Doors, Fire Dampers, Duct Dampers, Duct Silencers, Acoustic Louvers, and Air Outlets, in order to promote overall quality of buildings and structures in the country. Then, we expand our business and aim to achieve the same objectives at the international level. Our products are certified by worldwide accepted organization, for example, Underwriter Laboratories, British Standard Institution, and Australian Standard and many more. In addition, our company has been certified by ISO 9001:2008 at full system as well.  With all mentioned achievements, PCJ has become recognized and accepted for standards of the products all around the world.",
     "about-p2": "Our utmost important policy is to produce high quality products, deliver on time, with competitive price.  We have invested in research and development to improve quality of our products and reduce costs to make the products attractive to everyone. We aim to encourage people to use only high quality materials for buildings that will enhance standards of the structures which will make all benefits fall to residents themselves ultimately.",
     "careers-p1": "We are pleased to have you join our PCJ family and grow together. We are open for many job positions.  If you are interested, please email us your resume, supported documents, and a formal portrait to below email address.",
     "careers-p2": "Or drop hard copy of your documents at our headquarters at below address.  We promise to contact you back at soonest.",
