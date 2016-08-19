@@ -26,6 +26,10 @@ module.exports = {
             required: true,
         },
 
+        image_th: {
+            type: "string",
+        },
+
         desc: {
             type: "text",
         },
@@ -54,13 +58,19 @@ module.exports = {
     },
 
     beforeUpdate: function(valuesToUpdate, cb) {
-        if("image" in valuesToUpdate) {
+        if("image" in valuesToUpdate || "image_th" in valuesToUpdate) {
             this
                 .findOne(valuesToUpdate.id)
                 .then(function(rec) {
-                    sails.fs.unlink(
-                        sails.prefixDir + rec.image,
-                        function() {});
+                    if("image" in valuesToUpdate)
+                        sails.fs.unlink(
+                            sails.prefixDir + rec.image,
+                            function() {});
+
+                    if("image_th" in valuesToUpdate && rec.image_th)
+                        sails.fs.unlink(
+                            sails.prefixDir + rec.image_th,
+                            function() {});
 
                     return cb();
                 })
@@ -74,10 +84,17 @@ module.exports = {
     },
 
     afterDestroy: function(destroyedRecords, cb) {
-        for(var i=0; i<destroyedRecords.length; i++)
+        for(var i=0; i<destroyedRecords.length; i++) {
             sails.fs.unlink(
                 sails.prefixDir + destroyedRecords[i].image,
                 function() {});
+
+            if(destroyedRecords[i].image_th) {
+                sails.fs.unlink(
+                    sails.prefixDir + destroyedRecords[i].image_th,
+                    function() {});
+            }
+        }
 
         cb();
     },

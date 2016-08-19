@@ -4,6 +4,11 @@
 
     <form method="post" class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3" enctype="multipart/form-data">
         <div class="img-frame"><img src="<%= hardware.image %>"></div><br>
+
+        <%if(hardware.image_th) {%>
+            <div class="img-frame"><img src="<%= hardware.image_th %>"></div><br>
+        <%}%>
+
         <select name="hardwareType" class="form-control">
             <% for(var key in sails.config.enums.hardware) { %>
                 <option value="<%= key %>" <%=hardware.hardwareType==key?"selected":""%> ><%= __(sails.config.enums.hardware[key]) %></option>
@@ -14,7 +19,11 @@
 
         <%- partial("../base/input-desc.ejs") %>
 
+        <label>Image EN</label>
         <input type="file" name="image" class="form-control"><br>
+
+        <label>Image TH</label>
+        <input type="file" name="image_th" class="form-control"><br>
 
         <input type="submit" value="Update" class="btn btn-success">
         <a href="<%= sails.getUrlFor('HardwareController.manage') %>" class="btn btn-danger">Cancel</a>

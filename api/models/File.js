@@ -63,26 +63,6 @@ module.exports = {
     },
 
     beforeUpdate: function(valuesToUpdate, cb) {
-        if("image" in valuesToUpdate) {
-            this
-                .findOne(valuesToUpdate.id)
-                .then(function(rec) {
-                    sails.fs.unlink(
-                        sails.prefixDir + rec.image,
-                        function() {});
-
-                    return cb();
-                })
-                .catch(function(err) {
-                    return cb(err);
-                })
-        }
-        else {
-            return cb();
-        }
-    },
-
-    beforeUpdate: function(valuesToUpdate, cb) {
         if("url" in valuesToUpdate || "image" in valuesToUpdate) {
             this
                 .findOne(valuesToUpdate.id)

@@ -17,6 +17,7 @@
                 <th>Type</th>
                 <th>Title</th>
                 <th>Image</th>
+                <th>Image TH</th>
                 <th></th>
                 <th></th>
             </tr>
@@ -28,6 +29,7 @@
                     <td><%= __(sails.config.enums.hardware[hardware.hardwareType]) %></td>
                     <td><%= hardware.title %></td>
                     <td><img src="<%= hardware.image %>"></td>
+                    <td><%if(hardware.image_th) {%><img src="<%= hardware.image_th %>"><%}%></td>
                     <td>
                         <a href="<%= sails.getUrlFor("HardwareController.update").replace(":hid", hardware.id) %>" class="btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                     </td>

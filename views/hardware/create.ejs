@@ -13,7 +13,11 @@
 
         <%- partial("../base/input-desc.ejs") %>
 
+        <label>Image EN *</label>
         <input type="file" name="image" class="form-control" required><br>
+
+        <label>Image TH</label>
+        <input type="file" name="image_th" class="form-control"><br>
 
         <input type="submit" value="Create" class="btn btn-success">
         <a href="<%= sails.getUrlFor('HardwareController.manage') %>" class="btn btn-danger">Cancel</a>
