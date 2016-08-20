@@ -43,6 +43,10 @@ module.exports = {
             collection: "product",
             via: "model",
         },
+
+        cert: {
+            type: "integer",
+        },
     },
 
     beforeCreate: function(values, cb) {

@@ -146,7 +146,7 @@ module.exports = {
 
                 dynamicInter(req, "Type", types);
 
-                // suppose to found just one type of fire steel door
+                // suppose to found just one type of fire dampers
                 return Model.find({type: types[0].id}).sort("position asc")
             })
             .then(function(models) {

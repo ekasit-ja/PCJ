@@ -25,4 +25,9 @@ module.exports.enums = {
         inst: "installation",
         catg: "catalogue",
     },
+
+    cert: {
+        0: "inter",
+        1: "local",
+    },
 }
