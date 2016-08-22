@@ -35,6 +35,43 @@
         <img src="/images/certificate.jpg" class="img-responsive">
     </div>
     <hr>
+
+    <h3 class="header"><%=__("products")%></h3>
+    <div class="row">
+        <div class="col-sm-3 col-xs-12 tag-container category">
+            <a href="<%= sails.getUrlFor('ProductController.fsd') %>" class="col-xs-12">
+                <div class="img square" style="background-image:url('/images/fire_doors.jpg')"></div>
+                <div class="tag-label rel"><%=__("fire-steel-doors")%></div>
+            </a>
+        </div>
+        <div class="col-sm-3 col-xs-12 tag-container category">
+            <a href="<%=sails.getUrlFor('ProductController.fd')%>" class="col-xs-12">
+                <div class="img square" style="background-image:url('/images/fire_dampers.jpg')"></div>
+                <div class="tag-cover">
+                    <div class="tag-label rel"><%=__("fire-dampers")%></div>
+                </div>
+            </a>
+        </div>
+        <div class="col-sm-3 col-xs-12 tag-container category">
+            <a href="<%=sails.getUrlFor('ProductController.dd')%>" class="col-xs-12">
+                <div class="img square" style="background-image:url('/images/duct_dampers.jpg')"></div>
+                <div class="tag-cover">
+                    <div class="tag-label rel"><%=__("duct-dampers")%></div>
+                </div>
+            </a>
+        </div>
+        <div class="col-sm-3 col-xs-12 tag-container category">
+            <a href="<%=sails.getUrlFor('ProductController.ao')%>" class="col-xs-12">
+                <div class="img square" style="background-image:url('/images/air_outlets.jpg')"></div>
+                <div class="tag-cover">
+                    <div class="tag-label rel"><%=__("air-outlets")%></div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <br>
+    <hr>
+
     <h3 class="header"><%=__("projects")%></h3>
 
     <%- partial("base/btn-project.ejs") %>
