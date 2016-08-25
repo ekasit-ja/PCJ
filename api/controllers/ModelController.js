@@ -26,6 +26,7 @@ module.exports = {
         if(req.method == "POST") {
             var params = readForm(req, [
                 "type",
+                "cert",
                 "title",
                 "title_th",
                 "desc",
@@ -68,6 +69,7 @@ module.exports = {
         if(req.method == "POST") {
             var params = readForm(req, [
                 "type",
+                "cert",
                 "title",
                 "title_th",
                 "desc",

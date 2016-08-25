@@ -1,9 +1,11 @@
 {
     "pcj-industries": "PCJ INDUSTRIES",
+    "pcj": "PCJ",
     "about": "About",
     "about-us": "About Us",
     "products": "Products",
     "projects": "Projects",
+    "news": "News",
     "contact": "Contact",
     "contact-us": "Contact Us",
     "careers": "Careers",
@@ -14,7 +16,8 @@
     "air-outlets": "Air Outlets",
 
     "quality-you-can-trust": "Quality you can trust",
-    "quality-you-can-trust-detail": "For over 15 years of experience, PCJ INDUSTRIES has delivered high quality products to all regions of Thailand and many countries around the world. We have been known throughout the construction field for high quality products and reliable services.  With leading technologies on product lines and team of professional in this field under quality management system ISO 9001:2008, you can put your trust in our products and services. Our objective is to ensure fast delivery of exceptional products to let your projects complete as planned without interruption.",
+    "quality-you-can-trust-detail-p1": "For over",
+    "quality-you-can-trust-detail-p2": "years of experience, PCJ INDUSTRIES has delivered high quality products to all regions of Thailand and many countries around the world. We have been known throughout the construction field for high quality products and reliable services.  With leading technologies on product lines and team of professional in this field under quality management system ISO 9001:2008, you can put your trust in our products and services. Our objective is to ensure fast delivery of exceptional products to let your projects complete as planned without interruption.",
     "view-all": "View All",
 
     "type": "Type",
@@ -26,11 +29,15 @@
     "available-upon-request": "Available upon request",
     "size-p1": "Products are available for all sizes",
     "fire-rating": "Fire rating",
-    "0-3-hours": "0-3 hours (3 hours in accordance with UL10C) ",
+    "0-3-hours": "3 hours in accordance with ANSI/UL 10C, CAN/ULC S104",
+    "3-hour-dampers": "3 hours in accordance with ANSI/UL 555, CAN/ULC S112",
+    "3-hour": "3 hours",
+    "door-style": "Door style",
+    "door-style-p1": "Flush Style, Embossed Style",
     "door-type": "Door type",
     "door-type-p1": "Single Door, Double Door",
     "vision-panel": "Vision panel",
-    "vision-panel-p1": "Optional (size may be limited for fire rated doors, contact us for more information)",
+    "vision-panel-p1": "Optional (Maximum exposed area of glazing is 100 square inches)",
     "louvers": "Louvers",
     "louvers-p1": "Optional",
     "door-closers": "Door Closers",
@@ -64,7 +71,8 @@
     "199/24-25 Vibhavadeerangsit Road,": "199/24-25 Vibhavadeerangsit road,",
     "Samsennai, Phayathai,": "Samsennai, Phayathai,",
     "Bangkok 10400, Thailand": "Bangkok 10400, Thailand",
-    "Mon - Sat 8:30AM - 5:30PM (ICT)": " Mon - Sat 8:30AM - 5:30PM (ICT)",
+    "Mon - Sat": "Mon - Sat,",
+    "8:30AM - 5:30PM (ICT)": "8:30AM - 5:30PM (ICT)",
 
     "45/2 Kaengkhoi-Salaengpan Road, Moo 8,": "45/2 Kaengkhoi-Salaengpan Road, Moo 8,",
     "Banpa, Kaengkhoi,": " Banpa, Kaengkhoi,",
@@ -93,8 +101,8 @@
     "certificates-from-world-wide": "Certificates from worldwide accepted organization",
     "product-distribute-worldwide": "Our products have been distributed to many countries worldwide",
 
-    "about-p1": "PCJ INDUSTRIES was established in Thailand 1998, with an objective to introduce high quality building materials, which are steel doors, duct dampers, and air outlets, in order to promote overall quality of buildings and structures in the country. Then, we expand our business and aim to achieve the same objectives at the international level. Our products are certified by worldwide accepted organization, for example, Underwriter Laboratories, British Standard Institution, and Australian Standard and many more. In addition, our company has been certified by ISO 9001:2008 at full system as well.  With all mentioned achievements, PCJ has become recognized and accepted for standards of the products all around the world.",
-    "about-p2": "Our utmost important policy is to produce high quality products, deliver on time, with competitive price.  We have invested in research and development to improve quality of our products and reduce costs to make the products attractive to everyone. We aim to encourage people to use only high quality materials for buildings that will enhance standards of the structures which will make all benefits fall to residents themselves ultimately.",
+    "about-p1": "PCJ INDUSTRIES CO., LTD. was established in Thailand since 1998, with an objective to introduce high quality building materials, which are Fire Steel Doors, Fire Dampers, Duct Dampers, Duct Silencers, Acoustic Louvers, and Air Outlets, in order to promote safety and standards of buildings. Our products are certified by worldwide accepted organization, for example, Underwriter Laboratories, British Standard Institution, Australian Standard, and many more. In addition, our company has been certified by ISO 9001:2008 at full system as well.",
+    "about-p2": "We keep investing in research and development of our products to meet modern standards and design.  We established a national presence and has steadily expanded into global markets. Our utmost policies are to manufacture in strict compliance with international standards of high quality products at competitive price and on time delivery. This has become and keep going to be capital endorsement of our company.",
     "careers-p1": "We are pleased to have you join our PCJ family and grow together. We are open for many job positions.  If you are interested, please email us your resume, supported documents, and a formal portrait to below email address.",
     "careers-p2": "Or drop hard copy of your documents at our headquarters at below address.  We promise to contact you back at soonest.",
 
@@ -108,9 +116,9 @@
 
     "fsd-p1": "PCJ manufacture and distribute 3 hour fire rated steel doors without compromising any functionalities of doors.  Our doors are design to not let even the tiniest flame through in accordance with standards of worldwide accepted organization, such as, UL and BSI. The doors come with steel door frames certified by the same standards to maximize fire protection capability, to ensure the quality that you can trust.",
     "fsd-p2": "We can produce and customize products to meet any requirement you may have.  For example, embossing door leaves, adding vision panel, sealing door edge to prevent smoke, etc.  We aim to enhance safety level of buildings without reducing functionalities of the doors.",
-    "fd-p1": "PCJ manufacture and distribute 3 hours fire rated dampers.  Our dampers are designed to let air flow through in normal situation and close duct lines in fire incident or the temperature reaches the point in order to not let even tiniest flame through in accordance with UL standards (USA), to ensure quality that you can trust.  Our products are available in all sizes, up to 96 x 96 square inches, to meet any requirements you may have.",
-    "dd-p1": "PCJ manufacture and distribute high quality duct dampers. The dampers are made of galvanized steel sheet to increase strength, ensure rust resistance, prolong service life, and eradicate maintenance tasks.  Our products are available in all sizes and plenty of shapes, for instance, rectangular, round, or oval, to meet any requirements you may have.  The products are customizable to add some features, such as, automatic adjustment with Actuator or reducing noise at the end of duct lines. The dampers have been tested and certified for potential and capabilities by leading national institution to ensure quality that you can trust.",
-    "ao-p1": "PCJ manufacture and distribute high quality air outlets. The outlets are made of anodized aluminium to make them lightweight and suitable for mounting on ceiling or walls, prolong service life, and eradicate maintenance tasks.  Our products have been certified by worldwide accepted organization, such as, Air Diffusion Council and Australian Standard.  We do finish surface the outlets with powder color as well to make their appearance matches buildings, combine quality and beauty together, to meet any requirements you may have",
+    "fd-p1": "We manufacture and provide 3-hour fire rated dampers that can be mounted vertically on fire rated barriers, such as walls or partitions, with airflow in either direction. The dampers are designed to automatically shut down in the event of fire emergency to prevent the spread of flame through the barrier. Our products are certified by UL standards (USA) and are available in all sizes, up to 96 x 96 square inches, to meet any safety requirements you may have.",
+    "dd-p1": "We manufacture and provide high quality duct dampers made of galvanized steel sheet to increase strength, ensure rust resistance, and prolong service life. The dampers are available in all sizes and plenty of shapes, for instance, rectangular, round, or oval. They are also customizable to gain new features, such as, automatic adjustment or ensuring low leak. Our products are certified for potential and capabilities by renowned national institution to ensure the quality that you can trust.",
+    "ao-p1": "We manufacture and provide high quality air outlets made of anodized aluminium to make them lightweight, ensure tarnish resistance, and prolong service life. Finishing surface of the outlets with powder color can be done as optional to make their appearance matches buildings or areas they are installed. Our products are certified by worldwide accepted organization, such as, Air Diffusion Council and Australian Standard, and are available in any sizes to meet any requirements you may have.",
 
     "low-leak": "Low Leak",
     "low-leak-p1": "Optional",

@@ -21,6 +21,17 @@ var db_options = {
     database: 'pcj_industries'
 }
 
+// var db_options = {
+//     adapter: 'sails-postgresql',
+//     database: 'd82rbqaakir91u',
+//     host: 'ec2-54-243-249-65.compute-1.amazonaws.com',
+//     user: 'dkjpcoqvadpgup',
+//     password: 'fJgjmGXEhj5J21DQQn9tZ5HTQr',
+//     port: 5432,
+//     poolSize: 10,
+//     ssl: true,
+// }
+
 module.exports = {
 
     /***************************************************************************
@@ -42,5 +53,7 @@ module.exports = {
     },
 
     hookTimeout: 60000,
+
+    port: 1337,
 
 };

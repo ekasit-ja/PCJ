@@ -16,7 +16,9 @@
                 <span class="icon-bar bottom-bar"></span>
             </button>
             <a class="navbar-brand" href="/">
-                <img src="/images/PCJ_logo.jpg" class="company-brand" alt="<%=__('pcj-industries')%>">
+                <% var logoLang = req.getLocale()=="en"?"pcj-logo-full-en.jpg":"pcj-logo-full-th.jpg";%>
+                <img class="hidden-md hidden-sm hidden-xs company-brand" src="/images/<%=logoLang%>" alt="<%=__('pcj-industries')%>">
+                <img class="visible-md visible-sm visible-xs company-brand" src="/images/pcj-logo.jpg" alt="<%=__('pcj')%>">
             </a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
@@ -64,6 +66,7 @@
                     </ul>
                 </li>
                 <li><a href="<%= sails.getUrlFor('ProjectController.view') %>"><%=__("projects")%></a></li>
+                <li><a href="<%= sails.getUrlFor('NewsController.viewList') %>"><%=__("news")%></a></li>
                 <li><a href="<%=sails.getUrlFor('HomeController.contact')%>"><%=__("contact")%></a></li>
                 <li><a href="<%=sails.getUrlFor('HomeController.careers')%>"><%=__("careers")%></a></li>
                 <li><a href="#" class="icon-lang" data-lang="en" rel="nofollow"><img src="/images/flag_en.png" alt="english"></a></li>

@@ -30,6 +30,10 @@ module.exports = {
             required: true,
         },
 
+        url_th: {
+            type: "string",
+        },
+
         desc: {
             type: "text",
         },
@@ -63,33 +67,20 @@ module.exports = {
     },
 
     beforeUpdate: function(valuesToUpdate, cb) {
-        if("image" in valuesToUpdate) {
-            this
-                .findOne(valuesToUpdate.id)
-                .then(function(rec) {
-                    sails.fs.unlink(
-                        sails.prefixDir + rec.image,
-                        function() {});
-
-                    return cb();
-                })
-                .catch(function(err) {
-                    return cb(err);
-                })
-        }
-        else {
-            return cb();
-        }
-    },
-
-    beforeUpdate: function(valuesToUpdate, cb) {
-        if("url" in valuesToUpdate || "image" in valuesToUpdate) {
+        if("url" in valuesToUpdate ||
+                "url_th" in valuesToUpdate ||
+                "image" in valuesToUpdate) {
             this
                 .findOne(valuesToUpdate.id)
                 .then(function(rec) {
                     if("url" in valuesToUpdate)
                         sails.fs.unlink(
                             sails.prefixDir + rec.url,
+                            function() {});
+
+                    if("url_th" in valuesToUpdate)
+                        sails.fs.unlink(
+                            sails.prefixDir + rec.url_th,
                             function() {});
 
                     if("image" in valuesToUpdate)
@@ -112,6 +103,10 @@ module.exports = {
         for(var i=0; i<destroyedRecords.length; i++) {
             sails.fs.unlink(
                 sails.prefixDir + destroyedRecords[i].url,
+                function() {});
+
+            sails.fs.unlink(
+                sails.prefixDir + destroyedRecords[i].url_th,
                 function() {});
 
             sails.fs.unlink(

@@ -1,0 +1,68 @@
+<label>Content EN</label>
+<div id="content-container-content">
+    <div class="wrapper">
+
+        <%- partial("../base/quill-toolbar-min.ejs") %>
+
+        <div class="editor-container">
+            <%if(typeof news != "undefined") {%>
+                <%-news.content||""%>
+            <%} else {%>
+                <%-""%>
+            <%}%>
+        </div>
+    </div>
+</div>
+<br>
+
+<label>Content TH</label>
+<div id="content-container-content-th">
+    <div class="wrapper">
+
+        <%- partial("../base/quill-toolbar-min.ejs") %>
+
+        <div class="editor-container">
+            <%if(typeof news != "undefined") {%>
+                <%-news.content_th||""%>
+            <%} else {%>
+                <%-""%>
+            <%}%>
+        </div>
+    </div>
+</div>
+<br>
+
+<textarea rows="5" name="content" placeholder="content" class="form-control hide"></textarea>
+<textarea rows="5" name="content_th" placeholder="content_th" class="form-control hide"></textarea>
+
+<script type="text/javascript">
+    editorEn = new Quill("#content-container-content .wrapper .editor-container", {
+        modules: {
+            "toolbar": {
+                container: "#content-container-content .wrapper .ql-toolbar.ql-snow"
+            },
+        },
+        theme: "snow",
+        bounds: $("#content-container-content .wrapper .editor-container")[0],
+    });
+
+    editorTh = new Quill("#content-container-content-th .wrapper .editor-container", {
+        modules: {
+            "toolbar": {
+                container: "#content-container-content-th .wrapper .ql-toolbar.ql-snow"
+            },
+        },
+        theme: "snow",
+        bounds: $("#content-container-content-th .wrapper .editor-container")[0],
+    });
+
+    $("form").submit(function(e) {
+        $(e.currentTarget).find("textarea[name=content]").val(
+            $(editorEn.container).find(".ql-editor").html()
+        );
+        $(e.currentTarget).find("textarea[name=content_th]").val(
+            $(editorTh.container).find(".ql-editor").html()
+        );
+        return true;
+    });
+</script>

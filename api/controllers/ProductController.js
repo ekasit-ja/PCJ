@@ -7,27 +7,42 @@
 
 module.exports = {
     fsd: function(req, res) {
+        // Type
+        //     .find({category: "fsd"})
+        //     .sort("position asc")
+        //     .then(function(types) {
+        //         if(types.length < 1)
+        //             return Promise.resolve([]);
+
+        //         dynamicInter(req, "Type", types);
+
+        //         // suppose to found just one type of fire steel door
+        //         return Model.find({type: types[0].id}).sort("position asc")
+        //     })
+        //     .then(function(models) {
+        //         dynamicInter(req, "Model", models);
+
+        //         return res.view("product/fsd/index", {
+        //             models: models,
+        //             title: "seo-fsd-title",
+        //             metaKeyword: "seo-fsd-meta-keyword",
+        //             metaDesc: "seo-fsd-meta-desc",
+        //         });
+        //     })
+        //     .catch(function(err) {
+        //         return res.serverError(err);
+        //     });
+
         Type
             .find({category: "fsd"})
-            .sort("position asc")
             .then(function(types) {
                 if(types.length < 1)
                     return Promise.resolve([]);
 
-                dynamicInter(req, "Type", types);
-
-                // suppose to found just one type of fire steel door
-                return Model.find({type: types[0].id}).sort("position asc")
-            })
-            .then(function(models) {
-                dynamicInter(req, "Model", models);
-
-                return res.view("product/fsd/index", {
-                    models: models,
-                    title: "seo-fsd-title",
-                    metaKeyword: "seo-fsd-meta-keyword",
-                    metaDesc: "seo-fsd-meta-desc",
-                });
+                return res.redirect(
+                    sails.getUrlFor("ProductController.fsdModel")
+                        .replace(":mid", types[0].id)
+                );
             })
             .catch(function(err) {
                 return res.serverError(err);
@@ -131,7 +146,7 @@ module.exports = {
 
                 dynamicInter(req, "Type", types);
 
-                // suppose to found just one type of fire steel door
+                // suppose to found just one type of fire dampers
                 return Model.find({type: types[0].id}).sort("position asc")
             })
             .then(function(models) {

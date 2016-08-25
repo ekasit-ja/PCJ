@@ -31,20 +31,32 @@ module.exports = {
                 "desc_th",
             ]);
 
-            uploadFiles(req.file("image"))
-                .then(function(fs) {
-                    if(fs.length < 1)
-                        throw "No file has been uploaded."
+            async.map(["image", "image_th"], function(file, cb) {
+                return uploadFiles(req.file(file))
+                    .then(function(fs) {
+                        return cb(null, fs);
+                    })
+                    .catch(function(err) {
+                        return cb(err, null);
+                    });
+            }, function(err, files) {
+                if(err) return res.serverError(err);
 
-                    params.image = fs[0].extra.uploadPath;
-                    return Hardware.create(params);
-                })
-                .then(function(h) {
-                    return res.redirect(sails.getUrlFor("HardwareController.manage"));
-                })
-                .catch(function(err) {
-                    return res.serverError(err);
-                });
+                if(files[0].length > 0)
+                    params.image = files[0][0].extra.uploadPath;
+
+                if(files[1].length > 0)
+                    params.image_th = files[1][0].extra.uploadPath;
+
+                Hardware
+                    .create(params)
+                    .then(function(f) {
+                        return res.redirect(sails.getUrlFor("HardwareController.manage"));
+                    })
+                    .catch(function(err) {
+                        return res.serverError(err);
+                    });
+            });
         }
         else {
             return res.view("hardware/create", {
@@ -66,21 +78,32 @@ module.exports = {
             ]);
             params.id = hid;
 
-            uploadFiles(req.file("image"))
-                .then(function(fs) {
-                    if(fs.length > 0)
-                        params.image = fs[0].extra.uploadPath;
+            async.map(["image", "image_th"], function(file, cb) {
+                return uploadFiles(req.file(file))
+                    .then(function(fs) {
+                        return cb(null, fs);
+                    })
+                    .catch(function(err) {
+                        return cb(err, null);
+                    });
+            }, function(err, files) {
+                if(err) return res.serverError(err);
 
-                    return Hardware.update({id: hid}, params);
-                })
-                .then(function(h) {
-                    return res.redirect(
-                        sails.getUrlFor("HardwareController.manage")
-                    );
-                })
-                .catch(function(err) {
-                    return res.serverError(err);
-                });
+                if(files[0].length > 0)
+                    params.image = files[0][0].extra.uploadPath;
+
+                if(files[1].length > 0)
+                    params.image_th = files[1][0].extra.uploadPath;
+
+                Hardware
+                    .update({id: hid}, params)
+                    .then(function(fs) {
+                        return res.redirect(sails.getUrlFor("HardwareController.manage"));
+                    })
+                    .catch(function(err) {
+                        return res.serverError(err);
+                    });
+            });
         }
         else {
             Hardware

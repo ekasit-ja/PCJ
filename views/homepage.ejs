@@ -26,13 +26,52 @@
     <h3 class="header" style="text-transform: uppercase;"><%=__("quality-you-can-trust")%></h3>
     <div class="row">
         <div class="col-sm-8 col-sm-offset-2">
-            <p class="text-justify"><%=__("quality-you-can-trust-detail")%></p>
+            <p class="text-justify">
+                <%=__("quality-you-can-trust-detail-p1")%> <%=(new Date().getFullYear())-1998%> <%=__("quality-you-can-trust-detail-p2")%>
+            </p>
         </div>
     </div>
     <div class="row">
         <img src="/images/certificate.jpg" class="img-responsive">
     </div>
     <hr>
+
+    <h3 class="header"><%=__("products")%></h3>
+    <div class="row">
+        <div class="col-sm-3 col-xs-12 tag-container category">
+            <a href="<%= sails.getUrlFor('ProductController.fsd') %>" class="col-xs-12">
+                <div class="img square" style="background-image:url('/images/fire_doors.jpg')"></div>
+                <div class="tag-label rel"><%=__("fire-steel-doors")%></div>
+            </a>
+        </div>
+        <div class="col-sm-3 col-xs-12 tag-container category">
+            <a href="<%=sails.getUrlFor('ProductController.fd')%>" class="col-xs-12">
+                <div class="img square" style="background-image:url('/images/fire_dampers.jpg')"></div>
+                <div class="tag-cover">
+                    <div class="tag-label rel"><%=__("fire-dampers")%></div>
+                </div>
+            </a>
+        </div>
+        <div class="col-sm-3 col-xs-12 tag-container category">
+            <a href="<%=sails.getUrlFor('ProductController.dd')%>" class="col-xs-12">
+                <div class="img square" style="background-image:url('/images/duct_dampers.jpg')"></div>
+                <div class="tag-cover">
+                    <div class="tag-label rel"><%=__("duct-dampers")%></div>
+                </div>
+            </a>
+        </div>
+        <div class="col-sm-3 col-xs-12 tag-container category">
+            <a href="<%=sails.getUrlFor('ProductController.ao')%>" class="col-xs-12">
+                <div class="img square" style="background-image:url('/images/air_outlets.jpg')"></div>
+                <div class="tag-cover">
+                    <div class="tag-label rel"><%=__("air-outlets")%></div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <br>
+    <hr>
+
     <h3 class="header"><%=__("projects")%></h3>
 
     <%- partial("base/btn-project.ejs") %>
@@ -54,8 +93,8 @@
                     '<i class="fa fa-chevron-left" aria-hidden="true"></i>',
                     '<i class="fa fa-chevron-right" aria-hidden="true"></i>'],
             autoplay: true,
-            autoplayTimeout: 6000,
-            smartSpeed: 1000,
+            autoplayTimeout: 10500,
+            smartSpeed: 500,
         });
     });
 </script>
