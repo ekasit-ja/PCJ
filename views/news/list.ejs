@@ -1,0 +1,22 @@
+<div class="container">
+    <h2 class="header"><%=__("news")%></h2>
+    <br>
+
+    <div class="row">
+        <div class="col-md-6 col-md-push-3">
+            <% _.each(newses, function(news) { %>
+                <div class="row news-list">
+                    <a href="<%=sails.getUrlFor('NewsController.viewDetails').replace(':nid', news.id)%>" class="news">
+                        <div class="img-frame" style="background-image:url('<%=news.images[0]?news.images[0].url:''%>')">
+                        </div>
+                        <div class="content-short">
+                            <div class="title"><%=news.title%></div>
+                            <div class="content"><%-news.content%></div>
+                        </div>
+                    </a>
+                </div>
+            <%})%>
+        </div>
+    </div>
+
+</div>

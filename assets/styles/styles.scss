@@ -1,7 +1,8 @@
 $primary-red: #c00;
 $secondary-red: lighten($primary-red, 7%);
 $light-grey: lighten(#eee, 1%);
-$black: #000;
+$grey: darken(#eee, 10%);
+$black: #333;
 $white: #fff;
 $border-r: 5px;
 $blue: #00afea;
@@ -1025,3 +1026,56 @@ input, select, textarea {
     }
 }
 // --- style for parsley validation
+
+// style for news
+.news-list {
+    border: 1px solid $grey;
+    border-radius: $border-r/2;
+    margin: 0px 10px 30px 10px;
+
+    &:hover {
+        box-shadow: 0 0 10px rgba($black, .4);
+    }
+
+    a {
+        color: $black;
+        text-decoration: none;
+    }
+
+    .img-frame {
+        padding-bottom: 45%;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-bottom: 1px solid $grey;
+    }
+
+    .content-short {
+        padding: 10px 15px;
+
+        .title {
+            font-weight: bold;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+        .content {
+        }
+    }
+}
+
+.news-details {
+    .header {
+        text-align: left;
+    }
+
+    .img-frame {
+        margin-top: 20px;
+        text-align: center;
+
+        img {
+            width: auto;
+            max-width: 100%;
+        }
+    }
+}
+// --- style for news

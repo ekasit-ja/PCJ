@@ -1,0 +1,20 @@
+<%var i=0%>
+<div class="container">
+    <div class="row news-details">
+        <div class="col-md-8 col-md-push-2">
+            <div class="img-frame">
+                <img src="<%=news.images[i++].url%>" alt="<%=news.title+'-'+i%>">
+            </div>
+            <h2 class="header"><%=news.title%></h2>
+            <br>
+
+            <%-news.content%>
+
+            <%for(; i<news.images.length; i++) {%>
+                <div class="img-frame">
+                    <img src="<%=news.images[i].url%>" alt="<%=news.title+'-'+i%>">
+                </div>
+            <%}%>
+        </div>
+    </div>
+</div>

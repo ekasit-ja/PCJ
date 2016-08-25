@@ -1,0 +1,147 @@
+<div class="container">
+    <h2 class="header">update news</h2>
+    <br>
+
+    <div class="row">
+        <div class="img-zone col-sm-10 col-sm-push-1" id="drag-zone">
+            <% _.each(news.images, function(image) { %>
+                <div class="img-frame">
+                    <img src="<%= image.url %>" data-id="<%= image.id %>">
+                </div>
+            <% }) %>
+        </div>
+    </div>
+    <div class="text-center">* Drag images to reorder</div>
+    <br>
+
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+            <div class="delete-zone img-zone"></div>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+            <form method="post" action="<%= sails.getUrlFor('NewsController.update').replace(':nid', news.id) %>">
+                <input type="text" name="title" placeholder="title" class="form-control" required value="<%= news.title %>"><br>
+                <input type="text" name="title_th" placeholder="title_th" class="form-control" value="<%=news.title_th||''%>"><br>
+
+                <%- partial("input-content.ejs") %>
+
+                <input type="submit" class="submit hide">
+            </form>
+            <form method="post" enctype="multipart/form-data" id="fileupload" action="<%= sails.getUrlFor('NewsController.apiImageCreate') %>">
+                <div class="row fileupload-buttonbar">
+                    <div class="fileinput-group">
+                        <button class="btn btn-primary fileinput-button btn-block">
+                            Add images<br>or<br>drop them here
+                        </button>
+                        <input type="file" name="images" id="files" multiple required>
+                    </div>
+                    <br>
+
+                    <table id="pictureTable" role="presentation" class="table table-striped">
+                        <tbody class="files"></tbody>
+                    </table>
+                    <button type="button" class="start hide" id="start"></button>
+                </div>
+                <input type="submit" class="submit hide">
+            </form>
+
+            <button id="submit" class="btn btn-success">Update</button>
+            <a href="<%= sails.getUrlFor('NewsController.manage') %>" class="btn btn-danger">Cancel</a>
+        </div>
+    </div>
+</div>
+
+<%- partial('../base/template_download_progress.ejs') %>
+<%- partial('../base/template_upload_progress.ejs') %>
+
+<script type="text/javascript">
+    // Make enter button on first form behave as click submit
+    $("form").first().submit(function(e) {
+        e.preventDefault();
+        $("#submit").trigger("click");
+    });
+
+    // Prepare delete items
+    var deleteId = [];
+    var deleteZone = Sortable.create($(".delete-zone")[0], {
+        group: "images",
+        onAdd: function(e) {
+            deleteId.push($(e.item).find("img").first().data("id"));
+        },
+    });
+
+    // initiate drag and sort script
+    var sortable = Sortable.create($("#drag-zone")[0], {
+        animation: 250,
+        group: "images",
+    });
+
+    $(".fileinput-button").click(function(e) {
+        $("input[name='images']").trigger("click");
+    });
+
+    $("#submit").click(function(e) {
+        var forms = $("form");
+        var btnSubmits = $(".submit");
+
+        var imgs = $("#drag-zone").find("img");
+        var order = [];
+        for(var i=0; i<imgs.length; i++)
+            order.push($(imgs[i]).data("id"));
+
+        if(!forms[0].checkValidity()) {
+            // if first form is invalid, click submit button trigger
+            // default validation of browser
+            $(btnSubmits[0]).trigger("click");
+        }
+        else {
+            $(forms[0]).find("textarea[name=content]").val(
+                $(editorEn.container).find(".ql-editor").html()
+            );
+            $(forms[0]).find("textarea[name=content_th]").val(
+                $(editorTh.container).find(".ql-editor").html()
+            );
+
+            // remove first, then reorder, then update news record,
+            // then add new images
+            $.post(
+                "<%= sails.getUrlFor('NewsController.apiImageDelete') %>",
+                {imgIds: deleteId})
+                .then(function() {
+                    return $.post(
+                        "<%= sails.getUrlFor('NewsController.apiImageReorder') %>",
+                        {order: order});
+                })
+                .then(function() {
+                    return $.post($(forms[0]).attr("action"), $(forms[0]).serialize());
+                })
+                .then(function(data) {
+                    if($("tbody.files").children().length < 1) {
+                        window.location.href = "<%= sails.getUrlFor('NewsController.manage') %>";
+                    }
+                    else {
+                        $("<input>")
+                            .attr("type", "hidden")
+                            .attr("name", "news")
+                            .attr("value", data.news.id)
+                            .appendTo(forms[1]);
+
+                        $("#start").trigger("click");
+                    }
+                });
+        }
+    });
+
+    $(function () {
+        $('#fileupload')
+            .fileupload({
+                sequentialUploads: true,
+                stop: function(e, data) {
+                    window.location.href = "<%= sails.getUrlFor('NewsController.manage') %>";
+                },
+            })
+    });
+</script>

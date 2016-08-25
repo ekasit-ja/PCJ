@@ -43,6 +43,17 @@ module.exports.routes = {
     "/careers": "HomeController.careers",
     "/lang": "HomeController.apiSetLang",
 
+    "/news": "NewsController.viewList",
+    "/news/details/:nid": "NewsController.viewDetails",
+    "/news/manage": "NewsController.manage",
+    "/news/create": "NewsController.create",
+    "/news/update/:nid": "NewsController.update",
+    "/news/delete": "NewsController.delete",
+    "/api/news/reorder": "NewsController.reorder",
+    "/api/news/image/create": "NewsController.apiImageCreate",
+    "/api/news/image/delete": "NewsController.apiImageDelete",
+    "/api/news/image/reorder": "NewsController.apiImageReorder",
+
 
 
 

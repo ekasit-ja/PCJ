@@ -14,6 +14,10 @@ module.exports = function(req, model, items) {
                     items[i].desc = items[i].desc_th || items[i].desc;
                     items[i].image = items[i].image_th || items[i].image;
                 }
+                else if(model == "News") {
+                    items[i].title = items[i].title_th || items[i].title;
+                    items[i].content = items[i].content_th || items[i].content;
+                }
             }
         }
         else if(typeof items != "undefined" && items != null) {
@@ -29,6 +33,10 @@ module.exports = function(req, model, items) {
                 items.desc = items.desc_th || items.desc;
                 items.image = items.image_th || items.image;
             }
+            else if(model == "News") {
+                    items.title = items.title_th || items.title;
+                    items.content = items.content_th || items.content;
+                }
         }
     }
 }
