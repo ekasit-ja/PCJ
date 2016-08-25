@@ -1,7 +1,7 @@
 <div class="owl-carousel carousel-view">
-    <%_.each(imgs, function(img) {%>
+    <%_.each(imgs, function(img, i) {%>
         <div class="item">
-            <img src="<%=img.url%>" class="img-responsive center-block">
+            <img src="<%=img.url%>" class="img-responsive center-block" alt="slide-<%=i+1%>">
         </div>
     <%})%>
 
@@ -9,20 +9,32 @@
         <div class="item">
             <img src="/images/carousel_1.jpg" class="img-responsive center-block" alt="First slide">
         </div>
-        <div class="item">
-            <img src="/images/carousel_2.jpg" class="img-responsive center-block" alt="Second slide">
-        </div>
-        <div class="item">
-            <img src="/images/carousel_3.jpg" class="img-responsive center-block" alt="Third slide">
-        </div>
-        <div class="item">
-            <img src="/images/carousel_4.jpg" class="img-responsive center-block" alt="Third slide">
-        </div>
     <%}%>
 </div>
 <br>
 
 <div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-push-3 col-sm-8 col-sm-push-2">
+            <h3 class="header"><%=__("news")%></h3>
+            <div class="row">
+                <% _.each(newses, function(news) { %>
+                    <div class="row news-list">
+                        <a href="<%=sails.getUrlFor('NewsController.viewDetails').replace(':nid', news.id)%>" class="news" target="_blank">
+                            <div class="img-frame" style="background-image:url('<%=news.images[0]?news.images[0].url:''%>')">
+                            </div>
+                            <div class="content-short">
+                                <div class="title"><%=news.title%></div>
+                                <div class="content"><%-news.content%></div>
+                            </div>
+                        </a>
+                    </div>
+                <%})%>
+            </div>
+        </div>
+    </div>
+    <hr>
+
     <h3 class="header" style="text-transform: uppercase;"><%=__("quality-you-can-trust")%></h3>
     <div class="row">
         <div class="col-sm-8 col-sm-offset-2">

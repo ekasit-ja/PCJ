@@ -7,7 +7,7 @@
 
 module.exports = {
 	view: function(req, res) {
-        var ps;
+        var ps, ns;
         Project
             .find()
             .sort("position desc")
@@ -16,11 +16,23 @@ module.exports = {
             .then(function(projects) {
                 ps = projects;
                 dynamicInter(req, "Project", ps);
+                return News
+                    .find()
+                    .sort("position desc")
+                    .limit(1)
+                    .populate("images", {sort: "position asc"});
+            })
+            .then(function(newses) {
+                dynamicInter(req, "News", newses);
+                limitText(newses);
+                ns = newses;
+
                 return CarouselImage.find().sort("position asc");
             })
             .then(function(imgs) {
                 return res.view("homepage", {
                     projects: ps,
+                    newses: ns,
                     imgs: imgs,
                     title: "seo-home-title",
                     metaKeyword: "seo-home-meta-keyword",
