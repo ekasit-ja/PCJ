@@ -39,7 +39,7 @@ module.exports = {
                     title: news.title,
                     metaKeyword: news.title,
                     metaDesc: limitText(news.content, 130),
-                    fb_shared_thumb: news.images[0].url,
+                    fb_shared_thumb: sails.getBaseUrl() + news.images[0].url,
                 });
             })
             .catch(function(err) {
