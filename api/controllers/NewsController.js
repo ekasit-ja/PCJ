@@ -38,7 +38,8 @@ module.exports = {
                     news: news,
                     title: news.title,
                     metaKeyword: news.title,
-                    metaDesc: limitText(news.content, 255),
+                    metaDesc: limitText(news.content, 130),
+                    fb_shared_thumb: news.images[0].url,
                 });
             })
             .catch(function(err) {
