@@ -32,7 +32,7 @@ module.exports = {
                 "desc_th",
             ]);
 
-            async.map(["file", "image"], function(file, cb) {
+            async.map(["file", "file_th", "image"], function(file, cb) {
                 return uploadFiles(req.file(file))
                     .then(function(fs) {
                         return cb(null, fs);
@@ -47,7 +47,10 @@ module.exports = {
                     params.url = files[0][0].extra.uploadPath;
 
                 if(files[1].length > 0)
-                    params.image = files[1][0].extra.uploadPath;
+                    params.url_th = files[1][0].extra.uploadPath;
+
+                if(files[2].length > 0)
+                    params.image = files[2][0].extra.uploadPath;
 
                 File
                     .create(params)
@@ -80,7 +83,7 @@ module.exports = {
             ]);
             params.id = fid;
 
-            async.map(["file", "image"], function(file, cb) {
+            async.map(["file", "file_th", "image"], function(file, cb) {
                 return uploadFiles(req.file(file))
                     .then(function(fs) {
                         return cb(null, fs);
@@ -95,7 +98,10 @@ module.exports = {
                     params.url = files[0][0].extra.uploadPath;
 
                 if(files[1].length > 0)
-                    params.image = files[1][0].extra.uploadPath;
+                    params.url_th = files[1][0].extra.uploadPath;
+
+                if(files[2].length > 0)
+                    params.image = files[2][0].extra.uploadPath;
 
                 File
                     .update({id: fid}, params)

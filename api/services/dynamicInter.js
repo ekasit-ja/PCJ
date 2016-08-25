@@ -5,9 +5,14 @@ module.exports = function(req, model, items) {
                 if(model == "Type" || model == "Product") {
                     items[i].title = items[i].title_th || items[i].title;
                 }
-                else if(model == "Model" || model == "File" || model == "Project") {
+                else if(model == "Model" || model == "Project") {
                     items[i].title = items[i].title_th || items[i].title;
                     items[i].desc = items[i].desc_th || items[i].desc;
+                }
+                else if(model == "File") {
+                    items[i].title = items[i].title_th || items[i].title;
+                    items[i].desc = items[i].desc_th || items[i].desc;
+                    items[i].url = items[i].url_th || items[i].url;
                 }
                 else if(model == "Hardware") {
                     items[i].title = items[i].title_th || items[i].title;
@@ -24,10 +29,15 @@ module.exports = function(req, model, items) {
             if(model == "Type" || model == "Product") {
                 items.title = items.title_th || items.title;
             }
-            else if(model == "Model" || model == "File" || model == "Project") {
+            else if(model == "Model" || model == "Project") {
                 items.title = items.title_th || items.title;
                 items.desc = items.desc_th || items.desc;
             }
+            else if(model == "File") {
+                    items.title = items.title_th || items.title;
+                    items.desc = items.desc_th || items.desc;
+                    items.url = items.url_th || items.url;
+                }
             else if(model == "Hardware") {
                 items.title = items.title_th || items.title;
                 items.desc = items.desc_th || items.desc;

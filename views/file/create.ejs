@@ -19,8 +19,10 @@
         <textarea rows="5" name="desc_th" placeholder="desc_th" class="form-control"></textarea><br>
         <label>Image</label>
         <input type="file" name="image" class="form-control"><br>
-        <label>File</label>
+        <label>File EN</label>
         <input type="file" name="file" class="form-control" required><br>
+        <label>File TH</label>
+        <input type="file" name="file_th" class="form-control"><br>
 
         <input type="submit" value="Create" class="btn btn-success">
         <a href="<%= sails.getUrlFor('FileController.manage') %>" class="btn btn-danger">Cancel</a>
