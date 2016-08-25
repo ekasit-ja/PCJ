@@ -3,7 +3,7 @@
   border-radius: 4px;
 }
 .editor-container {
-  min-height: 200px;
+  /*min-height: 200px;*/
 }
 .toolbar-container {
   border-bottom: 1px solid #ccc;
