@@ -6,7 +6,7 @@
         <div class="col-md-6 col-md-push-3 col-sm-8 col-sm-push-2">
             <% _.each(newses, function(news) { %>
                 <div class="row news-list">
-                    <a href="<%=sails.getUrlFor('NewsController.viewDetails').replace(':nid', news.id)%>" class="news">
+                    <a href="<%=sails.getUrlFor('NewsController.viewDetails').replace(':nid', news.id)%>" class="news" target="_blank">
                         <div class="img-frame" style="background-image:url('<%=news.images[0]?news.images[0].url:''%>')">
                         </div>
                         <div class="content-short">
