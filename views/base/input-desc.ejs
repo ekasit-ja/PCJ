@@ -66,6 +66,8 @@
 <textarea rows="5" name="desc_th" placeholder="desc_th" class="form-control hide"></textarea>
 
 <script type="text/javascript">
+var allowFormats = ["bold", "italic", "underline", "link", "list", "bullet"];
+
     var editorEn = new Quill("#content-container-desc .wrapper .editor-container", {
         modules: {
             "toolbar": {
@@ -75,7 +77,8 @@
             "image-tooltip": true,
         },
         styles: false,
-        theme: "snow"
+        theme: "snow",
+        formats: allowFormats,
     });
 
     var editorTh = new Quill("#content-container-desc-th .wrapper .editor-container", {
@@ -87,7 +90,8 @@
             "image-tooltip": true,
         },
         styles: false,
-        theme: "snow"
+        theme: "snow",
+        formats: allowFormats,
     });
 
     $("form").submit(function(e) {
