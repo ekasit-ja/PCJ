@@ -17,6 +17,9 @@ module.exports = {
 
                 return res.view("news/list", {
                     newses: newses,
+                    title: "seo-news-title",
+                    metaKeyword: "seo-news-meta-keyword",
+                    metaDesc: "seo-news-meta-desc",
                 });
             })
             .catch(function(err) {
@@ -33,6 +36,9 @@ module.exports = {
 
                 return res.view("news/details", {
                     news: news,
+                    title: news.title,
+                    metaKeyword: news.title,
+                    metaDesc: limitText(news.content, 255),
                 });
             })
             .catch(function(err) {
