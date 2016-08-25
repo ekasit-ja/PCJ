@@ -13,29 +13,7 @@ module.exports = {
             .populate("images", {sort: "position asc"})
             .then(function(newses) {
                 dynamicInter(req, "News", newses);
-
-                // trim text if it is too long
-                for(var i=0; i<newses.length; i++) {
-                    var news = newses[i];
-
-                    var headerLength = 100;
-                    var contentLength = 220;
-
-                    // remove html code to get pure text
-                    news.title = news.title.replace(/<[^>]*>/g, "");
-                    news.content = news.content.replace(/<[^>]*>/g, "");
-
-                    // trim and append ellipsis if too long
-                    if(news.title.length > headerLength) {
-                        news.title = news.title.substr(0, headerLength-2);
-                        news.title += "\u2026";
-                    }
-
-                    if(news.content.length > contentLength) {
-                        news.content = news.content.substr(0, contentLength-2);
-                        news.content += "\u2026";
-                    }
-                }
+                limitText(newses);
 
                 return res.view("news/list", {
                     newses: newses,
