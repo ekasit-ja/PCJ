@@ -227,6 +227,23 @@ h2.header {
     background-image: linear-gradient(to bottom, $primary-red 0, $secondary-red 100%);
     color: white;
 }
+
+@media screen and (min-width: 768px) {
+    .sm-pull-left {
+        float: left;
+    }
+    .sm-pull-right {
+        float: right;
+    }
+}
+@media screen and (max-width: 767px) {
+    .xs-text-center {
+        text-align: center;
+    }
+    .xs-text-center {
+        text-align: center;
+    }
+}
 // --- custom bootstrap
 
 // custom style for owl carousel
@@ -1082,19 +1099,19 @@ input, select, textarea {
 
 // style for social
 .sub-container {
-    text-align: center;
+    margin-bottom: 20px;
+
+    .sub-text {
+        font-size: 1.2em;
+    }
 
     .sub-link {
-        margin-left: 20px;
-
-        &:first-child {
-            margin-left: 0px;
-        }
+        margin-left: 10px;
     }
 
     .sub-img {
-        width: 40px;
-        height: 40px;
+        width: 35px;
+        height: 35px;
     }
 }
 // --- style for social

@@ -1,10 +1,24 @@
 <br>
 <footer class="footer">
     <div class="container">
-        <div class="text-center white-text">
-            <p><%- partial("quick_contact.ejs") %></p>
-            Copyright &copy; 2002-<%=new Date().getFullYear()%> All Rights Reserved.<br>
-            <span class="text-uppercase">PCJ industries CO., LTD.</span><br>
+        <div class="row">
+            <div class="col-sm-6 col-sm-push-6 col-xs-12">
+                <div class="sm-pull-right xs-text-center white-text">
+                    <div class="sub-container">
+                        <span class="sub-text"><%=__("follow-us")%></span>
+                        <a href="<%=sails.config.appUrl.subFb%>" class="sub-link" target="_blank"><img src="/images/sub-fb.png" class="sub-img"></a>
+                        <a href="<%=sails.config.appUrl.subYoutube%>" class="sub-link"  target="_blank"><img src="/images/sub-youtube.png" class="sub-img"></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-sm-pull-6 col-xs-12">
+                <div class="sm-pull-left xs-text-center white-text">
+                    <p><%- partial("quick_contact.ejs") %></p>
+                    Copyright &copy; 2002-<%=new Date().getFullYear()%> All Rights Reserved.<br>
+                    <span class="text-uppercase">PCJ industries CO., LTD.</span><br>
+                </div>
+            </div>
         </div>
     </div>
 </footer>
