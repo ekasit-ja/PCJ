@@ -25,7 +25,13 @@
             <br>
             <br>
 
-            <div class="fb-comments" data-href="http://localhost:1337/news/details/6" data-width="100%" data-numposts="10"></div>
+            <div
+                class="fb-comments"
+                data-href="<%=sails.config.appUrl.base + sails.getUrlFor('NewsController.viewDetails').replace(':nid', news.id)%>"
+                data-width="100%"
+                data-numposts="5"
+                data-order-by="social">
+            </div>
         </div>
     </div>
 </div>

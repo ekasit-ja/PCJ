@@ -34,6 +34,10 @@ module.exports = {
             collection: "newsImage",
             via: "news",
         },
+
+        fb_code: {
+            type: "text",
+        },
     },
 
     beforeCreate: function(values, cb) {

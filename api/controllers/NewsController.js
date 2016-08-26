@@ -135,6 +135,7 @@ module.exports = {
                 "title_th",
                 "content",
                 "content_th",
+                "fb_code",
             ]);
             params.id = nid;
 
