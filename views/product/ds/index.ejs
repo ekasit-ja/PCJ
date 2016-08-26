@@ -1,0 +1,13 @@
+<div class="container">
+    <h2 class="header"><%=__(sails.config.enums.category["ds"])%></h2>
+    <div class="row">
+        <div class="col-sm-8 col-sm-push-2">
+            <p class="text-justify"><%=__("ds-p1")%></p>
+        </div>
+    </div>
+    <img src="/images/cert ds.jpg" class="img-responsive center-block product-cert">
+    <hr>
+
+    <% url = sails.getUrlFor('ProductController.dsModel') %>
+    <%- partial("../btn-model.ejs") %>
+</div>

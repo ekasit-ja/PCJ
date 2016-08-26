@@ -116,7 +116,8 @@ module.exports = {
 
                 var title = "";
                 if(typeof m != "undefined")
-                    title = m.title + " - " + req.__("seo-fsd-title");
+                    title = req.__("seo-fsd-title");
+                    // title = m.title + " - " + req.__("seo-fsd-title");
 
                 return res.view("product/fsd/model", {
                     model: m,
@@ -304,6 +305,97 @@ module.exports = {
                     title: title,
                     metaKeyword: "seo-dd-meta-keyword",
                     metaDesc: "seo-dd-meta-desc",
+                });
+            })
+            .catch(function(err) {
+                return res.serverError(err);
+            });
+    },
+
+    ds: function(req, res) {
+        Type
+            .find({category: "ds"})
+            .sort("position asc")
+            .then(function(types) {
+                if(types.length < 1)
+                    return Promise.resolve([]);
+
+                dynamicInter(req, "Type", types);
+
+                // suppose to found just one type of fire dampers
+                return Model.find({type: types[0].id}).sort("position asc")
+            })
+            .then(function(models) {
+                dynamicInter(req, "Model", models);
+
+                return res.view("product/ds/index", {
+                    models: models,
+                    title: "seo-ds-title",
+                    metaKeyword: "seo-ds-meta-keyword",
+                    metaDesc: "seo-ds-meta-desc",
+                });
+            })
+            .catch(function(err) {
+                return res.serverError(err);
+            });
+    },
+
+    dsModel: function(req, res) {
+        var mid = req.param("mid");
+        if(isNaN(mid))
+            mid = -1;
+
+        var m, ps, certs, insts, catgs;
+        Model
+            .findOne(mid)
+            .populate("type")
+            .then(function(model) {
+                if(model && model.type.category == "ds") {
+                    m = model;
+                    dynamicInter(req, "Model", m);
+                    dynamicInter(req, "Type", m.type);
+                }
+
+                return Product.find({model: mid}).sort("position asc")
+            })
+            .then(function(products) {
+                ps = products;
+                dynamicInter(req, "Product", ps);
+                return File
+                    .find({category: "ds", fileType: "cert"})
+                    .sort("position asc");
+            })
+            .then(function(files) {
+                certs = files;
+                dynamicInter(req, "File", certs);
+                return File
+                    .find({category: "ds", fileType: "inst"})
+                    .sort("position asc");
+            })
+            .then(function(files) {
+                insts = files;
+                dynamicInter(req, "File", insts);
+                return File
+                    .find({category: "ds", fileType: "catg"})
+                    .sort("position asc");
+            })
+            .then(function(files) {
+                catgs = files;
+                dynamicInter(req, "File", catgs);
+
+                var title = "";
+                if(typeof m != "undefined")
+                    title = m.title + " - " + req.__("seo-ds-title");
+
+                return res.view("product/ds/model", {
+                    model: m,
+                    products: ps,
+                    certs: certs,
+                    insts: insts,
+                    catgs: catgs,
+                    title: title,
+                    metaKeyword: "seo-ds-meta-keyword",
+                    metaDesc: "seo-ds-meta-desc",
                 });
             })
             .catch(function(err) {

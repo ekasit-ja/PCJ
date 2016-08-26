@@ -4,6 +4,7 @@ module.exports.enums = {
         fd: "fire-dampers",
         dd: "duct-dampers",
         ao: "air-outlets",
+        ds: "duct-silencers",
     },
 
     hardware: {
