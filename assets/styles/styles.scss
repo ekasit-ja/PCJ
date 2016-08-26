@@ -1079,3 +1079,22 @@ input, select, textarea {
     }
 }
 // --- style for news
+
+// style for social
+.sub-container {
+    text-align: center;
+
+    .sub-link {
+        margin-left: 20px;
+
+        &:first-child {
+            margin-left: 0px;
+        }
+    }
+
+    .sub-img {
+        width: 40px;
+        height: 40px;
+    }
+}
+// --- style for social
