@@ -1,0 +1,17 @@
+<div class="container">
+    <%if(model) {%>
+        <h2 class="header"><%=__("model")%> : <%= model.title %></h2>
+
+        <%- partial("../../base/fotorama.ejs") %>
+
+        <h4 class="header" style="margin-top: 20px;"><%=__("size-p1")%></h4>
+        <br>
+
+        <%- partial("../../base/product_tab.ejs") %>
+        <%- partial("../../base/quote_button.ejs") %>
+
+    <%} else {%>
+        <br>
+        <p class="alert alert-warning text-center">There is no requested model.</p>
+    <%}%>
+</div>

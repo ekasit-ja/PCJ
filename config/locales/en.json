@@ -15,6 +15,7 @@
     "fire-dampers": "Fire Dampers",
     "duct-dampers": "Duct Dampers",
     "air-outlets": "Air Outlets",
+    "duct-silencers": "Duct Silencers",
 
     "quality-you-can-trust": "Quality you can trust",
     "quality-you-can-trust-detail-p1": "For over",
@@ -120,6 +121,7 @@
     "fd-p1": "We manufacture and provide 3-hour fire rated dampers that can be mounted vertically on fire rated barriers, such as walls or partitions, with airflow in either direction. The dampers are designed to automatically shut down in the event of fire emergency to prevent the spread of flame through the barrier. Our products are certified by UL standards (USA) and are available in all sizes, up to 96 x 96 square inches, to meet any safety requirements you may have.",
     "dd-p1": "We manufacture and provide high quality duct dampers made of galvanized steel sheet to increase strength, ensure rust resistance, and prolong service life. The dampers are available in all sizes and plenty of shapes, for instance, rectangular, round, or oval. They are also customizable to gain new features, such as, automatic adjustment or ensuring low leak. Our products are certified for potential and capabilities by renowned national institution to ensure the quality that you can trust.",
     "ao-p1": "We manufacture and provide high quality air outlets made of anodized aluminium to make them lightweight, ensure tarnish resistance, and prolong service life. Finishing surface of the outlets with powder color can be done as optional to make their appearance matches buildings or areas they are installed. Our products are certified by worldwide accepted organization, such as, Air Diffusion Council and Australian Standard, and are available in any sizes to meet any requirements you may have.",
+    "ds-p1": " We manufacture and provide high quality duct silencers made of galvanized steel sheet to increase strength, and line inside casing with fiberglass insulation covered with perforated galvanized steel sheet to protect the fiberglass and prolong service life. Our products are certified by AS (Australian Standard) for noise reduction effectiveness and are available in all sizes to meet any requirements you may have",
 
     "low-leak": "Low Leak",
     "low-leak-p1": "Optional",
@@ -161,6 +163,10 @@
     "seo-dd-title": "Duct Dampers - PCJ",
     "seo-dd-meta-keyword": "Duct Dampers - PCJ",
     "seo-dd-meta-desc": "PCJ is an expert in manufacturing duct dampers. Plenty models certified by AS are available upon your request to fit any requirements.",
+
+    "seo-ds-title": "Duct Silencers & Acoustic Louvers - AS - PCJ",
+    "seo-ds-meta-keyword": "Duct Silencers & Acoustic Louvers - AS - PCJ",
+    "seo-ds-meta-desc": "PCJ is an expert in manufacturing duct silencers and acoustic louvers. We provides various types of silencers and louvers certified by AS",
 
     "seo-ao-title": "Air Outlets - ADC, AS - PCJ",
     "seo-ao-meta-keyword": "Air Outlets - ADC, AS - PCJ",

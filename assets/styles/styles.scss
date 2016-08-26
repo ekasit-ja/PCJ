@@ -244,6 +244,19 @@ h2.header {
         text-align: center;
     }
 }
+
+.col-sm-3.col-xs-6.tag-container.category,
+.col-sm-3.col-xs-12.tag-container.category {
+    width: 20%;
+}
+@media screen and (max-width: 767px) {
+    .col-sm-3.col-xs-6.tag-container.category {
+        width: 50%;
+    }
+    .col-sm-3.col-xs-12.tag-container.category {
+        width: 100%;
+    }
+}
 // --- custom bootstrap
 
 // custom style for owl carousel
