@@ -21,10 +21,10 @@ module.exports.bootstrap = function(cb) {
     sails.prefixDir = "./assets";
 
     var adminData = {
-        email: 'ekasit@pcjindustries.co.th',
-        password: 'adminPCJ',
+        email: 'admin@pcjindustries.co.th',
+        password: 'Admin1234',
         firstName: 'Admin',
-        lastName: 'PCJ',
+        lastName: 'PCJ INDUSTRIES',
     };
 
     User
