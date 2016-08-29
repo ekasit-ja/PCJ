@@ -49,43 +49,35 @@
     <hr>
 
     <h3 class="header"><%=__("products")%></h3>
-    <div class="row">
+    <div class="row row-flex">
         <div class="col-sm-3 col-xs-12 tag-container category">
-            <a href="<%= sails.getUrlFor('ProductController.fsd') %>" class="col-xs-12">
-                <div class="img square" style="background-image:url('/images/fire_doors.jpg')"></div>
-                <div class="tag-label rel"><%=__("fire-steel-doors")%></div>
+            <a href="<%= sails.getUrlFor('ProductController.fsd') %>" class="catg-button">
+                <div class="img-frame"><img src="/images/fire_doors.jpg"></div>
+                <div class="catg-label"><%=__("fire-steel-doors")%></div>
             </a>
         </div>
         <div class="col-sm-3 col-xs-12 tag-container category">
-            <a href="<%=sails.getUrlFor('ProductController.fd')%>" class="col-xs-12">
-                <div class="img square" style="background-image:url('/images/fire_dampers.jpg')"></div>
-                <div class="tag-cover">
-                    <div class="tag-label rel"><%=__("fire-dampers")%></div>
-                </div>
+            <a href="<%= sails.getUrlFor('ProductController.fd') %>" class="catg-button">
+                <div class="img-frame"><img src="/images/fire_dampers.jpg"></div>
+                <div class="catg-label"><%=__("fire-dampers")%></div>
             </a>
         </div>
         <div class="col-sm-3 col-xs-12 tag-container category">
-            <a href="<%=sails.getUrlFor('ProductController.dd')%>" class="col-xs-12">
-                <div class="img square" style="background-image:url('/images/duct_dampers.jpg')"></div>
-                <div class="tag-cover">
-                    <div class="tag-label rel"><%=__("duct-dampers")%></div>
-                </div>
+            <a href="<%= sails.getUrlFor('ProductController.dd') %>" class="catg-button">
+                <div class="img-frame"><img src="/images/duct_dampers.jpg"></div>
+                <div class="catg-label"><%=__("duct-dampers")%></div>
             </a>
         </div>
         <div class="col-sm-3 col-xs-12 tag-container category">
-            <a href="<%=sails.getUrlFor('ProductController.ds')%>" class="col-xs-12">
-                <div class="img square" style="background-image:url('/images/duct_silencers.jpg')"></div>
-                <div class="tag-cover">
-                    <div class="tag-label rel"><%=__("duct-silencers")%></div>
-                </div>
+            <a href="<%= sails.getUrlFor('ProductController.ds') %>" class="catg-button">
+                <div class="img-frame"><img src="/images/duct_silencers.jpg"></div>
+                <div class="catg-label"><%=__("duct-silencers")%></div>
             </a>
         </div>
         <div class="col-sm-3 col-xs-12 tag-container category">
-            <a href="<%=sails.getUrlFor('ProductController.ao')%>" class="col-xs-12">
-                <div class="img square" style="background-image:url('/images/air_outlets.jpg')"></div>
-                <div class="tag-cover">
-                    <div class="tag-label rel"><%=__("air-outlets")%></div>
-                </div>
+            <a href="<%= sails.getUrlFor('ProductController.ao') %>" class="catg-button">
+                <div class="img-frame"><img src="/images/air_outlets.jpg"></div>
+                <div class="catg-label"><%=__("air-outlets")%></div>
             </a>
         </div>
     </div>
@@ -113,7 +105,7 @@
                     '<i class="fa fa-chevron-left" aria-hidden="true"></i>',
                     '<i class="fa fa-chevron-right" aria-hidden="true"></i>'],
             autoplay: true,
-            autoplayTimeout: 10500,
+            autoplayTimeout: 5500,
             smartSpeed: 500,
         });
     });

@@ -29,7 +29,7 @@
             <% _.each(files, function(file) { %>
                 <tr data-id="<%=file.id%>">
                     <td class="sortable-handle"><i class="fa fa-bars" aria-hidden="true"></i></td>
-                    <td><%= sails.config.enums.category[file.category] %></td>
+                    <td><%= __(sails.config.enums.category[file.category]) %></td>
                     <td><%= sails.config.enums.file[file.fileType] %></td>
                     <td><%= file.title %></td>
                     <td><%= file.desc %></td>

@@ -13,13 +13,13 @@
 
     "fire-steel-doors": "Fire Steel Doors",
     "fire-dampers": "Fire Dampers",
-    "duct-dampers": "Duct Dampers",
+    "duct-dampers": "Other Dampers",
     "air-outlets": "Air Outlets",
-    "duct-silencers": "Duct Silencers",
+    "duct-silencers": "Duct Silencers & Acoustic Louvers",
 
     "quality-you-can-trust": "Quality you can trust",
     "quality-you-can-trust-detail-p1": "For over",
-    "quality-you-can-trust-detail-p2": "years of experience, PCJ INDUSTRIES has delivered high quality products to all regions of Thailand and many countries around the world. We have been known throughout the construction field for high quality products and reliable services.  With leading technologies on product lines and team of professional in this field under quality management system ISO 9001:2008, you can put your trust in our products and services. Our objective is to ensure fast delivery of exceptional products to let your projects complete as planned without interruption.",
+    "quality-you-can-trust-detail-p2": "years of experience, PCJ INDUSTRIES has delivered high quality products to all regions of Thailand and many countries around the world. We have been known throughout the construction field for high quality products and reliable services.  With leading technologies on product lines, team of professional in this field, certificates from Underwriter Laboratories, Air Diffusion Council, Standards Australia, British Standards Institution, Thai Industrial Standards Institute, and quality management system ISO 9001:2008, you can put your trust in our products and services. Our objective is to ensure fast delivery of exceptional products to let your projects complete as planned without interruption.",
     "view-all": "View All",
 
     "type": "Type",
@@ -28,17 +28,17 @@
     "no-models-available": "No requested model is available at this time.",
     "option-you-can-choose": "Customize product",
     "size": "Size",
-    "available-upon-request": "Available upon request",
-    "size-p1": "Products are available for all sizes",
-    "fire-rating": "Fire rating",
-    "0-3-hours": "3 hours in accordance with ANSI/UL 10C, CAN/ULC S104",
-    "3-hour-dampers": "3 hours in accordance with ANSI/UL 555, CAN/ULC S112",
+    "available-upon-request-doors": "Available upon request up to maximum 1200mm X 1200mm (for Single Door) and 2400mm X 2400mm (for Double Door)",
+    "available-upon-request-dampers": "Available upon request up to maximum 48” X 48” (for Single Section) and 96” X 96” (for Multiple Section)",
+    "fire-rating": "Fire Rating",
+    "0-3-hours": "3 hours in accordance with ANSI/UL 10C , CAN/ULC S104",
+    "3-hour-dampers": "3 hours in accordance with ANSI/UL 555 , CAN/ULC S112",
     "3-hour": "3 hours",
-    "door-style": "Door style",
+    "door-style": "Door Style",
     "door-style-p1": "Flush Style, Flush Style with Vision Panel, Embossed Style",
-    "door-type": "Door type",
+    "door-type": "Door Type",
     "door-type-p1": "Single Door, Double Door",
-    "vision-panel": "Vision panel",
+    "vision-panel": "Vision Panel",
     "vision-panel-p1": "Optional (Maximum exposed area of glazing is 100 square inches)",
     "louvers": "Louvers",
     "louvers-p1": "Optional",
@@ -103,7 +103,7 @@
     "certificates-from-world-wide": "Certificates from worldwide accepted organization",
     "product-distribute-worldwide": "Our products have been distributed to many countries worldwide",
 
-    "about-p1": "PCJ INDUSTRIES CO., LTD. was established in Thailand since 1998, with an objective to introduce high quality building materials, which are Fire Steel Doors, Fire Dampers, Duct Dampers, Duct Silencers, Acoustic Louvers, and Air Outlets, in order to promote safety and standards of buildings. Our products are certified by worldwide accepted organization, for example, Underwriter Laboratories, British Standard Institution, Standards Australia, and many more. In addition, our company has been certified by ISO 9001:2008 at full system as well.",
+    "about-p1": "PCJ INDUSTRIES CO., LTD. was established in Thailand since 1998, with an objective to introduce high quality building materials, which are Fire Steel Doors, Fire Dampers, Duct Dampers, Duct Silencers, Acoustic Louvers, and Air Outlets, in order to promote safety and standards of buildings. Our products are certified by worldwide accepted organization, which are Underwriter Laboratories, Air Diffusion Council, Standards Australia, British Standards Institution, and Thai Industrial Standards Institute. In addition, our company has been certified by ISO 9001:2008 at full system as well.",
     "about-p2": "We keep investing in research and development of our products to meet modern standards and design.  We established a national presence and has steadily expanded into global markets. Our utmost policies are to manufacture in strict compliance with international standards of high quality products at competitive price and on time delivery. This has become and keep going to be capital endorsement of our company.",
     "careers-p1": "We are pleased to have you join our PCJ family and grow together. We are open for many job positions.  If you are interested, please email us your resume, supported documents, and a formal portrait to below email address.",
     "careers-p2": "Or drop hard copy of your documents at our headquarters at below address.  We promise to contact you back at soonest.",
@@ -118,10 +118,10 @@
 
     "fsd-p1": "PCJ manufacture and distribute 3 hour fire rated steel doors without compromising any functionalities of doors.  Our doors are design to not let even the tiniest flame through in accordance with standards of worldwide accepted organization, such as, UL and BSI. The doors come with steel door frames certified by the same standards to maximize fire protection capability, to ensure the quality that you can trust.",
     "fsd-p2": "We can produce and customize products to meet any requirement you may have.  For example, embossing door leaves, adding vision panel, sealing door edge to prevent smoke, etc.  We aim to enhance safety level of buildings without reducing functionalities of the doors.",
-    "fd-p1": "We manufacture and provide 3-hour fire rated dampers that can be mounted vertically on fire rated barriers, such as walls or partitions, with airflow in either direction. The dampers are designed to automatically shut down in the event of fire emergency to prevent the spread of flame through the barrier. Our products are certified by UL as per ANSI/UL 555, CAN/ULC S112 and are available in all sizes, up to 96 x 96 square inches, to meet any safety requirements you may have.",
-    "dd-p1": "We manufacture and provide high quality duct dampers made of galvanized steel sheet to increase strength, ensure rust resistance, and prolong service life. The dampers are available in all sizes and plenty of shapes, for instance, rectangular, round, or oval. They are also customizable to gain new features, such as, automatic adjustment or ensuring low leak. Our products are tested and certified by renowned national institution for an excellent performance that you can trust.",
-    "ao-p1": "We manufacture and provide high quality air outlets made of anodized aluminium to make them lightweight, ensure tarnish resistance, and prolong service life. Finishing surface of the outlets with powder color can be done as optional to match with appearance of buildings or areas they are installed. Our products are certified by Air Diffusion Council as per ADC 1062 : GRID-84 and Standards Australia as per AS 1217.2-1985, and are available in any sizes to meet any requirements you may have.",
-    "ds-p1": " We manufacture and provide high quality duct silencers made of galvanized steel sheet to increase strength, and line inside casing with fiberglass insulation covered with perforated galvanized steel sheet to protect the fiberglass and prolong service life. Our products are certified by Standards Australia as per AS 1277 for noise reduction effectiveness and are available in all sizes to meet any requirements you may have",
+    "fd-p1": "We manufacture and provide 3-hour fire rated dampers that can be mounted vertically on fire rated barriers, such as walls or partitions, with airflow in either direction. The dampers are designed to automatically shut down in the event of fire emergency to prevent the spread of flame through the barrier. Our products are certified by UL as per ANSI/UL 555, CAN/ULC S112 and are available in many sizes, up to 96 x 96 square inches, to meet any safety requirements you may have.",
+    "dd-p1": "We manufacture and provide high quality dampers made of galvanized steel sheet to increase strength, ensure rust resistance, and prolong service life. The dampers are available in many sizes upon request and plenty of shapes, for instance, rectangular, round, or oval. They are also customizable to gain new features, such as, automatic adjustment or ensuring low leak. Our products are tested and certified by renowned national institution for an excellent performance that you can trust.",
+    "ao-p1": "We manufacture and provide high quality air outlets made of anodized aluminium to make them lightweight, ensure tarnish resistance, and prolong service life. Finishing surface of the outlets with powder color can be done as optional to match with appearance of buildings or areas they are installed. Our products are certified by Air Diffusion Council as per ADC 1062 : GRID-84 and Standards Australia as per AS 1217.2-1985, and are available in many sizes upon request to meet any requirements you may have.",
+    "ds-p1": " We manufacture and provide high quality duct silencers and acoustic louvers made of galvanized steel sheet to increase strength, and line inside casing with fiberglass insulation covered with perforated galvanized steel sheet to protect the fiberglass and prolong service life. Our products are certified by Standards Australia as per AS 1277 for noise reduction effectiveness and are available in many sizes upon request to meet any requirements you may have",
 
     "low-leak": "Low Leak",
     "low-leak-p1": "Optional",
@@ -133,8 +133,8 @@
 
 
     "seo-home-title": "PCJ INDUSTRIES",
-    "seo-home-meta-keyword": "Fire Steel Doors, Fire Dampers, Duct Dampers, Air Outlets",
-    "seo-home-meta-desc": "We are experts in manufacturing fire steel doors, fire dampers, duct dampers, duct silencers, acoustic louvers, and air outlets since 1998",
+    "seo-home-meta-keyword": "Fire Steel Doors, Fire Dampers, Other Dampers, Air Outlets",
+    "seo-home-meta-desc": "We are experts in manufacturing fire steel doors, fire dampers, other dampers, duct silencers, acoustic louvers, and air outlets since 1998",
 
     "seo-project-title": "Projects - PCJ",
     "seo-project-meta-keyword": "Projects - PCJ",
@@ -142,7 +142,7 @@
 
     "seo-about-title": "About - PCJ",
     "seo-about-meta-keyword": "About - PCJ",
-    "seo-about-meta-desc": "PCJ INDUSTRIES is an expert in manufacturing of fire steel doors, fire dampers, duct dampers, and air outlets since 1998",
+    "seo-about-meta-desc": "PCJ INDUSTRIES is an expert in manufacturing of fire steel doors, fire dampers, other dampers, duct silencers, acoustic louvers, and air outlets since 1998",
 
     "seo-contact-title": "contact - PCJ",
     "seo-contact-meta-keyword": "contact - PCJ",
@@ -160,9 +160,9 @@
     "seo-fd-meta-keyword": "Fire Dampers - UL - PCJ",
     "seo-fd-meta-desc": "PCJ is an expert in manufacturing fire rated dampers. We provide many types of fire resistance dampers that are certified by UL standards",
 
-    "seo-dd-title": "Duct Dampers - PCJ",
-    "seo-dd-meta-keyword": "Duct Dampers - PCJ",
-    "seo-dd-meta-desc": "PCJ is an expert in manufacturing duct dampers. Plenty models certified by AS are available upon your request to fit any requirements.",
+    "seo-dd-title": "Other Dampers - PCJ",
+    "seo-dd-meta-keyword": "Other Dampers - PCJ",
+    "seo-dd-meta-desc": "PCJ is an expert in manufacturing dampers. Plenty models certified by AS are available upon your request to fit any requirements.",
 
     "seo-ds-title": "Duct Silencers & Acoustic Louvers - AS - PCJ",
     "seo-ds-meta-keyword": "Duct Silencers & Acoustic Louvers - AS - PCJ",
@@ -173,7 +173,7 @@
     "seo-ao-meta-desc": "PCJ is an expert in manufacturing air outlets. Various models certified by ADC & AS are available to fit any requirements you may have.",
 
     "seo-news-title": "News - PCJ",
-    "seo-news-meta-keyword": "Fire Steel Doors, Fire Dampers, Duct Dampers, Air Outlets",
+    "seo-news-meta-keyword": "Fire Steel Doors, Fire Dampers, Other Dampers, duct silencers, acoustic louvers, Air Outlets",
     "seo-news-meta-desc": "Recent news about PCJ INDUSTRIES",
 
     "": ""

@@ -504,7 +504,6 @@ h2.header {
                 height: 40px;
                 background-color: $primary-red;
                 color: white;
-                text-transform: capitalize;
                 font-weight: bold;
                 font-size: 1.2em;
                 line-height: 40px;
@@ -567,6 +566,22 @@ h2.header {
 
     &.category {
         margin-top: 20px;
+
+        .catg-button {
+            display: block;
+            background: rgba($primary-red, 0.9);
+        }
+
+        .catg-label {
+            width: 100%;
+            bottom: 0px;
+            padding: 10px 0px;
+            color: white;
+            font-weight: bold;
+            font-style: italic;
+            text-transform: uppercase;
+            text-align: center;
+        }
     }
 
     &.project {
@@ -596,6 +611,13 @@ h2.header {
 
         &.square {
             padding-bottom: 100%;
+        }
+    }
+
+    .img-frame {
+        img {
+            width: auto;
+            max-width: 100%;
         }
     }
 
@@ -665,13 +687,11 @@ h2.header {
 
         .option-label {
             font-weight: bold;
-            text-transform: capitalize;
         }
     }
 }
 
 .btn-quote {
-    text-transform: capitalize;
     font-size: 1.2em;
 }
 
@@ -707,13 +727,11 @@ h2.header {
     .title {
         color: $primary-red;
         text-align: center;
-        text-transform: capitalize;
     }
 }
 
 .hardware-container {
     .hardware-label {
-        text-transform: capitalize;
         font-weight: bold;
     }
 
@@ -772,7 +790,6 @@ h2.header {
 
 // style for admin page
 .header {
-    text-transform: capitalize;
     font-weight: bold;
     text-align: center;
 }
