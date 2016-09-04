@@ -1,3 +1,4 @@
 module.exports = function(filepath) {
-    return filepath.split("\\").reverse()[0];
+    filepath = filepath.replace(/\\/g, "/");
+    return filepath.split("/").reverse()[0];
 }
