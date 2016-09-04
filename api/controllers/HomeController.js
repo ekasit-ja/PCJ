@@ -37,6 +37,7 @@ module.exports = {
                     title: "seo-home-title",
                     metaKeyword: "seo-home-meta-keyword",
                     metaDesc: "seo-home-meta-desc",
+                    locale: req.getLocale(),
                 });
             })
             .catch(function(err) {
