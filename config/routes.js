@@ -28,6 +28,7 @@ module.exports.routes = {
     "/logout": "AuthController.logout",
     "/register": "UserController.register",
 
+    "/webmail": "HomeController.webmail",
     "/product/fire-steel-door": "ProductController.fsd",
     "/product/fire-steel-door/m_:mid": "ProductController.fsdModel",
     "/product/fire-damper": "ProductController.fd",

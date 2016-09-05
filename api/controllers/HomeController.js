@@ -173,5 +173,9 @@ module.exports = {
             });
         }
     },
+
+    webmail: function(req, res) {
+        return res.redirect(sails.config.appUrl.webmail);
+    },
 };
 
