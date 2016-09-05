@@ -177,5 +177,13 @@ module.exports = {
     webmail: function(req, res) {
         return res.redirect(sails.config.appUrl.webmail);
     },
+
+    whm: function(req, res) {
+        return res.redirect(sails.config.appUrl.whm);
+    },
+
+    cpanel: function(req, res) {
+        return res.redirect(sails.config.appUrl.whm);
+    },
 };
 

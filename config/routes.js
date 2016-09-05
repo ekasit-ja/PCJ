@@ -29,6 +29,8 @@ module.exports.routes = {
     "/register": "UserController.register",
 
     "/webmail": "HomeController.webmail",
+    "/cpanel": "HomeController.whm",
+    "/whm": "HomeController.whm",
     "/product/fire-steel-door": "ProductController.fsd",
     "/product/fire-steel-door/m_:mid": "ProductController.fsdModel",
     "/product/fire-damper": "ProductController.fd",
