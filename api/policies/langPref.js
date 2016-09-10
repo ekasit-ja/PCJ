@@ -1,4 +1,6 @@
 module.exports = function(req, res, next) {
+    console.log(req.subdomains);
+
     if(req.session.langPref)
         req.setLocale(req.session.langPref);
     else
