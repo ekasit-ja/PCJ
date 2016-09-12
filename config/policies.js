@@ -26,54 +26,54 @@ module.exports.policies = {
     *                                                                          *
     ***************************************************************************/
 
-    "*": ["langPref"],
+    "*": ["subdomain", "langPref"],
 
     "ProductController": {
-        "*": ["langPref"],
-        "manage": ["isAuthenticated", "langPref"],
-        "create": ["isAuthenticated", "langPref"],
-        "update": ["isAuthenticated", "langPref"],
-        "delete": ["isAuthenticated", "langPref"],
-        "reorder": ["isAuthenticated", "langPref"],
+        "*": ["subdomain", "langPref"],
+        "manage": ["subdomain", "isAuthenticated", "langPref"],
+        "create": ["subdomain", "isAuthenticated", "langPref"],
+        "update": ["subdomain", "isAuthenticated", "langPref"],
+        "delete": ["subdomain", "isAuthenticated", "langPref"],
+        "reorder": ["subdomain", "isAuthenticated", "langPref"],
     },
 
     "HomeController": {
-        "*": ["langPref"],
-        "carouselManage": ["isAuthenticated", "langPref"],
-        "apiCarouselCreate": ["isAuthenticated", "langPref"],
-        "apiCarouselDelete": ["isAuthenticated", "langPref"],
-        "apiCarouselReorder": ["isAuthenticated", "langPref"],
+        "*": ["subdomain", "langPref"],
+        "carouselManage": ["subdomain", "isAuthenticated", "langPref"],
+        "apiCarouselCreate": ["subdomain", "isAuthenticated", "langPref"],
+        "apiCarouselDelete": ["subdomain", "isAuthenticated", "langPref"],
+        "apiCarouselReorder": ["subdomain", "isAuthenticated", "langPref"],
     },
     "TypeController": {
-        "*": ["isAuthenticated", "langPref"],
+        "*": ["subdomain", "isAuthenticated", "langPref"],
     },
     "ModelController": {
-        "*": ["isAuthenticated", "langPref"],
+        "*": ["subdomain", "isAuthenticated", "langPref"],
     },
     "HardwareController": {
-        "*": ["isAuthenticated", "langPref"],
+        "*": ["subdomain", "isAuthenticated", "langPref"],
     },
     "FileController": {
-        "*": ["isAuthenticated", "langPref"],
+        "*": ["subdomain", "isAuthenticated", "langPref"],
     },
     "ProjectController": {
-        "*": ["langPref"],
-        "manage": ["isAuthenticated", "langPref"],
-        "create": ["isAuthenticated", "langPref"],
-        "update": ["isAuthenticated", "langPref"],
-        "delete": ["isAuthenticated", "langPref"],
-        "apiImageCreate": ["isAuthenticated", "langPref"],
-        "apiImageDelete": ["isAuthenticated", "langPref"],
-        "apiImageReorder": ["isAuthenticated", "langPref"],
-        "reorder": ["isAuthenticated", "langPref"],
+        "*": ["subdomain", "langPref"],
+        "manage": ["subdomain", "isAuthenticated", "langPref"],
+        "create": ["subdomain", "isAuthenticated", "langPref"],
+        "update": ["subdomain", "isAuthenticated", "langPref"],
+        "delete": ["subdomain", "isAuthenticated", "langPref"],
+        "apiImageCreate": ["subdomain", "isAuthenticated", "langPref"],
+        "apiImageDelete": ["subdomain", "isAuthenticated", "langPref"],
+        "apiImageReorder": ["subdomain", "isAuthenticated", "langPref"],
+        "reorder": ["subdomain", "isAuthenticated", "langPref"],
     },
     "AdminController": {
-        "*": ["isAuthenticated", "langPref"],
+        "*": ["subdomain", "isAuthenticated", "langPref"],
     },
     "UserController": {
-        "*": ["langPref"],
-        "register": ["isAuthenticated", "langPref"],
-        "passwordUpdate": ["isAuthenticated", "langPref"],
+        "*": ["subdomain", "langPref"],
+        "register": ["subdomain", "isAuthenticated", "langPref"],
+        "passwordUpdate": ["subdomain", "isAuthenticated", "langPref"],
     },
 
     /***************************************************************************
