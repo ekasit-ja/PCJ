@@ -35,7 +35,8 @@ var jsFilesToInject = [
   // will be injected here in no particular order.
   'js/*.js',
 
-  'js/jQuery-file-upload/**/*.js'
+  'js/jQuery-file-upload/**/*.js',
+  // 'js/ckeditor/**/*.js',
 ];
 
 

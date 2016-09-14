@@ -1145,3 +1145,17 @@ input, select, textarea {
     }
 }
 // --- style for social
+
+// style for finance
+.finance {
+    table {
+        margin-left: auto;
+        margin-right: auto;
+
+        tr:first-child {
+            font-weight: bold;
+            background-color: $grey;
+        }
+    }
+}
+// --- style for finance

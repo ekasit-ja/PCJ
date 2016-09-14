@@ -23,6 +23,9 @@ module.exports = function(req, model, items) {
                     items[i].title = items[i].title_th || items[i].title;
                     items[i].content = items[i].content_th || items[i].content;
                 }
+                else if(model == "SupplierBalance") {
+                    items[i].title_1 = items[i].title_1_th || items[i].title_1;
+                }
             }
         }
         else if(typeof items != "undefined" && items != null) {
@@ -34,19 +37,22 @@ module.exports = function(req, model, items) {
                 items.desc = items.desc_th || items.desc;
             }
             else if(model == "File") {
-                    items.title = items.title_th || items.title;
-                    items.desc = items.desc_th || items.desc;
-                    items.url = items.url_th || items.url;
-                }
+                items.title = items.title_th || items.title;
+                items.desc = items.desc_th || items.desc;
+                items.url = items.url_th || items.url;
+            }
             else if(model == "Hardware") {
                 items.title = items.title_th || items.title;
                 items.desc = items.desc_th || items.desc;
                 items.image = items.image_th || items.image;
             }
             else if(model == "News") {
-                    items.title = items.title_th || items.title;
-                    items.content = items.content_th || items.content;
-                }
+                items.title = items.title_th || items.title;
+                items.content = items.content_th || items.content;
+            }
+            else if(model == "SupplierBalance") {
+                items.title_1 = items.title_1_th || items.title_1;
+            }
         }
     }
 }

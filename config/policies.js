@@ -76,6 +76,16 @@ module.exports.policies = {
         "passwordUpdate": ["subdomain", "isAuthenticated", "langPref"],
     },
 
+    "SupplierController": {
+        "*": ["subdomain", "langPref"],
+        "supplierBalanceManage": ["subdomain", "isAuthenticated", "langPref"],
+        "supplierBalanceCreate": ["subdomain", "isAuthenticated", "langPref"],
+        "supplierBalanceUpdate": ["subdomain", "isAuthenticated", "langPref"],
+        "supplierBalanceDelete": ["subdomain", "isAuthenticated", "langPref"],
+        "supplierBalanceReorder": ["subdomain", "isAuthenticated", "langPref"],
+    },
+
+
     /***************************************************************************
     *                                                                          *
     * Here's an example of mapping some policies to run before a controller    *

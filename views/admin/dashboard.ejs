@@ -1,8 +1,13 @@
 <div class="container">
     <h2 class="header">Admin Dashboard</h2>
+    <a href="<%= sails.getUrlFor('SupplierController.supplierBalanceManage') %>" class="btn btn-info">manage finance</a>
+    <br>
+
+    <hr>
     <a href="<%= sails.getUrlFor('HomeController.carouselManage') %>" class="btn btn-primary">manage carousel</a>
     <br>
-    <br>
+
+    <hr>
     <a href="<%= sails.getUrlFor('TypeController.manage') %>" class="btn btn-primary">manage type</a>
     <a href="<%= sails.getUrlFor('ModelController.manage') %>" class="btn btn-primary">manage model</a>
     <a href="<%= sails.getUrlFor('ProductController.manage') %>" class="btn btn-primary">manage product</a>
@@ -11,17 +16,18 @@
     <a href="<%= sails.getUrlFor('HardwareController.manage') %>" class="btn btn-primary">manage hardware</a>
     <br>
     <br>
-    <a href="<%= sails.getUrlFor('ProjectController.manage') %>" class="btn btn-primary">manage project</a>
-    <br>
-    <br>
     <a href="<%= sails.getUrlFor('FileController.manage') %>" class="btn btn-primary">manage file</a>
     <br>
+
+    <hr>
+    <a href="<%= sails.getUrlFor('ProjectController.manage') %>" class="btn btn-primary">manage project</a>
     <br>
+
+    <hr>
     <a href="<%= sails.getUrlFor('NewsController.manage') %>" class="btn btn-primary">manage news</a>
     <br>
-    <br>
-    <br>
-    <br>
+
+    <hr>
     <a href="<%= sails.getUrlFor('UserController.register') %>" class="btn btn-warning">Add new admin</a>
     <br>
     <br>

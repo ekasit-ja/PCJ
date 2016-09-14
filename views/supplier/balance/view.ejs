@@ -1,0 +1,18 @@
+<div class="container">
+
+    <%if(sbs.length > 0) {%>
+        <h2 class="header"><%-sbs[0].title_1%></h2>
+        <br>
+        <div class="row finance">
+            <%- sbs[0].content %>
+        </div>
+        <br>
+    <%} else {%>
+        <br>
+        <h3 class="text-center">
+            <%=__("no-finance-record")%>
+        </h3>
+    <%}%>
+
+    <br>
+</div>

@@ -1,0 +1,68 @@
+<div class="container">
+    <h2 class="header">manage finance</h2>
+
+    <a href="<%= sails.getUrlFor("SupplierController.supplierBalanceCreate") %>" class="btn btn-default">
+        Create
+    </a>
+    <a href="<%= sails.getUrlFor("AdminController.dashboard") %>" class="btn btn-primary">
+        Back
+    </a>
+    <button class="btn btn-primary reorder pull-right">Save reorder</button>
+    <hr>
+
+    <table class="table table-striped admin-table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Title EN</th>
+                <th>Title TH</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% _.each(sbs, function(sb) { %>
+                <tr data-id="<%=sb.id%>">
+                    <td class="sortable-handle"><i class="fa fa-bars" aria-hidden="true"></i></td>
+                    <td><%- sb.title_1 %></td>
+                    <td><%- sb.title_1_th %></td>
+                    <td>
+                        <a href="<%= sails.getUrlFor("SupplierController.supplierBalanceUpdate").replace(":sbid", sb.id) %>" class="btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                    </td>
+                    <td>
+                        <form method="post" action="<%= sails.getUrlFor('SupplierController.supplierBalanceDelete') %>">
+                            <input type="hidden" name="sbid" value="<%= sb.id %>">
+                            <button type="submit" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                        </form>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
+
+<script type="text/javascript">
+    var el = $(".admin-table tbody");
+    var sortable = Sortable.create(el[0], {
+        handle: ".sortable-handle",
+        animation: 300,
+    });
+
+    $(".reorder").click(function(e) {
+        var trs = $(".admin-table tbody tr");
+        var order = [];
+
+        for(var i=0; i<trs.length; i++) {
+            order.push($(trs[i]).data("id"));
+        }
+
+        $.post(
+                "<%= sails.getUrlFor("SupplierController.supplierBalanceReorder") %>",
+                {order: order}
+            )
+            .then(function(data) {
+                location.reload();
+            })
+            .fail(function(err) {});
+    });
+</script>

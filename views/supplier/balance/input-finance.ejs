@@ -1,0 +1,113 @@
+<label>Title EN</label>
+<textarea name="title_1" class="ckeditor">
+    <%if(typeof sb != "undefined") {%>
+        <%-sb.title_1||""%>
+    <%} else {%>
+        <%-""%>
+    <%}%>
+</textarea>
+<br>
+<br>
+
+<label>Title TH</label>
+<textarea name="title_1_th" class="ckeditor">
+    <%if(typeof sb != "undefined") {%>
+        <%-sb.title_1_th||""%>
+    <%} else {%>
+        <%-""%>
+    <%}%>
+</textarea>
+<br>
+<br>
+
+<label>Content EN</label>
+<textarea name="content" class="ckeditor">
+    <%if(typeof sb != "undefined") {%>
+        <%-sb.content||""%>
+    <%} else {%>
+        <%-""%>
+    <%}%>
+</textarea>
+<br>
+<br>
+
+<script src="/js/ckeditor/ckeditor.js"></script>
+<script src="/js/ckeditor/config.js"></script>
+<script src="/js/ckeditor/lang/en.js"></script>
+<script src="/js/ckeditor/plugins/clipboard/dialogs/paste.js"></script>
+<script src="/js/ckeditor/plugins/colordialog/dialogs/colordialog.js"></script>
+<script src="/js/ckeditor/plugins/find/dialogs/find.js"></script>
+<script src="/js/ckeditor/plugins/link/dialogs/anchor.js"></script>
+<script src="/js/ckeditor/plugins/link/dialogs/link.js"></script>
+<script src="/js/ckeditor/plugins/pastefromword/filter/default.js"></script>
+<script src="/js/ckeditor/plugins/specialchar/dialogs/lang/af.js"></script>
+<script src="/js/ckeditor/plugins/specialchar/dialogs/lang/ar.js"></script>
+<script src="/js/ckeditor/plugins/specialchar/dialogs/lang/bg.js"></script>
+<script src="/js/ckeditor/plugins/specialchar/dialogs/lang/ca.js"></script>
+<script src="/js/ckeditor/plugins/specialchar/dialogs/lang/cs.js"></script>
+<script src="/js/ckeditor/plugins/specialchar/dialogs/lang/cy.js"></script>
+<script src="/js/ckeditor/plugins/specialchar/dialogs/lang/da.js"></script>
+<script src="/js/ckeditor/plugins/specialchar/dialogs/lang/de-ch.js"></script>
+<script src="/js/ckeditor/plugins/specialchar/dialogs/lang/de.js"></script>
+<script src="/js/ckeditor/plugins/specialchar/dialogs/lang/el.js"></script>
+<script src="/js/ckeditor/plugins/specialchar/dialogs/lang/en-gb.js"></script>
+<script src="/js/ckeditor/plugins/specialchar/dialogs/lang/en.js"></script>
+<script src="/js/ckeditor/plugins/specialchar/dialogs/lang/eo.js"></script>
+<script src="/js/ckeditor/plugins/specialchar/dialogs/lang/es.js"></script>
+<script src="/js/ckeditor/plugins/specialchar/dialogs/lang/et.js"></script>
+<script src="/js/ckeditor/plugins/specialchar/dialogs/lang/eu.js"></script>
+<script src="/js/ckeditor/plugins/specialchar/dialogs/lang/fa.js"></script>
+<script src="/js/ckeditor/plugins/specialchar/dialogs/lang/fi.js"></script>
+<script src="/js/ckeditor/plugins/specialchar/dialogs/lang/fr-ca.js"></script>
+<script src="/js/ckeditor/plugins/specialchar/dialogs/lang/fr.js"></script>
+<script src="/js/ckeditor/plugins/specialchar/dialogs/lang/gl.js"></script>
+<script src="/js/ckeditor/plugins/specialchar/dialogs/lang/he.js"></script>
+<script src="/js/ckeditor/plugins/specialchar/dialogs/lang/hr.js"></script>
+<script src="/js/ckeditor/plugins/specialchar/dialogs/lang/hu.js"></script>
+<script src="/js/ckeditor/plugins/specialchar/dialogs/lang/id.js"></script>
+<script src="/js/ckeditor/plugins/specialchar/dialogs/lang/it.js"></script>
+<script src="/js/ckeditor/plugins/specialchar/dialogs/lang/ja.js"></script>
+<script src="/js/ckeditor/plugins/specialchar/dialogs/lang/km.js"></script>
+<script src="/js/ckeditor/plugins/specialchar/dialogs/lang/ko.js"></script>
+<script src="/js/ckeditor/plugins/specialchar/dialogs/lang/ku.js"></script>
+<script src="/js/ckeditor/plugins/specialchar/dialogs/lang/lt.js"></script>
+<script src="/js/ckeditor/plugins/specialchar/dialogs/lang/lv.js"></script>
+<script src="/js/ckeditor/plugins/specialchar/dialogs/lang/nb.js"></script>
+<script src="/js/ckeditor/plugins/specialchar/dialogs/lang/nl.js"></script>
+<script src="/js/ckeditor/plugins/specialchar/dialogs/lang/no.js"></script>
+<script src="/js/ckeditor/plugins/specialchar/dialogs/lang/pl.js"></script>
+<script src="/js/ckeditor/plugins/specialchar/dialogs/lang/pt-br.js"></script>
+<script src="/js/ckeditor/plugins/specialchar/dialogs/lang/pt.js"></script>
+<script src="/js/ckeditor/plugins/specialchar/dialogs/lang/ru.js"></script>
+<script src="/js/ckeditor/plugins/specialchar/dialogs/lang/si.js"></script>
+<script src="/js/ckeditor/plugins/specialchar/dialogs/lang/sk.js"></script>
+<script src="/js/ckeditor/plugins/specialchar/dialogs/lang/sl.js"></script>
+<script src="/js/ckeditor/plugins/specialchar/dialogs/lang/sq.js"></script>
+<script src="/js/ckeditor/plugins/specialchar/dialogs/lang/sv.js"></script>
+<script src="/js/ckeditor/plugins/specialchar/dialogs/lang/th.js"></script>
+<script src="/js/ckeditor/plugins/specialchar/dialogs/lang/tr.js"></script>
+<script src="/js/ckeditor/plugins/specialchar/dialogs/lang/tt.js"></script>
+<script src="/js/ckeditor/plugins/specialchar/dialogs/lang/ug.js"></script>
+<script src="/js/ckeditor/plugins/specialchar/dialogs/lang/uk.js"></script>
+<script src="/js/ckeditor/plugins/specialchar/dialogs/lang/vi.js"></script>
+<script src="/js/ckeditor/plugins/specialchar/dialogs/lang/zh-cn.js"></script>
+<script src="/js/ckeditor/plugins/specialchar/dialogs/lang/zh.js"></script>
+<script src="/js/ckeditor/plugins/specialchar/dialogs/specialchar.js"></script>
+<script src="/js/ckeditor/plugins/table/dialogs/table.js"></script>
+<script src="/js/ckeditor/plugins/tabletools/dialogs/tableCell.js"></script>
+<script src="/js/ckeditor/styles.js"></script>
+
+<script type="text/javascript">
+    CKEDITOR.replace("title_1");
+    CKEDITOR.add;
+</script>
+<script type="text/javascript">
+    CKEDITOR.replace("title_1_th");
+    CKEDITOR.add;
+</script>
+<script type="text/javascript">
+    CKEDITOR.replace("content", {
+        height: 500,
+    });
+    CKEDITOR.add;
+</script>

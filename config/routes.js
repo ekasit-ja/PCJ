@@ -59,6 +59,9 @@ module.exports.routes = {
     "/api/news/image/delete": "NewsController.apiImageDelete",
     "/api/news/image/reorder": "NewsController.apiImageReorder",
 
+    "/finance": "SupplierController.supplierBalanceView",
+    "/index.php": "SupplierController.supplierBalanceViewLegacy",
+
 
 
 
@@ -109,4 +112,11 @@ module.exports.routes = {
     "/api/carousel/create": "HomeController.apiCarouselCreate",
     "/api/carousel/delete": "HomeController.apiCarouselDelete",
     "/api/carousel/reorder": "HomeController.apiCarouselReorder",
+
+    "/supplier-balance/manage": "SupplierController.supplierBalanceManage",
+    "/supplier-balance/create": "SupplierController.supplierBalanceCreate",
+    "/supplier-balance/update/:sbid": "SupplierController.supplierBalanceUpdate",
+    "/supplier-balance/delete": "SupplierController.supplierBalanceDelete",
+    "/api/supplier-balance/reorder": "SupplierController.supplierBalanceReorder",
+
 };
