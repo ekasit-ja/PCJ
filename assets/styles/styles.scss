@@ -1147,6 +1147,10 @@ input, select, textarea {
 // --- style for social
 
 // style for finance
+.finance-header {
+    margin-top: 30px;
+}
+
 .finance {
     table {
         margin-left: auto;
@@ -1155,6 +1159,10 @@ input, select, textarea {
         tr:first-child {
             font-weight: bold;
             background-color: $grey;
+        }
+
+        td {
+            padding: 1px 5px;
         }
     }
 }

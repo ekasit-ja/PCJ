@@ -1,7 +1,11 @@
 <div class="container">
 
     <%if(sbs.length > 0) {%>
-        <h2 class="header"><%-sbs[0].title_1%></h2>
+        <div class="row">
+            <div class="finance-header">
+                <%-sbs[0].title_1%>
+            </div>
+        </div>
         <br>
         <div class="row finance">
             <%- sbs[0].content %>
