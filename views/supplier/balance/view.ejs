@@ -20,3 +20,14 @@
 
     <br>
 </div>
+
+<script type="text/javascript">
+    try {
+        var tableWidth = $(".row.finance").find("table").first().outerWidth();
+        var header = $(".finance-header");
+        header.width(tableWidth);
+        header.css("margin-left", "auto");
+        header.css("margin-right", "auto");
+    }
+    catch(e) {}
+</script>
