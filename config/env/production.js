@@ -42,7 +42,7 @@ module.exports = {
         store: new MySQLSessionStore(db_options),
     },
 
-    hookTimeout: 60000,
+    hookTimeout: 120000,
 
     log: {
         colors: false,

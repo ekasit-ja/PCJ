@@ -52,7 +52,7 @@ module.exports = {
         store: new MySQLSessionStore(db_options),
     },
 
-    hookTimeout: 60000,
+    hookTimeout: 120000,
 
     port: 1337,
 
