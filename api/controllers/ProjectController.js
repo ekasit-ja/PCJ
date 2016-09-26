@@ -84,7 +84,7 @@ module.exports = {
     apiGetProject: function(req, res) {
         var pid = req.param("pid");
         if(isNaN(pid))
-            mid = -1;
+            pid = -1;
 
         Project
             .findOne(pid)
