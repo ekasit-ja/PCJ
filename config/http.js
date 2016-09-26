@@ -35,6 +35,7 @@ module.exports.http = {
         connectFlash: require("connect-flash")(),
 
         order: [
+            "redirectToWWW",
             "startRequestTimer",
             "cookieParser",
             "session",
@@ -54,6 +55,16 @@ module.exports.http = {
             "404",
             "500"
         ],
+
+        redirectToWWW: function(req, res, next) {
+            var host = req.header("host");
+            if (host.match(/^www\..*/i)) {
+                next();
+            } else {
+                res.redirect(301, "http://www." + host);
+            }
+        },
+
 
     /****************************************************************************
     *                                                                           *
