@@ -58,9 +58,14 @@ module.exports.http = {
 
         redirectToWWW: function(req, res, next) {
             var host = req.header("host");
-            if (host.match(/^www\..*/i)) {
-                next();
-            } else {
+            try {
+                if (host.match(/^www\..*/i)) {
+                    next();
+                } else {
+                    res.redirect(301, "http://www." + host);
+                }
+            }
+            catch(e) {
                 res.redirect(301, "http://www." + host);
             }
         },
