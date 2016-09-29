@@ -28,19 +28,28 @@ module.exports = {
     },
 
     viewDetails: function(req, res) {
+        var nid = req.param("nid");
+        if(isNaN(nid))
+            nid = -1;
+
         News
-            .findOne({id: req.param("nid")})
+            .findOne({id: nid})
             .populate("images", {sort: "position asc"})
             .then(function(news) {
                 dynamicInter(req, "News", news);
 
-                return res.view("news/details", {
-                    news: news,
-                    title: news.title,
-                    metaKeyword: news.title,
-                    metaDesc: limitText(news.content, 130),
-                    fb_shared_thumb: sails.config.appUrl.base + news.images[0].url,
-                });
+                if(news) {
+                    return res.view("news/details", {
+                        news: news,
+                        title: news.title,
+                        metaKeyword: news.title,
+                        metaDesc: limitText(news.content, 130),
+                        fb_shared_thumb: sails.config.appUrl.base + news.images[0].url,
+                    });
+                }
+                else {
+                    return res.notFound();
+                }
             })
             .catch(function(err) {
                 return res.serverError(err);
