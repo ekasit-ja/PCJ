@@ -153,11 +153,16 @@ module.exports = {
             .then(function(models) {
                 dynamicInter(req, "Model", models);
 
+                var fdcOperationUrl = sails.config.appUrl.fdcOperationEN;
+                if(req.getLocale() == "th")
+                    fdcOperationUrl = sails.config.appUrl.fdcOperationTH;
+
                 return res.view("product/fd/index", {
                     models: models,
                     title: "seo-fd-title",
                     metaKeyword: "seo-fd-meta-keyword",
                     metaDesc: "seo-fd-meta-desc",
+                    fdcOperationUrl: fdcOperationUrl,
                 });
             })
             .catch(function(err) {

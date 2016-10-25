@@ -4,4 +4,6 @@ module.exports.appUrl = {
     whm: "https://server.pcjindustries.co.th:2087/",
     subFb: "https://www.facebook.com/pcjindustries/",
     subYoutube: "https://www.youtube.com/channel/UCGl6i4eh4_ctQNTyeiIPssQ",
+    fdcOperationTH: "https://www.youtube.com/embed/T3DdJvjCmvs",
+    fdcOperationEN: "https://www.youtube.com/embed/DpgseFdnZWs",
 }
