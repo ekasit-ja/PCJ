@@ -69,7 +69,21 @@
         <br>
 
         <%- partial("../../base/product_tab.ejs") %>
+        <br>
         <%- partial("../../base/quote_button.ejs") %>
+        <br>
+        <hr>
+
+        <h3 class="header red-text" style="padding-top: 15px;"><%=__("frd-vdo-commercial")%></h3>
+        <div class="video-frame">
+            <div class="text-center videowrapper">
+                <video controls style="width: 100%;" poster="/images/frd_vdo_poster.jpg">
+                    <source src="<%=getLocale()=="th"?"/videos/pcj_frd_th.mp4":"/videos/pcj_frd_en.mp4"%>" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+        <br>
 
     <%} else {%>
         <br>
