@@ -19,7 +19,7 @@ module.exports = {
                 return News
                     .find()
                     .sort("position desc")
-                    .limit(1)
+                    .limit(2)
                     .populate("images", {sort: "position asc"});
             })
             .then(function(newses) {

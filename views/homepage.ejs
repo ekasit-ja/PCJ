@@ -15,10 +15,10 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-6 col-md-push-3 col-sm-8 col-sm-push-2">
-            <h3 class="header"><%=__("news")%></h3>
-            <div class="row">
-                <% _.each(newses, function(news) { %>
+        <h3 class="header"><%=__("news")%></h3>
+        <div class="row">
+            <% _.each(newses, function(news) { %>
+                <div class="col-sm-6">
                     <div class="row news-list">
                         <a href="<%=sails.getUrlFor('NewsController.viewDetails').replace(':nid', news.id)%>" class="news" target="_blank">
                             <div class="img-frame" style="background-image:url('<%=news.images[0]?news.images[0].url:''%>')">
@@ -29,8 +29,8 @@
                             </div>
                         </a>
                     </div>
-                <%})%>
-            </div>
+                </div>
+            <%})%>
         </div>
     </div>
     <hr>
