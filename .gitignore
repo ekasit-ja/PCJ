@@ -117,3 +117,14 @@ npm-debug.log
 nbproject
 .idea
 .node_history
+
+
+
+
+
+################################################
+# Large files
+#
+# videos, work files, etc.
+################################################
+assets/videos/*.*
