@@ -15,9 +15,20 @@
     <h3 class="header red-text" style="padding-top: 15px;"><%=__("fdc-vdo-demonstrate")%></h3>
     <div class="video-frame">
         <div class="text-center videowrapper">
-            <!-- <iframe width="560" height="315" src="<%=fdcOperationUrl%>" frameborder="0" allowfullscreen></iframe> -->
             <video controls style="width: 100%;" poster="/images/fdc_vdo_poster.jpg">
                 <source src="<%=getLocale()=="th"?"/videos/pcj_fdc_th.mp4":"/videos/pcj_fdc_en.mp4"%>" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+    <br>
+    <br>
+
+    <h3 class="header red-text" style="padding-top: 15px;"><%-__("fdc-vdo-ul-01")%></h3>
+    <div class="video-frame">
+        <div class="text-center videowrapper">
+            <video controls style="width: 100%;" poster="<%=getLocale()=="th"?"/images/pcj_fdc_ul_01_th_poster.jpg":"/images/pcj_fdc_ul_01_en_poster.jpg"%>">
+                <source src="<%=getLocale()=="th"?"/videos/pcj_fdc_ul_01_th.mp4":"/videos/pcj_fdc_ul_01_en.mp4"%>" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
