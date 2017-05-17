@@ -19,6 +19,7 @@ module.exports.enums = {
         adb: "automatic-door-bottom",
         fdc: "fire-door-coordinator",
         etc: "etc",
+        all: "all",
     },
 
     file: {
