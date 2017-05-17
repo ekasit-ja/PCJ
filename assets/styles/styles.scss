@@ -670,16 +670,6 @@ h2.header {
 // --- style for fotorama
 
 // style for product and its detail page
-.product-video-row {
-    display: flex;
-    flex-wrap: wrap;
-
-    .header.red-text {
-        margin: 10px 0px;
-        text-align: left;
-    }
-}
-
 .product-cert {
     max-height: 120px;
 }
@@ -1246,3 +1236,14 @@ input, select, textarea {
     }
 }
 // --- style for finance
+
+
+.product-video-row {
+    display: flex;
+    flex-wrap: wrap;
+
+    .header.red-text {
+        margin: 10px 0px;
+        text-align: left;
+    }
+}
