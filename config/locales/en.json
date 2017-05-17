@@ -32,7 +32,7 @@
     "model-you-can-choose": "Model you can choose",
     "model": "Model",
     "no-models-available": "No requested model is available at this time.",
-    "option-you-can-choose": "Customize product",
+    "option-you-can-choose": "Product available",
     "size": "Size",
     "available-upon-request-doors": "Available upon request up to maximum 1200mm X 2400mm (for Single Door) and 2400mm X 2400mm (for Double Door)",
     "available-upon-request-dampers": "Available upon request up to maximum 48” X 48” (for Single Section) and 96” X 96” (for Multiple Section)",
@@ -62,7 +62,7 @@
 
 
 
-    "hardware-you-can-add": "Hardware you can add",
+    "hardware-you-can-add": "Hardware available",
     "get-a-quote": "Get A Quote",
 
     "description": "Description",

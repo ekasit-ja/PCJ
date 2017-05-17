@@ -32,7 +32,7 @@
     "model-you-can-choose": "โมเดลที่คุณเลือกได้",
     "model": "โมเดล",
     "no-models-available": "ไม่มีโมเดลที่ระบุในขณะนี้",
-    "option-you-can-choose": "ปรับแต่งสินค้า",
+    "option-you-can-choose": "สินค้าที่มีให้เลือก",
     "size": "ขนาด",
     "available-upon-request-doors": "สั่งทำได้ตามต้องการ ขนาดใหญ่สุด 1200มม X 2400มม (สำหรับบานเดี่ยว) และ 2400มม X 2400 มม (สำหรับบานคู่)",
     "available-upon-request-dampers": "สั่งทำได้ตามต้องการ ขนาดใหญ่สุด 48 นิ้ว X 48 นิ้ว (สำหรับ Single Section) และ 96 นิ้ว X 96 นิ้ว (สำหรับ Multiple Section)",
@@ -62,7 +62,7 @@
 
 
 
-    "hardware-you-can-add": "อุปกรณ์เสริมที่สามารถติดตั้งเพิ่มเติมได้",
+    "hardware-you-can-add": "อุปกรณ์เสริมที่มีให้เลือก",
     "get-a-quote": "ขอใบเสนอราคา",
 
     "description": "ข้อมูลสินค้า",
