@@ -1,5 +1,46 @@
 <div class="container">
     <%if(model) {%>
+
+        <div class="product-video-row row">
+            <div class="product-video-col col-sm-4">
+                <div class="video-frame">
+                    <div class="text-center videowrapper">
+                        <video controls style="width: 100%;" poster="/images/frd_vdo_poster.jpg">
+                            <source src="<%=getLocale()=="th"?"/videos/pcj_frd_th.mp4":"/videos/pcj_frd_en.mp4"%>" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+                <h4 class="header red-text"><%=__("frd-vdo-commercial")%></h4>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="video-frame">
+                    <div class="text-center videowrapper">
+                        <video controls style="width: 100%;" poster="<%=getLocale()=="th"?"/images/pcj_frd_ul_01_th_poster.jpg":"/images/pcj_frd_ul_01_en_poster.jpg"%>">
+                            <source src="<%=getLocale()=="th"?"/videos/pcj_frd_ul_01_th.mp4":"/videos/pcj_frd_ul_01_en.mp4"%>" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+                <h4 class="header red-text"><%-__("frd-vdo-ul-01")%></h4>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="video-frame">
+                    <div class="text-center videowrapper">
+                        <video controls style="width: 100%;" poster="<%=getLocale()=="th"?"/images/pcj_frd_vision_ul_01_th_poster.jpg":"/images/pcj_frd_vision_ul_01_en_poster.jpg"%>">
+                            <source src="<%=getLocale()=="th"?"/videos/pcj_frd_vision_ul_01_th.mp4":"/videos/pcj_frd_vision_ul_01_en.mp4"%>" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+                <h4 class="header red-text"><%-__("frd-vision-vdo-ul-01")%></h4>
+            </div>
+        </div>
+
+        <hr>
+
         <h2 class="header"><%=__("fire-steel-doors")%></h2>
         <div class="row">
             <div class="col-sm-8 col-sm-push-2">
@@ -68,30 +109,6 @@
         <%- partial("../../base/product_tab.ejs") %>
         <br>
         <%- partial("../../base/quote_button.ejs") %>
-        <br>
-        <hr>
-
-        <h3 class="header red-text" style="padding-top: 15px;"><%=__("frd-vdo-commercial")%></h3>
-        <div class="video-frame">
-            <div class="text-center videowrapper">
-                <video controls style="width: 100%;" poster="/images/frd_vdo_poster.jpg">
-                    <source src="<%=getLocale()=="th"?"/videos/pcj_frd_th.mp4":"/videos/pcj_frd_en.mp4"%>" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-        </div>
-        <br>
-        <br>
-
-        <h3 class="header red-text" style="padding-top: 15px;"><%-__("frd-vdo-ul-01")%></h3>
-        <div class="video-frame">
-            <div class="text-center videowrapper">
-                <video controls style="width: 100%;" poster="<%=getLocale()=="th"?"/images/pcj_frd_ul_01_th_poster.jpg":"/images/pcj_frd_ul_01_en_poster.jpg"%>">
-                    <source src="<%=getLocale()=="th"?"/videos/pcj_frd_ul_01_th.mp4":"/videos/pcj_frd_ul_01_en.mp4"%>" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-        </div>
         <br>
 
     <%} else {%>
