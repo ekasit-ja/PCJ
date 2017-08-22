@@ -8,6 +8,9 @@
 
             <%- partial("input-content.ejs") %>
 
+            <textarea rows="5" name="content_code" placeholder="content_code" class="form-control"></textarea><br>
+            <textarea rows="5" name="content_code_th" placeholder="content_code_th" class="form-control"></textarea><br>
+
             <input type="submit" class="submit hide">
         </form>
         <form method="post" enctype="multipart/form-data" id="fileupload" action="<%= sails.getUrlFor('NewsController.apiImageCreate') %>">

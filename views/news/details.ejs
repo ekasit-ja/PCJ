@@ -7,6 +7,9 @@
             </div>
             <h2 class="header"><%=news.title%></h2>
             <%-news.content%>
+            <% if(news.content_code) {%>
+                <%-news.content_code%>
+            <%}%>
             <%for(; i<news.images.length; i++) {%>
                 <div class="img-frame">
                     <img src="<%=news.images[i].url%>" alt="<%=news.title+'-'+i%>">

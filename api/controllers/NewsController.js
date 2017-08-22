@@ -79,6 +79,8 @@ module.exports = {
                 "title_th",
                 "content",
                 "content_th",
+                "content_code",
+                "content_code_th",
             ]);
 
             News
@@ -144,6 +146,8 @@ module.exports = {
                 "title_th",
                 "content",
                 "content_th",
+                "content_code",
+                "content_code_th",
                 "fb_code",
             ]);
             params.id = nid;

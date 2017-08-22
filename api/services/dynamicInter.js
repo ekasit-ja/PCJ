@@ -22,6 +22,7 @@ module.exports = function(req, model, items) {
                 else if(model == "News") {
                     items[i].title = items[i].title_th || items[i].title;
                     items[i].content = items[i].content_th || items[i].content;
+                    items[i].content_code = items[i].content_code_th || items[i].content_code;
                 }
                 else if(model == "SupplierBalance") {
                     items[i].title_1 = items[i].title_1_th || items[i].title_1;
@@ -49,6 +50,7 @@ module.exports = function(req, model, items) {
             else if(model == "News") {
                 items.title = items.title_th || items.title;
                 items.content = items.content_th || items.content;
+                items.content_code = items.content_code_th || items.content_code;
             }
             else if(model == "SupplierBalance") {
                 items.title_1 = items.title_1_th || items.title_1;

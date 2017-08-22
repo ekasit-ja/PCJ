@@ -38,6 +38,14 @@ module.exports = {
         fb_code: {
             type: "text",
         },
+
+        content_code: {
+            type: "text",
+        },
+
+        content_code_th: {
+            type: "text",
+        },
     },
 
     beforeCreate: function(values, cb) {
