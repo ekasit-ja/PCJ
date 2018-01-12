@@ -33,7 +33,7 @@
                                     <div class="col-sm-3 col-xs-6 tag-container category">
                                         <a href="<%= sails.getUrlFor('ProductController.fsd') %>" class="catg-button">
                                             <div class="img-frame"><img src="/images/fire_doors.jpg"></div>
-                                            <div class="catg-label"><%=__("fire-steel-doors")%></div>
+                                            <div class="catg-label"><%-__("fire-steel-doors").replace(__("amp"), __("amp")+"<br>")%></div>
                                         </a>
                                     </div>
                                     <div class="col-sm-3 col-xs-6 tag-container category">

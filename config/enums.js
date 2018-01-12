@@ -8,6 +8,7 @@ module.exports.enums = {
     },
 
     hardware: {
+        all: "all",
         fed: "fire-exit-devices",
         dl: "door-locks",
         dhi: "door-hinge",
@@ -19,7 +20,6 @@ module.exports.enums = {
         adb: "automatic-door-bottom",
         fdc: "fire-door-coordinator",
         etc: "etc",
-        all: "all",
     },
 
     file: {
