@@ -127,9 +127,9 @@ module.exports = function(grunt) {
         appRoot: '.tmp/public'
       },
       files: {
-        '.tmp/public/index.html': ['.tmp/public/min/production.002.min.css'],
-        'views/**/*.html': ['.tmp/public/min/production.002.min.css'],
-        'views/**/*.ejs': ['.tmp/public/min/production.002.min.css']
+        '.tmp/public/index.html': ['.tmp/public/min/production.003.min.css'],
+        'views/**/*.html': ['.tmp/public/min/production.003.min.css'],
+        'views/**/*.ejs': ['.tmp/public/min/production.003.min.css']
       }
     },
 
@@ -142,9 +142,9 @@ module.exports = function(grunt) {
         relative: true
       },
       files: {
-        '.tmp/public/index.html': ['.tmp/public/min/production.002.min.css'],
-        'views/**/*.html': ['.tmp/public/min/production.002.min.css'],
-        'views/**/*.ejs': ['.tmp/public/min/production.002.min.css']
+        '.tmp/public/index.html': ['.tmp/public/min/production.003.min.css'],
+        'views/**/*.html': ['.tmp/public/min/production.003.min.css'],
+        'views/**/*.ejs': ['.tmp/public/min/production.003.min.css']
       }
     },
 
@@ -248,7 +248,7 @@ module.exports = function(grunt) {
         appRoot: '.tmp/public'
       },
       files: {
-        'views/**/*.jade': ['.tmp/public/min/production.002.min.css']
+        'views/**/*.jade': ['.tmp/public/min/production.003.min.css']
       }
     },
 
@@ -261,7 +261,7 @@ module.exports = function(grunt) {
         relative: true
       },
       files: {
-        'views/**/*.jade': ['.tmp/public/min/production.002.min.css']
+        'views/**/*.jade': ['.tmp/public/min/production.003.min.css']
       }
     },
 
