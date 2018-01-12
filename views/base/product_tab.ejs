@@ -47,7 +47,7 @@
                 <div class="btn-cert">
                     <a href="<%=catg.url%>" target="_blank">
                         <div class="img-frame"><img src="<%=catg.image || '/images/file.jpg'%>" alt="<%=catg.title%>"></div>
-                        <div class="title"><%=catg.title%></div>
+                        <div class="title"><%- catg.title.replace(__("amp"), "<br>"+__("amp")) %></div>
                     </a>
                 </div>
             <%})%>

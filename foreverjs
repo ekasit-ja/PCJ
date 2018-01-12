@@ -1,1 +1,3 @@
 sudo forever start -a -o ./logs/forever-out.log -e ./logs/forever-err.log app.js --prod
+mysqldump -u root -p pcj_industries > bk.sql
+mysql -u root -p pcj_industries < bk.sql
