@@ -5,6 +5,7 @@ module.exports.enums = {
         dd: "duct-dampers",
         ao: "air-outlets",
         ds: "duct-silencers",
+        fsdul: "fsd-ul",
     },
 
     hardware: {

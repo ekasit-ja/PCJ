@@ -1,7 +1,13 @@
 <div class="container">
     <%if(model) {%>
-        <h2 class="header"><%=__("type")%> : <%= model.type.title %></h2>
-        <h3 class="header"><%=__("model")%> : <%= model.title %></h3>
+        <h3 class="header"><%=__("air-outlets")%></h3>
+        <div class="row">
+            <div class="col-sm-8 col-sm-push-2">
+                <p class="text-justify"><%=__("ao-p1")%></p>
+            </div>
+        </div>
+        <img src="/images/cert ao.jpg" class="img-responsive center-block product-cert">
+        <br>
 
         <%- partial("../../base/fotorama.ejs") %>
 

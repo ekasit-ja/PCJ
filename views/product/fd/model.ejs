@@ -1,6 +1,39 @@
 <div class="container">
     <%if(model) {%>
-        <h2 class="header"><%=__("model")%> : <%= model.title %></h2>
+        <div class="product-video-row row">
+            <div class="col-sm-6">
+                <div class="video-frame">
+                    <div class="text-center videowrapper">
+                        <video controls style="width: 100%;" poster="/images/fdc_vdo_poster.jpg">
+                            <source src="<%=getLocale()=="th"?"/videos/pcj_fdc_th.mp4":"/videos/pcj_fdc_en.mp4"%>" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                <h4 class="header red-text" style="padding-top: 15px;"><%=__("fdc-vdo-demonstrate")%></h4>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="video-frame">
+                    <div class="text-center videowrapper">
+                        <video controls style="width: 100%;" poster="<%=getLocale()=="th"?"/images/pcj_fdc_ul_01_th_poster.jpg":"/images/pcj_fdc_ul_01_en_poster.jpg"%>">
+                            <source src="<%=getLocale()=="th"?"/videos/pcj_fdc_ul_01_th.mp4":"/videos/pcj_fdc_ul_01_en.mp4"%>" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                <h4 class="header red-text" style="padding-top: 15px;"><%-__("fdc-vdo-ul-01")%></h4>
+                </div>
+            </div>
+        </div>
+        <hr>
+
+        <h2 class="header"><%=__(sails.config.enums.category["fd"])%></h2>
+        <div class="row">
+            <div class="col-sm-8 col-sm-push-2">
+                <p class="text-justify"><%=__("fd-p1")%></p>
+            </div>
+        </div>
+        <img src="/images/cert fd.jpg" class="img-responsive center-block product-cert">
 
         <%- partial("../../base/fotorama.ejs") %>
 

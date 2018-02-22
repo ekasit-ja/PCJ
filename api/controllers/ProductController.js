@@ -7,32 +7,6 @@
 
 module.exports = {
     fsd: function(req, res) {
-        // Type
-        //     .find({category: "fsd"})
-        //     .sort("position asc")
-        //     .then(function(types) {
-        //         if(types.length < 1)
-        //             return Promise.resolve([]);
-
-        //         dynamicInter(req, "Type", types);
-
-        //         // suppose to found just one type of fire steel door
-        //         return Model.find({type: types[0].id}).sort("position asc")
-        //     })
-        //     .then(function(models) {
-        //         dynamicInter(req, "Model", models);
-
-        //         return res.view("product/fsd/index", {
-        //             models: models,
-        //             title: "seo-fsd-title",
-        //             metaKeyword: "seo-fsd-meta-keyword",
-        //             metaDesc: "seo-fsd-meta-desc",
-        //         });
-        //     })
-        //     .catch(function(err) {
-        //         return res.serverError(err);
-        //     });
-
         Type
             .find({category: "fsd"})
             .then(function(types) {
@@ -140,30 +114,20 @@ module.exports = {
     fd: function(req, res) {
         Type
             .find({category: "fd"})
-            .sort("position asc")
             .then(function(types) {
                 if(types.length < 1)
                     return Promise.resolve([]);
 
-                dynamicInter(req, "Type", types);
-
-                // suppose to found just one type of fire dampers
-                return Model.find({type: types[0].id}).sort("position asc")
+                return Model.find({type: types[0].id});
             })
             .then(function(models) {
-                dynamicInter(req, "Model", models);
+                if(models.length < 1)
+                    return Promise.resolve([]);
 
-                var fdcOperationUrl = sails.config.appUrl.fdcOperationEN;
-                if(req.getLocale() == "th")
-                    fdcOperationUrl = sails.config.appUrl.fdcOperationTH;
-
-                return res.view("product/fd/index", {
-                    models: models,
-                    title: "seo-fd-title",
-                    metaKeyword: "seo-fd-meta-keyword",
-                    metaDesc: "seo-fd-meta-desc",
-                    fdcOperationUrl: fdcOperationUrl,
-                });
+                return res.redirect(
+                    sails.getUrlFor("ProductController.fdModel")
+                        .replace(":mid", models[0].id)
+                );
             })
             .catch(function(err) {
                 return res.serverError(err);
@@ -236,21 +200,23 @@ module.exports = {
     dd: function(req, res) {
         Type
             .find({category: "dd"})
-            .sort("position asc")
-            .populate("models", {sort: "position asc"})
-            .exec(function(err, types) {
-                if(err) return res.serverError(err);
+            .then(function(types) {
+                if(types.length < 1)
+                    return Promise.resolve([]);
 
-                dynamicInter(req, "Type", types);
-                for(var i=0; i<types.length; i++)
-                    dynamicInter(req, "Model", types[i].models);
+                return Model.find({type: types[0].id});
+            })
+            .then(function(models) {
+                if(models.length < 1)
+                    return Promise.resolve([]);
 
-                return res.view("product/dd/index", {
-                    types: types,
-                    title: "seo-dd-title",
-                    metaKeyword: "seo-dd-meta-keyword",
-                    metaDesc: "seo-dd-meta-desc",
-                });
+                return res.redirect(
+                    sails.getUrlFor("ProductController.ddModel")
+                        .replace(":mid", models[0].id)
+                );
+            })
+            .catch(function(err) {
+                return res.serverError(err);
             });
     },
 
@@ -320,25 +286,20 @@ module.exports = {
     ds: function(req, res) {
         Type
             .find({category: "ds"})
-            .sort("position asc")
             .then(function(types) {
                 if(types.length < 1)
                     return Promise.resolve([]);
 
-                dynamicInter(req, "Type", types);
-
-                // suppose to found just one type of fire dampers
-                return Model.find({type: types[0].id}).sort("position asc")
+                return Model.find({type: types[0].id});
             })
             .then(function(models) {
-                dynamicInter(req, "Model", models);
+                if(models.length < 1)
+                    return Promise.resolve([]);
 
-                return res.view("product/ds/index", {
-                    models: models,
-                    title: "seo-ds-title",
-                    metaKeyword: "seo-ds-meta-keyword",
-                    metaDesc: "seo-ds-meta-desc",
-                });
+                return res.redirect(
+                    sails.getUrlFor("ProductController.dsModel")
+                        .replace(":mid", models[0].id)
+                );
             })
             .catch(function(err) {
                 return res.serverError(err);
@@ -411,21 +372,23 @@ module.exports = {
     ao: function(req, res) {
         Type
             .find({category: "ao"})
-            .sort("position asc")
-            .populate("models", {sort: "position asc"})
-            .exec(function(err, types) {
-                if(err) return res.serverError(err);
+            .then(function(types) {
+                if(types.length < 1)
+                    return Promise.resolve([]);
 
-                dynamicInter(req, "Type", types);
-                for(var i=0; i<types.length; i++)
-                    dynamicInter(req, "Model", types[i].models);
+                return Model.find({type: types[0].id});
+            })
+            .then(function(models) {
+                if(models.length < 1)
+                    return Promise.resolve([]);
 
-                return res.view("product/ao/index", {
-                    types: types,
-                    title: "seo-ao-title",
-                    metaKeyword: "seo-ao-meta-keyword",
-                    metaDesc: "seo-ao-meta-desc",
-                });
+                return res.redirect(
+                    sails.getUrlFor("ProductController.aoModel")
+                        .replace(":mid", models[0].id)
+                );
+            })
+            .catch(function(err) {
+                return res.serverError(err);
             });
     },
 
@@ -485,6 +448,92 @@ module.exports = {
                     title: title,
                     metaKeyword: "seo-ao-meta-keyword",
                     metaDesc: "seo-ao-meta-desc",
+                });
+            })
+            .catch(function(err) {
+                return res.serverError(err);
+            });
+    },
+
+    fsdul: function(req, res) {
+        Type
+            .find({category: "fsdul"})
+            .then(function(types) {
+                if(types.length < 1)
+                    return Promise.resolve([]);
+
+                return Model.find({type: types[0].id});
+            })
+            .then(function(models) {
+                if(models.length < 1)
+                    return Promise.resolve([]);
+
+                return res.redirect(
+                    sails.getUrlFor("ProductController.fsdulModel")
+                        .replace(":mid", models[0].id)
+                );
+            })
+            .catch(function(err) {
+                return res.serverError(err);
+            });
+    },
+
+    fsdulModel: function(req, res) {
+        var mid = req.param("mid");
+        if(isNaN(mid))
+            mid = -1;
+
+        var m, ps, certs, insts, catgs;
+        Model
+            .findOne(mid)
+            .populate("type")
+            .then(function(model) {
+                if(model && model.type.category == "fsdul") {
+                    m = model;
+                    dynamicInter(req, "Model", m);
+                    dynamicInter(req, "Type", m.type);
+                }
+
+                return Product.find({model: mid}).sort("position asc")
+            })
+            .then(function(products) {
+                ps = products;
+                dynamicInter(req, "Product", ps);
+                return File
+                    .find({category: "fsdul", fileType: "cert"})
+                    .sort("position asc");
+            })
+            .then(function(files) {
+                certs = files;
+                dynamicInter(req, "File", certs);
+                return File
+                    .find({category: "fsdul", fileType: "inst"})
+                    .sort("position asc");
+            })
+            .then(function(files) {
+                insts = files;
+                dynamicInter(req, "File", insts);
+                return File
+                    .find({category: "fsdul", fileType: "catg"})
+                    .sort("position asc");
+            })
+            .then(function(files) {
+                catgs = files;
+                dynamicInter(req, "File", catgs);
+
+                var title = "";
+                if(typeof m != "undefined")
+                    title = m.title + " - " + req.__("seo-fsdul-title");
+
+                return res.view("product/fsd-ul/model", {
+                    model: m,
+                    products: ps,
+                    certs: certs,
+                    insts: insts,
+                    catgs: catgs,
+                    title: title,
+                    metaKeyword: "seo-fsdul-meta-keyword",
+                    metaDesc: "seo-fsdul-meta-desc",
                 });
             })
             .catch(function(err) {

@@ -1,0 +1,38 @@
+<div class="container">
+    <%if(model) {%>
+        <h2 class="header"><%=__(sails.config.enums.category["fsdul"])%></h2>
+        <div class="row">
+            <div class="col-sm-8 col-sm-push-2">
+                <p class="text-justify"><%=__("fsd-ul-p1")%></p>
+            </div>
+        </div>
+        <br>
+
+        <%- partial("../../base/fotorama.ejs") %>
+        <h3 class="header"><%=__("option-you-can-choose")%></h3>
+        <div class="option-container">
+            <div class="row">
+                <div class="col-sm-2 col-sm-offset-1 col-xs-2 option-label"><%=__("size")%></div>
+                <div class="col-sm-9 col-xs-10 option-detail"><%=__("available-upon-request-fsd-ul")%></div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2 col-sm-offset-1 col-xs-2 option-label"><%=__("fire-rating")%></div>
+                <div class="col-sm-9 col-xs-10 option-detail">
+                    <%if(model.cert == 1) {%>
+                        <%=__("3-hour")%>
+                    <%} else {%>
+                        <%=__("3-hour-dampers")%>
+                    <%}%>
+                </div>
+            </div>
+        </div>
+        <br>
+
+        <%- partial("../../base/product_tab.ejs") %>
+        <%- partial("../../base/quote_button.ejs") %>
+
+    <%} else {%>
+        <br>
+        <p class="alert alert-warning text-center">There is no requested model.</p>
+    <%}%>
+</div>

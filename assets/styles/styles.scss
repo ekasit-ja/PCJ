@@ -559,13 +559,17 @@ h2.header {
 // --- style for quick contact
 
 // style for projects and product navbar buttons
+.yamm-content {
+    padding: 10px !important;
+}
+
 .tag-container {
     a:hover {
         text-decoration: none;
     }
 
     &.category {
-        margin-top: 20px;
+        padding: 0px 5px;
 
         .catg-button {
             display: block;

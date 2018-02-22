@@ -1,8 +1,8 @@
 <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#desc"><%=__("description")%></a></li>
-    <li><a data-toggle="tab" href="#cert"><%=__("certificate")%></a></li>
-    <li><a data-toggle="tab" href="#inst"><%=__("installation")%></a></li>
-    <li><a data-toggle="tab" href="#catg"><%=__("catalogue")%></a></li>
+    <%if(certs.length>0) {%><li><a data-toggle="tab" href="#cert"><%=__("certificate")%></a></li><%}%>
+    <%if(insts.length>0) {%><li><a data-toggle="tab" href="#inst"><%=__("installation")%></a></li><%}%>
+    <%if(catgs.length>0) {%><li><a data-toggle="tab" href="#catg"><%=__("catalogue")%></a></li><%}%>
 </ul>
 
 <div class="tab-content">
@@ -13,8 +13,8 @@
             </div>
         </div>
     </div>
-    <div id="cert" class="tab-pane fade">
-        <%if(certs.length>0) {%>
+    <%if(certs.length>0) {%>
+        <div id="cert" class="tab-pane fade">
             <%_.each(certs, function(cert) {%>
                 <div class="btn-cert">
                     <a href="<%=cert.url%>" target="_blank">
@@ -23,12 +23,10 @@
                     </a>
                 </div>
             <%})%>
-        <%} else {%>
-            <%=__("no-file-available")%>
-        <%}%>
-    </div>
-    <div id="inst" class="tab-pane fade">
-        <%if(insts.length>0) {%>
+        </div>
+    <%}%>
+    <%if(insts.length>0) {%>
+        <div id="inst" class="tab-pane fade">
             <%_.each(insts, function(inst) {%>
                 <div class="btn-cert">
                     <a href="<%=inst.url%>" target="_blank">
@@ -37,12 +35,10 @@
                     </a>
                 </div>
             <%})%>
-        <%} else {%>
-            <%=__("no-file-available")%>
-        <%}%>
-    </div>
-    <div id="catg" class="tab-pane fade">
-        <%if(catgs.length>0) {%>
+        </div>
+    <%}%>
+    <%if(catgs.length>0) {%>
+        <div id="catg" class="tab-pane fade">
             <%_.each(catgs, function(catg) {%>
                 <div class="btn-cert">
                     <a href="<%=catg.url%>" target="_blank">
@@ -51,9 +47,7 @@
                     </a>
                 </div>
             <%})%>
-        <%} else {%>
-            <%=__("no-file-available")%>
-        <%}%>
-    </div>
+        </div>
+    <%}%>
 </div>
 <hr>
