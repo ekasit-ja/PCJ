@@ -33,12 +33,14 @@ module.exports.http = {
         passportInit: require("passport").initialize(),
         passportSession: require("passport").session(),
         connectFlash: require("connect-flash")(),
+        bootstrapAssets: require('express').static('/root/static'),
 
         order: [
             "redirectToWWW",
             "startRequestTimer",
             "cookieParser",
             "session",
+            'bootstrapAssets',
             "connectFlash",
             "passportInit",
             "passportSession",
