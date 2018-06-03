@@ -35,6 +35,7 @@ module.exports.http = {
         connectFlash: require("connect-flash")(),
         bootstrapAssets1: require('express').static('/root/static'),
         bootstrapAssets2: require('express').static('/var/www/html'),
+        bootstrapAssets3: require('express').static('/root/cpanel3-skel/public_html'),
 
         order: [
             // "redirectToWWW",
@@ -43,6 +44,7 @@ module.exports.http = {
             "session",
             'bootstrapAssets1',
             'bootstrapAssets2',
+            'bootstrapAssets3',
             "connectFlash",
             "passportInit",
             "passportSession",
