@@ -37,7 +37,7 @@ module.exports.http = {
         // bootstrapAssets: require('express').static('/var/www/html'),
 
         order: [
-            "redirectToWWW",
+            // "redirectToWWW",
             "startRequestTimer",
             "cookieParser",
             "session",
@@ -59,19 +59,19 @@ module.exports.http = {
             "500"
         ],
 
-        redirectToWWW: function(req, res, next) {
-            var host = req.header("host");
-            try {
-                if (host.match(/^pcj/i)) {
-                    res.redirect(301, "http://www." + host);
-                } else {
-                    next();
-                }
-            }
-            catch(e) {
-                next();
-            }
-        },
+        // redirectToWWW: function(req, res, next) {
+        //     var host = req.header("host");
+        //     try {
+        //         if (host.match(/^pcj/i)) {
+        //             res.redirect(301, "http://www." + host);
+        //         } else {
+        //             next();
+        //         }
+        //     }
+        //     catch(e) {
+        //         next();
+        //     }
+        // },
 
 
     /****************************************************************************
