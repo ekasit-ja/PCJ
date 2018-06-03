@@ -33,7 +33,7 @@ module.exports.http = {
         passportInit: require("passport").initialize(),
         passportSession: require("passport").session(),
         connectFlash: require("connect-flash")(),
-        // bootstrapAssets: require('express').static('/root/static'),
+        bootstrapAssets: require('express').static('/root/static'),
         bootstrapAssets: require('express').static('/var/www/html'),
 
         order: [
