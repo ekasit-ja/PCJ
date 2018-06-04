@@ -29,11 +29,11 @@ module.exports = {
      * environment (see config/connections.js and config/models.js )           *
      ***************************************************************************/
 
-    // ssl: {
-    //   ca: require('fs').readFileSync('/etc/letsencrypt/live/server.pcjindustries.co.th/chain.pem'),
-    //   key: require('fs').readFileSync('/etc/letsencrypt/live/server.pcjindustries.co.th/privkey.pem'),
-    //   cert: require('fs').readFileSync('/etc/letsencrypt/live/server.pcjindustries.co.th/cert.pem')
-    // }
+    ssl: {
+      ca: require('fs').readFileSync('/etc/letsencrypt/live/server.pcjindustries.co.th/chain.pem', 'utf8').toString(),
+      key: require('fs').readFileSync('/etc/letsencrypt/live/server.pcjindustries.co.th/privkey.pem', 'utf8').toString(),
+      cert: require('fs').readFileSync('/etc/letsencrypt/live/server.pcjindustries.co.th/cert.pem', 'utf8').toString()
+    }
 
     connections: {
         mysqlDb: db_options,
