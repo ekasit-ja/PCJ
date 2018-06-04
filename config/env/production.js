@@ -30,10 +30,11 @@ module.exports = {
      ***************************************************************************/
 
     ssl: {
-      ca: require('fs').readFileSync('/etc/letsencrypt/live/server.pcjindustries.co.th/chain.pem', 'utf8').toString(),
-      key: require('fs').readFileSync('/etc/letsencrypt/live/server.pcjindustries.co.th/privkey.pem', 'utf8').toString(),
-      cert: require('fs').readFileSync('/etc/letsencrypt/live/server.pcjindustries.co.th/cert.pem', 'utf8').toString()
+      ca: require('fs').readFileSync(require('path').resolve(__dirname,'../ssl/chain.pem')),
+      key: require('fs').readFileSync(require('path').resolve(__dirname,'../ssl/privkey.pem')),
+      cert: require('fs').readFileSync(require('path').resolve(__dirname,'../ssl/cert.crt'))
     }
+
 
     connections: {
         mysqlDb: db_options,
