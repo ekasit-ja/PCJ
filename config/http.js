@@ -42,8 +42,7 @@ module.exports.http = {
             if (host.match(/^pcj\..*/i)) {
               res.redirect(301, "https://www." + host + req.url);
             }
-            else if {
-              (host.match(/^server\..*/i)) {
+            else if (host.match(/^server\..*/i)) {
               res.redirect(301, "https://www." + host.substring(7) + req.url);
             }
             else {
