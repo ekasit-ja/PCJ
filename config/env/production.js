@@ -29,11 +29,11 @@ module.exports = {
      * environment (see config/connections.js and config/models.js )           *
      ***************************************************************************/
 
-    ssl: {
-      ca: require('fs').readFileSync(require('path').resolve(__dirname,'../ssl/chain.pem')),
-      key: require('fs').readFileSync(require('path').resolve(__dirname,'../ssl/privkey.pem')),
-      cert: require('fs').readFileSync(require('path').resolve(__dirname,'../ssl/cert.pem'))
-    },
+    // ssl: {
+    //   ca: require('fs').readFileSync(require('path').resolve(__dirname,'../ssl/chain.pem')),
+    //   key: require('fs').readFileSync(require('path').resolve(__dirname,'../ssl/privkey.pem')),
+    //   cert: require('fs').readFileSync(require('path').resolve(__dirname,'../ssl/cert.pem'))
+    // },
 
 
     connections: {
