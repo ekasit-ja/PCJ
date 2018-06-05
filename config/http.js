@@ -39,7 +39,7 @@ module.exports.http = {
 
         redirectToWWW: function(req, res, next) {
             var host = req.headers.host;
-            if (host.match(/^pcj\..*/i)) {
+            if (host.match(/^pcj/)) {
               res.redirect(301, "https://www." + host + req.url);
             }
             // else if (host.match(/^server\..*/i)) {
