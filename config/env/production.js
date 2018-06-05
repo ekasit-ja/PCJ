@@ -28,14 +28,6 @@ module.exports = {
      * Set the default database connection for models in the production        *
      * environment (see config/connections.js and config/models.js )           *
      ***************************************************************************/
-
-    // ssl: {
-    //   ca: require('fs').readFileSync(require('path').resolve(__dirname,'../ssl/chain.pem')),
-    //   key: require('fs').readFileSync(require('path').resolve(__dirname,'../ssl/privkey.pem')),
-    //   cert: require('fs').readFileSync(require('path').resolve(__dirname,'../ssl/cert.pem'))
-    // },
-
-
     connections: {
         mysqlDb: db_options,
     },
@@ -67,7 +59,13 @@ module.exports = {
      * Set the port in the production environment to 80                        *
      ***************************************************************************/
 
-    port: 80,
+    port: 443,
+
+    ssl: {
+      ca: require('fs').readFileSync(require('path').resolve(__dirname,'../ssl/chain.pem')),
+      key: require('fs').readFileSync(require('path').resolve(__dirname,'../ssl/privkey.pem')),
+      cert: require('fs').readFileSync(require('path').resolve(__dirname,'../ssl/cert.pem'))
+    },
 
     /***************************************************************************
      * Set the log level in production environment to "silent"                 *

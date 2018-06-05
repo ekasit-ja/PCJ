@@ -11,14 +11,14 @@
 
 module.exports.bootstrap = function(cb) {
 
-
-    // var express = require("express")
-    // var app = express();
-    // app.get('*', function(req, res) {
-    //   if(req.isSocket)
-    //     return res.redirect('wss://' + req.headers.host + req.url);
-    //   return res.redirect('https://' + req.headers.host + req.url);
-    // }).listen(80);
+    // force redirect http port to https port
+    var express = require("express")
+    var app = express();
+    app.get('*', function(req, res) {
+      if(req.isSocket)
+        return res.redirect('wss://' + req.headers.host + req.url);
+      return res.redirect('https://' + req.headers.host + req.url);
+    }).listen(80);
 
 
 
