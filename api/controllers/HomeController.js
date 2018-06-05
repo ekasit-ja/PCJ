@@ -175,15 +175,15 @@ module.exports = {
     },
 
     webmail: function(req, res) {
-        return res.redirect(sails.config.appUrl.webmail);
+        return res.redirect(301, sails.config.appUrl.webmail);
     },
 
     whm: function(req, res) {
-        return res.redirect(sails.config.appUrl.whm);
+        return res.redirect(301, sails.config.appUrl.whm);
     },
 
     cpanel: function(req, res) {
-        return res.redirect(sails.config.appUrl.whm);
+        return res.redirect(301, sails.config.appUrl.whm);
     },
 };
 
