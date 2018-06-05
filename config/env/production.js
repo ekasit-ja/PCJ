@@ -62,9 +62,9 @@ module.exports = {
     port: 443,
 
     ssl: {
-      ca: require('fs').readFileSync(require('path').resolve(__dirname,'../ssl/chain.pem')),
-      key: require('fs').readFileSync(require('path').resolve(__dirname,'../ssl/privkey.pem')),
-      cert: require('fs').readFileSync(require('path').resolve(__dirname,'../ssl/cert.pem'))
+      ca: require('fs').readFileSync('/etc/letsencrypt/live/www.pcjindustries.co.th/chain.pem')),
+      key: require('fs').readFileSync('/etc/letsencrypt/live/www.pcjindustries.co.th/privkey.pem')),
+      cert: require('fs').readFileSync('/etc/letsencrypt/live/www.pcjindustries.co.th/cert.pem'))
     },
 
     /***************************************************************************
