@@ -37,8 +37,18 @@ module.exports.http = {
         bootstrapAssets2: require('express').static('/var/www/html'),
         bootstrapAssets3: require('express').static('/root/cpanel3-skel/public_html'),
 
+        redirectToWWW: function(req, res, next) {
+            var host = req.headers.host;
+            if (host.match(/^www\..*/i)) {
+              next();
+            }
+            else {
+              res.redirect(301, "https://www." + host + req.url);
+            }
+        },
+
         order: [
-            // "redirectToWWW",
+            "redirectToWWW",
             "startRequestTimer",
             "cookieParser",
             "session",
@@ -61,20 +71,6 @@ module.exports.http = {
             "404",
             "500"
         ],
-
-        // redirectToWWW: function(req, res, next) {
-        //     var host = req.header("host");
-        //     try {
-        //         if (host.match(/^pcj/i)) {
-        //             res.redirect(301, "http://www." + host);
-        //         } else {
-        //             next();
-        //         }
-        //     }
-        //     catch(e) {
-        //         next();
-        //     }
-        // },
 
 
     /****************************************************************************
