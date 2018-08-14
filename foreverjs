@@ -1,3 +1,4 @@
 sudo forever start -a -o ./logs/forever-out.log -e ./logs/forever-err.log app.js --prod
 mysqldump -u root -p pcj_industries > bk.sql
 mysql -u root -p pcj_industries < bk.sql
+certbot certonly --webroot -w /root/static -d www.pcjindustries.co.th -d pcjindustries.co.th -d server.pcjindustries.co.th
