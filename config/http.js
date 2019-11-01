@@ -34,7 +34,7 @@ module.exports.http = {
         passportSession: require("passport").session(),
         connectFlash: require("connect-flash")(),
         bootstrapAssets1: require('express').static('/root/static'),
-        bootstrapAssets2: require('express').static('/var/www/html'),
+        // bootstrapAssets2: require('express').static('/var/www/html'),
         bootstrapAssets3: require('express').static('/root/cpanel3-skel/public_html'),
 
         redirectToWWW: function(req, res, next) {
